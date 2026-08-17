@@ -183,6 +183,39 @@ git submodule add https://github.com/pentolope/PCB_AutoDesignAndTest tooling/PCB
 then re-run validation and the live release through the submodule, and clone
 recursively into a short path to prove it (see below).
 
+## Line endings: an inherited defect the clone proof caught
+
+The design files must check out as **CRLF**, and `.gitattributes` says
+`text eol=crlf` for that reason. It is not a preference.
+
+Two committed things bind digests of these files, and they bind different
+forms:
+
+| Binding | Digest form | Where |
+|---|---|---|
+| Approved DRC waivers | **raw** bytes (CRLF) | `board/manifest.live.json` |
+| Committed check reports | **canonical** bytes (LF) | `generated/release/reports/*.json` |
+
+Under V2's inherited `text eol=lf` rule, a fresh clone checked out LF. The raw
+digest changed, both waivers stopped matching, and two findings a human had
+already reviewed blocked the board:
+
+    waiver was approved against different inputs and no longer applies,
+    changed=['approved_rules_sha256', 'approved_source_sha256']
+
+Marking the files `-text` fixed that and broke the other side:
+`pcbqa.canonical.AttributePolicy.classify` then returned `binary`, so the
+canonical digest became the raw one and neither committed report could be tied
+to its source.
+
+`text eol=crlf` satisfies both: the blob is stored LF, the working tree gets
+CRLF, and `classify()` still sees text and canonicalises to LF.
+
+This defect is **inherited, not introduced**. V2 has the same attributes, the
+same CRLF working tree and the same waivers, so a fresh clone of V2 fails the
+same way. It went unnoticed because the repository had only ever been used in
+place. Both failure modes above were observed in real clones, not predicted.
+
 ## Windows path length
 
 The deepest path inside the toolkit submodule is 146 characters

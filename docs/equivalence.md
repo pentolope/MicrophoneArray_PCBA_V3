@@ -155,7 +155,29 @@ pointing at the old `verification/boards/live.json`.
 **The generator was not run.** Regeneration equivalence is a separate exercise
 with its own review, as recorded in `docs/migration.md`.
 
-## 8. Reproducing this report
+## 8. Fresh clone
+
+A clone of this repository, validated against a clone of the toolkit:
+
+| | Result |
+|---|---|
+| Verdict | **ACCEPTED**, exit 0 |
+| Gates | 26 PASS, 2 ADVISORY, 1 NOT_APPLICABLE |
+| Design files | byte-identical to V2, both waivers matching |
+| Toolkit fixture | `PROV.FIXTURE_INTEGRITY` PASS, 70/70 files |
+
+Getting there required fixing an inherited line-ending defect that made the
+first two clone attempts fail — see "Line endings" in
+[migration.md](migration.md). The clone proof earned its place: nothing else in
+this report would have caught it, because every other check ran against a
+working tree that had never been through a checkout.
+
+Two things this does **not** yet prove, both blocked on publishing the toolkit:
+
+- the clone was made from the local repository, not from GitHub;
+- `--recursive` was not exercised, because the submodule is not yet added.
+
+## 9. Reproducing this report
 
 ```bash
 "C:/Program Files/KiCad/10.0/bin/python.exe" tooling/PCB_AutoDesignAndTest/run.py validate board/manifest.live.json
