@@ -1,0 +1,96 @@
+{
+  "kind": "normalised extract",
+  "note": "Derived from the raw response body, which is committed verbatim at raw_file. This file is not the response. Every offline command re-derives these pads from that file and fails on a disagreement.",
+  "lcsc": "C7668",
+  "mpn": "SN74LVC244APWR",
+  "package": "TSSOP-20_L6.5-W4.4-P0.65-LS6.4-BL",
+  "source_url": "https://easyeda.com/api/products/C7668/components?version=6.4.19.5",
+  "retrieved_utc": "2026-08-12T11:26:29Z",
+  "raw_file": "fabrication/jlc_orientation/raw/C7668.json",
+  "raw_bytes": 37715,
+  "raw_sha256": "42b44827f1d7fc58a317738b0c528698a76ad94bdfb01ee9204f28852055a75e",
+  "units": "millimetres, top view, Y up; EasyEDA stores 10-mil units with Y down and both conversions are applied here",
+  "derivation": "PAD~ records of result.packageDetail.dataStr.shape; field 3 and field 4 are the pad centre in 10-mil units and field 9 is the pad number",
+  "pads": {
+    "1": [
+      1013.074936,
+      -764.870962
+    ],
+    "2": [
+      1013.724922,
+      -764.870962
+    ],
+    "3": [
+      1014.374908,
+      -764.870962
+    ],
+    "4": [
+      1015.024894,
+      -764.870962
+    ],
+    "5": [
+      1015.675134,
+      -764.870962
+    ],
+    "6": [
+      1016.32512,
+      -764.870962
+    ],
+    "7": [
+      1016.975106,
+      -764.870962
+    ],
+    "8": [
+      1017.625092,
+      -764.870962
+    ],
+    "9": [
+      1018.275078,
+      -764.870962
+    ],
+    "10": [
+      1018.925064,
+      -764.870962
+    ],
+    "11": [
+      1018.925064,
+      -759.129038
+    ],
+    "12": [
+      1018.275078,
+      -759.129038
+    ],
+    "13": [
+      1017.625092,
+      -759.129038
+    ],
+    "14": [
+      1016.975106,
+      -759.129038
+    ],
+    "15": [
+      1016.32512,
+      -759.129038
+    ],
+    "16": [
+      1015.675134,
+      -759.129038
+    ],
+    "17": [
+      1015.024894,
+      -759.129038
+    ],
+    "18": [
+      1014.374908,
+      -759.129038
+    ],
+    "19": [
+      1013.724922,
+      -759.129038
+    ],
+    "20": [
+      1013.074936,
+      -759.129038
+    ]
+  }
+}

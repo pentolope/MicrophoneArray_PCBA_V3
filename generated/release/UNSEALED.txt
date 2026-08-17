@@ -1,0 +1,7 @@
+Release CANDIDATE, not sealed.
+
+Every artifact here was generated in one clean-room run from a pristine project copy with all prior output purged, and every mandatory gate passed against these exact artifacts before this directory was published. It was assembled under the attempt that produced it and moved here by a single rename, so it has never existed in a partly-written state.
+
+RECEIPT.json lists every other file here with its digest, written after the gates passed. PROV.RELEASE_COHERENCE checks that claim rather than asking you to take it: run `run.py coherence <manifest>` against an installed package and it will fail if any file came from a different run.
+
+Sealing additionally requires recorded visual-review evidence (generated/release/visual_review.json).

@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "project": "microphone_array_v2",
+  "revision": "revA",
+  "board": {
+    "shape": "circle",
+    "diameter_mm": 120.0,
+    "thickness_mm": 1.6,
+    "layers": [
+      "F.Cu",
+      "In1.Cu:GND",
+      "In2.Cu:GND",
+      "B.Cu"
+    ],
+    "outer_copper_oz": 1.0,
+    "inner_copper_oz": 0.5,
+    "finish": "ENIG",
+    "mask": "green",
+    "silkscreen": "white",
+    "allowed_track_layers": [
+      "F.Cu",
+      "B.Cu"
+    ],
+    "via_covering": "plugged routing vias only"
+  },
+  "rules_mm": {
+    "default_track": 0.2,
+    "absolute_min_track": 0.127,
+    "default_clearance": 0.2,
+    "min_clearance_escape": 0.127,
+    "power_track": 0.6,
+    "copper_to_edge": 0.3,
+    "via_diameter": 0.45,
+    "via_drill": 0.3,
+    "hole_to_hole": 0.25,
+    "hole_to_track": 0.25,
+    "plugged_via_to_mask_opening": 0.4,
+    "silk_line_width": 0.15,
+    "silk_text_height": 1.0
+  },
+  "array": {
+    "microphones": 16,
+    "part": "MSM261DHP006",
+    "lcsc": "C22390138",
+    "port_radius_mm": 54.0,
+    "angular_pitch_deg": 22.5,
+    "channel_zero_direction": "+X",
+    "numbering": "counter-clockwise viewed from top",
+    "port_orientation": "acoustic ports face up (+Z), package rotated so its long axis is tangential",
+    "vdd_volts": 3.3,
+    "pairing": "adjacent channels 2k/2k+1 share one DATA net; even channel L/R=GND, odd channel L/R=VDD"
+  },
+  "clocking": {
+    "reference_oscillator_hz": 24576000,
+    "reference_part": "OT252024.576MJBA4SL",
+    "reference_lcsc": "C5210640",
+    "pdm_clock_hz": 3072000,
+    "pdm_clock_divider": 8,
+    "decimation": 64,
+    "sample_rate_hz": 48000,
+    "fanout": "SN74LVC244APWR, one input net driving 8 series-terminated branches, one branch per microphone pair"
+  },
+  "power": {
+    "source": "Raspberry Pi P1 pins 2 and 4 (5 V) only",
+    "input_protection": "JK-MSMD050-30 PTC (0.5 A hold) then SS14 Schottky, blocking Tang USB-C back-feed into the Pi",
+    "rails": {
+      "+5V": "board input, feeds Tang Nano 9K 5 V header pin and the LDO",
+      "+3V3A": "LP5907MFX-3.3 output, microphone ring supply",
+      "+3V3_CLK": "+3V3A through a ferrite bead, supplies the oscillator and clock buffer",
+      "TANG_3V3": "Tang Nano 9K 3.3 V output, used only as the ESD clamp rail reference"
+    },
+    "budget_ma": {
+      "microphones_16": 24,
+      "oscillator": 15,
+      "clock_buffer": 6,
+      "ldo_quiescent": 1,
+      "tang_nano_9k": 150,
+      "total_typical": 196
+    }
+  },
+  "critical_routes": {
+    "audio_mclk": {
+      "frequency_hz": 24576000,
+      "layer": "F.Cu",
+      "max_vias": 0,
+      "series_ohm": 33
+    },
+    "pdm_clock_root": {
+      "frequency_hz": 3072000,
+      "layer": "F.Cu",
+      "max_vias": 0,
+      "series_ohm": 33
+    },
+    "pdm_clock_branches": {
+      "frequency_hz": 3072000,
+      "count": 8,
+      "series_ohm": 33,
+      "branch_length_match_mm": 5.0
+    },
+    "pdm_data": {
+      "count": 8,
+      "series_ohm": 22,
+      "max_pair_stub_mm": 12.0
+    },
+    "host_spi": {
+      "max_frequency_hz": 25000000,
+      "series_ohm": 33,
+      "esd": "USBLC6-4SC6"
+    }
+  },
+  "host": {
+    "target": "Raspberry Pi Model B (2012), 26-pin P1 header",
+    "transport": "SPI0",
+    "pins_used": "only pins identical on Model B revision 1.0 and revision 2.0",
+    "connector": "2x13 2.54 mm female socket, hand-soldered, bottom side; the array mates directly onto the Pi's P1 pins",
+    "mating": "direct board-to-board, no cable"
+  },
+  "fpga_module": {
+    "part": "Sipeed Tang Nano 9K",
+    "mounting": "two hand-soldered 1x24 2.54 mm female sockets on the bottom side",
+    "header_row_spacing_mm": 22.86,
+    "socket_drill_mm": 1.0,
+    "banks_used": "3.3 V banks only; J6 positions 2-9 are the 1.8 V bank and are left unconnected"
+  },
+  "assembly": {
+    "smt_side": "top",
+    "hand_soldered": [
+      "J1",
+      "J2",
+      "J3"
+    ],
+    "dnp": [
+      "J1",
+      "J2",
+      "J3"
+    ],
+    "mounting": "none on this board; it hangs from J1 on the Raspberry Pi's P1 pins. The Pi has two mounting holes on revision 2.0 and none on revision 1.0, and both revisions are supported, so there was nothing to line up with."
+  },
+  "mechanical_stack": {
+    "status": "PUBLISHED FIGURES, NOT YET CONFIRMED AGAINST HARDWARE. Every dimension in this block was taken from published Raspberry Pi Model B documentation rather than from a drawing held in this project. Measure a real board before committing to manufacture; the P1 origin is the figure most worth checking.",
+    "host_board": {
+      "model": "Raspberry Pi Model B (2012), revisions 1.0 and 2.0",
+      "outline_mm": [
+        85.6,
+        56.0
+      ],
+      "thickness_mm": 1.4,
+      "p1_pin1_from_board_corner_mm": [
+        32.0,
+        49.5
+      ],
+      "p1_orientation": "two rows of 13 along the board's long axis; pin 1 nearest the board edge",
+      "mounting_holes": "two on revision 2.0, none on revision 1.0"
+    },
+    "host_tall_parts_mm": {
+      "usb_a_double_stack": 17.0,
+      "rj45_ethernet": 13.5,
+      "composite_video_rca": 13.0,
+      "audio_jack_3v5": 11.0,
+      "soc_and_ram_and_headers": 4.0
+    },
+    "array_underside_mm": {
+      "module_socket_mating_height": 8.5,
+      "module_pcb_thickness": 1.2,
+      "module_underside_parts": 1.5,
+      "total_below_array": 11.2
+    },
+    "required_separation_mm": {
+      "value": 28.5,
+      "derivation": "The Tang Nano 9K and its sockets hang 11.2 mm below the array, and the array's 120 mm disc covers the whole of an 85.6 x 56 mm Pi including its 17.0 mm USB stack. 11.2 + 17.0 = 28.2 mm of parts have to pass each other, so the array's underside sits at least 28.5 mm above the Pi's top surface.",
+      "provided_by": "stacked 2.54 mm socket headers on J1, per the builder's stock of ~30 mm",
+      "note": "This is a stack of ordinary parts, not a special tall socket. The height is what the mechanics demand; if the module were soldered directly instead of socketed the requirement would drop to about 19 mm."
+    },
+    "access": {
+      "module_usb_c": "faces +X and overhangs the array's rim, reachable with the array stacked",
+      "pi_ports": "the array covers the Pi entirely at 28.5 mm; USB, Ethernet, HDMI and power all remain reachable from the side because the separation clears their full height"
+    }
+  }
+}

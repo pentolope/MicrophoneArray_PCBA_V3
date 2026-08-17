@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "description": [
+    "The recorded KiCad Routing Tools plan for the microphone array. Every",
+    "ordinary signal on this board is routed by this stage and by nothing",
+    "else: no hand-drawn copper, no coordinate repairs, no post-route via",
+    "nudging. If a routed candidate fails, the fix belongs in gen_pcb.py, in",
+    "the generated keep-outs, or in this file - never in the board.",
+    "",
+    "Widths, clearances, via sizes and layers are deliberately NOT restated",
+    "here. route.py reads them from the sibling .kicad_pro net classes, which",
+    "is the same source gen_pcb.py and the validator use, so there is one",
+    "place to change them and no way for the three to disagree."
+  ],
+  "tool": {
+    "name": "KiCad Routing Tools",
+    "package": "com_github_drandyhaas_kicadroutingtools",
+    "entry": "route.py",
+    "root": "C:/Users/pentolope/Documents/KiCad/10.0/3rdparty/plugins/com_github_drandyhaas_kicadroutingtools"
+  },
+  "policy": {
+    "layers": ["F.Cu", "B.Cu"],
+    "plane_nets_as_zones": ["GND"],
+    "locked_input_copper": "every track and via gen_pcb.py produced is locked before routing",
+    "scope": [
+      "A net is in scope only if gen_pcb.py leaves it unfinished. That is not",
+      "a convenience: route.py's post-route cleanup prunes dead ends and",
+      "redundant copper across every net it was asked to route, and it counts",
+      "the input file's own copper as a removal candidate. Asked to route +5V,",
+      "which the generator had already finished, it deleted a 1.6 mm leg of",
+      "the bus and left the rest dangling. Nets the generator completes are",
+      "therefore excluded outright, and the pre-route DRC report is the check",
+      "that this list still matches what the generator actually finishes: a",
+      "net that stops being complete shows up as an unconnected item."
+    ],
+    "no_relaxation": {
+      "flag": "--no-fix-drc-settings",
+      "reason": [
+        "route.py otherwise rewrites the sibling .kicad_pro DRC floor to",
+        "whatever clearance it actually managed to route at. An earlier run",
+        "silently dropped the Default class to 0.175 mm and a later one to",
+        "0.1 mm, which is below every net class on this board. The flag keeps",
+        "the project's real limits authoritative; a stage that cannot route",
+        "inside them must fail loudly instead."
+      ]
+    },
+    "accept_min_clearance_mm": 0.15,
+    "reject_if_min_clearance_below": 0.15,
+    "environment": {
+      "PYTHONHASHSEED": "0",
+      "reason": [
+        "route.py walks sets while deciding what to route first, so its order",
+        "of work varies between processes. Pinning the hash seed removes the",
+        "part of that caused by string hashing. It is not a complete fix -",
+        "sets of objects still iterate in address order - and two runs of this",
+        "plan still differ on about seven of eighty-three nets: same via",
+        "count, total copper within 0.1 percent, every gate passing either",
+        "way. The generated pre-route board IS byte-identical run to run; it",
+        "is the routing that is equivalent rather than repeated, and the gates",
+        "are what establish that equivalence."
+      ]
+    }
+  },
+  "stages": [
+    {
+      "id": "signals",
+      "purpose": "the nets gen_pcb.py leaves open: host SPI and control, the ESD taps, the clock buffer outputs, the analogue and clock supplies",
+      "entry": "route.py",
+      "nets": ["*", "!GND",
+               "!PDM_CLK_B*", "!PDM_CLK_IN", "!PDM_CLK_FPGA",
+               "!AUDIO_MCLK", "!MCLK_OSC",
+               "!PDM_D?", "!MIC_VDD_*", "!MIC_DOUT_*",
+               "!+5V", "!PI_5V", "!5V_FUSED"],
+      "args": ["--layers", "F.Cu", "B.Cu", "--no-fix-drc-settings"],
+      "excluded_because": {
+        "GND": "implemented as inner-layer zones plus generated stitching vias",
+        "PDM_CLK_B*": "length-matched branch trees, pre-routed and locked",
+        "PDM_CLK_IN": "buffer fan-in, pre-routed and locked; F.Cu, zero vias",
+        "PDM_CLK_FPGA": "clock root, pre-routed and locked; F.Cu, zero vias",
+        "AUDIO_MCLK": "master clock, pre-routed and locked; F.Cu, zero vias",
+        "MCLK_OSC": "oscillator to its series resistor, pre-routed and locked",
+        "PDM_D?": "data spokes, finished by the generator: radial on F.Cu to a legalised handover via, then across the socket rows on B.Cu",
+        "MIC_VDD_*": "microphone supply ring, finished by the generator",
+        "MIC_DOUT_*": "per-channel escapes through the 0.566 mm ring corners, finished by the generator",
+        "+5V": "input chain and both supply buses, finished by the generator",
+        "PI_5V": "Pi header feed through the fuse, finished by the generator",
+        "5V_FUSED": "fuse to Schottky, finished by the generator"
+      }
+    }
+  ],
+  "post": {
+    "refill_zones": true,
+    "reason": "vias added by the router pierce the ground planes; without a refill every one of them reads as a zone clearance violation"
+  }
+}

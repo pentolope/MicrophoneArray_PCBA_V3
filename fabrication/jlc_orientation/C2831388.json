@@ -1,0 +1,32 @@
+{
+  "kind": "normalised extract",
+  "note": "Derived from the raw response body, which is committed verbatim at raw_file. This file is not the response. Every offline command re-derives these pads from that file and fails on a disagreement.",
+  "lcsc": "C2831388",
+  "mpn": "OT322524.576MJBA4SL",
+  "package": "OSC-SMD_4P-L3.2-W2.5-BL",
+  "source_url": "https://easyeda.com/api/products/C2831388/components?version=6.4.19.5",
+  "retrieved_utc": "2026-08-12T11:26:28Z",
+  "raw_file": "fabrication/jlc_orientation/raw/C2831388.json",
+  "raw_bytes": 10308,
+  "raw_sha256": "e0f1b9a1b92975c8fe0bec4e6380ca723288bc986423bcf15047b1b6c98e07e2",
+  "units": "millimetres, top view, Y up; EasyEDA stores 10-mil units with Y down and both conversions are applied here",
+  "derivation": "PAD~ records of result.packageDetail.dataStr.shape; field 3 and field 4 are the pad centre in 10-mil units and field 9 is the pad number",
+  "pads": {
+    "1": [
+      1014.899926,
+      -762.875284
+    ],
+    "2": [
+      1017.100074,
+      -762.875284
+    ],
+    "3": [
+      1017.100074,
+      -761.125224
+    ],
+    "4": [
+      1014.899926,
+      -761.125224
+    ]
+  }
+}

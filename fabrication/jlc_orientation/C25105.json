@@ -1,0 +1,24 @@
+{
+  "kind": "normalised extract",
+  "note": "Derived from the raw response body, which is committed verbatim at raw_file. This file is not the response. Every offline command re-derives these pads from that file and fails on a disagreement.",
+  "lcsc": "C25105",
+  "mpn": "0402WGF330JTCE",
+  "package": "R0402",
+  "source_url": "https://easyeda.com/api/products/C25105/components?version=6.4.19.5",
+  "retrieved_utc": "2026-08-12T11:26:27Z",
+  "raw_file": "fabrication/jlc_orientation/raw/C25105.json",
+  "raw_bytes": 7926,
+  "raw_sha256": "a1f32245e3c97176ad644a7bef1187c3a7de52f81c765a36ffc5820425f45e85",
+  "units": "millimetres, top view, Y up; EasyEDA stores 10-mil units with Y down and both conversions are applied here",
+  "derivation": "PAD~ records of result.packageDetail.dataStr.shape; field 3 and field 4 are the pad centre in 10-mil units and field 9 is the pad number",
+  "pads": {
+    "1": [
+      1015.567184,
+      -762.0
+    ],
+    "2": [
+      1016.432816,
+      -762.0
+    ]
+  }
+}

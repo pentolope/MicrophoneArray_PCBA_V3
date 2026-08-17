@@ -1,0 +1,40 @@
+{
+  "kind": "normalised extract",
+  "note": "Derived from the raw response body, which is committed verbatim at raw_file. This file is not the response. Every offline command re-derives these pads from that file and fails on a disagreement.",
+  "lcsc": "C111212",
+  "mpn": "USBLC6-4SC6",
+  "package": "SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BL",
+  "source_url": "https://easyeda.com/api/products/C111212/components?version=6.4.19.5",
+  "retrieved_utc": "2026-08-12T11:26:25Z",
+  "raw_file": "fabrication/jlc_orientation/raw/C111212.json",
+  "raw_bytes": 22477,
+  "raw_sha256": "64c78a657f8808e550ba8acabd2c356f21423b21b1b5a5d202d9d2adf991334b",
+  "units": "millimetres, top view, Y up; EasyEDA stores 10-mil units with Y down and both conversions are applied here",
+  "derivation": "PAD~ records of result.packageDetail.dataStr.shape; field 3 and field 4 are the pad centre in 10-mil units and field 9 is the pad number",
+  "pads": {
+    "1": [
+      1015.05004,
+      -763.149096
+    ],
+    "2": [
+      1016.0,
+      -763.149096
+    ],
+    "3": [
+      1016.94996,
+      -763.149096
+    ],
+    "4": [
+      1016.94996,
+      -760.850904
+    ],
+    "5": [
+      1016.0,
+      -760.850904
+    ],
+    "6": [
+      1015.05004,
+      -760.850904
+    ]
+  }
+}

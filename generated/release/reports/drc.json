@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.kicad.org/drc.v1.json",
+  "coordinate_units": "mm",
+  "date": "2026-08-16T13:39:22",
+  "ignored_checks": [],
+  "included_severities": [
+    "error",
+    "warning",
+    "exclusion"
+  ],
+  "kicad_version": "10.0.5",
+  "schematic_parity": [],
+  "source": "microphone_array_v2.kicad_pcb",
+  "unconnected_items": [],
+  "violations": [
+    {
+      "description": "Track endpoint not centered on via",
+      "items": [
+        {
+          "description": "Track [PI_STATUS] on F.Cu, length 0.2828 mm",
+          "pos": {
+            "x": 153.7,
+            "y": 183.2
+          },
+          "uuid": "8b2ff47b-d876-43e4-8503-8808b63c1cde"
+        },
+        {
+          "description": "Via [PI_STATUS] on F.Cu - B.Cu",
+          "pos": {
+            "x": 153.8,
+            "y": 183.2
+          },
+          "uuid": "3606f0c0-911b-4048-95fb-8c4ceb246831"
+        }
+      ],
+      "severity": "warning",
+      "type": "track_not_centered_on_via"
+    },
+    {
+      "description": "Track endpoint not centered on via",
+      "items": [
+        {
+          "description": "Track [HOST_RESET_N] on B.Cu, length 9.6167 mm",
+          "pos": {
+            "x": 141.8,
+            "y": 168.2
+          },
+          "uuid": "c546d56f-f70c-4060-85bf-588b825551ee"
+        },
+        {
+          "description": "Via [HOST_RESET_N] on F.Cu - B.Cu",
+          "pos": {
+            "x": 141.8,
+            "y": 168.3
+          },
+          "uuid": "cd18f18d-2541-4c9b-8958-6dd9410c0920"
+        }
+      ],
+      "severity": "warning",
+      "type": "track_not_centered_on_via"
+    }
+  ],
+  "source_sha256": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
+  "source_closure_sha256": "bd2afdef6dd0df0d8387ff560c4591d102f493100dba02cb8e9492ddbcf32d9b"
+}

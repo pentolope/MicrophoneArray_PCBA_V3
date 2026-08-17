@@ -1,0 +1,36 @@
+{
+  "kind": "normalised extract",
+  "note": "Derived from the raw response body, which is committed verbatim at raw_file. This file is not the response. Every offline command re-derives these pads from that file and fails on a disagreement.",
+  "lcsc": "C80670",
+  "mpn": "LP5907MFX-3.3/NOPB",
+  "package": "SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR",
+  "source_url": "https://easyeda.com/api/products/C80670/components?version=6.4.19.5",
+  "retrieved_utc": "2026-08-12T11:26:29Z",
+  "raw_file": "fabrication/jlc_orientation/raw/C80670.json",
+  "raw_bytes": 19706,
+  "raw_sha256": "941b9b453f30661c2b87ca90ada2b5ddd6f10c63ef6203a4ac89e88b928f7610",
+  "units": "millimetres, top view, Y up; EasyEDA stores 10-mil units with Y down and both conversions are applied here",
+  "derivation": "PAD~ records of result.packageDetail.dataStr.shape; field 3 and field 4 are the pad centre in 10-mil units and field 9 is the pad number",
+  "pads": {
+    "1": [
+      1011.77598,
+      -761.362714
+    ],
+    "2": [
+      1011.77598,
+      -760.412754
+    ],
+    "3": [
+      1011.77598,
+      -759.462794
+    ],
+    "4": [
+      1009.175782,
+      -759.462794
+    ],
+    "5": [
+      1009.175782,
+      -761.362714
+    ]
+  }
+}

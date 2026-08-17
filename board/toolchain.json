@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "description": [
+    "Where this board's build finds its tools, and nothing else. Replaces the",
+    "old workflow config file, whose remaining live content was one key - the",
+    "path to kicad-cli - alongside configuration for a router this project no",
+    "longer uses.",
+    "",
+    "Design rules, net classes, via sizes and clearances are deliberately NOT",
+    "restated here. They live in the .kicad_pro net classes, which is the same",
+    "source the generator, the router and the validator all read."
+  ],
+  "kicad": {
+    "cli": "C:/Program Files/KiCad/10.0/bin/kicad-cli.exe",
+    "python": "C:/Program Files/KiCad/10.0/bin/python.exe",
+    "required_major": 10,
+    "stock_footprint_libraries": "C:/Program Files/KiCad/10.0/share/kicad/footprints",
+    "stock_symbol_libraries": "C:/Program Files/KiCad/10.0/share/kicad/symbols"
+  },
+  "router": {
+    "name": "KiCad Routing Tools",
+    "package": "com_github_drandyhaas_kicadroutingtools",
+    "entry": "route.py",
+    "root": "C:/Users/pentolope/Documents/KiCad/10.0/3rdparty/plugins/com_github_drandyhaas_kicadroutingtools"
+  },
+  "toolkit": {
+    "path": "tooling/PCB_AutoDesignAndTest",
+    "note": "The pinned submodule. Board tools add this to sys.path through tools/_toolkit.py; no sibling checkout is ever used."
+  }
+}

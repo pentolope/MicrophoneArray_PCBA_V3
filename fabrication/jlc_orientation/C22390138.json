@@ -1,0 +1,48 @@
+{
+  "kind": "normalised extract",
+  "note": "Derived from the raw response body, which is committed verbatim at raw_file. This file is not the response. Every offline command re-derives these pads from that file and fails on a disagreement.",
+  "lcsc": "C22390138",
+  "mpn": "MSM261DHP006",
+  "package": "QFN-8_L4.0-W3.0_WMM7040DTHN0-8-TR",
+  "source_url": "https://easyeda.com/api/products/C22390138/components?version=6.4.19.5",
+  "retrieved_utc": "2026-08-12T11:26:26Z",
+  "raw_file": "fabrication/jlc_orientation/raw/C22390138.json",
+  "raw_bytes": 10339,
+  "raw_sha256": "2109971b08f0bfd875f82b08e1f69ad1e10a328c71e7472350318f28eccbb901",
+  "units": "millimetres, top view, Y up; EasyEDA stores 10-mil units with Y down and both conversions are applied here",
+  "derivation": "PAD~ records of result.packageDetail.dataStr.shape; field 3 and field 4 are the pad centre in 10-mil units and field 9 is the pad number",
+  "pads": {
+    "1": [
+      1016.850138,
+      -762.0
+    ],
+    "2": [
+      1016.850138,
+      -760.64999
+    ],
+    "3": [
+      1016.0,
+      -760.64999
+    ],
+    "4": [
+      1016.0,
+      -762.0
+    ],
+    "5": [
+      1016.424942,
+      -763.050036
+    ],
+    "6": [
+      1017.649984,
+      -761.325122
+    ],
+    "7": [
+      1016.424942,
+      -759.599954
+    ],
+    "8": [
+      1015.200154,
+      -761.325122
+    ]
+  }
+}

@@ -1,2 +1,58 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Line-ending policy.
+#
+# Two classes of file, deliberately treated differently:
+#
+#   design sources     normalised to LF in the repository AND in the working
+#                      tree, so a checkout is byte-identical on every platform
+#                      and a frozen-fixture digest means something.
+#
+#   production output  never touched. Gerbers, drills, the fabrication archive
+#                      and the BOM/CPL that ship to a fabricator are hashed as
+#                      exact raw bytes; normalising them after generation would
+#                      invalidate the hashes recorded in the release manifest.
+#
+# This policy is carried over unchanged from PCB_MicrophoneArrayV2. The live
+# board's approved waivers are bound to the SHA-256 of the native board and
+# project files, so any change here would silently unbind them.
+
+# Default: text, normalised to LF in the repo and on checkout.
+*                    text=auto eol=lf
+
+# --- KiCad and project sources: explicit LF -------------------------------
+*.kicad_pcb          text eol=lf
+*.kicad_sch          text eol=lf
+*.kicad_pro          text eol=lf
+*.kicad_prl          text eol=lf
+*.kicad_sym          text eol=lf
+*.kicad_mod          text eol=lf
+*.kicad_dru          text eol=lf
+*.kicad_wks          text eol=lf
+fp-lib-table         text eol=lf
+sym-lib-table        text eol=lf
+*.py                 text eol=lf
+*.md                 text eol=lf
+*.json               text eol=lf
+*.net                text eol=lf
+*.csv                text eol=lf
+
+# --- Production / fabrication output: exact bytes, never normalised -------
+# Anything under a release directory is treated as binary so Git performs no
+# EOL translation in either direction.
+generated/release/** -text
+
+# --- Frozen upstream evidence: exact bytes --------------------------------
+# The SHA-256 of these response bodies is the evidence. They happen to contain
+# no line endings at all today, so normalisation would be a no-op - but the
+# point is that Git is never in a position to touch them.
+fabrication/jlc_orientation/raw/** -text
+
+*.gbr                binary
+*.gbrjob             binary
+*.drl                binary
+*.zip                binary
+*.pdf                binary
+*.png                binary
+*.jpg                binary
+*.step               binary
+*.stp                binary
+*.wrl                binary

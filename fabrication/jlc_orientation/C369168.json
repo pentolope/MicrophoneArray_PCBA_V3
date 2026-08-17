@@ -1,0 +1,24 @@
+{
+  "kind": "normalised extract",
+  "note": "Derived from the raw response body, which is committed verbatim at raw_file. This file is not the response. Every offline command re-derives these pads from that file and fails on a disagreement.",
+  "lcsc": "C369168",
+  "mpn": "JK-MSMD050-30",
+  "package": "F1812",
+  "source_url": "https://easyeda.com/api/products/C369168/components?version=6.4.19.5",
+  "retrieved_utc": "2026-08-12T11:26:28Z",
+  "raw_file": "fabrication/jlc_orientation/raw/C369168.json",
+  "raw_bytes": 8905,
+  "raw_sha256": "9436b402a53d10e02b8677f0b5206937c1473526b3ff903aa4d02b0728671e5d",
+  "units": "millimetres, top view, Y up; EasyEDA stores 10-mil units with Y down and both conversions are applied here",
+  "derivation": "PAD~ records of result.packageDetail.dataStr.shape; field 3 and field 4 are the pad centre in 10-mil units and field 9 is the pad number",
+  "pads": {
+    "1": [
+      1014.146562,
+      -762.0
+    ],
+    "2": [
+      1017.853438,
+      -762.0
+    ]
+  }
+}

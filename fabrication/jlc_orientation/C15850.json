@@ -1,0 +1,24 @@
+{
+  "kind": "normalised extract",
+  "note": "Derived from the raw response body, which is committed verbatim at raw_file. This file is not the response. Every offline command re-derives these pads from that file and fails on a disagreement.",
+  "lcsc": "C15850",
+  "mpn": "CL21A106KAYNNNE",
+  "package": "C0805",
+  "source_url": "https://easyeda.com/api/products/C15850/components?version=6.4.19.5",
+  "retrieved_utc": "2026-08-12T11:26:26Z",
+  "raw_file": "fabrication/jlc_orientation/raw/C15850.json",
+  "raw_bytes": 9595,
+  "raw_sha256": "21a4f1747d41d4dc8f6811e22acf055edba9db2065f92edd8da4f9f17a763e73",
+  "units": "millimetres, top view, Y up; EasyEDA stores 10-mil units with Y down and both conversions are applied here",
+  "derivation": "PAD~ records of result.packageDetail.dataStr.shape; field 3 and field 4 are the pad centre in 10-mil units and field 9 is the pad number",
+  "pads": {
+    "1": [
+      1015.000002,
+      -762.0
+    ],
+    "2": [
+      1016.999998,
+      -762.0
+    ]
+  }
+}

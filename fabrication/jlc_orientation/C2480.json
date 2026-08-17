@@ -1,0 +1,24 @@
+{
+  "kind": "normalised extract",
+  "note": "Derived from the raw response body, which is committed verbatim at raw_file. This file is not the response. Every offline command re-derives these pads from that file and fails on a disagreement.",
+  "lcsc": "C2480",
+  "mpn": "SS14",
+  "package": "SMA_L4.2-W2.6-LS5.0-RD_1",
+  "source_url": "https://easyeda.com/api/products/C2480/components?version=6.4.19.5",
+  "retrieved_utc": "2026-08-12T11:26:27Z",
+  "raw_file": "fabrication/jlc_orientation/raw/C2480.json",
+  "raw_bytes": 9767,
+  "raw_sha256": "a2bb7f5f87fb31f23388595a35c936e164c713a38e7cba6cc4691f923349aaa5",
+  "units": "millimetres, top view, Y up; EasyEDA stores 10-mil units with Y down and both conversions are applied here",
+  "derivation": "PAD~ records of result.packageDetail.dataStr.shape; field 3 and field 4 are the pad centre in 10-mil units and field 9 is the pad number",
+  "pads": {
+    "1": [
+      1013.552456,
+      -762.635
+    ],
+    "2": [
+      1017.482344,
+      -762.635
+    ]
+  }
+}
