@@ -18,15 +18,42 @@
 # Default: text, normalised to LF in the repo and on checkout.
 *                    text=auto eol=lf
 
-# --- KiCad and project sources: explicit LF -------------------------------
-*.kicad_pcb          text eol=lf
-*.kicad_sch          text eol=lf
-*.kicad_pro          text eol=lf
-*.kicad_prl          text eol=lf
-*.kicad_sym          text eol=lf
-*.kicad_mod          text eol=lf
-*.kicad_dru          text eol=lf
-*.kicad_wks          text eol=lf
+# --- KiCad design files: text, checked out CRLF ---------------------------
+#
+# `eol=crlf` rather than `eol=lf`, and it has to be exactly this. Two committed
+# things bind digests of these files, and they bind DIFFERENT forms:
+#
+#   the approved DRC waivers in board/manifest.live.json record
+#   approved_source_sha256 / approved_rules_sha256 over the file's RAW bytes,
+#   and were reviewed against the CRLF form (51,958 CRLF pairs in the board);
+#
+#   the committed check reports under generated/release/reports/ bind the
+#   CANONICAL digest, which pcbqa.canonical computes over LF bytes so that it
+#   survives a checkout on any platform.
+#
+# So a checkout must produce CRLF bytes while the file still classifies as
+# text. `text eol=crlf` does exactly that: the blob is stored LF, the working
+# tree gets CRLF, and AttributePolicy.classify sees `text` and canonicalises to
+# LF. Both digests match.
+#
+# The two failure modes are not hypothetical - a fresh clone was made and both
+# were observed:
+#
+#   `text eol=lf`  checks out LF. Raw digest changes, both waivers stop
+#                  matching, and two reviewed findings block again.
+#   `-text`        preserves CRLF but classifies as binary, so the canonical
+#                  digest becomes the raw one and both committed reports stop
+#                  being tied to their sources.
+*.kicad_pcb          text eol=crlf
+*.kicad_sch          text eol=crlf
+*.kicad_pro          text eol=crlf
+*.kicad_prl          text eol=crlf
+*.kicad_sym          text eol=crlf
+*.kicad_mod          text eol=crlf
+*.kicad_dru          text eol=crlf
+*.kicad_wks          text eol=crlf
+
+# --- Project sources: explicit LF -----------------------------------------
 fp-lib-table         text eol=lf
 sym-lib-table        text eol=lf
 *.py                 text eol=lf
