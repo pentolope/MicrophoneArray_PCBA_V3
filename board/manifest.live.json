@@ -97,7 +97,8 @@
       "tools/jlc_orientation.py",
       "fabrication/jlc_orientation/*.json",
       "fabrication/jlc_orientation/raw/*.json",
-      "fabrication/jlc_orientation/README.md"
+      "fabrication/jlc_orientation/README.md",
+      "board/timing/*.json"
     ],
     "source_closure_note": "The design as it is manufactured, plus what the offsets are derived from. The schematic is one sheet, so the hierarchy is the root file; a recursive **/*.kicad_sch glob used to pull in every other board's fixture and every past attempt's copy, which made the closure depend on what happened to be lying in the output tree. Whatever these globs reach, every file named in `sources` is added to the closure by name as well, so the selected board and schematic are covered because they were selected and not because a glob happened to find them.",
     "implementation_closure": [
@@ -229,6 +230,127 @@
         ]
       }
     ]
+  },
+  "timing": {
+    "description": [
+      "Passive PCB interconnect timing for this board's clock distribution.",
+      "",
+      "This block describes copper, and only copper. The gates it drives",
+      "measure how long a signal takes to travel the board's own",
+      "interconnect between two pads. They do not model the FPGA's output",
+      "timing, the SN74LVC244's propagation delay or its output-to-output",
+      "skew, either package, the microphones' input threshold behaviour, or",
+      "process, voltage and temperature. On this clock tree the buffer's own",
+      "output-to-output skew is a few nanoseconds, which is larger than the",
+      "whole copper term - so the PCB interconnect skew reported here is a",
+      "component of clock arrival skew, never the whole of it.",
+      "",
+      "The reason this exists separately from net_topology.rules is that a",
+      "net is not a path. NET.TOPOLOGY's PDM_CLOCK_BRANCHES rule measures",
+      "from RCn.2, the output side of the branch resistor, because that is",
+      "where net PDM_CLK_Bn begins. The copper between U2 and RCn.1 is on a",
+      "different net and is therefore not in that measurement at all - and",
+      "on two branches it is not even on the same layer. The paths declared",
+      "below start at the buffer pin and cross the resistor."
+    ],
+    "physical_stackup": {
+      "reference_nets": [
+        "GND"
+      ],
+      "reference_nets_note": "Which nets make a copper layer a reference plane. Which LAYERS carry them is read off the board's own zones, so a layer counts as a plane because copper is poured on it and not because a file says so. Both inner layers are unbroken GND here, which is why no clock line on this board crosses a plane split.",
+      "supplement": "board/timing/physical_stackup.json",
+      "supplement_note": "The board file carries no (setup (stackup ...)) block, so KiCad holds no dielectric thickness, material, permittivity or loss tangent for this design. The supplement declares the STRUCTURE of the stack - which dielectric sits between which coppers - and leaves every material figure explicitly null. It does not invent them, and until they are obtained from the fabricator's stackup drawing no propagation delay is derivable.",
+      "require_complete": false,
+      "require_complete_note": "False, because this board has no requirement expressed in picoseconds and therefore does not need a complete physical stackup to be releasable. STACK.PHYSICAL is non-applicable rather than failing, and names each absent field. Set this to true the moment any limit below is expressed in time: an unevaluated requirement must block."
+    },
+    "propagation": {
+      "backend": "analytic",
+      "model": "hammerstad",
+      "model_note": "Hammerstad's closed form for microstrip effective permittivity. Named explicitly rather than defaulted because the choice changes the number and therefore belongs in configuration identity. The zero-thickness form is selected over the thickness-corrected one because no copper weight is known either; when the fabricator's stackup supplies one, hammerstad-thickness-corrected is the better choice for 0.15 mm traces.",
+      "via_delay_model": "none",
+      "via_delay_model_note": "Via vertical extent is measured and reported; no delay is attributed to it. The geometric model would need the dielectric thicknesses this board does not have, and attributing an invented one to the two branches that change layer would bias exactly the comparison the skew measurement exists to make."
+    },
+    "models": {
+      "physical_stackup": "board/timing/physical_stackup.json"
+    },
+    "models_note": "Timing model files by role, so PROV.TIMING_MODELS can prove each one exists and is inside the source closure. A timing result that depended on a material file nothing hashed would keep looking fresh after the figure in it changed. Device, IBIS, Touchstone and cable models get further roles here when this board acquires any.",
+    "interfaces": {
+      "pdm_clock": {
+        "description": "The 3.072 MHz PDM clock from the SN74LVC244APWR fan-out buffer to all sixteen microphone clock pins. Eight buffer outputs, each through a 33 ohm series resistor, each feeding one microphone pair.",
+        "scope": "PCB interconnect only. Not total clock arrival time and not total clock skew.",
+        "expected_path_count": 16,
+        "expected_path_count_note": "Eight branches, two microphones each. This is the frozen array population expressed as a path count: if a branch stops resolving, or a microphone stops being reachable from its buffer output, the count changes and PATH_INTEGRITY fails.",
+        "required_component_crossings": 1,
+        "required_component_crossings_note": "Every complete branch path must cross its series resistor. This is the assertion that a measurement starts at the buffer pin rather than on the resistor's output net - the exact defect that makes a net-scoped length look shorter than the signal's actual route.",
+        "routes": {
+          "template": {
+            "id": "pdm_clock_branch_{n}",
+            "steps": [
+              {
+                "kind": "copper",
+                "net": "PDM_CLK_Y{y}",
+                "from": "^U2\\.\\d+$",
+                "to": "RC{n}.1"
+              },
+              {
+                "kind": "component",
+                "reference": "RC{n}",
+                "from_pad": "1",
+                "to_pad": "2"
+              },
+              {
+                "kind": "copper",
+                "net": "PDM_CLK_B{y}",
+                "from": "RC{n}.2",
+                "to": "^MK\\d+\\.3$"
+              }
+            ]
+          },
+          "template_note": "One branch written once and bound eight times. The buffer output is selected by pattern because which U2 pin drives PDM_CLK_Yn is a fact about the netlist, not something this policy should restate; the resistor pins are named exactly, because a step that must land on one particular pin has to fail if it would match two. The final step fans out to both microphones on the branch, which is why eight routes resolve to sixteen paths.",
+          "bindings": [
+            {
+              "n": "1",
+              "y": "0"
+            },
+            {
+              "n": "2",
+              "y": "1"
+            },
+            {
+              "n": "3",
+              "y": "2"
+            },
+            {
+              "n": "4",
+              "y": "3"
+            },
+            {
+              "n": "5",
+              "y": "4"
+            },
+            {
+              "n": "6",
+              "y": "5"
+            },
+            {
+              "n": "7",
+              "y": "6"
+            },
+            {
+              "n": "8",
+              "y": "7"
+            }
+          ]
+        },
+        "groups": {
+          "microphone_clock_endpoints": {
+            "description": "All sixteen microphone clock pins, compared against each other. The spread reported here is the difference in passive PCB propagation between the earliest and latest arrival, measured from the buffer pins.",
+            "paths": "^pdm_clock_branch_",
+            "limit_note": "No limit is declared, deliberately. The frozen requirement this board actually carries is constraints.json critical_routes.pdm_clock_branches.branch_length_match_mm = 5.0, and it governs a different quantity: the spread of the LONGEST driver-to-load path PER NET, post-resistor, which NET.TOPOLOGY enforces and which still passes. An endpoint-to-endpoint limit over complete paths is a requirement this design has never stated, and adding one here would be a new constraint smuggled in as a measurement. The measurement is reported; the requirement is a reviewed design decision."
+          }
+        }
+      }
+    }
   },
   "connector_gender_tokens": {
     "female": [

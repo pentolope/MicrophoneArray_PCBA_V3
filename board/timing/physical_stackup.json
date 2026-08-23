@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "title": "Physical (electromagnetic) stackup of microphone_array_v2",
+  "description": [
+    "The structure of the four-layer stack, and nothing about its materials.",
+    "",
+    "This file exists because `microphone_array_v2.kicad_pcb` carries no",
+    "`(setup (stackup ...))` block at all. KiCad only stores a physical",
+    "stackup when a designer fills one in, and this board's was never filled",
+    "in, so the board file states the overall thickness (1.6 mm) and the",
+    "copper layer order and says nothing about dielectric thickness, material,",
+    "relative permittivity or loss tangent.",
+    "",
+    "What is declared here is only what the authoritative board already",
+    "establishes: that there are four copper layers in the order F.Cu, In1.Cu,",
+    "In2.Cu, B.Cu, and that three dielectrics separate them. That is the",
+    "structure. Every material figure is explicitly null.",
+    "",
+    "The nulls are the point. They are not placeholders waiting to be filled",
+    "with something plausible - they are the record that this board does not",
+    "yet know these values, so that STACK.PHYSICAL can name them one by one",
+    "instead of reporting the useless 'no physical stackup at all', and so",
+    "that TIMING.INTERCONNECT_DELAY refuses to produce a picosecond figure",
+    "rather than producing one derived from an assumed FR-4.",
+    "",
+    "A delay estimate whose Dk was guessed is not a weaker result than one",
+    "whose Dk was measured. It is a different kind of thing wearing the same",
+    "units, and nothing downstream could tell them apart."
+  ],
+  "how_to_complete_this_file": [
+    "Every missing figure comes from one place: the fabricator's stackup",
+    "drawing for the ordered service and thickness. For a JLCPCB four-layer",
+    "1.6 mm order that is the impedance/stackup document shown at order time",
+    "and available afterwards from the order page; it names the prepreg and",
+    "core construction, each dielectric thickness, each copper weight, and the",
+    "laminate's Dk at a stated frequency.",
+    "",
+    "Record the figures with the same discipline the JLCPCB process profile",
+    "requires of a process limit: the source, a URL or document identifier, a",
+    "retrieval date, the service and thickness it applies to, and the",
+    "frequency the Dk is quoted at. Put those in `provenance` below.",
+    "",
+    "Dk is frequency dependent. The PDM clock is 3.072 MHz with edges an order",
+    "or two faster, so a figure quoted at 1 GHz is the appropriate one to use",
+    "and the one to record.",
+    "",
+    "Until then this stays as it is. Do not fill these in from a textbook, a",
+    "typical value, or another board."
+  ],
+  "provenance": null,
+  "notes": [
+    "Structure declared by the board; materials not yet known.",
+    "Overall board thickness comes from the board file's (general (thickness))",
+    "and is not restated here."
+  ],
+  "layers": [
+    {
+      "name": "F.Cu",
+      "kind": "copper",
+      "type": "copper",
+      "thickness_mm": null,
+      "role": "signal",
+      "why_absent": "outer copper weight is a fabrication option; the board file records no stackup"
+    },
+    {
+      "name": "dielectric 1",
+      "kind": "dielectric",
+      "type": "prepreg",
+      "thickness_mm": null,
+      "material": null,
+      "epsilon_r": null,
+      "loss_tangent": null,
+      "why_absent": "F.Cu to In1.Cu prepreg: this is the height every PDM clock microstrip is referenced over, and the single most important missing figure"
+    },
+    {
+      "name": "In1.Cu",
+      "kind": "copper",
+      "type": "copper",
+      "thickness_mm": null,
+      "role": "plane",
+      "plane_net": "GND"
+    },
+    {
+      "name": "dielectric 2",
+      "kind": "dielectric",
+      "type": "core",
+      "thickness_mm": null,
+      "material": null,
+      "epsilon_r": null,
+      "loss_tangent": null,
+      "why_absent": "In1.Cu to In2.Cu core; both faces are GND planes, so this affects via vertical transit rather than any trace"
+    },
+    {
+      "name": "In2.Cu",
+      "kind": "copper",
+      "type": "copper",
+      "thickness_mm": null,
+      "role": "plane",
+      "plane_net": "GND"
+    },
+    {
+      "name": "dielectric 3",
+      "kind": "dielectric",
+      "type": "prepreg",
+      "thickness_mm": null,
+      "material": null,
+      "epsilon_r": null,
+      "loss_tangent": null,
+      "why_absent": "In2.Cu to B.Cu prepreg: the reference height for the B.Cu portions of the PDM_CLK_Y2 and PDM_CLK_Y3 branches"
+    },
+    {
+      "name": "B.Cu",
+      "kind": "copper",
+      "type": "copper",
+      "thickness_mm": null,
+      "role": "signal"
+    }
+  ]
+}
