@@ -44,6 +44,9 @@ cannot be assembled by JLCPCB. This is discussed in
   microphone escape geometry, and how the router is driven.
 - [docs/manufacturing.md](docs/manufacturing.md) - order options, order remark,
   microphone handling limits and bring-up sequence.
+- [docs/timing.md](docs/timing.md) - what the interconnect timing gates
+  measure on the PDM clock tree, why a net is not an electrical path, and
+  which physical-stackup figures are still missing
 - [docs/sources.md](docs/sources.md) - every datasheet and manufacturer rule the
   design relies on, with the facts taken from each.
 
