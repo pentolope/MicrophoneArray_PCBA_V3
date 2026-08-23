@@ -183,24 +183,28 @@ migration failed with `Filename too long` on 21 files. At a normal location such
 as `C:\Users\<you>\Documents\GitHub\V3_freshclone` the total is 196 characters
 and it works.
 
-## Release output lands inside the submodule
+## Where release output goes
 
-`run.py` roots its output tree at its own directory, so a release from this
-board publishes to `tooling/PCB_AutoDesignAndTest/out/<board_id>/`, not
-anywhere under the board. Both working trees stay clean — the toolkit ignores
-`out/` — but the artifacts sit in a directory that `git submodule update` is
-entitled to replace.
+Attempts and published candidates land in `<board>/out/<board_id>/`, inside
+this repository. They used to land in `tooling/PCB_AutoDesignAndTest/out/` —
+inside the submodule, which `git submodule update` is entitled to replace.
 
-Nothing is lost silently: a published release is immutable once created and the
-board's own committed `generated/release/` is untouched. Still, treat that
-directory as scratch, and copy anything you intend to keep out of it before
-moving the submodule pointer.
+The toolkit decides this from where the manifest lives: a manifest outside the
+toolkit gets its output in its own project; a manifest inside the toolkit (its
+fixtures) keeps output in the toolkit. That second half matters —
+`PROV.FIXTURE_INTEGRITY` holds a fixture to an exact inventory, so a fixture's
+runs must never land inside the fixture.
 
-There is an override, but it is not really a supported knob: `run.py` reads
-`PCBQA_TEST_OUTPUT_ROOT`, whose name says what it is for — isolating parallel
-test workers so they cannot collide. It does relocate a release, and it is the
-only lever there is today, but a board-facing output root would be a proper
-change to the toolkit rather than a reuse of that variable.
+It is deliberately **not** a manifest key. `output_root` in a manifest would be
+hashed into `configuration_identity`, so merely relocating a directory would
+move the source closure and unbind every report the board had already
+committed — a provenance break in exchange for a directory choice. This was not
+theoretical: adding the key moved the closure from `bd2afdef6dd0df0d` and
+failed `PROV.REPORT_FRESHNESS` before the approach was changed.
+
+`PCBQA_OUTPUT_ROOT` overrides it for a single invocation.
+
+`out/` is git-ignored here.
 
 ## Known debt
 
