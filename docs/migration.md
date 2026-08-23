@@ -196,8 +196,11 @@ board's own committed `generated/release/` is untouched. Still, treat that
 directory as scratch, and copy anything you intend to keep out of it before
 moving the submodule pointer.
 
-`PCBQA_OUTPUT_ROOT` overrides the location if you would rather it landed
-elsewhere.
+There is an override, but it is not really a supported knob: `run.py` reads
+`PCBQA_TEST_OUTPUT_ROOT`, whose name says what it is for — isolating parallel
+test workers so they cannot collide. It does relocate a release, and it is the
+only lever there is today, but a board-facing output root would be a proper
+change to the toolkit rather than a reuse of that variable.
 
 ## Known debt
 
