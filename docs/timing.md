@@ -60,21 +60,32 @@ Complete paths, buffer pin to microphone clock pad:
 
 | | length |
 |---|---|
-| shortest | 73.179 mm at `MK9.3` |
+| shortest | 70.929 mm at `MK9.3` |
 | longest | 85.264 mm at `MK10.3` |
-| spread | 12.085 mm |
+| spread | 14.335 mm |
 
 The same sixteen endpoints counted only from the resistors' output nets — what
-a net-scoped measurement can see — run 63.195 mm to 75.280 mm. The copper
+a net-scoped measurement can see — run 60.945 mm to 75.280 mm. The copper
 upstream of the resistors, invisible to that measurement, is 5.346 mm to
 10.613 mm depending on the branch.
+
+These are shorter than the figures this document first carried, by up to
+2.25 mm on the branches that fork. The measurement was charging a walk the
+whole of any track it entered, which is exact only where copper meets copper
+end to end; where a branch tees off part-way along a run, the arm that leaves
+at the near end was being charged the far end as well. Tracks are now cut at
+the points other copper lands *along* them, so a walk is charged what it
+travels. Copper meeting a track at one of its own ends is still not a cut, so
+the convention for where a measurement begins is unchanged. `NET.TOPOLOGY`
+deliberately keeps the older graph: what its numbers mean is a separate
+decision from making a new measurement accurate.
 
 Two branches are not even on one layer. `PDM_CLK_Y2` and `PDM_CLK_Y3` drop to
 `B.Cu` and back, so `pdm_clock_branch_3` and `pdm_clock_branch_4` each carry
 two via transitions and 3.9–5.4 mm of `B.Cu`. A measurement scoped to
 `PDM_CLK_B*` — which is `F.Cu` only, zero vias — cannot see any of that.
 
-The endpoint-to-endpoint *spread* happens to be 12.085 mm either way, because
+The endpoint-to-endpoint *spread* happens to be 14.335 mm either way, because
 the extreme pair (`MK9.3` and `MK10.3`) sits on the same branch and its shared
 upstream copper cancels. That is a coincidence of this layout, not a reason the
 narrower measurement would do.
@@ -117,21 +128,27 @@ reporting the useless "no physical stackup at all", and
 `TIMING.INTERCONNECT_DELAY` reports no picosecond figure for any of the sixteen
 paths, with fidelity `geometry-only` and a per-conductor reason.
 
-Six figures are missing and needed for a delay:
+Four figures are missing and needed for a delay:
 
 ```
 dielectric 1 (F.Cu -> In1.Cu)   thickness, relative permittivity
-dielectric 2 (In1.Cu -> In2.Cu) thickness, relative permittivity
 dielectric 3 (In2.Cu -> B.Cu)   thickness, relative permittivity
 ```
 
-Loss tangent and copper weight are also absent but do not block a delay: loss
-tangent sets attenuation rather than velocity, and copper thickness is only an
-input to the thickness-corrected model, which this board does not select.
+`STACK.PHYSICAL` asks only for what the analyses this board declared will
+actually read, on the layers its declared paths actually use. That is why
+dielectric 2 is not on the list: it sits between the two ground planes, no
+declared path runs on either of them, and the first-order model would never
+consult it. It is still absent, and still reported in the full inventory — it
+just does not block anything. Loss tangent and copper weight are the same case:
+loss tangent sets attenuation rather than velocity, and copper thickness is
+only an input to the thickness-corrected model, which this board does not
+select. Selecting that model, or the geometric via model, would put them on
+the blocking list, and the gate would say so.
 
 ### To complete it
 
-All six come from one place: the fabricator's stackup drawing for the ordered
+All four come from one place: the fabricator's stackup drawing for the ordered
 service and thickness. Record them in `physical_stackup.json` with the same
 discipline the toolkit's JLCPCB process profile demands of a process limit —
 source, document identifier or URL, retrieval date, the service and thickness
@@ -165,8 +182,12 @@ twenty-five per cent on ordinary FR-4 geometry, and the error varies with trace
 width — this board's clock copper is both 0.15 mm and 0.25 mm — so it would not
 cancel in a skew comparison either.
 
-Via delay is `none`: vertical extent is measured and reported, and no delay is
-attributed to it. The geometric model would need the dielectric thicknesses
+Via delay is `none`, and declared as such rather than left to a default:
+vertical extent is measured and reported, and no delay is attributed to it. The
+distinction matters, because a board that says nothing about via delay has not
+decided anything — its vias then contribute an unmodelled positive amount and
+any total containing one is reported as a lower bound. Declaring the model
+makes the zero a decision this board owns. The geometric model would need the dielectric thicknesses
 this board does not have, and attributing an invented one to exactly the two
 branches that change layer would bias the comparison the measurement exists to
 make.

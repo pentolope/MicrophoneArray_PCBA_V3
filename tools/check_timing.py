@@ -166,23 +166,44 @@ def _stackup(results):
     print("    overall thickness {} mm, reference planes {}".format(
         physical["declared_total_thickness_mm"],
         ", ".join(stack.get("reference_plane_layers") or ["<none>"])))
+    required = stack.get("fields_required_by_declared_analyses") or []
     missing = stack.get("insufficient_fields") or []
+    inventory = stack.get("full_inventory_gaps") or []
+    print("    this board's declared analyses read: {}".format(
+        ", ".join(required) or "nothing"))
     if not missing:
-        print("    complete")
+        print("    every field they read is stated ({} other gap(s) in the "
+              "full inventory)".format(len(inventory)))
         return
-    blocking = [m for m in missing if m.get("needed_for") == "delay"]
-    print("    {} field(s) absent, {} of them needed for a delay:".format(
-        len(missing), len(blocking)))
-    for entry in blocking:
+    # `insufficient_fields` is already scoped to what the declared analyses
+    # read, on the layers the declared paths actually use. A dielectric
+    # between two planes nobody routes on is not listed, because nothing here
+    # would ever consult it.
+    print("    {} of them are not stated, and each one blocks a delay:".format(
+        len(missing)))
+    for entry in missing:
         print("      {}: {}".format(entry.get("layer", "?"), entry["issue"]))
+    print("    ({} further gap(s) in the full inventory that nothing "
+          "declared reads)".format(max(0, len(inventory) - len(missing))))
 
 
 def _delay(results):
     delay = results["TIMING.INTERCONNECT_DELAY"].measurements
     print("")
+    used = delay.get("backend_used")
+    requested = delay.get("backend_requested")
+    backend = used if used == requested else "{} (requested {})".format(
+        used, requested)
     print("  propagation: model {} via {} backend {}".format(
         delay.get("propagation_model"), delay.get("via_delay_model"),
-        delay.get("backend")))
+        backend))
+    if delay.get("backend_fell_back"):
+        print("    NOTE: the requested backend was unavailable and this board "
+              "permits a fallback")
+    bounded = delay.get("paths_with_lower_bound_delay")
+    if bounded:
+        print("    {} path(s) carry a lower bound rather than a value, "
+              "because some portion is unmodelled".format(bounded))
     print("    fidelity {}".format(", ".join(delay.get("fidelity") or ["-"])))
     unresolved = delay.get("paths_without_derivable_delay")
     total = len(delay.get("paths") or [])

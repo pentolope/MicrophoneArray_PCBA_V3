@@ -109,9 +109,12 @@
       "pcbqa.electrical_path",
       "pcbqa.stackup_physical",
       "pcbqa.propagation",
-      "pcbqa.gates.g_timing"
+      "pcbqa.gates.g_timing",
+      "pcbqa.rules",
+      "pcbqa.gates.g_contracts",
+      "pcbqa.component_models"
     ],
-    "implementation_closure_note": "Modules that DERIVE a shipped value rather than read one off the board, addressed by import name rather than by path. The orientation offsets are computed by this code, so a release is only reproducible if the code is pinned as well as its inputs. Each entry is hashed from the loaded module's own __file__, so what is recorded is the implementation that ran and not a copy of it that happened to be lying next to it. tools/jlc_orientation.py is not listed here because it travels with the project and is already a file-closure member; PROV.SOURCE_CLOSURE separately proves the imported copy is that same file.\n\nThe interconnect timing modules are here for the same reason. A path length is not read off the board either: it is the shortest connected walk over polygon intersections, composed across nets and component crossings, and every one of those steps is code. pcbqa.connectivity is included because it is the primitive that actually measures the copper - pinning the composition layer while leaving the measurement unpinned would be a provenance claim that is not true.",
+    "implementation_closure_note": "Modules that DERIVE a shipped value rather than read one off the board, addressed by import name rather than by path. The orientation offsets are computed by this code, so a release is only reproducible if the code is pinned as well as its inputs. Each entry is hashed from the loaded module's own __file__, so what is recorded is the implementation that ran and not a copy of it that happened to be lying next to it. tools/jlc_orientation.py is not listed here because it travels with the project and is already a file-closure member; PROV.SOURCE_CLOSURE separately proves the imported copy is that same file.\n\nThe interconnect timing modules are here for the same reason. A path length is not read off the board either: it is the shortest connected walk over polygon intersections, composed across nets and component crossings, and every one of those steps is code. pcbqa.connectivity is included because it is the primitive that actually measures the copper - pinning the composition layer while leaving the measurement unpinned would be a provenance claim that is not true.\n\nThree of these were added when PROV.DERIVATION_CLOSURE started asking the gate registry rather than this list what has to be covered. pcbqa.rules and pcbqa.gates.g_contracts compute NET.TOPOLOGY's path lengths and had never been pinned - a gap that predates the timing work and that no check could see while the only question asked was whether this list agreed with itself.",
     "source_hash_field": "source_sha256",
     "closure_field": "source_closure_sha256",
     "files_note": "Where the installed release keeps the check reports it shipped. This used to name a directory that held none, so the freshness gate passed by examining nothing.",
@@ -823,9 +826,10 @@
       "CFG.NO_RIVAL_THRESHOLDS",
       "CFG.THRESHOLD_PARITY",
       "TIMING.PATH_INTEGRITY",
-      "PROV.TIMING_MODELS"
+      "PROV.TIMING_MODELS",
+      "PROV.DERIVATION_CLOSURE"
     ],
-    "mandatory_gates_note": "TIMING.PATH_INTEGRITY and PROV.TIMING_MODELS are mandatory: both pass today and neither needs material data, so a release cannot be produced unless all sixteen PDM clock paths still resolve end to end through their series resistors and every declared timing model file is still inside the source closure. STACK.PHYSICAL, TIMING.INTERCONNECT_DELAY and TIMING.INTERCONNECT_SKEW are deliberately NOT mandatory: they are NOT_APPLICABLE on this board because it declares no limit in picoseconds, and a mandatory gate that is NOT_APPLICABLE blocks a release. Add them when a time-domain limit is declared."
+    "mandatory_gates_note": "TIMING.PATH_INTEGRITY and PROV.TIMING_MODELS are mandatory: both pass today and neither needs material data, so a release cannot be produced unless all sixteen PDM clock paths still resolve end to end through their series resistors and every declared timing model file is still inside the source closure. STACK.PHYSICAL, TIMING.INTERCONNECT_DELAY and TIMING.INTERCONNECT_SKEW are deliberately NOT mandatory: they are NOT_APPLICABLE on this board because it declares no limit in picoseconds, and a mandatory gate that is NOT_APPLICABLE blocks a release. Add them when a time-domain limit is declared. PROV.DERIVATION_CLOSURE joins them for the same reason: it passes, it needs no material data, and it is the only check that can notice a module dropped out of this board's implementation closure."
   },
   "release_generation": {
     "description": "Every command a clean-room release runs, and the field names the artifacts it generates actually carry. The ERC and DRC option sets are taken from the validator so a release cannot run a weaker check than validation demands.",
