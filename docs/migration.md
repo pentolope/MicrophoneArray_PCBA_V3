@@ -183,6 +183,22 @@ migration failed with `Filename too long` on 21 files. At a normal location such
 as `C:\Users\<you>\Documents\GitHub\V3_freshclone` the total is 196 characters
 and it works.
 
+## Release output lands inside the submodule
+
+`run.py` roots its output tree at its own directory, so a release from this
+board publishes to `tooling/PCB_AutoDesignAndTest/out/<board_id>/`, not
+anywhere under the board. Both working trees stay clean — the toolkit ignores
+`out/` — but the artifacts sit in a directory that `git submodule update` is
+entitled to replace.
+
+Nothing is lost silently: a published release is immutable once created and the
+board's own committed `generated/release/` is untouched. Still, treat that
+directory as scratch, and copy anything you intend to keep out of it before
+moving the submodule pointer.
+
+`PCBQA_OUTPUT_ROOT` overrides the location if you would rather it landed
+elsewhere.
+
 ## Known debt
 
 `tools/gen_pcb.py` and `tools/gen_schematic.py` still hard-code absolute paths

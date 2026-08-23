@@ -155,16 +155,19 @@ pointing at the old `verification/boards/live.json`.
 **The generator was not run.** Regeneration equivalence is a separate exercise
 with its own review, as recorded in `docs/migration.md`.
 
-## 8. Fresh clone
+## 8. Fresh recursive clone
 
-A clone of this repository, validated against a clone of the toolkit:
+`git clone --recursive` of `MicrophoneArray_PCB_V3` from GitHub, into a
+directory that had never seen this project:
 
 | | Result |
 |---|---|
-| Verdict | **ACCEPTED**, exit 0 |
-| Gates | 26 PASS, 2 ADVISORY, 1 NOT_APPLICABLE |
-| Design files | byte-identical to V2, both waivers matching |
-| Toolkit fixture | `PROV.FIXTURE_INTEGRITY` PASS, 70/70 files |
+| Board / toolkit pinned | `7c725ba` / `d154e4f`, submodule in sync, tree clean |
+| Import closure | 23/23 entry points, all through the pinned submodule |
+| Validate | **ACCEPTED**, exit 0, 26 PASS / 2 ADVISORY / 1 NOT_APPLICABLE |
+| Release | **ACCEPTED**, exit 0, published, 22 files |
+| Package source closure | `bd2afdef6dd0df0d` — identical to the V2 baseline |
+| Design files | byte-identical to the reviewed form; both waivers match |
 
 Getting there required fixing an inherited line-ending defect that made the
 first two clone attempts fail — see "Line endings" in
@@ -172,10 +175,19 @@ first two clone attempts fail — see "Line endings" in
 this report would have caught it, because every other check ran against a
 working tree that had never been through a checkout.
 
-Two things this does **not** yet prove, both blocked on publishing the toolkit:
+### A note on comparing against V2's working tree
 
-- the clone was made from the local repository, not from GitHub;
-- `--recursive` was not exercised, because the submodule is not yet added.
+`microphone_array_v2.kicad_pro` in V2's working tree is now the LF form and no
+longer matches the `approved_rules_sha256` its own waiver records. The content
+is unchanged — V2 and V3 store the **identical blob**, `ae872355…`, and V2's
+tree is clean — so this is a checkout-form drift in the reference repository,
+not a content difference.
+
+It is recorded here because it is the same defect §"Line endings" describes,
+observed from the other side: under `eol=lf` the reviewed CRLF bytes cannot
+survive a checkout. V3 pins `eol=crlf` and does not have the problem. Comparing
+a digest against V2's *working tree* is therefore no longer meaningful; compare
+against the blob, or against the waiver.
 
 ## 9. Reproducing this report
 
