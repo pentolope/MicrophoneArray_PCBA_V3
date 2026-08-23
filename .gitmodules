@@ -1,0 +1,3 @@
+[submodule "tooling/PCB_AutoDesignAndTest"]
+	path = tooling/PCB_AutoDesignAndTest
+	url = https://github.com/pentolope/PCB_AutoDesignAndTest

@@ -155,66 +155,21 @@ closure covers the board, schematic, project, symbol library, library tables,
 constraints, the orientation derivation script and all 31 frozen evidence files,
 and it recomputes bit-for-bit to V2's value.
 
-## Current state: the submodule is not yet added
+## Toolkit submodule
 
-`tooling/PCB_AutoDesignAndTest` does **not** exist in this commit. The toolkit
-was committed locally as `2b5f428` but could not be pushed from the migration
-environment, which has no GitHub credentials available.
+`tooling/PCB_AutoDesignAndTest` is pinned to a commit published on the toolkit's
+remote. Board tools reach it only through `tools/_toolkit.py`, which reads the
+path from `board/toolchain.json`; there is no sibling checkout and no absolute
+path in anything committed here.
 
-Adding the submodule now would pin this board to a commit that does not exist on
-the toolkit's remote — precisely what `CLAUDE.md` forbids, and what would break a
-recursive clone for anyone else. So the pointer is deliberately absent until the
-toolkit commit is published.
-
-Until then, board tools find the toolkit through `PCB_TOOLKIT_PATH`, which
-`tools/_toolkit.py` documents as a development affordance. Nothing committed here
-depends on it: `board/toolchain.json` already names `tooling/PCB_AutoDesignAndTest`
-as the real location.
-
-To finish the transition:
+`PCB_TOOLKIT_PATH` still exists as a development affordance for testing against
+a local toolkit checkout before its commit is published. Nothing committed here
+depends on it, and the validation recorded in `docs/equivalence.md` was run with
+it unset.
 
 ```bash
-git -C ../PCB_AutoDesignAndTest push origin main
+git submodule update --init --recursive
 ```
-```bash
-git submodule add https://github.com/pentolope/PCB_AutoDesignAndTest tooling/PCB_AutoDesignAndTest
-```
-
-then re-run validation and the live release through the submodule, and clone
-recursively into a short path to prove it (see below).
-
-## Line endings: an inherited defect the clone proof caught
-
-The design files must check out as **CRLF**, and `.gitattributes` says
-`text eol=crlf` for that reason. It is not a preference.
-
-Two committed things bind digests of these files, and they bind different
-forms:
-
-| Binding | Digest form | Where |
-|---|---|---|
-| Approved DRC waivers | **raw** bytes (CRLF) | `board/manifest.live.json` |
-| Committed check reports | **canonical** bytes (LF) | `generated/release/reports/*.json` |
-
-Under V2's inherited `text eol=lf` rule, a fresh clone checked out LF. The raw
-digest changed, both waivers stopped matching, and two findings a human had
-already reviewed blocked the board:
-
-    waiver was approved against different inputs and no longer applies,
-    changed=['approved_rules_sha256', 'approved_source_sha256']
-
-Marking the files `-text` fixed that and broke the other side:
-`pcbqa.canonical.AttributePolicy.classify` then returned `binary`, so the
-canonical digest became the raw one and neither committed report could be tied
-to its source.
-
-`text eol=crlf` satisfies both: the blob is stored LF, the working tree gets
-CRLF, and `classify()` still sees text and canonicalises to LF.
-
-This defect is **inherited, not introduced**. V2 has the same attributes, the
-same CRLF working tree and the same waivers, so a fresh clone of V2 fails the
-same way. It went unnoticed because the repository had only ever been used in
-place. Both failure modes above were observed in real clones, not predicted.
 
 ## Windows path length
 
