@@ -269,14 +269,15 @@
       "supplement": "board/timing/physical_stackup.json",
       "supplement_note": "The board file carries no (setup (stackup ...)) block, so KiCad holds no dielectric thickness, material, permittivity or loss tangent for this design. The supplement declares the STRUCTURE of the stack - which dielectric sits between which coppers - and leaves every material figure explicitly null. It does not invent them, and until they are obtained from the fabricator's stackup drawing no propagation delay is derivable.",
       "require_complete": false,
-      "require_complete_note": "False, because this board has no requirement expressed in picoseconds and therefore does not need a complete physical stackup to be releasable. STACK.PHYSICAL is non-applicable rather than failing, and names each absent field. Set this to true the moment any limit below is expressed in time: an unevaluated requirement must block."
+      "require_complete_note": "False, because this board has no requirement expressed in picoseconds and therefore does not need a complete physical stackup to be releasable. STACK.PHYSICAL is non-applicable rather than failing, and names each absent field. Set this to true the moment any limit below is expressed in time: an unevaluated requirement must block.",
+      "reference_continuity_note": "No max_unreferenced_mm is declared, so any copper without poured reference conductor beneath it refuses a delay for that run. Measured today: 7.792 mm of the 1294 mm of PDM clock copper, concentrated on the two branches that change layer - the plane clearance around their vias. That is ordinary and probably acceptable, but deciding how much is acceptable is a design decision with a number attached, and it belongs to whoever makes it rather than to a default."
     },
     "propagation": {
       "backend": "analytic",
       "model": "hammerstad",
       "model_note": "Hammerstad's closed form for microstrip effective permittivity. Named explicitly rather than defaulted because the choice changes the number and therefore belongs in configuration identity. The zero-thickness form is selected over the thickness-corrected one because no copper weight is known either; when the fabricator's stackup supplies one, hammerstad-thickness-corrected is the better choice for 0.15 mm traces.",
       "via_delay_model": "none",
-      "via_delay_model_note": "Via vertical extent is measured and reported; no delay is attributed to it. The geometric model would need the dielectric thicknesses this board does not have, and attributing an invented one to the two branches that change layer would bias exactly the comparison the skew measurement exists to make."
+      "via_delay_model_note": "Named, and deliberately not justified. Naming the treatment says this board has chosen to omit the vertical transit; it does not say the transit is negligible, and it is not: a barrel through 1.6 mm of board is a few picoseconds, and only two of the eight branches have one, so it does not cancel in a skew comparison the way a term common to every branch would. Under the toolkit's via policy an unjustified `none` therefore makes any total containing a via a lower bound, which is the honest reading. Adding a justification here would assert something about this board that nobody has established, and switching to the geometric model would need dielectric thicknesses this board does not have."
     },
     "models": {
       "physical_stackup": "board/timing/physical_stackup.json"

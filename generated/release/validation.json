@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "generated_utc": "2026-08-23T21:19:21.267334+00:00",
+  "generated_utc": "2026-08-24T05:16:19.246268+00:00",
   "manifest": {
-    "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\manifest.json",
-    "sha256": "87a10b9d890e2c9a111d84b518edaaeb7a712c69820ae60d6622264847fd0fb1",
+    "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\manifest.json",
+    "sha256": "a4353a556116e6bf598599a58761a1e7d4d2e4e08f251c983cd66d3c851584bd",
     "board_id": "microphone-array-v2-live-cleanroom",
     "constraint_version": "revA-frozen-2026-08-01"
   },
@@ -164,16 +164,16 @@
           "units": "file function",
           "kind": "policy",
           "manifest_key": "archive.allow",
-          "provenance": "manifest.json#archive.allow@87a10b9d890e"
+          "provenance": "manifest.json#archive.allow@a4353a556116"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\microphone_array_v2-revA-fabrication.zip",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\microphone_array_v2-revA-fabrication.zip",
           "name": "microphone_array_v2-revA-fabrication.zip",
-          "sha256": "5752dbe5573c48a2ac12a09f17da26f0382891e8bd04ffc6d48191be57ee859e"
+          "sha256": "554b38ad9f5237aec6895cbd6163a184d78515fc8e32033afab913c3725069c6"
         }
       ]
     },
@@ -197,16 +197,16 @@
           "units": "field name",
           "kind": "policy",
           "manifest_key": "archive.manifest_required_fields",
-          "provenance": "manifest.json#archive.manifest_required_fields@87a10b9d890e"
+          "provenance": "manifest.json#archive.manifest_required_fields@a4353a556116"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\MANIFEST.md",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\MANIFEST.md",
           "name": "MANIFEST.md",
-          "sha256": "fdf8b535d564b147f448d42e80be4a50a28430775288f266b7368586bc87b009"
+          "sha256": "8cb23d3f6171cc009e3ee2dc1b9bc4eff2f38d6fdd593331a6805a019bee4a5a"
         }
       ]
     },
@@ -253,7 +253,7 @@
           "units": "field name",
           "kind": "policy",
           "manifest_key": "assembly.required_part_fields",
-          "provenance": "manifest.json#assembly.required_part_fields@87a10b9d890e"
+          "provenance": "manifest.json#assembly.required_part_fields@a4353a556116"
         },
         "assembly.compared_part_fields": {
           "id": "assembly.compared_part_fields",
@@ -265,19 +265,19 @@
           "units": "field name",
           "kind": "policy",
           "manifest_key": "assembly.compared_part_fields",
-          "provenance": "manifest.json#assembly.compared_part_fields@87a10b9d890e"
+          "provenance": "manifest.json#assembly.compared_part_fields@a4353a556116"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\bom.csv",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\bom.csv",
           "name": "bom.csv",
           "sha256": "a3970d865b3b76677afe0b11b6061156e3be633a50613167887ef8a54fe14563"
         },
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_sch",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_sch",
           "name": "microphone_array_v2.kicad_sch",
           "sha256": "37135a846d9c262220819e357258deef3eb62b912046349fac988293b27c4997"
         }
@@ -306,7 +306,7 @@
           "units": "constant name",
           "kind": "policy",
           "manifest_key": "constraint_parity.rival_scan.watched_constants",
-          "provenance": "manifest.json#constraint_parity.rival_scan.watched_constants@87a10b9d890e"
+          "provenance": "manifest.json#constraint_parity.rival_scan.watched_constants@a4353a556116"
         }
       },
       "finding_count": 0,
@@ -386,7 +386,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "artifacts.position_tolerance_mm",
-          "provenance": "manifest.json#artifacts.position_tolerance_mm@87a10b9d890e"
+          "provenance": "manifest.json#artifacts.position_tolerance_mm@a4353a556116"
         },
         "geometry.rotation_match_deg": {
           "id": "geometry.rotation_match_deg",
@@ -394,7 +394,7 @@
           "units": "deg",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.rotation_match_deg.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.rotation_match_deg.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.rotation_match_deg.value@a4353a556116"
         },
         "artifacts.cpl_origin": {
           "id": "artifacts.cpl_origin",
@@ -408,14 +408,14 @@
           "units": "frame",
           "kind": "policy",
           "manifest_key": "artifacts.cpl_origin",
-          "provenance": "manifest.json#artifacts.cpl_origin@87a10b9d890e"
+          "provenance": "manifest.json#artifacts.cpl_origin@a4353a556116"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\cpl.csv",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\cpl.csv",
           "name": "cpl.csv",
           "sha256": "28091e4dbf5a05e30af72f833839194c67c0aa0f90c6f797d0434fce84e7e807"
         }
@@ -639,14 +639,14 @@
           "units": "degrees",
           "kind": "policy",
           "manifest_key": "release_generation.cpl_orientation.normalize_range_deg",
-          "provenance": "manifest.json#release_generation.cpl_orientation.normalize_range_deg@87a10b9d890e"
+          "provenance": "manifest.json#release_generation.cpl_orientation.normalize_range_deg@a4353a556116"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\cpl.csv",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\cpl.csv",
           "name": "cpl.csv",
           "sha256": "28091e4dbf5a05e30af72f833839194c67c0aa0f90c6f797d0434fce84e7e807"
         }
@@ -675,12 +675,12 @@
         "source_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
         "checked_copy_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
         "rules_sha256": "c9b52fae0142d6900d0f81a0b722bc85aa0698a0935c5c5b036dc7989828b027",
-        "constraint_manifest_sha256": "87a10b9d890e2c9a111d84b518edaaeb7a712c69820ae60d6622264847fd0fb1",
+        "constraint_manifest_sha256": "a4353a556116e6bf598599a58761a1e7d4d2e4e08f251c983cd66d3c851584bd",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-08-23T21:18:07.679756+00:00",
+        "generated_utc": "2026-08-24T05:15:35.232857+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/drc.v1.json",
-          "date": "2026-08-23T14:18:06",
+          "date": "2026-08-23T22:15:34",
           "kicad_version": "10.0.5",
           "source": "microphone_array_v2.kicad_pcb",
           "ignored_checks": [],
@@ -718,16 +718,16 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.waiver_location_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@a4353a556116"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\validation\\drc_authoritative.json",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\validation\\drc_authoritative.json",
           "name": "drc_authoritative.json",
-          "sha256": "7feafa3c5a8b5d998bfae2bdc6b0bf6b7875ac1447e66cd11c045d0cccfb4824"
+          "sha256": "aee407febf38ba9b490d69e0c4520b76a2ca7a9107de62f29959eaaae8a9176c"
         }
       ]
     },
@@ -751,14 +751,14 @@
           "units": "severity",
           "kind": "policy",
           "manifest_key": "checks.drc.forbidden_severities",
-          "provenance": "manifest.json#checks.drc.forbidden_severities@87a10b9d890e"
+          "provenance": "manifest.json#checks.drc.forbidden_severities@a4353a556116"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pro",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pro",
           "name": "microphone_array_v2.kicad_pro",
           "sha256": "c9b52fae0142d6900d0f81a0b722bc85aa0698a0935c5c5b036dc7989828b027"
         }
@@ -783,12 +783,12 @@
         "source_sha256": "37135a846d9c262220819e357258deef3eb62b912046349fac988293b27c4997",
         "checked_copy_sha256": "37135a846d9c262220819e357258deef3eb62b912046349fac988293b27c4997",
         "rules_sha256": "c9b52fae0142d6900d0f81a0b722bc85aa0698a0935c5c5b036dc7989828b027",
-        "constraint_manifest_sha256": "87a10b9d890e2c9a111d84b518edaaeb7a712c69820ae60d6622264847fd0fb1",
+        "constraint_manifest_sha256": "a4353a556116e6bf598599a58761a1e7d4d2e4e08f251c983cd66d3c851584bd",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-08-23T21:18:15.047146+00:00",
+        "generated_utc": "2026-08-24T05:15:37.988176+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/erc.v1.json",
-          "date": "2026-08-23T14:18:14",
+          "date": "2026-08-23T22:15:37",
           "kicad_version": "10.0.5",
           "source": "microphone_array_v2.kicad_sch",
           "ignored_checks": [],
@@ -815,16 +815,16 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.waiver_location_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@a4353a556116"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\validation\\erc_authoritative.json",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\validation\\erc_authoritative.json",
           "name": "erc_authoritative.json",
-          "sha256": "ca5aefd5275c05ab371785cc9dc5f42b957267a22325dfd3ea9853890648b2e3"
+          "sha256": "2d13896d97ba0a9157b666b0101cce934a19d86f155742d385107a574d95e6b8"
         }
       ]
     },
@@ -885,16 +885,16 @@
           "units": "mm2",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.layer_symmetric_difference_mm2.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.layer_symmetric_difference_mm2.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.layer_symmetric_difference_mm2.value@a4353a556116"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\microphone_array_v2-revA-fabrication.zip",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\microphone_array_v2-revA-fabrication.zip",
           "name": "microphone_array_v2-revA-fabrication.zip",
-          "sha256": "5752dbe5573c48a2ac12a09f17da26f0382891e8bd04ffc6d48191be57ee859e"
+          "sha256": "554b38ad9f5237aec6895cbd6163a184d78515fc8e32033afab913c3725069c6"
         }
       ]
     },
@@ -1062,7 +1062,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@a4353a556116"
         },
         "net_topology.PDM_CLOCK_BRANCHES.max_spread_mm": {
           "id": "net_topology.PDM_CLOCK_BRANCHES.max_spread_mm",
@@ -1070,7 +1070,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "net_topology.rules.0.max_spread_mm",
-          "provenance": "manifest.json#net_topology.rules.0.max_spread_mm@87a10b9d890e"
+          "provenance": "manifest.json#net_topology.rules.0.max_spread_mm@a4353a556116"
         },
         "net_topology.PDM_CLOCK_BRANCHES.max_vias_per_net": {
           "id": "net_topology.PDM_CLOCK_BRANCHES.max_vias_per_net",
@@ -1078,7 +1078,7 @@
           "units": "vias",
           "kind": "policy",
           "manifest_key": "net_topology.rules.0.max_vias_per_net",
-          "provenance": "manifest.json#net_topology.rules.0.max_vias_per_net@87a10b9d890e"
+          "provenance": "manifest.json#net_topology.rules.0.max_vias_per_net@a4353a556116"
         },
         "net_topology.PDM_CLOCK_ROOT.max_vias_per_net": {
           "id": "net_topology.PDM_CLOCK_ROOT.max_vias_per_net",
@@ -1086,7 +1086,7 @@
           "units": "vias",
           "kind": "policy",
           "manifest_key": "net_topology.rules.1.max_vias_per_net",
-          "provenance": "manifest.json#net_topology.rules.1.max_vias_per_net@87a10b9d890e"
+          "provenance": "manifest.json#net_topology.rules.1.max_vias_per_net@a4353a556116"
         },
         "net_topology.AUDIO_MCLK.max_vias_per_net": {
           "id": "net_topology.AUDIO_MCLK.max_vias_per_net",
@@ -1094,7 +1094,7 @@
           "units": "vias",
           "kind": "policy",
           "manifest_key": "net_topology.rules.2.max_vias_per_net",
-          "provenance": "manifest.json#net_topology.rules.2.max_vias_per_net@87a10b9d890e"
+          "provenance": "manifest.json#net_topology.rules.2.max_vias_per_net@a4353a556116"
         }
       },
       "finding_count": 0,
@@ -1128,16 +1128,16 @@
           "units": "path glob",
           "kind": "policy",
           "manifest_key": "fixture.reject_globs",
-          "provenance": "manifest.json#fixture.reject_globs@87a10b9d890e"
+          "provenance": "manifest.json#fixture.reject_globs@a4353a556116"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\HASHES.json",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\HASHES.json",
           "name": "HASHES.json",
-          "sha256": "52d94eaeb4ea054e34492ff813ddd49942d7c704990a82699ddca0646f390991"
+          "sha256": "9e6c58eed15493fa4659e6a1dc1a82e128536e66a5e9e6dbb548eb67661179d4"
         }
       ]
     },
@@ -1148,8 +1148,8 @@
       "reason": "the release manifest records the digests of the archive, BOM and CPL beside it; this package is still a candidate, so it carries no reports to cross-check yet",
       "measurements": {
         "files_in_package": 17,
-        "manifest_source_closure_sha256": "a9cb7987172982dbb9eac42b96e1ba3146345e03c2c578cfecb9fa60a6aacfbd",
-        "archive_sha256": "5752dbe5573c48a2ac12a09f17da26f0382891e8bd04ffc6d48191be57ee859e",
+        "manifest_source_closure_sha256": "a73b71d643357c55a77572558055be6f2c772dd1ffbcc8f90e6c71cb687fc83b",
+        "archive_sha256": "554b38ad9f5237aec6895cbd6163a184d78515fc8e32033afab913c3725069c6",
         "stage": "candidate"
       },
       "limits": {},
@@ -1157,9 +1157,9 @@
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\MANIFEST.md",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\MANIFEST.md",
           "name": "MANIFEST.md",
-          "sha256": "fdf8b535d564b147f448d42e80be4a50a28430775288f266b7368586bc87b009"
+          "sha256": "8cb23d3f6171cc009e3ee2dc1b9bc4eff2f38d6fdd593331a6805a019bee4a5a"
         }
       ]
     },
@@ -1170,7 +1170,7 @@
       "reason": "all 2 committed report(s) bind the canonical digest of all 52 source inputs, and every one still matches",
       "measurements": {
         "source_closure_files": 52,
-        "source_closure_sha256": "a9cb7987172982dbb9eac42b96e1ba3146345e03c2c578cfecb9fa60a6aacfbd",
+        "source_closure_sha256": "a73b71d643357c55a77572558055be6f2c772dd1ffbcc8f90e6c71cb687fc83b",
         "source_sha256": {
           "pcb": "0ffd377c0ace66b1",
           "schematic": "e8283a2ba391bad6"
@@ -1206,7 +1206,7 @@
           "units": "path glob",
           "kind": "policy",
           "manifest_key": "reports.source_closure",
-          "provenance": "manifest.json#reports.source_closure@87a10b9d890e"
+          "provenance": "manifest.json#reports.source_closure@a4353a556116"
         }
       },
       "finding_count": 0,
@@ -1230,7 +1230,7 @@
           "units": "policy",
           "kind": "policy",
           "manifest_key": "source_authority.authority",
-          "provenance": "manifest.json#source_authority.authority@87a10b9d890e"
+          "provenance": "manifest.json#source_authority.authority@a4353a556116"
         }
       },
       "finding_count": 0,
@@ -1298,7 +1298,7 @@
           "units": "path glob",
           "kind": "policy",
           "manifest_key": "release_generation.cpl_orientation.reproduction_inputs.required_globs",
-          "provenance": "manifest.json#release_generation.cpl_orientation.reproduction_inputs.required_globs@87a10b9d890e"
+          "provenance": "manifest.json#release_generation.cpl_orientation.reproduction_inputs.required_globs@a4353a556116"
         }
       },
       "finding_count": 0,
@@ -1327,7 +1327,7 @@
           "units": "deg",
           "kind": "policy",
           "manifest_key": "routing.permitted_turn_degrees",
-          "provenance": "manifest.json#routing.permitted_turn_degrees@87a10b9d890e"
+          "provenance": "manifest.json#routing.permitted_turn_degrees@a4353a556116"
         },
         "routing.angle_tolerance_deg": {
           "id": "routing.angle_tolerance_deg",
@@ -1335,7 +1335,7 @@
           "units": "deg",
           "kind": "policy",
           "manifest_key": "routing.angle_tolerance_deg",
-          "provenance": "manifest.json#routing.angle_tolerance_deg@87a10b9d890e"
+          "provenance": "manifest.json#routing.angle_tolerance_deg@a4353a556116"
         }
       },
       "finding_count": 60,
@@ -1795,7 +1795,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "routing.min_segment_mm",
-          "provenance": "manifest.json#routing.min_segment_mm@87a10b9d890e"
+          "provenance": "manifest.json#routing.min_segment_mm@a4353a556116"
         }
       },
       "finding_count": 60,
@@ -2229,7 +2229,7 @@
       "status": "PASS",
       "reason": "4 shipped copper layers match a fresh export by geometric symmetric difference (limit 0.05 mm2)",
       "measurements": {
-        "fresh_export_command": "pcb export gerbers --output C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\validation\\fresh_gerbers --layers F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-x2 --no-netlist --use-drill-file-origin --subtract-soldermask C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\validation\\check_copy\\microphone_array_v2.kicad_pcb",
+        "fresh_export_command": "pcb export gerbers --output C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\validation\\fresh_gerbers --layers F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-x2 --no-netlist --use-drill-file-origin --subtract-soldermask C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\validation\\check_copy\\microphone_array_v2.kicad_pcb",
         "fresh_export_exit": 0,
         "shipped_copper_layers": [
           "B.Cu",
@@ -2284,7 +2284,7 @@
           "units": "cli option",
           "kind": "policy",
           "manifest_key": "artifacts.gerber_export_flags",
-          "provenance": "manifest.json#artifacts.gerber_export_flags@87a10b9d890e"
+          "provenance": "manifest.json#artifacts.gerber_export_flags@a4353a556116"
         },
         "geometry.layer_symmetric_difference_mm2": {
           "id": "geometry.layer_symmetric_difference_mm2",
@@ -2292,7 +2292,7 @@
           "units": "mm2",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.layer_symmetric_difference_mm2.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.layer_symmetric_difference_mm2.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.layer_symmetric_difference_mm2.value@a4353a556116"
         }
       },
       "finding_count": 0,
@@ -2359,7 +2359,7 @@
           "units": "layer roles",
           "kind": "policy",
           "manifest_key": "stackup.expected",
-          "provenance": "manifest.json#stackup.expected@87a10b9d890e"
+          "provenance": "manifest.json#stackup.expected@a4353a556116"
         }
       },
       "finding_count": 0,
@@ -2384,7 +2384,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.contact_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.contact_mm.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.contact_mm.value@a4353a556116"
         },
         "geometry.polygon_chord_error_mm": {
           "id": "geometry.polygon_chord_error_mm",
@@ -2392,7 +2392,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@a4353a556116"
         }
       },
       "finding_count": 0,
@@ -2422,7 +2422,7 @@
           "units": "pad attribute",
           "kind": "policy",
           "manifest_key": "via_mask.pad_contact.populated_pad_attributes",
-          "provenance": "manifest.json#via_mask.pad_contact.populated_pad_attributes@87a10b9d890e"
+          "provenance": "manifest.json#via_mask.pad_contact.populated_pad_attributes@a4353a556116"
         },
         "via_mask.mask_dam_rule": {
           "id": "via_mask.mask_dam_rule",
@@ -2430,7 +2430,7 @@
           "units": "policy",
           "kind": "policy",
           "manifest_key": "via_mask.mask_dam_rule",
-          "provenance": "manifest.json#via_mask.mask_dam_rule@87a10b9d890e"
+          "provenance": "manifest.json#via_mask.mask_dam_rule@a4353a556116"
         }
       },
       "finding_count": 0,
@@ -2460,7 +2460,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "via_mask.process.limit_mm",
-          "provenance": "manifest.json#via_mask.process.limit_mm@87a10b9d890e"
+          "provenance": "manifest.json#via_mask.process.limit_mm@a4353a556116"
         },
         "geometry.polygon_chord_error_mm": {
           "id": "geometry.polygon_chord_error_mm",
@@ -2468,7 +2468,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@a4353a556116"
         },
         "via_mask.metric": {
           "id": "via_mask.metric",
@@ -2476,7 +2476,7 @@
           "units": "field name",
           "kind": "policy",
           "manifest_key": "via_mask.metric",
-          "provenance": "manifest.json#via_mask.metric@87a10b9d890e"
+          "provenance": "manifest.json#via_mask.metric@a4353a556116"
         }
       },
       "finding_count": 0,
@@ -2499,7 +2499,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "via_mask.design_target_mm",
-          "provenance": "manifest.json#via_mask.design_target_mm@87a10b9d890e"
+          "provenance": "manifest.json#via_mask.design_target_mm@a4353a556116"
         },
         "geometry.polygon_chord_error_mm": {
           "id": "geometry.polygon_chord_error_mm",
@@ -2507,7 +2507,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@a4353a556116"
         },
         "via_mask.metric": {
           "id": "via_mask.metric",
@@ -2515,7 +2515,7 @@
           "units": "field name",
           "kind": "policy",
           "manifest_key": "via_mask.metric",
-          "provenance": "manifest.json#via_mask.metric@87a10b9d890e"
+          "provenance": "manifest.json#via_mask.metric@a4353a556116"
         }
       },
       "finding_count": 0,
@@ -2553,7 +2553,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@a4353a556116"
         },
         "geometry.coordinate_match_mm": {
           "id": "geometry.coordinate_match_mm",
@@ -2561,7 +2561,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.coordinate_match_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.coordinate_match_mm.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.coordinate_match_mm.value@a4353a556116"
         },
         "geometry.dimension_match_mm": {
           "id": "geometry.dimension_match_mm",
@@ -2569,7 +2569,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.dimension_match_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.dimension_match_mm.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.dimension_match_mm.value@a4353a556116"
         },
         "geometry.clearance_match_mm": {
           "id": "geometry.clearance_match_mm",
@@ -2577,7 +2577,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.clearance_match_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.clearance_match_mm.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.clearance_match_mm.value@a4353a556116"
         },
         "geometry.contact_mm": {
           "id": "geometry.contact_mm",
@@ -2585,7 +2585,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.contact_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.contact_mm.value@87a10b9d890e"
+          "provenance": "manifest.json#geometry_profile.tolerances.contact_mm.value@a4353a556116"
         },
         "via_mask.design_target_mm": {
           "id": "via_mask.design_target_mm",
@@ -2593,7 +2593,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "via_mask.design_target_mm",
-          "provenance": "manifest.json#via_mask.design_target_mm@87a10b9d890e"
+          "provenance": "manifest.json#via_mask.design_target_mm@a4353a556116"
         },
         "via_mask.process.limit_mm": {
           "id": "via_mask.process.limit_mm",
@@ -2601,21 +2601,21 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "via_mask.process.limit_mm",
-          "provenance": "manifest.json#via_mask.process.limit_mm@87a10b9d890e"
+          "provenance": "manifest.json#via_mask.process.limit_mm@a4353a556116"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\gerbers\\microphone_array_v2.GTS",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\gerbers\\microphone_array_v2.GTS",
           "name": "microphone_array_v2.GTS",
-          "sha256": "6935bbc9c9a78341f952179bac46ed8300d89c6fdfe2c1d79325e329611aca57"
+          "sha256": "7752e4719857f99f36120f69cd18124bc80aaed161d4dca0fe20e671a2d7c153"
         },
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\gerbers\\microphone_array_v2.GBS",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\gerbers\\microphone_array_v2.GBS",
           "name": "microphone_array_v2.GBS",
-          "sha256": "f2f936dcbe4d9e690350025fda008d9e62cbe1594f5c7f056a52e3a35269a711"
+          "sha256": "bfd42b832d44ca2e8a276d6482afe4966d234de237f45d9bb9fbe87071979914"
         }
       ]
     },
@@ -2715,6 +2715,11 @@
           "In1.Cu",
           "In2.Cu"
         ],
+        "reference_copper_layers": [
+          "In1.Cu",
+          "In2.Cu"
+        ],
+        "reference_layers_not_filled": [],
         "layers_in_use": [
           "B.Cu",
           "F.Cu"
@@ -2838,7 +2843,7 @@
           "units": "policy",
           "kind": "policy",
           "manifest_key": "timing.physical_stackup.require_complete",
-          "provenance": "manifest.json#timing.physical_stackup.require_complete@87a10b9d890e"
+          "provenance": "manifest.json#timing.physical_stackup.require_complete@a4353a556116"
         }
       },
       "finding_count": 4,
@@ -2893,9 +2898,9 @@
                 "crosses": [
                   "RC1"
                 ],
-                "copper_length_mm": 77.2757,
+                "copper_length_mm": 77.2551,
                 "length_by_layer_mm": {
-                  "F.Cu": 77.275668
+                  "F.Cu": 77.255074
                 },
                 "via_transitions": 0,
                 "steps": [
@@ -2921,7 +2926,7 @@
                     "reference": null,
                     "from": "RC1.2",
                     "to": "MK1.3",
-                    "length_mm": 71.1017
+                    "length_mm": 71.0811
                   }
                 ]
               },
@@ -2936,9 +2941,9 @@
                 "crosses": [
                   "RC1"
                 ],
-                "copper_length_mm": 77.7727,
+                "copper_length_mm": 77.7485,
                 "length_by_layer_mm": {
-                  "F.Cu": 77.772689
+                  "F.Cu": 77.748532
                 },
                 "via_transitions": 0,
                 "steps": [
@@ -2964,7 +2969,7 @@
                     "reference": null,
                     "from": "RC1.2",
                     "to": "MK2.3",
-                    "length_mm": 71.5987
+                    "length_mm": 71.5745
                   }
                 ]
               },
@@ -3065,10 +3070,10 @@
                 "crosses": [
                   "RC3"
                 ],
-                "copper_length_mm": 84.9723,
+                "copper_length_mm": 84.9658,
                 "length_by_layer_mm": {
-                  "B.Cu": 5.369848,
-                  "F.Cu": 79.602416
+                  "B.Cu": 5.367704,
+                  "F.Cu": 79.598126
                 },
                 "via_transitions": 2,
                 "steps": [
@@ -3078,7 +3083,7 @@
                     "reference": null,
                     "from": "U2.3",
                     "to": "RC3.1",
-                    "length_mm": 10.6125
+                    "length_mm": 10.6061
                   },
                   {
                     "kind": "component",
@@ -3109,10 +3114,10 @@
                 "crosses": [
                   "RC3"
                 ],
-                "copper_length_mm": 85.1839,
+                "copper_length_mm": 85.1774,
                 "length_by_layer_mm": {
-                  "B.Cu": 5.369848,
-                  "F.Cu": 79.814011
+                  "B.Cu": 5.367704,
+                  "F.Cu": 79.809721
                 },
                 "via_transitions": 2,
                 "steps": [
@@ -3122,7 +3127,7 @@
                     "reference": null,
                     "from": "U2.3",
                     "to": "RC3.1",
-                    "length_mm": 10.6125
+                    "length_mm": 10.6061
                   },
                   {
                     "kind": "component",
@@ -3153,10 +3158,10 @@
                 "crosses": [
                   "RC4"
                 ],
-                "copper_length_mm": 84.4128,
+                "copper_length_mm": 84.2713,
                 "length_by_layer_mm": {
                   "B.Cu": 3.9,
-                  "F.Cu": 80.512756
+                  "F.Cu": 80.371334
                 },
                 "via_transitions": 2,
                 "steps": [
@@ -3166,7 +3171,7 @@
                     "reference": null,
                     "from": "U2.5",
                     "to": "RC4.1",
-                    "length_mm": 10.374
+                    "length_mm": 10.2326
                   },
                   {
                     "kind": "component",
@@ -3197,10 +3202,10 @@
                 "crosses": [
                   "RC4"
                 ],
-                "copper_length_mm": 84.5968,
+                "copper_length_mm": 84.4553,
                 "length_by_layer_mm": {
                   "B.Cu": 3.9,
-                  "F.Cu": 80.696751
+                  "F.Cu": 80.555329
                 },
                 "via_transitions": 2,
                 "steps": [
@@ -3210,7 +3215,7 @@
                     "reference": null,
                     "from": "U2.5",
                     "to": "RC4.1",
-                    "length_mm": 10.374
+                    "length_mm": 10.2326
                   },
                   {
                     "kind": "component",
@@ -3241,9 +3246,9 @@
                 "crosses": [
                   "RC5"
                 ],
-                "copper_length_mm": 85.2644,
+                "copper_length_mm": 85.0361,
                 "length_by_layer_mm": {
-                  "F.Cu": 85.264359
+                  "F.Cu": 85.036117
                 },
                 "via_transitions": 0,
                 "steps": [
@@ -3253,7 +3258,7 @@
                     "reference": null,
                     "from": "U2.7",
                     "to": "RC5.1",
-                    "length_mm": 9.9841
+                    "length_mm": 9.8841
                   },
                   {
                     "kind": "component",
@@ -3269,7 +3274,7 @@
                     "reference": null,
                     "from": "RC5.2",
                     "to": "MK10.3",
-                    "length_mm": 75.2803
+                    "length_mm": 75.1521
                   }
                 ]
               },
@@ -3284,9 +3289,9 @@
                 "crosses": [
                   "RC5"
                 ],
-                "copper_length_mm": 70.929,
+                "copper_length_mm": 70.829,
                 "length_by_layer_mm": {
-                  "F.Cu": 70.92903
+                  "F.Cu": 70.829029
                 },
                 "via_transitions": 0,
                 "steps": [
@@ -3296,7 +3301,7 @@
                     "reference": null,
                     "from": "U2.7",
                     "to": "RC5.1",
-                    "length_mm": 9.9841
+                    "length_mm": 9.8841
                   },
                   {
                     "kind": "component",
@@ -3327,9 +3332,9 @@
                 "crosses": [
                   "RC6"
                 ],
-                "copper_length_mm": 74.1816,
+                "copper_length_mm": 74.0356,
                 "length_by_layer_mm": {
-                  "F.Cu": 74.181623
+                  "F.Cu": 74.035573
                 },
                 "via_transitions": 0,
                 "steps": [
@@ -3339,7 +3344,7 @@
                     "reference": null,
                     "from": "U2.9",
                     "to": "RC6.1",
-                    "length_mm": 10.5113
+                    "length_mm": 10.407
                   },
                   {
                     "kind": "component",
@@ -3355,7 +3360,7 @@
                     "reference": null,
                     "from": "RC6.2",
                     "to": "MK11.3",
-                    "length_mm": 63.6704
+                    "length_mm": 63.6286
                   }
                 ]
               },
@@ -3370,9 +3375,9 @@
                 "crosses": [
                   "RC6"
                 ],
-                "copper_length_mm": 84.1513,
+                "copper_length_mm": 84.047,
                 "length_by_layer_mm": {
-                  "F.Cu": 84.151321
+                  "F.Cu": 84.047032
                 },
                 "via_transitions": 0,
                 "steps": [
@@ -3382,7 +3387,7 @@
                     "reference": null,
                     "from": "U2.9",
                     "to": "RC6.1",
-                    "length_mm": 10.5113
+                    "length_mm": 10.407
                   },
                   {
                     "kind": "component",
@@ -3587,7 +3592,7 @@
           "units": "paths",
           "kind": "policy",
           "manifest_key": "timing.interfaces.pdm_clock.expected_path_count",
-          "provenance": "manifest.json#timing.interfaces.pdm_clock.expected_path_count@87a10b9d890e"
+          "provenance": "manifest.json#timing.interfaces.pdm_clock.expected_path_count@a4353a556116"
         },
         "timing.pdm_clock.required_component_crossings": {
           "id": "timing.pdm_clock.required_component_crossings",
@@ -3595,7 +3600,7 @@
           "units": "component crossings per path",
           "kind": "policy",
           "manifest_key": "timing.interfaces.pdm_clock.required_component_crossings",
-          "provenance": "manifest.json#timing.interfaces.pdm_clock.required_component_crossings@87a10b9d890e"
+          "provenance": "manifest.json#timing.interfaces.pdm_clock.required_component_crossings@a4353a556116"
         }
       },
       "finding_count": 0,
@@ -3619,9 +3624,9 @@
             "path": "pdm_clock_branch_1",
             "source": "U2.16",
             "destination": "MK1.3",
-            "copper_length_mm": 77.275668,
+            "copper_length_mm": 77.255074,
             "length_by_layer_mm": {
-              "F.Cu": 77.275668
+              "F.Cu": 77.255074
             },
             "delay_ps": null,
             "delay_is_lower_bound": false,
@@ -3654,7 +3659,7 @@
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.25,
-                "length_mm": 64.666733,
+                "length_mm": 64.646139,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               }
             ]
@@ -3664,9 +3669,9 @@
             "path": "pdm_clock_branch_1",
             "source": "U2.16",
             "destination": "MK2.3",
-            "copper_length_mm": 77.772689,
+            "copper_length_mm": 77.748532,
             "length_by_layer_mm": {
-              "F.Cu": 77.772689
+              "F.Cu": 77.748532
             },
             "delay_ps": null,
             "delay_is_lower_bound": false,
@@ -3699,7 +3704,7 @@
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.25,
-                "length_mm": 65.163754,
+                "length_mm": 65.139597,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               }
             ]
@@ -3799,10 +3804,10 @@
             "path": "pdm_clock_branch_3",
             "source": "U2.3",
             "destination": "MK5.3",
-            "copper_length_mm": 84.972264,
+            "copper_length_mm": 84.96583,
             "length_by_layer_mm": {
-              "B.Cu": 5.369848,
-              "F.Cu": 79.602416
+              "B.Cu": 5.367704,
+              "F.Cu": 79.598126
             },
             "delay_ps": null,
             "delay_is_lower_bound": false,
@@ -3828,14 +3833,14 @@
                 "portion": "conductor",
                 "layer": "B.Cu",
                 "width_mm": 0.15,
-                "length_mm": 5.369848,
+                "length_mm": 5.367704,
                 "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 11.677565,
+                "length_mm": 11.673275,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
@@ -3852,10 +3857,10 @@
             "path": "pdm_clock_branch_3",
             "source": "U2.3",
             "destination": "MK6.3",
-            "copper_length_mm": 85.183859,
+            "copper_length_mm": 85.177425,
             "length_by_layer_mm": {
-              "B.Cu": 5.369848,
-              "F.Cu": 79.814011
+              "B.Cu": 5.367704,
+              "F.Cu": 79.809721
             },
             "delay_ps": null,
             "delay_is_lower_bound": false,
@@ -3881,14 +3886,14 @@
                 "portion": "conductor",
                 "layer": "B.Cu",
                 "width_mm": 0.15,
-                "length_mm": 5.369848,
+                "length_mm": 5.367704,
                 "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 11.677564,
+                "length_mm": 11.673274,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
@@ -3905,10 +3910,10 @@
             "path": "pdm_clock_branch_4",
             "source": "U2.5",
             "destination": "MK7.3",
-            "copper_length_mm": 84.412756,
+            "copper_length_mm": 84.271334,
             "length_by_layer_mm": {
               "B.Cu": 3.9,
-              "F.Cu": 80.512756
+              "F.Cu": 80.371334
             },
             "delay_ps": null,
             "delay_is_lower_bound": false,
@@ -3941,7 +3946,7 @@
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 12.908936,
+                "length_mm": 12.767514,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
@@ -3958,10 +3963,10 @@
             "path": "pdm_clock_branch_4",
             "source": "U2.5",
             "destination": "MK8.3",
-            "copper_length_mm": 84.596751,
+            "copper_length_mm": 84.455329,
             "length_by_layer_mm": {
               "B.Cu": 3.9,
-              "F.Cu": 80.696751
+              "F.Cu": 80.555329
             },
             "delay_ps": null,
             "delay_is_lower_bound": false,
@@ -3994,7 +3999,7 @@
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 12.908935,
+                "length_mm": 12.767513,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
@@ -4011,9 +4016,9 @@
             "path": "pdm_clock_branch_5",
             "source": "U2.7",
             "destination": "MK10.3",
-            "copper_length_mm": 85.264359,
+            "copper_length_mm": 85.036117,
             "length_by_layer_mm": {
-              "F.Cu": 85.264359
+              "F.Cu": 85.036117
             },
             "delay_ps": null,
             "delay_is_lower_bound": false,
@@ -4039,14 +4044,14 @@
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 16.418985,
+                "length_mm": 16.318985,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.25,
-                "length_mm": 68.845374,
+                "length_mm": 68.717132,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               }
             ]
@@ -4056,9 +4061,9 @@
             "path": "pdm_clock_branch_5",
             "source": "U2.7",
             "destination": "MK9.3",
-            "copper_length_mm": 70.92903,
+            "copper_length_mm": 70.829029,
             "length_by_layer_mm": {
-              "F.Cu": 70.92903
+              "F.Cu": 70.829029
             },
             "delay_ps": null,
             "delay_is_lower_bound": false,
@@ -4084,14 +4089,14 @@
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 16.418987,
+                "length_mm": 16.318987,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.25,
-                "length_mm": 54.510043,
+                "length_mm": 54.510042,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               }
             ]
@@ -4101,9 +4106,9 @@
             "path": "pdm_clock_branch_6",
             "source": "U2.9",
             "destination": "MK11.3",
-            "copper_length_mm": 74.181623,
+            "copper_length_mm": 74.035573,
             "length_by_layer_mm": {
-              "F.Cu": 74.181623
+              "F.Cu": 74.035573
             },
             "delay_ps": null,
             "delay_is_lower_bound": false,
@@ -4129,14 +4134,14 @@
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 16.946194,
+                "length_mm": 16.841905,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.25,
-                "length_mm": 57.235429,
+                "length_mm": 57.193668,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               }
             ]
@@ -4146,9 +4151,9 @@
             "path": "pdm_clock_branch_6",
             "source": "U2.9",
             "destination": "MK12.3",
-            "copper_length_mm": 84.151321,
+            "copper_length_mm": 84.047032,
             "length_by_layer_mm": {
-              "F.Cu": 84.151321
+              "F.Cu": 84.047032
             },
             "delay_ps": null,
             "delay_is_lower_bound": false,
@@ -4174,7 +4179,7 @@
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 16.946193,
+                "length_mm": 16.841904,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
@@ -4395,7 +4400,7 @@
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.25,
-              "length_mm": 64.666733,
+              "length_mm": 64.646139,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             }
           ]
@@ -4416,7 +4421,7 @@
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.25,
-              "length_mm": 65.163754,
+              "length_mm": 65.139597,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             }
           ]
@@ -4472,14 +4477,14 @@
               "portion": "conductor",
               "layer": "B.Cu",
               "width_mm": 0.15,
-              "length_mm": 5.369848,
+              "length_mm": 5.367704,
               "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             },
             {
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.15,
-              "length_mm": 11.677565,
+              "length_mm": 11.673275,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             },
             {
@@ -4500,14 +4505,14 @@
               "portion": "conductor",
               "layer": "B.Cu",
               "width_mm": 0.15,
-              "length_mm": 5.369848,
+              "length_mm": 5.367704,
               "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             },
             {
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.15,
-              "length_mm": 11.677564,
+              "length_mm": 11.673274,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             },
             {
@@ -4535,7 +4540,7 @@
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.15,
-              "length_mm": 12.908936,
+              "length_mm": 12.767514,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             },
             {
@@ -4563,7 +4568,7 @@
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.15,
-              "length_mm": 12.908935,
+              "length_mm": 12.767513,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             },
             {
@@ -4584,14 +4589,14 @@
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.15,
-              "length_mm": 16.418985,
+              "length_mm": 16.318985,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             },
             {
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.25,
-              "length_mm": 68.845374,
+              "length_mm": 68.717132,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             }
           ]
@@ -4605,14 +4610,14 @@
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.15,
-              "length_mm": 16.418987,
+              "length_mm": 16.318987,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             },
             {
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.25,
-              "length_mm": 54.510043,
+              "length_mm": 54.510042,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             }
           ]
@@ -4626,14 +4631,14 @@
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.15,
-              "length_mm": 16.946194,
+              "length_mm": 16.841905,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             },
             {
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.25,
-              "length_mm": 57.235429,
+              "length_mm": 57.193668,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             }
           ]
@@ -4647,7 +4652,7 @@
               "portion": "conductor",
               "layer": "F.Cu",
               "width_mm": 0.15,
-              "length_mm": 16.946193,
+              "length_mm": 16.841904,
               "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
             },
             {
@@ -4768,7 +4773,7 @@
                 "path": "pdm_clock_branch_1",
                 "destination": "MK1.3",
                 "source": "U2.16",
-                "copper_length_mm": 77.275668,
+                "copper_length_mm": 77.255074,
                 "delay_ps": null,
                 "delay_is_lower_bound": false
               },
@@ -4776,7 +4781,7 @@
                 "path": "pdm_clock_branch_1",
                 "destination": "MK2.3",
                 "source": "U2.16",
-                "copper_length_mm": 77.772689,
+                "copper_length_mm": 77.748532,
                 "delay_ps": null,
                 "delay_is_lower_bound": false
               },
@@ -4800,7 +4805,7 @@
                 "path": "pdm_clock_branch_3",
                 "destination": "MK5.3",
                 "source": "U2.3",
-                "copper_length_mm": 84.972264,
+                "copper_length_mm": 84.96583,
                 "delay_ps": null,
                 "delay_is_lower_bound": false
               },
@@ -4808,7 +4813,7 @@
                 "path": "pdm_clock_branch_3",
                 "destination": "MK6.3",
                 "source": "U2.3",
-                "copper_length_mm": 85.183859,
+                "copper_length_mm": 85.177425,
                 "delay_ps": null,
                 "delay_is_lower_bound": false
               },
@@ -4816,7 +4821,7 @@
                 "path": "pdm_clock_branch_4",
                 "destination": "MK7.3",
                 "source": "U2.5",
-                "copper_length_mm": 84.412756,
+                "copper_length_mm": 84.271334,
                 "delay_ps": null,
                 "delay_is_lower_bound": false
               },
@@ -4824,7 +4829,7 @@
                 "path": "pdm_clock_branch_4",
                 "destination": "MK8.3",
                 "source": "U2.5",
-                "copper_length_mm": 84.596751,
+                "copper_length_mm": 84.455329,
                 "delay_ps": null,
                 "delay_is_lower_bound": false
               },
@@ -4832,7 +4837,7 @@
                 "path": "pdm_clock_branch_5",
                 "destination": "MK10.3",
                 "source": "U2.7",
-                "copper_length_mm": 85.264359,
+                "copper_length_mm": 85.036117,
                 "delay_ps": null,
                 "delay_is_lower_bound": false
               },
@@ -4840,7 +4845,7 @@
                 "path": "pdm_clock_branch_5",
                 "destination": "MK9.3",
                 "source": "U2.7",
-                "copper_length_mm": 70.92903,
+                "copper_length_mm": 70.829029,
                 "delay_ps": null,
                 "delay_is_lower_bound": false
               },
@@ -4848,7 +4853,7 @@
                 "path": "pdm_clock_branch_6",
                 "destination": "MK11.3",
                 "source": "U2.9",
-                "copper_length_mm": 74.181623,
+                "copper_length_mm": 74.035573,
                 "delay_ps": null,
                 "delay_is_lower_bound": false
               },
@@ -4856,7 +4861,7 @@
                 "path": "pdm_clock_branch_6",
                 "destination": "MK12.3",
                 "source": "U2.9",
-                "copper_length_mm": 84.151321,
+                "copper_length_mm": 84.047032,
                 "delay_ps": null,
                 "delay_is_lower_bound": false
               },
@@ -4894,9 +4899,9 @@
               }
             ],
             "skew_ps": null,
-            "length_spread_mm": 14.335329,
+            "length_spread_mm": 14.348396,
             "earliest": "MK9.3",
-            "latest": "MK10.3",
+            "latest": "MK6.3",
             "insufficient": [
               {
                 "portion": "conductor",
@@ -4909,7 +4914,7 @@
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.25,
-                "length_mm": 64.666733,
+                "length_mm": 64.646139,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
@@ -4923,7 +4928,7 @@
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.25,
-                "length_mm": 65.163754,
+                "length_mm": 65.139597,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
@@ -4958,42 +4963,28 @@
                 "portion": "conductor",
                 "layer": "B.Cu",
                 "width_mm": 0.15,
-                "length_mm": 5.369848,
+                "length_mm": 5.367704,
                 "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 11.677565,
+                "length_mm": 11.673275,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "B.Cu",
                 "width_mm": 0.15,
-                "length_mm": 5.369848,
+                "length_mm": 5.367704,
                 "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 11.677564,
-                "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
-              },
-              {
-                "portion": "conductor",
-                "layer": "B.Cu",
-                "width_mm": 0.15,
-                "length_mm": 3.9,
-                "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
-              },
-              {
-                "portion": "conductor",
-                "layer": "F.Cu",
-                "width_mm": 0.15,
-                "length_mm": 12.908936,
+                "length_mm": 11.673274,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
@@ -5007,56 +4998,70 @@
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 12.908935,
+                "length_mm": 12.767514,
+                "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+              },
+              {
+                "portion": "conductor",
+                "layer": "B.Cu",
+                "width_mm": 0.15,
+                "length_mm": 3.9,
+                "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+              },
+              {
+                "portion": "conductor",
+                "layer": "F.Cu",
+                "width_mm": 0.15,
+                "length_mm": 12.767513,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 16.418985,
+                "length_mm": 16.318985,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.25,
-                "length_mm": 68.845374,
+                "length_mm": 68.717132,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 16.418987,
+                "length_mm": 16.318987,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.25,
-                "length_mm": 54.510043,
+                "length_mm": 54.510042,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 16.946194,
+                "length_mm": 16.841905,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.25,
-                "length_mm": 57.235429,
+                "length_mm": 57.193668,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
                 "portion": "conductor",
                 "layer": "F.Cu",
                 "width_mm": 0.15,
-                "length_mm": 16.946193,
+                "length_mm": 16.841904,
                 "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
               },
               {
@@ -5166,14 +5171,14 @@
           "units": "model role",
           "kind": "policy",
           "manifest_key": "timing.models",
-          "provenance": "manifest.json#timing.models@87a10b9d890e"
+          "provenance": "manifest.json#timing.models@a4353a556116"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\board\\timing\\physical_stackup.json",
+          "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\board\\timing\\physical_stackup.json",
           "name": "board/timing/physical_stackup.json",
           "sha256": "948e943964fdbc6e4bca268b6ffc76d6272a0c7597fec7b65eef972a7b436434"
         }
@@ -5292,8 +5297,8 @@
     }
   ],
   "clean_room": {
-    "run_root": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run",
-    "build_root": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build",
+    "run_root": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run",
+    "build_root": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build",
     "origin": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve",
     "purged": [
       "generated",
@@ -5352,13 +5357,13 @@
           "sch",
           "erc",
           "--output",
-          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\reports\\erc.json",
+          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\reports\\erc.json",
           "--format",
           "json",
           "--severity-all",
           "--severity-exclusions",
           "--exit-code-violations",
-          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_sch"
+          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_sch"
         ],
         "stderr": ""
       },
@@ -5371,7 +5376,7 @@
           "pcb",
           "drc",
           "--output",
-          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\reports\\drc.json",
+          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\reports\\drc.json",
           "--format",
           "json",
           "--severity-all",
@@ -5381,7 +5386,7 @@
           "--refill-zones",
           "--save-board",
           "--exit-code-violations",
-          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pcb"
+          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pcb"
         ],
         "stderr": ""
       },
@@ -5395,14 +5400,14 @@
           "export",
           "gerbers",
           "--output",
-          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\generated\\gerbers",
+          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\generated\\gerbers",
           "--layers",
           "F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts",
           "--no-x2",
           "--no-netlist",
           "--use-drill-file-origin",
           "--subtract-soldermask",
-          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pcb"
+          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pcb"
         ],
         "stderr": ""
       },
@@ -5416,13 +5421,13 @@
           "export",
           "drill",
           "--output",
-          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\generated\\gerbers",
+          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\generated\\gerbers",
           "--format",
           "excellon",
           "--excellon-separate-th",
           "--drill-origin",
           "plot",
-          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pcb"
+          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pcb"
         ],
         "stderr": ""
       },
@@ -5436,7 +5441,7 @@
           "export",
           "pos",
           "--output",
-          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\cpl.csv",
+          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\cpl.csv",
           "--format",
           "csv",
           "--units",
@@ -5444,7 +5449,7 @@
           "--side",
           "both",
           "--exclude-dnp",
-          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pcb"
+          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pcb"
         ],
         "stderr": ""
       },
@@ -5458,7 +5463,7 @@
           "export",
           "bom",
           "--output",
-          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\bom.csv",
+          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\bom.csv",
           "--fields",
           "${QUANTITY},Reference,Value,Footprint,LCSC",
           "--labels",
@@ -5468,7 +5473,7 @@
           "--exclude-dnp",
           "--ref-range-delimiter",
           "",
-          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_sch"
+          "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_sch"
         ],
         "stderr": ""
       },
@@ -5549,54 +5554,54 @@
     "authoritative_paths": [
       {
         "key": "archive.manifest",
-        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\MANIFEST.md"
+        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\MANIFEST.md"
       },
       {
         "key": "archive.zip",
-        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\microphone_array_v2-revA-fabrication.zip"
+        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\microphone_array_v2-revA-fabrication.zip"
       },
       {
         "key": "artifacts.bom",
-        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\bom.csv"
+        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\bom.csv"
       },
       {
         "key": "artifacts.cpl",
-        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\cpl.csv"
+        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\cpl.csv"
       },
       {
         "key": "artifacts.gerber_dir",
-        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\build\\gerbers"
+        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\build\\gerbers"
       },
       {
         "key": "fixture.attributes_file",
-        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\.gitattributes"
+        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\.gitattributes"
       },
       {
         "key": "fixture.hash_file",
-        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\HASHES.json"
+        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\HASHES.json"
       },
       {
         "key": "reports:drc.json",
-        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\../../reports\\drc.json"
+        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\../../reports\\drc.json"
       },
       {
         "key": "reports:erc.json",
-        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\../../reports\\erc.json"
+        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\../../reports\\erc.json"
       },
       {
         "key": "sources.pcb",
-        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pcb"
+        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pcb"
       },
       {
         "key": "sources.project",
-        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pro"
+        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_pro"
       },
       {
         "key": "sources.schematic",
-        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260823T211723Z-663d6a97\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_sch"
+        "path": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\microphone-array-v2-live\\attempts\\20260824T051520Z-74624ac2\\work\\clean_run\\fixture\\project\\microphone_array_v2.kicad_sch"
       }
     ],
     "excluded_layers": [],
-    "source_closure_sha256": "a9cb7987172982dbb9eac42b96e1ba3146345e03c2c578cfecb9fa60a6aacfbd"
+    "source_closure_sha256": "a73b71d643357c55a77572558055be6f2c772dd1ffbcc8f90e6c71cb687fc83b"
   }
 }
