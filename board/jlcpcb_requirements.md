@@ -17,7 +17,7 @@ nothing is a preference invented for the selector.
 | `impedance_control` | false | `docs/manufacturing.md` order options: "Impedance control: Not required" |
 
 Result against the approved JLCPCB catalog (normalized
-`fd6b92a3449cd4ae`, parser v3, retrieved 2026-08-25): feasible, and the
+`7777d68d13ec2ab9`, parser v4, retrieved 2026-08-25): feasible, and the
 stackup candidate set is exactly one - `JLC-4L-no-requirement`, JLCPCB's
 own published default 4-layer construction when no impedance requirement
 is stated. Under the v2 catalog the answer is coupling-checked end to end:
@@ -28,7 +28,14 @@ states this copper build (0.035 mm outer at the stated 35 um/oz
 equivalence; "H/HOZ" half-oz cores, corroborated by the impedance
 calculator's stated 15.2 um finished half-oz inner thickness) at 1.6 mm
 nominal, with 4 layers confirmed against the fabricator's discrete
-offered counts rather than a numeric range. The selection
+offered counts rather than a numeric range. Under the v4 catalog every
+remaining requirement is class-scoped too: 1.6 mm carries no stated
+layer restriction (the thickness resource page forbids 0.6 mm for
+4-layer boards, not 1.6), the copper weights come from records whose
+stated scope covers 4-layer boards (0.5 oz inner being the stated
+default, the one inner weight the fabricator's own availability caveat
+does not reach), and the 0.3 mm drill / 0.45 mm via clear the
+multilayer rows of the per-class drilling table. The selection
 output carries the catalog digest and freshness, so the claim is
 reproducible offline against the same approved snapshot.
 
