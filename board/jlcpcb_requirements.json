@@ -1,0 +1,11 @@
+{
+  "copper_layers": 4,
+  "board_thickness_mm": 1.6,
+  "min_track_mm": 0.15,
+  "min_space_mm": 0.15,
+  "min_drill_mm": 0.3,
+  "min_via_diameter_mm": 0.45,
+  "outer_copper_oz": 1.0,
+  "inner_copper_oz": 0.5,
+  "impedance_control": false
+}
