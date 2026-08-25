@@ -17,11 +17,17 @@ nothing is a preference invented for the selector.
 | `impedance_control` | false | `docs/manufacturing.md` order options: "Impedance control: Not required" |
 
 Result against the approved JLCPCB catalog (normalized
-`e92df834668837d2`, retrieved 2026-08-24): feasible, and the stackup
-candidate set is exactly one - `JLC-4L-no-requirement`, JLCPCB's own
-published default 4-layer construction when no impedance requirement is
-stated. The selection output carries the catalog digest and freshness, so
-the claim is reproducible offline against the same approved snapshot.
+`c01eac2fc1117645`, parser v2, retrieved 2026-08-25): feasible, and the
+stackup candidate set is exactly one - `JLC-4L-no-requirement`, JLCPCB's
+own published default 4-layer construction when no impedance requirement
+is stated. Under the v2 catalog the answer is coupling-checked end to end:
+the 0.15/0.15 mm geometry is judged against the limits JLCPCB publishes
+for exactly 1 oz outer and 0.5 oz inner copper at 4 layers (strictest
+0.09/0.09 mm), and the selected construction is the one whose own table
+states this copper build (0.035 mm outer at the stated 35 um/oz
+equivalence; "H/HOZ" half-oz cores) at 1.6 mm nominal. The selection
+output carries the catalog digest and freshness, so the claim is
+reproducible offline against the same approved snapshot.
 
 This file records an inspection. It does not change the board, and no
 exported stackup supplement has been wired into the board's timing inputs.
