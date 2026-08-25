@@ -17,7 +17,7 @@ nothing is a preference invented for the selector.
 | `impedance_control` | false | `docs/manufacturing.md` order options: "Impedance control: Not required" |
 
 Result against the approved JLCPCB catalog (normalized
-`21c904a74d3f14ec`, parser v5, retrieved 2026-08-25): feasible, and the
+`f7cd05e75e1f9d6d`, parser v6, retrieved 2026-08-25): feasible, and the
 stackup candidate set is exactly one - `JLC-4L-no-requirement`, JLCPCB's
 own published default 4-layer construction when no impedance requirement
 is stated. Under the v2 catalog the answer is coupling-checked end to end:
