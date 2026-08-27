@@ -1,0 +1,5896 @@
+{
+ "board_file_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+ "board_thickness_mm": 1.6,
+ "copper_thickness_mm": {
+  "B.Cu": 0.035,
+  "F.Cu": 0.035,
+  "In1.Cu": 0.0152,
+  "In2.Cu": 0.0152
+ },
+ "interface_paths": {
+  "TIMING.INTERCONNECT_DELAY": {
+   "measurements": {
+    "backend_detail": "closed-form analytic model, always available",
+    "backend_fell_back": false,
+    "backend_requested": "analytic",
+    "backend_used": "analytic",
+    "fidelity": [
+     "geometry-only"
+    ],
+    "paths": [
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y0",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC1.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC1",
+        "to_net": "PDM_CLK_B0"
+       }
+      ],
+      "copper_length_mm": 77.255074,
+      "crosses": [
+       "RC1"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK1.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 12.608935,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 64.646139,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "F.Cu": 77.255074
+      },
+      "length_uncertainty_mm": 0.571123,
+      "path": "pdm_clock_branch_1",
+      "source": "U2.16",
+      "vias": 0
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y0",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC1.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC1",
+        "to_net": "PDM_CLK_B0"
+       }
+      ],
+      "copper_length_mm": 77.748532,
+      "crosses": [
+       "RC1"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK2.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 12.608935,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 65.139597,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "F.Cu": 77.748532
+      },
+      "length_uncertainty_mm": 0.574685,
+      "path": "pdm_clock_branch_1",
+      "source": "U2.16",
+      "vias": 0
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y1",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC2.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC2",
+        "to_net": "PDM_CLK_B1"
+       }
+      ],
+      "copper_length_mm": 84.095894,
+      "crosses": [
+       "RC2"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK3.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 16.491778,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.604116,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "F.Cu": 84.095894
+      },
+      "length_uncertainty_mm": 0.0,
+      "path": "pdm_clock_branch_2",
+      "source": "U2.18",
+      "vias": 0
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y1",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC2.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC2",
+        "to_net": "PDM_CLK_B1"
+       }
+      ],
+      "copper_length_mm": 84.313621,
+      "crosses": [
+       "RC2"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK4.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 16.491777,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.821844,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "F.Cu": 84.313621
+      },
+      "length_uncertainty_mm": 0.0,
+      "path": "pdm_clock_branch_2",
+      "source": "U2.18",
+      "vias": 0
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y2",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC3.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC3",
+        "to_net": "PDM_CLK_B2"
+       }
+      ],
+      "copper_length_mm": 84.96583,
+      "crosses": [
+       "RC3"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK5.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "B.Cu",
+        "length_mm": 5.367704,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 11.673275,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.924851,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "B.Cu": 5.367704,
+       "F.Cu": 79.598126
+      },
+      "length_uncertainty_mm": 0.006434,
+      "path": "pdm_clock_branch_3",
+      "source": "U2.3",
+      "vias": 2
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y2",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC3.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC3",
+        "to_net": "PDM_CLK_B2"
+       }
+      ],
+      "copper_length_mm": 85.177425,
+      "crosses": [
+       "RC3"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK6.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "B.Cu",
+        "length_mm": 5.367704,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 11.673274,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 68.136447,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "B.Cu": 5.367704,
+       "F.Cu": 79.809721
+      },
+      "length_uncertainty_mm": 0.006434,
+      "path": "pdm_clock_branch_3",
+      "source": "U2.3",
+      "vias": 2
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y3",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC4.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC4",
+        "to_net": "PDM_CLK_B3"
+       }
+      ],
+      "copper_length_mm": 84.271334,
+      "crosses": [
+       "RC4"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK7.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "B.Cu",
+        "length_mm": 3.9,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 12.767514,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.60382,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "B.Cu": 3.9,
+       "F.Cu": 80.371334
+      },
+      "length_uncertainty_mm": 0.008579,
+      "path": "pdm_clock_branch_4",
+      "source": "U2.5",
+      "vias": 2
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y3",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC4.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC4",
+        "to_net": "PDM_CLK_B3"
+       }
+      ],
+      "copper_length_mm": 84.455329,
+      "crosses": [
+       "RC4"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK8.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "B.Cu",
+        "length_mm": 3.9,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 12.767513,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.787815,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "B.Cu": 3.9,
+       "F.Cu": 80.555329
+      },
+      "length_uncertainty_mm": 0.008579,
+      "path": "pdm_clock_branch_4",
+      "source": "U2.5",
+      "vias": 2
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y4",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC5.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC5",
+        "to_net": "PDM_CLK_B4"
+       }
+      ],
+      "copper_length_mm": 85.036117,
+      "crosses": [
+       "RC5"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK10.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 16.318985,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 68.717132,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "F.Cu": 85.036117
+      },
+      "length_uncertainty_mm": 2.612281,
+      "path": "pdm_clock_branch_5",
+      "source": "U2.7",
+      "vias": 0
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y4",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC5.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC5",
+        "to_net": "PDM_CLK_B4"
+       }
+      ],
+      "copper_length_mm": 70.829029,
+      "crosses": [
+       "RC5"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK9.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 16.318987,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 54.510042,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "F.Cu": 70.829029
+      },
+      "length_uncertainty_mm": 0.114926,
+      "path": "pdm_clock_branch_5",
+      "source": "U2.7",
+      "vias": 0
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y5",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC6.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC6",
+        "to_net": "PDM_CLK_B5"
+       }
+      ],
+      "copper_length_mm": 74.035573,
+      "crosses": [
+       "RC6"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK11.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 16.841905,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 57.193668,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "F.Cu": 74.035573
+      },
+      "length_uncertainty_mm": 0.233603,
+      "path": "pdm_clock_branch_6",
+      "source": "U2.9",
+      "vias": 0
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y5",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC6.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC6",
+        "to_net": "PDM_CLK_B5"
+       }
+      ],
+      "copper_length_mm": 84.047032,
+      "crosses": [
+       "RC6"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK12.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 16.841904,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.205128,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "F.Cu": 84.047032
+      },
+      "length_uncertainty_mm": 0.494069,
+      "path": "pdm_clock_branch_6",
+      "source": "U2.9",
+      "vias": 0
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y6",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC7.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC7",
+        "to_net": "PDM_CLK_B6"
+       }
+      ],
+      "copper_length_mm": 79.459715,
+      "crosses": [
+       "RC7"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK13.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 11.780508,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.679207,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "F.Cu": 79.459715
+      },
+      "length_uncertainty_mm": 0.0,
+      "path": "pdm_clock_branch_7",
+      "source": "U2.12",
+      "vias": 0
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y6",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC7.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC7",
+        "to_net": "PDM_CLK_B6"
+       }
+      ],
+      "copper_length_mm": 79.531952,
+      "crosses": [
+       "RC7"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK14.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 11.780507,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.751445,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "F.Cu": 79.531952
+      },
+      "length_uncertainty_mm": 0.0,
+      "path": "pdm_clock_branch_7",
+      "source": "U2.12",
+      "vias": 0
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y7",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC8.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC8",
+        "to_net": "PDM_CLK_B7"
+       }
+      ],
+      "copper_length_mm": 79.067568,
+      "crosses": [
+       "RC8"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK15.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 11.877565,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.190003,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "F.Cu": 79.067568
+      },
+      "length_uncertainty_mm": 0.0,
+      "path": "pdm_clock_branch_8",
+      "source": "U2.14",
+      "vias": 0
+     },
+     {
+      "assumptions": [],
+      "component_traversals": [
+       {
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "from_net": "PDM_CLK_Y7",
+        "model": null,
+        "model_status": "unmodelled",
+        "reason": "no delay model is declared for RC8.1, so nothing is attributed to it and any total containing this path is a lower bound",
+        "reference": "RC8",
+        "to_net": "PDM_CLK_B7"
+       }
+      ],
+      "copper_length_mm": 79.672308,
+      "crosses": [
+       "RC8"
+      ],
+      "delay_is_lower_bound": false,
+      "delay_lower_ps": null,
+      "delay_ps": null,
+      "delay_upper_ps": null,
+      "destination": "MK16.3",
+      "fidelity": "geometry-only",
+      "geometric_uncertainty_ps": null,
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 11.877564,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.794744,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "length_by_layer_mm": {
+       "F.Cu": 79.672308
+      },
+      "length_uncertainty_mm": 0.0,
+      "path": "pdm_clock_branch_8",
+      "source": "U2.14",
+      "vias": 0
+     }
+    ],
+    "paths_with_lower_bound_delay": 0,
+    "paths_without_derivable_delay": 16,
+    "physical_stackup_source": "native_kicad_board+board_declaration",
+    "propagation_model": "hammerstad",
+    "scope": "passive PCB interconnect only: copper propagation and, where a model is declared, via vertical transit. Excludes driver output delay and output-to-output skew, package delay, receiver threshold behaviour and PVT variation.",
+    "via_delay_model": "none"
+   },
+   "status": "NOT_APPLICABLE"
+  },
+  "TIMING.INTERCONNECT_SKEW": {
+   "measurements": {
+    "backend_detail": "closed-form analytic model, always available",
+    "backend_fell_back": false,
+    "backend_requested": "analytic",
+    "backend_used": "analytic",
+    "groups": [
+     {
+      "any_lower_bound": false,
+      "assumptions_relied_on": 0,
+      "description": "All sixteen microphone clock pins, compared against each other. The spread reported here is the difference in passive PCB propagation between the earliest and latest arrival, measured from the buffer pins.",
+      "earliest": "MK9.3",
+      "endpoints": [
+       {
+        "copper_length_mm": 77.255074,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK1.3",
+        "length_uncertainty_mm": 0.571123,
+        "path": "pdm_clock_branch_1",
+        "source": "U2.16"
+       },
+       {
+        "copper_length_mm": 77.748532,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK2.3",
+        "length_uncertainty_mm": 0.574685,
+        "path": "pdm_clock_branch_1",
+        "source": "U2.16"
+       },
+       {
+        "copper_length_mm": 84.095894,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK3.3",
+        "length_uncertainty_mm": 0.0,
+        "path": "pdm_clock_branch_2",
+        "source": "U2.18"
+       },
+       {
+        "copper_length_mm": 84.313621,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK4.3",
+        "length_uncertainty_mm": 0.0,
+        "path": "pdm_clock_branch_2",
+        "source": "U2.18"
+       },
+       {
+        "copper_length_mm": 84.96583,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK5.3",
+        "length_uncertainty_mm": 0.006434,
+        "path": "pdm_clock_branch_3",
+        "source": "U2.3"
+       },
+       {
+        "copper_length_mm": 85.177425,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK6.3",
+        "length_uncertainty_mm": 0.006434,
+        "path": "pdm_clock_branch_3",
+        "source": "U2.3"
+       },
+       {
+        "copper_length_mm": 84.271334,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK7.3",
+        "length_uncertainty_mm": 0.008579,
+        "path": "pdm_clock_branch_4",
+        "source": "U2.5"
+       },
+       {
+        "copper_length_mm": 84.455329,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK8.3",
+        "length_uncertainty_mm": 0.008579,
+        "path": "pdm_clock_branch_4",
+        "source": "U2.5"
+       },
+       {
+        "copper_length_mm": 85.036117,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK10.3",
+        "length_uncertainty_mm": 2.612281,
+        "path": "pdm_clock_branch_5",
+        "source": "U2.7"
+       },
+       {
+        "copper_length_mm": 70.829029,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK9.3",
+        "length_uncertainty_mm": 0.114926,
+        "path": "pdm_clock_branch_5",
+        "source": "U2.7"
+       },
+       {
+        "copper_length_mm": 74.035573,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK11.3",
+        "length_uncertainty_mm": 0.233603,
+        "path": "pdm_clock_branch_6",
+        "source": "U2.9"
+       },
+       {
+        "copper_length_mm": 84.047032,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK12.3",
+        "length_uncertainty_mm": 0.494069,
+        "path": "pdm_clock_branch_6",
+        "source": "U2.9"
+       },
+       {
+        "copper_length_mm": 79.459715,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK13.3",
+        "length_uncertainty_mm": 0.0,
+        "path": "pdm_clock_branch_7",
+        "source": "U2.12"
+       },
+       {
+        "copper_length_mm": 79.531952,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK14.3",
+        "length_uncertainty_mm": 0.0,
+        "path": "pdm_clock_branch_7",
+        "source": "U2.12"
+       },
+       {
+        "copper_length_mm": 79.067568,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK15.3",
+        "length_uncertainty_mm": 0.0,
+        "path": "pdm_clock_branch_8",
+        "source": "U2.14"
+       },
+       {
+        "copper_length_mm": 79.672308,
+        "delay_is_lower_bound": false,
+        "delay_lower_ps": null,
+        "delay_ps": null,
+        "delay_upper_ps": null,
+        "destination": "MK16.3",
+        "length_uncertainty_mm": 0.0,
+        "path": "pdm_clock_branch_8",
+        "source": "U2.14"
+       }
+      ],
+      "group": "microphone_clock_endpoints",
+      "insufficient": [
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 12.608935,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 64.646139,
+        "portion": "conductor",
+        "width_mm": 0.25
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 12.608935,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 65.139597,
+        "portion": "conductor",
+        "width_mm": 0.25
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 16.491778,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.604116,
+        "portion": "conductor",
+        "width_mm": 0.25
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 16.491777,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.821844,
+        "portion": "conductor",
+        "width_mm": 0.25
+       },
+       {
+        "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "B.Cu",
+        "length_mm": 5.367704,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 11.673275,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "B.Cu",
+        "length_mm": 5.367704,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 11.673274,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "B.Cu",
+        "length_mm": 3.9,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 12.767514,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'B.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "B.Cu",
+        "length_mm": 3.9,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 12.767513,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 16.318985,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 68.717132,
+        "portion": "conductor",
+        "width_mm": 0.25
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 16.318987,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 54.510042,
+        "portion": "conductor",
+        "width_mm": 0.25
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 16.841905,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 57.193668,
+        "portion": "conductor",
+        "width_mm": 0.25
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 16.841904,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.205128,
+        "portion": "conductor",
+        "width_mm": 0.25
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 11.780508,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.679207,
+        "portion": "conductor",
+        "width_mm": 0.25
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 11.780507,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.751445,
+        "portion": "conductor",
+        "width_mm": 0.25
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 11.877565,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.190003,
+        "portion": "conductor",
+        "width_mm": 0.25
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 11.877564,
+        "portion": "conductor",
+        "width_mm": 0.15
+       },
+       {
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness",
+        "layer": "F.Cu",
+        "length_mm": 67.794744,
+        "portion": "conductor",
+        "width_mm": 0.25
+       }
+      ],
+      "interface": "pdm_clock",
+      "latest": "MK6.3",
+      "length_spread_lower_mm": 14.227036,
+      "length_spread_mm": 14.348396,
+      "length_spread_upper_mm": 16.934295,
+      "measured_in": "mm",
+      "members": 16,
+      "skew_lower_ps": null,
+      "skew_ps": null,
+      "skew_upper_ps": null
+     }
+    ],
+    "physical_stackup_source": "native_kicad_board+board_declaration",
+    "propagation_model": "hammerstad",
+    "scope": "passive PCB interconnect only. This is NOT total clock arrival skew: it excludes driver output-to-output skew, driver and receiver package delay, receiver threshold behaviour and PVT variation."
+   },
+   "status": "NOT_APPLICABLE"
+  }
+ },
+ "kind": "board-geometry-baseline",
+ "nets": {
+  "+3V3A": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.41681735
+   },
+   "net": "+3V3A",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.488285,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.488284,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.488284,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.488284,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.488284,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.488284,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.488284,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.488284,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.488284,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.488284,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.611975,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.611975,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.611975,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.611975,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.611975,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.611975,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.611974,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.611974,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663912,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663912,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663912,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663912,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.663911,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.66391,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.765852,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.765852,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.765852,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.765851,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.6,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.4,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.3,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.272792,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.4,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 10.323759,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 10.1,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 8.3,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.505382,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.081118,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.0,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993015,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993015,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993015,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993015,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993015,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993015,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993014,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993014,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993014,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993014,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993014,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993014,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993013,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993013,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993013,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.993013,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.72,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.58,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.445356,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.3975,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.395,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.979899,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.9,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.838478,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.787235,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.4475,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.425,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.414214,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.25,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.25,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.25,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.25,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.2,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.1,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.989949,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.9,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.749999,
+     "width_mm": 0.5
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.7,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.247487,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125001,
+     "width_mm": 0.36
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125001,
+     "width_mm": 0.36
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.28
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.28
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.28
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.28
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.28
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.36
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.36
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.36
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.44
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.44
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.44
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.44
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.44
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.52
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.52
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.52
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.52
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.125,
+     "width_mm": 0.52
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.054644,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.0375,
+     "width_mm": 0.6
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 434.653384,
+    "length_by_layer_mm": {
+     "B.Cu": 260.765239,
+     "F.Cu": 173.888145
+    },
+    "via_barrel_estimate_mm": 44.8,
+    "via_count": 28
+   }
+  },
+  "+3V3_CLK": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.099899333
+   },
+   "net": "+3V3_CLK",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.5,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.818377,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.1,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.989949,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.9,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 8.3,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.11127,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.6,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.467473,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.1625,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.12132,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.0,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.697056,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.697056,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.5,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.414214,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.3,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.272792,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.2,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.2,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.1,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.848528,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.848528,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.707107,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.707107,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.5,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.5,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.4,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.3,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.3,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.3,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.3,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.078111,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.070711,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.070711,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.045069,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.032527,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.025,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.025,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.02,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.02,
+     "width_mm": 0.6
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 62.75873,
+    "length_by_layer_mm": {
+     "B.Cu": 12.308326,
+     "F.Cu": 50.450404
+    },
+    "via_barrel_estimate_mm": 8.0,
+    "via_count": 5
+   }
+  },
+  "+5V": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.040416697
+   },
+   "net": "+5V",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 5.17,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.14,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.394113,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.6,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.4,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.395,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.9,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.87,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.838478,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.65,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.5625,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.5625,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.4475,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.39,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.27,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 32.872934,
+    "length_by_layer_mm": {
+     "F.Cu": 32.872934
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "5V_FUSED": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.002760612
+   },
+   "net": "5V_FUSED",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.3625,
+     "width_mm": 0.6
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 3.3625,
+    "length_by_layer_mm": {
+     "F.Cu": 3.3625
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "AUDIO_MCLK": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.008728872
+   },
+   "net": "AUDIO_MCLK",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.43,
+     "width_mm": 0.25
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 4.43,
+    "length_by_layer_mm": {
+     "F.Cu": 4.43
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "MCLK_OSC": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.007553534
+   },
+   "net": "MCLK_OSC",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.49,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.343503,
+     "width_mm": 0.25
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 3.833503,
+    "length_by_layer_mm": {
+     "F.Cu": 3.833503
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "MIC_DOUT_0": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.025755479
+   },
+   "net": "MIC_DOUT_0",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.11,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.7,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.697056,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 7.842716,
+    "length_by_layer_mm": {
+     "F.Cu": 7.842716
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "MIC_DOUT_15": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.025755483
+   },
+   "net": "MIC_DOUT_15",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.110001,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.7,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.697056,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 7.842717,
+    "length_by_layer_mm": {
+     "F.Cu": 7.842717
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "MIC_VDD_0": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.02442321
+   },
+   "net": "MIC_VDD_0",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.85,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.7,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.834386,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.42,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.296985,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 7.437031,
+    "length_by_layer_mm": {
+     "F.Cu": 7.437031
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "MIC_VDD_15": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.028856603
+   },
+   "net": "MIC_VDD_15",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.849999,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.699999,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.35,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.834386,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.42,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.296985,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 8.787029,
+    "length_by_layer_mm": {
+     "F.Cu": 8.787029
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_B0": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.228841874
+   },
+   "net": "PDM_CLK_B0",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 16.179256,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 16.179255,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 10.931871,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 7.063662,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 5.119154,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.999999,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.999999,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.630843,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.416772,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.7842,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.483554,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.483554,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.098504,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.38,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.348999,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.242132,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.071908,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.932654,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.881841,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.876772,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.248757,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.219708,
+     "width_mm": 0.25
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 107.193242,
+    "length_by_layer_mm": {
+     "F.Cu": 107.193242
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_B1": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.222010956
+   },
+   "net": "PDM_CLK_B1",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 20.271016,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 15.179255,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 15.179254,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 5.868496,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.214372,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.0,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.999999,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.774618,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.74,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.659761,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.480866,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.364372,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.308886,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.107178,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.437035,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.32152,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.274999,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 103.726475,
+    "length_by_layer_mm": {
+     "F.Cu": 103.726475
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_B2": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.224195764
+   },
+   "net": "PDM_CLK_B2",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 16.179255,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 16.179255,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 15.335225,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 7.396337,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 5.703187,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.095656,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.0,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.999999,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.853589,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.565508,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.4836,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.21568,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.190243,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.72,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.701354,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.396553,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 104.835289,
+    "length_by_layer_mm": {
+     "F.Cu": 104.835289
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_B3": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.230550924
+   },
+   "net": "PDM_CLK_B3",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 20.679255,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 20.679255,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 10.931871,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 8.08561,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 5.516566,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.959293,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.483364,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.0,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.999999,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.561441,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.796242,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.274931,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.25124,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.76,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.214394,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.047296,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.274999,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 108.060604,
+    "length_by_layer_mm": {
+     "F.Cu": 108.060604
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_B4": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.225592632
+   },
+   "net": "PDM_CLK_B4",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 16.179255,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 16.179254,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 14.845517,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 11.679637,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 5.703187,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.289375,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.125399,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.095657,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.0,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.999999,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.635851,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.454507,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.215678,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.396553,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.351857,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.137947,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.526164,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.30853,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 105.544215,
+    "length_by_layer_mm": {
+     "F.Cu": 105.544215
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_B5": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.218588673
+   },
+   "net": "PDM_CLK_B5",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 13.179255,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 13.179254,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 11.469704,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 9.13,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 8.103444,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.876769,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.413705,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.262154,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.0,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.999999,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.774149,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.741238,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.972452,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.22,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.17093,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.751142,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.608112,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.317474,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.274999,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 101.989628,
+    "length_by_layer_mm": {
+     "F.Cu": 101.989628
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_B6": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.218435385
+   },
+   "net": "PDM_CLK_B6",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 18.072149,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 12.179256,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 12.179255,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 10.641459,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 8.103444,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 7.046794,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.733714,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.999999,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.999999,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.38,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.951615,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.899809,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.51449,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.950001,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.39,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 101.911832,
+    "length_by_layer_mm": {
+     "F.Cu": 101.911832
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_B7": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.216689099
+   },
+   "net": "PDM_CLK_B7",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 16.99,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 10.179256,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 10.179254,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 9.051872,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.714517,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 5.95,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 5.778915,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.996435,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.457553,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.0,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.999999,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.224407,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.224407,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.333502,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.95,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.579857,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.545752,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.494975,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.275,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.274999,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 101.025573,
+    "length_by_layer_mm": {
+     "F.Cu": 101.025573
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_FPGA": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.058343544
+   },
+   "net": "PDM_CLK_FPGA",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 15.69,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.43,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.0,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.49,
+     "width_mm": 0.25
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 29.61,
+    "length_by_layer_mm": {
+     "F.Cu": 29.61
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_IN": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.074904756
+   },
+   "net": "PDM_CLK_IN",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.99,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.525,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.8625,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.8625,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.8625,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.8625,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.8625,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.8625,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.8625,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.8625,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.6,
+     "width_mm": 0.25
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 38.015,
+    "length_by_layer_mm": {
+     "F.Cu": 38.015
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_Y0": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.022009115
+   },
+   "net": "PDM_CLK_Y0",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 5.374012,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.4,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.4,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.045069,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 6.701923,
+    "length_by_layer_mm": {
+     "F.Cu": 6.701923
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_Y1": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.033174715
+   },
+   "net": "PDM_CLK_Y1",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 5.23259,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.1,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.4,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.9,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.045069,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 10.101923,
+    "length_by_layer_mm": {
+     "F.Cu": 10.101923
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_Y2": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.0380347
+   },
+   "net": "PDM_CLK_Y2",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.969848,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.4,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.838478,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.555635,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.0,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.848528,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.045069,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 11.581821,
+    "length_by_layer_mm": {
+     "B.Cu": 5.611269,
+     "F.Cu": 5.970552
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "PDM_CLK_Y3": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.036787112
+   },
+   "net": "PDM_CLK_Y3",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.9,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.11127,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.272792,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.848528,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.8,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.3,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.045069,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 11.201922,
+    "length_by_layer_mm": {
+     "B.Cu": 3.9,
+     "F.Cu": 7.301922
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "PDM_CLK_Y4": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.035778572
+   },
+   "net": "PDM_CLK_Y4",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.687006,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.848528,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.4,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.3,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.045069,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 10.894815,
+    "length_by_layer_mm": {
+     "F.Cu": 10.894815
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_Y5": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.036388697
+   },
+   "net": "PDM_CLK_Y5",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 5.8,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.272792,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.8,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.707107,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.7,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.565685,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.424264,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.1,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.045069,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 11.080602,
+    "length_by_layer_mm": {
+     "F.Cu": 11.080602
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_Y6": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.017702904
+   },
+   "net": "PDM_CLK_Y6",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.8,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.545584,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.045069,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 5.390653,
+    "length_by_layer_mm": {
+     "F.Cu": 5.390653
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_CLK_Y7": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.019607293
+   },
+   "net": "PDM_CLK_Y7",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.242641,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.2,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.15
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.045069,
+     "width_mm": 0.15
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 5.970552,
+    "length_by_layer_mm": {
+     "F.Cu": 5.970552
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PDM_D0": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.116010549
+   },
+   "net": "PDM_D0",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.527708,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 7.558425,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.42,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.796051,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.666293,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.07,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.589999,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.99,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 47.101319,
+    "length_by_layer_mm": {
+     "B.Cu": 40.52132,
+     "F.Cu": 6.579999
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "PDM_D1": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.120496672
+   },
+   "net": "PDM_D1",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 19.302362,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 14.185504,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 4.254858,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.6,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.590002,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.989999,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 48.922725,
+    "length_by_layer_mm": {
+     "B.Cu": 42.342724,
+     "F.Cu": 6.580001
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "PDM_D2": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.128075108
+   },
+   "net": "PDM_D2",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 19.16,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 13.253109,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 9.20653,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.8,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.59,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.989999,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 51.999638,
+    "length_by_layer_mm": {
+     "B.Cu": 45.419639,
+     "F.Cu": 6.579999
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "PDM_D3": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.126640647
+   },
+   "net": "PDM_D3",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 20.219637,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 17.325059,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.240001,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.052537,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.590001,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.989999,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 51.417234,
+    "length_by_layer_mm": {
+     "B.Cu": 44.837234,
+     "F.Cu": 6.58
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "PDM_D4": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.189506471
+   },
+   "net": "PDM_D4",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 22.478426,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 21.34,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.527708,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 4.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.399999,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.796051,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.666294,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.07,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.589999,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.99,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 76.94132,
+    "length_by_layer_mm": {
+     "B.Cu": 70.361321,
+     "F.Cu": 6.579999
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "PDM_D5": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.14501148
+   },
+   "net": "PDM_D5",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 15.967413,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.58,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.94,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.040002,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 4.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.365828,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.703075,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.499637,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.590002,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.989999,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 58.875956,
+    "length_by_layer_mm": {
+     "B.Cu": 52.295955,
+     "F.Cu": 6.580001
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "PDM_D6": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.173226866
+   },
+   "net": "PDM_D6",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 10.705597,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 10.078248,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.957931,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.94,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.94,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 6.84,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.86,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.378356,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.378356,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.17492,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.8,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.698248,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.589999,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.99,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 70.331655,
+    "length_by_layer_mm": {
+     "B.Cu": 63.751656,
+     "F.Cu": 6.579999
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "PDM_D7": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.089089946
+   },
+   "net": "PDM_D7",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 14.490667,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 10.289333,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.228952,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.582362,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.590001,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.989999,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 36.171314,
+    "length_by_layer_mm": {
+     "B.Cu": 29.591314,
+     "F.Cu": 6.58
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "PI_5V": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.071209436
+   },
+   "net": "PI_5V",
+   "segments": [
+    {
+     "layer": "F.Cu",
+     "length_mm": 35.84,
+     "width_mm": 0.4
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.7,
+     "width_mm": 0.4
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.05,
+     "width_mm": 0.4
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.03,
+     "width_mm": 0.4
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 4.000001,
+     "width_mm": 0.4
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.54,
+     "width_mm": 0.6
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.51,
+     "width_mm": 0.4
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 58.670001,
+    "length_by_layer_mm": {
+     "F.Cu": 58.670001
+    },
+    "via_barrel_estimate_mm": 0.0,
+    "via_count": 0
+   }
+  },
+  "PI_CS_N": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.06444459
+   },
+   "net": "PI_CS_N",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.6,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.555635,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.414214,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.7,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.598617,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.9,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.838478,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.848528,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2025,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 26.165079,
+    "length_by_layer_mm": {
+     "B.Cu": 9.252692,
+     "F.Cu": 16.912387
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "PI_MISO": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.029238344
+   },
+   "net": "PI_MISO",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.838478,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.989949,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 3.6775,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.848528,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.371231,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.0625,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 11.871029,
+    "length_by_layer_mm": {
+     "B.Cu": 4.028427,
+     "F.Cu": 7.842602
+    },
+    "via_barrel_estimate_mm": 1.6,
+    "via_count": 1
+   }
+  },
+  "PI_MOSI": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.029202577
+   },
+   "net": "PI_MOSI",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.23259,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.884996,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.9,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.4975,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 11.856507,
+    "length_by_layer_mm": {
+     "B.Cu": 5.23259,
+     "F.Cu": 6.623917
+    },
+    "via_barrel_estimate_mm": 1.6,
+    "via_count": 1
+   }
+  },
+  "PI_SCLK": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.025849751
+   },
+   "net": "PI_SCLK",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.697056,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.315775,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.9,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.838478,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.8,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.4025,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 10.49523,
+    "length_by_layer_mm": {
+     "B.Cu": 1.697056,
+     "F.Cu": 8.798174
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "SPI_CS_N": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.037369343
+   },
+   "net": "SPI_CS_N",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 11.030866,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.1,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.5,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 15.172287,
+    "length_by_layer_mm": {
+     "B.Cu": 13.530866,
+     "F.Cu": 1.641421
+    },
+    "via_barrel_estimate_mm": 1.6,
+    "via_count": 1
+   }
+  },
+  "SPI_MISO": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.033235998
+   },
+   "net": "SPI_MISO",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 8.8,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.404163,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.848528,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.3,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 13.494112,
+    "length_by_layer_mm": {
+     "B.Cu": 11.604163,
+     "F.Cu": 1.889949
+    },
+    "via_barrel_estimate_mm": 1.6,
+    "via_count": 1
+   }
+  },
+  "SPI_MOSI": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.034614783
+   },
+   "net": "SPI_MOSI",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.798276,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 5.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.414214,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.5,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 14.053911,
+    "length_by_layer_mm": {
+     "B.Cu": 12.41249,
+     "F.Cu": 1.641421
+    },
+    "via_barrel_estimate_mm": 1.6,
+    "via_count": 1
+   }
+  },
+  "SPI_SCLK": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.040026129
+   },
+   "net": "SPI_SCLK",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.4,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 5.23259,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.0,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.838478,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.6,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.272792,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.3,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.3,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.2,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.2
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 16.250966,
+    "length_by_layer_mm": {
+     "B.Cu": 1.4,
+     "F.Cu": 14.850966
+    },
+    "via_barrel_estimate_mm": 3.2,
+    "via_count": 2
+   }
+  },
+  "TANG_3V3": {
+   "dc": {
+    "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "segment_resistance_sum_ohm": 0.078105084
+   },
+   "net": "TANG_3V3",
+   "segments": [
+    {
+     "layer": "B.Cu",
+     "length_mm": 7.8,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 3.676955,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 2.12132,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 1.979899,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.7,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "B.Cu",
+     "length_mm": 0.4,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 8.5,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 6.0,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.1,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 2.1,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.1375,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.1375,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 1.1,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.282843,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.141421,
+     "width_mm": 0.25
+    },
+    {
+     "layer": "F.Cu",
+     "length_mm": 0.0375,
+     "width_mm": 0.25
+    }
+   ],
+   "totals": {
+    "copper_length_mm": 39.639202,
+    "length_by_layer_mm": {
+     "B.Cu": 16.678174,
+     "F.Cu": 22.961028
+    },
+    "via_barrel_estimate_mm": 4.8,
+    "via_count": 3
+   }
+  }
+ },
+ "notes": [
+  "geometry-derived quantities only; no inductance or capacitance is claimed anywhere in this report",
+  "interface_paths, when present, are the timing gates' own recorded measurements with their stated scopes and uncertainties"
+ ]
+}
