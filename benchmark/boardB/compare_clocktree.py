@@ -24,9 +24,9 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8",
                               errors="replace")
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
-TOOLKIT = os.environ.get(
-    "PCB_TOOLKIT_PATH",
-    os.path.join(REPO, "tooling", "PCB_AutoDesignAndTest"))
+TOOLKIT = (os.environ.get("PCB_TOOLKIT_PATH")
+           or os.path.join(REPO, "tooling",
+                           "PCB_AutoDesignAndTest"))
 sys.path.insert(0, TOOLKIT)
 
 from pcbqa import benchmark, extract               # noqa: E402

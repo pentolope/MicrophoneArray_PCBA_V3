@@ -34,9 +34,9 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8",
                               errors="replace")
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
-sys.path.insert(0, os.environ.get(
-    "PCB_TOOLKIT_PATH",
-    os.path.join(REPO, "tooling", "PCB_AutoDesignAndTest")))
+sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
+                or os.path.join(REPO, "tooling",
+                                "PCB_AutoDesignAndTest"))
 
 from pcbqa import extract                          # noqa: E402
 from pcbqa.sim import fidelity, ngspice            # noqa: E402
