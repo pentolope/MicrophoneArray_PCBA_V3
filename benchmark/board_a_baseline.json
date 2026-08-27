@@ -1,12 +1,5 @@
 {
  "board_file_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
- "board_thickness_mm": 1.6,
- "copper_thickness_mm": {
-  "B.Cu": 0.035,
-  "F.Cu": 0.035,
-  "In1.Cu": 0.0152,
-  "In2.Cu": 0.0152
- },
  "interface_paths": {
   "TIMING.INTERCONNECT_DELAY": {
    "measurements": {
@@ -1303,7 +1296,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.41681735
+    "segment_resistance_sum_ohm": 0.358971635
    },
    "net": "+3V3A",
    "segments": [
@@ -1933,7 +1926,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.099899333
+    "segment_resistance_sum_ohm": 0.08603535
    },
    "net": "+3V3_CLK",
    "segments": [
@@ -2298,7 +2291,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.040416697
+    "segment_resistance_sum_ohm": 0.034807687
    },
    "net": "+5V",
    "segments": [
@@ -2397,7 +2390,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.002760612
+    "segment_resistance_sum_ohm": 0.002377496
    },
    "net": "5V_FUSED",
    "segments": [
@@ -2421,7 +2414,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.008728872
+    "segment_resistance_sum_ohm": 0.007517483
    },
    "net": "AUDIO_MCLK",
    "segments": [
@@ -2445,7 +2438,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.007553534
+    "segment_resistance_sum_ohm": 0.006505258
    },
    "net": "MCLK_OSC",
    "segments": [
@@ -2474,7 +2467,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.025755479
+    "segment_resistance_sum_ohm": 0.022181146
    },
    "net": "MIC_DOUT_0",
    "segments": [
@@ -2523,7 +2516,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.025755483
+    "segment_resistance_sum_ohm": 0.022181149
    },
    "net": "MIC_DOUT_15",
    "segments": [
@@ -2572,7 +2565,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.02442321
+    "segment_resistance_sum_ohm": 0.021033768
    },
    "net": "MIC_VDD_0",
    "segments": [
@@ -2631,7 +2624,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.028856603
+    "segment_resistance_sum_ohm": 0.024851897
    },
    "net": "MIC_VDD_15",
    "segments": [
@@ -2695,7 +2688,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.228841874
+    "segment_resistance_sum_ohm": 0.197083307
    },
    "net": "PDM_CLK_B0",
    "segments": [
@@ -2889,7 +2882,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.222010956
+    "segment_resistance_sum_ohm": 0.19120038
    },
    "net": "PDM_CLK_B1",
    "segments": [
@@ -3043,7 +3036,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.224195764
+    "segment_resistance_sum_ohm": 0.193081982
    },
    "net": "PDM_CLK_B2",
    "segments": [
@@ -3197,7 +3190,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.230550924
+    "segment_resistance_sum_ohm": 0.198555176
    },
    "net": "PDM_CLK_B3",
    "segments": [
@@ -3351,7 +3344,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.225592632
+    "segment_resistance_sum_ohm": 0.194284993
    },
    "net": "PDM_CLK_B4",
    "segments": [
@@ -3510,7 +3503,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.218588673
+    "segment_resistance_sum_ohm": 0.18825304
    },
    "net": "PDM_CLK_B5",
    "segments": [
@@ -3674,7 +3667,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.218435385
+    "segment_resistance_sum_ohm": 0.188121025
    },
    "net": "PDM_CLK_B6",
    "segments": [
@@ -3818,7 +3811,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.216689099
+    "segment_resistance_sum_ohm": 0.186617088
    },
    "net": "PDM_CLK_B7",
    "segments": [
@@ -3972,7 +3965,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.058343544
+    "segment_resistance_sum_ohm": 0.050246655
    },
    "net": "PDM_CLK_FPGA",
    "segments": [
@@ -4011,7 +4004,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.074904756
+    "segment_resistance_sum_ohm": 0.064509509
    },
    "net": "PDM_CLK_IN",
    "segments": [
@@ -4085,7 +4078,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.022009115
+    "segment_resistance_sum_ohm": 0.018954701
    },
    "net": "PDM_CLK_Y0",
    "segments": [
@@ -4139,7 +4132,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.033174715
+    "segment_resistance_sum_ohm": 0.028570744
    },
    "net": "PDM_CLK_Y1",
    "segments": [
@@ -4188,7 +4181,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.0380347
+    "segment_resistance_sum_ohm": 0.032756262
    },
    "net": "PDM_CLK_Y2",
    "segments": [
@@ -4278,7 +4271,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.036787112
+    "segment_resistance_sum_ohm": 0.031681814
    },
    "net": "PDM_CLK_Y3",
    "segments": [
@@ -4368,7 +4361,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.035778572
+    "segment_resistance_sum_ohm": 0.030813239
    },
    "net": "PDM_CLK_Y4",
    "segments": [
@@ -4472,7 +4465,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.036388697
+    "segment_resistance_sum_ohm": 0.031338691
    },
    "net": "PDM_CLK_Y5",
    "segments": [
@@ -4546,7 +4539,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.017702904
+    "segment_resistance_sum_ohm": 0.015246104
    },
    "net": "PDM_CLK_Y6",
    "segments": [
@@ -4580,7 +4573,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.019607293
+    "segment_resistance_sum_ohm": 0.016886202
    },
    "net": "PDM_CLK_Y7",
    "segments": [
@@ -4629,7 +4622,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.116010549
+    "segment_resistance_sum_ohm": 0.09991066
    },
    "net": "PDM_D0",
    "segments": [
@@ -4714,7 +4707,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.120496672
+    "segment_resistance_sum_ohm": 0.103774201
    },
    "net": "PDM_D1",
    "segments": [
@@ -4769,7 +4762,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.128075108
+    "segment_resistance_sum_ohm": 0.110300905
    },
    "net": "PDM_D2",
    "segments": [
@@ -4824,7 +4817,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.126640647
+    "segment_resistance_sum_ohm": 0.109065518
    },
    "net": "PDM_D3",
    "segments": [
@@ -4884,7 +4877,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.189506471
+    "segment_resistance_sum_ohm": 0.163206853
    },
    "net": "PDM_D4",
    "segments": [
@@ -4969,7 +4962,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.14501148
+    "segment_resistance_sum_ohm": 0.124886855
    },
    "net": "PDM_D5",
    "segments": [
@@ -5044,7 +5037,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.173226866
+    "segment_resistance_sum_ohm": 0.149186524
    },
    "net": "PDM_D6",
    "segments": [
@@ -5139,7 +5132,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.089089946
+    "segment_resistance_sum_ohm": 0.076726086
    },
    "net": "PDM_D7",
    "segments": [
@@ -5199,7 +5192,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.071209436
+    "segment_resistance_sum_ohm": 0.061327024
    },
    "net": "PI_5V",
    "segments": [
@@ -5253,7 +5246,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.06444459
+    "segment_resistance_sum_ohm": 0.055501
    },
    "net": "PI_CS_N",
    "segments": [
@@ -5358,7 +5351,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.029238344
+    "segment_resistance_sum_ohm": 0.025180661
    },
    "net": "PI_MISO",
    "segments": [
@@ -5428,7 +5421,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.029202577
+    "segment_resistance_sum_ohm": 0.025149857
    },
    "net": "PI_MOSI",
    "segments": [
@@ -5478,7 +5471,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.025849751
+    "segment_resistance_sum_ohm": 0.022262335
    },
    "net": "PI_SCLK",
    "segments": [
@@ -5538,7 +5531,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.037369343
+    "segment_resistance_sum_ohm": 0.032183243
    },
    "net": "SPI_CS_N",
    "segments": [
@@ -5583,7 +5576,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.033235998
+    "segment_resistance_sum_ohm": 0.028623522
    },
    "net": "SPI_MISO",
    "segments": [
@@ -5643,7 +5636,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.034614783
+    "segment_resistance_sum_ohm": 0.02981096
    },
    "net": "SPI_MOSI",
    "segments": [
@@ -5688,7 +5681,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.040026129
+    "segment_resistance_sum_ohm": 0.034471322
    },
    "net": "SPI_SCLK",
    "segments": [
@@ -5783,7 +5776,7 @@
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-    "segment_resistance_sum_ohm": 0.078105084
+    "segment_resistance_sum_ohm": 0.067265697
    },
    "net": "TANG_3V3",
    "segments": [
@@ -5891,6 +5884,51 @@
  },
  "notes": [
   "geometry-derived quantities only; no inductance or capacitance is claimed anywhere in this report",
+  "every physical input above carries its provenance; caller-declared inputs are permanently distinguishable from approved evidence",
   "interface_paths, when present, are the timing gates' own recorded measurements with their stated scopes and uncertainties"
- ]
+ ],
+ "physical_inputs": {
+  "board_thickness_mm": {
+   "applicability": "through-via barrel estimates only",
+   "digest": null,
+   "source": "caller-declared board thickness",
+   "source_type": "caller-declared",
+   "units": "mm",
+   "value": 1.6
+  },
+  "copper_thickness_mm": {
+   "B.Cu": {
+    "applicability": "external 1 oz finished copper",
+    "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+    "source": "finished_copper_external_1oz_mil",
+    "source_type": "approved-evidence",
+    "units": "mm",
+    "value": 0.04064
+   },
+   "F.Cu": {
+    "applicability": "external 1 oz finished copper",
+    "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+    "source": "finished_copper_external_1oz_mil",
+    "source_type": "approved-evidence",
+    "units": "mm",
+    "value": 0.04064
+   },
+   "In1.Cu": {
+    "applicability": "internal 0.5 oz finished copper",
+    "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+    "source": "finished_copper_internal_0.5oz_mil",
+    "source_type": "approved-evidence",
+    "units": "mm",
+    "value": 0.01524
+   },
+   "In2.Cu": {
+    "applicability": "internal 0.5 oz finished copper",
+    "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+    "source": "finished_copper_internal_0.5oz_mil",
+    "source_type": "approved-evidence",
+    "units": "mm",
+    "value": 0.01524
+   }
+  }
+ }
 }

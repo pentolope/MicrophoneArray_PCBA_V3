@@ -1,29 +1,106 @@
 {
   "kind": "ab-benchmark-metric-schema",
-  "version": "1",
+  "version": "ab-metrics-2",
   "note": "One schema for both boards. Every metric names its evidence class; a metric without a supporting backend is reported as {\"status\": \"unmeasured\", \"blocked_on\": <backend>} and never fabricated.",
   "identity": {
     "board_file_sha256": "sha-256 of the exact board file measured",
     "toolkit_commit": "toolkit commit that produced the measurements"
   },
   "interconnect": {
-    "per_path": ["copper_length_mm", "via_count", "via_barrel_estimate_mm", "length_by_layer_mm", "delay_ps_bounds", "skew_group_spread", "reference_plane_transitions", "unreferenced_length_mm"],
-    "per_net": ["copper_length_mm", "segment_resistance_sum_ohm", "impedance_guidance_class"],
-    "future_backends": ["R/L/C extraction", "S-parameters"]
+    "per_path": [
+      "copper_length_mm",
+      "via_count",
+      "via_barrel_estimate_mm",
+      "length_by_layer_mm",
+      "delay_ps_bounds",
+      "skew_group_spread",
+      "reference_plane_transitions",
+      "unreferenced_length_mm"
+    ],
+    "per_net": [
+      "copper_length_mm",
+      "segment_resistance_sum_ohm",
+      "impedance_guidance_class"
+    ],
+    "future_backends": [
+      "R/L/C extraction",
+      "S-parameters"
+    ]
   },
   "coupling": {
     "supported_now": [],
-    "future": ["nearest_aggressor_spacing_mm", "parallel_run_length_mm", "mutual_LC", "crosstalk"]
+    "future": [
+      "nearest_aggressor_spacing_mm",
+      "parallel_run_length_mm",
+      "mutual_LC",
+      "crosstalk"
+    ]
   },
   "power_integrity": {
-    "supported_now": ["distribution segment_resistance_sum_ohm"],
-    "future": ["loop_inductance", "decoupling_loop_metrics", "pdn_impedance", "droop"]
+    "supported_now": [
+      "distribution segment_resistance_sum_ohm"
+    ],
+    "future": [
+      "loop_inductance",
+      "decoupling_loop_metrics",
+      "pdn_impedance",
+      "droop"
+    ]
   },
   "signal_integrity": {
     "supported_now": [],
-    "future": ["receiver_edge_timing", "overshoot", "ringing", "setup_hold", "tdr_s11_insertion_loss"]
+    "future": [
+      "receiver_edge_timing",
+      "overshoot",
+      "ringing",
+      "setup_hold",
+      "tdr_s11_insertion_loss"
+    ]
   },
   "process": {
-    "per_candidate": ["routing_retries", "total_via_count", "total_copper_length_mm", "congestion_score", "drc_violation_count", "fabrication_margin_report", "optimization_runtime_s"]
+    "per_candidate": [
+      "routing_retries",
+      "total_via_count",
+      "total_copper_length_mm",
+      "congestion_score",
+      "drc_violation_count",
+      "fabrication_margin_report",
+      "optimization_runtime_s"
+    ]
+  },
+  "typed_contract": {
+    "defined_by": "toolkit pcbqa/benchmark.py (SCHEMA_VERSION ab-metrics-2)",
+    "metric": {
+      "measured": [
+        "name",
+        "scope",
+        "status",
+        "value",
+        "units",
+        "evidence_class",
+        "provenance",
+        "applicability"
+      ],
+      "unmeasured": [
+        "name",
+        "scope",
+        "status",
+        "blocked_on",
+        "why_unmeasured"
+      ],
+      "rule": "an unmeasured metric may not carry a value; absence never reads as zero"
+    },
+    "scopes": [
+      "net",
+      "electrical-path",
+      "board",
+      "process"
+    ],
+    "report_binding": [
+      "board_file_sha256",
+      "toolkit_commit",
+      "physical_evidence",
+      "schema_version"
+    ]
   }
 }

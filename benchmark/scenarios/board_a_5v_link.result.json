@@ -1,0 +1,63 @@
+{
+ "scenario": "board-a-5v-fused-link-drop",
+ "backend": {
+  "name": "ngspice",
+  "available": false,
+  "path": null,
+  "version": null,
+  "detail": "ngspice binary not found on PATH"
+ },
+ "deck_sha256": "557f7191b8cc9312438d88e4a9554ed08d29b8bab7b8db74ba9e8a5162dc4b31",
+ "model_coverage": {
+  "models": {
+   "net:5V_FUSED@9ddb432333d3": {
+    "kind": "board-interconnect",
+    "coverage": {
+     "interconnect_dc": "geometry-derived"
+    },
+    "provenance": {
+     "source": "pcbqa.extract segment inventory",
+     "board_file_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+     "two_terminal_asserted_by": "scenario author; verified on this board: 5V_FUSED carries exactly pads F1.2 and D1.2"
+    },
+    "omissions": [
+     "inductance",
+     "capacitance",
+     "distributed effects",
+     "frequency dependence",
+     "temperature dependence beyond the 20 C resistivity reference"
+    ]
+   }
+  },
+  "requirement": {
+   "interconnect_dc": [
+    "geometry-derived"
+   ]
+  },
+  "satisfied": true,
+  "per_phenomenon": {
+   "interconnect_dc": {
+    "accepted_classes": [
+     "geometry-derived"
+    ],
+    "satisfied_by": [
+     "net:5V_FUSED@9ddb432333d3"
+    ],
+    "covered_at_unaccepted_class": [],
+    "met": true
+   }
+  }
+ },
+ "operating_conditions_applied": {
+  "temperature_c": 25.0
+ },
+ "significance": {
+  "release_grade": false,
+  "meaning": "a numerical result under exactly the stated model coverage; convergence and assertion verdicts never imply stronger evidence than model_coverage records"
+ },
+ "status": "backend-unavailable",
+ "converged": null,
+ "measurements": null,
+ "unsupported": []
+}

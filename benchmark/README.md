@@ -18,12 +18,17 @@ decision; nothing here changes what the released board is.
         board/manifest.live.json \
         --out benchmark/board_a_baseline.json \
         --nets <see baseline file's own net list> \
-        --copper "F.Cu=0.035,B.Cu=0.035,In1.Cu=0.0152,In2.Cu=0.0152" \
+        --approved-copper "F.Cu=external:1.0,B.Cu=external:1.0,In1.Cu=internal:0.5,In2.Cu=internal:0.5" \
         --board-thickness 1.6 \
         --validation <a current validation.json attempt>
 
-Copper thicknesses are the approved fabricator catalog's finished
-values (1 oz external = 0.035 mm; 0.5 oz internal = 0.0152 mm). GND is
+Copper thicknesses are resolved from the APPROVED catalog's finished-copper
+records (external 1 oz finished = 1.6 mil = 0.04064 mm, internal 0.5 oz
+finished = 0.6 mil = 0.01524 mm), each parameter carrying the record
+identity and catalog digest in the report's physical_inputs - never the
+nominal foil weight, and never a bare number. Typed metric records
+(measured/unmeasured, scoped, identity-bound) are defined by the toolkit's
+pcbqa/benchmark.py contract, schema version ab-metrics-2. GND is
 deliberately not in the net list: its copper is zone-dominated and the
 extractor inventories track segments only - reporting a "length" for a
 plane net would misrepresent it.
