@@ -1,10 +1,14 @@
 {
   "kind": "ab-benchmark-metric-schema",
-  "version": "ab-metrics-2",
+  "version": "ab-metrics-3",
   "note": "One schema for both boards. Every metric names its evidence class; a metric without a supporting backend is reported as {\"status\": \"unmeasured\", \"blocked_on\": <backend>} and never fabricated.",
   "identity": {
     "board_file_sha256": "sha-256 of the exact board file measured",
-    "toolkit_commit": "toolkit commit that produced the measurements"
+    "toolkit_commit": "toolkit commit that produced the measurements",
+    "physical_evidence": "structured identity {kind, digest, detail}; free text cannot bind a report since ab-metrics-3"
+  },
+  "comparison": {
+    "sanctioned_path": "toolkit benchmark.compare_reports: refuses unknown schema versions, mismatched physical evidence and mismatched units before any numbers meet; unmeasured sides land in the blocked list, never in totals"
   },
   "interconnect": {
     "per_path": [
@@ -69,7 +73,7 @@
     ]
   },
   "typed_contract": {
-    "defined_by": "toolkit pcbqa/benchmark.py (SCHEMA_VERSION ab-metrics-2)",
+    "defined_by": "toolkit pcbqa/benchmark.py (SCHEMA_VERSION ab-metrics-3)",
     "metric": {
       "measured": [
         "name",

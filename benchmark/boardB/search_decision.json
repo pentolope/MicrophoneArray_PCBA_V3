@@ -1,0 +1,81 @@
+{
+ "kind": "search-decision",
+ "pool": [
+  {
+   "candidate": "seed02",
+   "decision": "accept-for-comparison",
+   "components": {
+    "routed_fraction": 0.9565,
+    "routed_nets": 44,
+    "net_total": 46,
+    "placement_policy_ok": true,
+    "validation_verdict": "REJECTED",
+    "measured_copper_total_mm": 1878.172,
+    "measured_net_set_sha256": "ed9c94898ff5123224e6ed8caf2efcfd950374809fb83e39df438a24cf3c7548"
+   },
+   "ranking_score": 0.7739,
+   "reasons": [
+    "thresholded placement policy holds and routing cleared the completeness bar"
+   ]
+  },
+  {
+   "candidate": "seed03",
+   "decision": "accept-for-comparison",
+   "components": {
+    "routed_fraction": 0.9565,
+    "routed_nets": 44,
+    "net_total": 46,
+    "placement_policy_ok": true,
+    "validation_verdict": "REJECTED",
+    "measured_copper_total_mm": 1864.536,
+    "measured_net_set_sha256": "ed9c94898ff5123224e6ed8caf2efcfd950374809fb83e39df438a24cf3c7548"
+   },
+   "ranking_score": 0.7739,
+   "reasons": [
+    "thresholded placement policy holds and routing cleared the completeness bar"
+   ]
+  },
+  {
+   "candidate": "seed04",
+   "decision": "accept-for-comparison",
+   "components": {
+    "routed_fraction": 0.9565,
+    "routed_nets": 44,
+    "net_total": 46,
+    "placement_policy_ok": true,
+    "validation_verdict": "REJECTED",
+    "measured_copper_total_mm": 1925.873,
+    "measured_net_set_sha256": "ed9c94898ff5123224e6ed8caf2efcfd950374809fb83e39df438a24cf3c7548"
+   },
+   "ranking_score": 0.7739,
+   "reasons": [
+    "thresholded placement policy holds and routing cleared the completeness bar"
+   ]
+  },
+  {
+   "candidate": "seed05",
+   "decision": "accept-for-comparison",
+   "components": {
+    "routed_fraction": 0.9565,
+    "routed_nets": 44,
+    "net_total": 46,
+    "placement_policy_ok": true,
+    "validation_verdict": "REJECTED",
+    "measured_copper_total_mm": 1842.804,
+    "measured_net_set_sha256": "ed9c94898ff5123224e6ed8caf2efcfd950374809fb83e39df438a24cf3c7548"
+   },
+   "ranking_score": 0.7739,
+   "reasons": [
+    "thresholded placement policy holds and routing cleared the completeness bar"
+   ]
+  }
+ ],
+ "best": "seed05",
+ "why_best": {
+  "routed_fraction": 0.9565,
+  "ranking_score": 0.7739,
+  "measured_copper_total_mm": 1842.804,
+  "rule": "highest routed completeness on the A/B net set; composite, then LOWEST measured copper as tie-breaks - copper only among candidates with identical measured-net sets; the components are the evidence"
+ },
+ "no_winner_reason": null
+}

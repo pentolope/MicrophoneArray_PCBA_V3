@@ -18,8 +18,7 @@ decision; nothing here changes what the released board is.
         board/manifest.live.json \
         --out benchmark/board_a_baseline.json \
         --nets <see baseline file's own net list> \
-        --approved-copper "F.Cu=external:1.0,B.Cu=external:1.0,In1.Cu=internal:0.5,In2.Cu=internal:0.5" \
-        --board-thickness 1.6 \
+        --physical-from-requirements board/jlcpcb_requirements.json \
         --validation <a current validation.json attempt>
 
 Copper thicknesses are resolved from the APPROVED catalog's finished-copper
@@ -28,7 +27,9 @@ finished = 0.6 mil = 0.01524 mm), each parameter carrying the record
 identity and catalog digest in the report's physical_inputs - never the
 nominal foil weight, and never a bare number. Typed metric records
 (measured/unmeasured, scoped, identity-bound) are defined by the toolkit's
-pcbqa/benchmark.py contract, schema version ab-metrics-2. GND is
+pcbqa/benchmark.py contract, schema version ab-metrics-3 (structured
+physical-evidence identity; comparisons only through the toolkit's
+compare_reports). GND is
 deliberately not in the net list: its copper is zone-dominated and the
 extractor inventories track segments only - reporting a "length" for a
 plane net would misrepresent it.
@@ -44,3 +45,38 @@ plane net would misrepresent it.
 - Both boards are evaluated by the identical metric schema
   (`ab_metrics.schema.json`); a metric a backend cannot yet measure is
   reported as unmeasured, never fabricated.
+
+## History
+
+`boardB/candidates/seed01/` is the first-cycle candidate, produced
+before semantic-constraint enforcement, staged routing, append-only
+derivations and the ab-metrics-3 contract existed; its artifacts
+(history.json, clocktree_ab_report.json under ab-metrics-2) remain as
+the recorded evidence of that cycle and are superseded by the
+seed02+ pipeline (generate_candidate.py -> validate_candidate.py ->
+compare_ab.py).
+
+On the copper correction recorded in the git history: the original
+baseline used 0.035 mm nominal foil where the approved finished
+thickness is 0.04064 mm. Stated precisely: external-layer segment
+resistances DECREASED by 13.9 % when corrected (factor 0.8612), i.e.
+the uncorrected values had been 16.1 % HIGHER than the corrected
+ones - two statements of the same ratio, not two numbers. Internal
+0.5 oz layers resolve to 0.01524 mm finished; no baseline net
+carries internal-layer track segments, so no committed resistance
+changed from the internal value.
+
+## Simulation backends in this development environment
+
+Recorded for reproducibility of this cycle's committed results:
+ngspice-46 as KiCad 10's bundled shared library (discovered next to
+KiCad's own python; the committed scenario result names it), and
+Verilator 5.050 (MSYS2 mingw64, reached through a machine-local
+launcher via the toolkit's VERILATOR override). A clean checkout
+without these backends reproduces every refusal and every
+backend-unavailable result honestly; it cannot reproduce the "ran"
+results, and nothing pretends otherwise. Candidate GENERATION
+additionally needs the KiCadRoutingTools plugin (script SHA-256s are
+bound into each candidate's derivation.json); candidate MEASUREMENT,
+comparison and search re-derivation need only the committed files
+and KiCad's python.

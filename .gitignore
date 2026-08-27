@@ -13,3 +13,6 @@ build/
 
 # Validator attempts and published release candidates.
 out/
+
+# Scenario working directories: deck/result copies the runner rewrites.
+benchmark/scenarios/workdir_*/

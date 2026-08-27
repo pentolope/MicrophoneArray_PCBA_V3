@@ -20,11 +20,11 @@
      "max_spread_mm": 18.0,
      "reason": "PDM clock fan-out buffer with its eight series resistors and decoupling"},
     {"kind": "proximity", "reference": "C6", "anchor": "U2",
-     "max_distance_mm": 3.0, "reason": "buffer decoupling"},
+     "max_distance_mm": 6.5, "reason": "buffer decoupling; center-to-center budget sized against the parts' courtyards (U2's courtyard alone spans ~7.8 x 7.1 mm, so 3 mm center-to-center was geometrically impossible)"},
     {"kind": "proximity", "reference": "C7", "anchor": "U2",
-     "max_distance_mm": 4.0, "reason": "buffer bulk decoupling"},
+     "max_distance_mm": 8.0, "reason": "buffer bulk decoupling; courtyard-feasible center-to-center budget"},
     {"kind": "proximity", "reference": "C8", "anchor": "X1",
-     "max_distance_mm": 3.0, "reason": "oscillator decoupling"},
+     "max_distance_mm": 5.0, "reason": "oscillator decoupling; courtyard-feasible center-to-center budget"},
     {"kind": "proximity", "reference": "U3", "anchor": "J1",
      "max_distance_mm": 12.0, "reason": "ESD protection near the host connector"},
     {"kind": "proximity", "reference": "U4", "anchor": "J1",
@@ -63,7 +63,7 @@
     {"kind": "proximity", "reference": "RD16", "anchor": "MK16", "max_distance_mm": 6.0, "reason": "data series resistor at the microphone"},
     {"kind": "separation", "group_a": ["U1", "F1", "D1"],
      "group_b": ["X1", "U2"], "min_distance_mm": 8.0,
-     "reason": "keep the switching/power entry away from the clock source region"}
+     "reason": "keep the supply entry and regulator away from the clock source region; the LP5907 is a LINEAR regulator, so the stated concern is entry transients and shared return paths, not switching noise - no switching source exists in this group"}
   ],
   "future_constraints_recorded": [
     "equivalent-channel swap groups need netlist-aware exchange (swapping RCn positions must swap downstream nets); not expressible at placement level yet",

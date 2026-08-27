@@ -49,7 +49,7 @@ def main():
     net_record = baseline["nets"]["5V_FUSED"]
     board_sha = baseline["board_file_sha256"]
     link = extract.interconnect_model_from_net(
-        net_record, board_sha,
+        net_record, board_sha, baseline["physical_inputs"],
         two_terminal_asserted_by="scenario author; verified on this "
                                  "board: 5V_FUSED carries exactly "
                                  "pads F1.2 and D1.2")
@@ -62,7 +62,11 @@ def main():
                        "downstream demand is a 50 ohm resistor "
                        "drawing 100 mA at 5 V. The fuse and diode "
                        "are NOT modeled and nothing here claims "
-                       "them.",
+                       "them. 20 C is requested because the "
+                       "extracted copper model is fixed at the IEC "
+                       "60028 resistivity reference; any other "
+                       "temperature would be flagged as not fully "
+                       "covered by condition coverage.",
         "elements": [
             {"kind": "vsource_dc", "name": "host",
              "nodes": ["vin", "0"], "value": 5.0},
@@ -72,7 +76,7 @@ def main():
              "nodes": ["vout", "0"], "value": 50.0},
         ],
         "analyses": [{"kind": "op"}],
-        "operating_conditions": {"temperature_c": 25.0},
+        "operating_conditions": {"temperature_c": 20.0},
         "measurements": [
             {"name": "vout", "kind": "op_voltage", "node": "vout",
              "assertion": {"op": ">=", "value": 4.999}},
@@ -97,11 +101,20 @@ def main():
               encoding="utf-8", newline="\n") as handle:
         json.dump(result, handle, indent=1)
         handle.write("\n")
-    print("status:", result["status"],
-          "| coverage satisfied:",
-          result["model_coverage"]["satisfied"],
-          "| link R:",
-          net_record["dc"]["segment_resistance_sum_ohm"], "ohm")
+    line = ["status:", result["status"],
+            "| coverage satisfied:",
+            str(result["model_coverage"]["satisfied"]),
+            "| conditions covered:",
+            str(result["condition_coverage"]["fully_covered"]),
+            "| link R:",
+            str(net_record["dc"]["segment_resistance_sum_ohm"]),
+            "ohm"]
+    if result.get("measurements"):
+        vout = result["measurements"]["vout"]
+        line += ["| vout:", str(vout["value"]),
+                 "passed:", str(vout["passed"]),
+                 "| backend:", str(result["backend"]["version"])]
+    print(" ".join(str(part) for part in line))
     return 0
 
 

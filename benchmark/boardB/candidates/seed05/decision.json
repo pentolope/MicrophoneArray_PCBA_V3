@@ -1,0 +1,26 @@
+{
+ "kind": "candidate-decision",
+ "candidate": "seed05",
+ "board_file_sha256": "2a7416ca40912d08ec6e7ffbb5505471b96a66acbcc2dbb5589170dc82ef304f",
+ "components": {
+  "routed_fraction": 0.9565,
+  "routed_nets": 44,
+  "net_total": 46,
+  "placement_policy_ok": true,
+  "validation_verdict": "REJECTED",
+  "measured_copper_total_mm": 1842.804,
+  "measured_net_set_sha256": "ed9c94898ff5123224e6ed8caf2efcfd950374809fb83e39df438a24cf3c7548"
+ },
+ "ranking_score": 0.7739,
+ "ranking_weights": {
+  "routed_fraction": 0.6,
+  "placement_policy_ok": 0.2,
+  "gate_acceptance": 0.2
+ },
+ "ranking_note": "the composite ranks candidates for the next search step only; the components are the evidence, and WHY a candidate lost is read from them, never from the scalar",
+ "decision": "accept-for-comparison",
+ "reasons": [
+  "thresholded placement policy holds and routing cleared the completeness bar"
+ ],
+ "next_step_if_rejected": "perturb: try another seed; the derivation records which stage lost the nets"
+}

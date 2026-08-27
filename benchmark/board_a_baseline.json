@@ -1,5 +1,6 @@
 {
  "board_file_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+ "extract_version": "2",
  "interface_paths": {
   "TIMING.INTERCONNECT_DELAY": {
    "measurements": {
@@ -5889,10 +5890,10 @@
  ],
  "physical_inputs": {
   "board_thickness_mm": {
-   "applicability": "through-via barrel estimates only",
-   "digest": null,
-   "source": "caller-declared board thickness",
-   "source_type": "caller-declared",
+   "applicability": "the board's own declared fabrication requirement; through-via barrel estimates only",
+   "digest": "acc939a4622907a805ec4699d495dfbb53a4802aeefa50d04cd065bd0bb58d16",
+   "source": "board fabrication requirements (board_thickness_mm)",
+   "source_type": "derived",
    "units": "mm",
    "value": 1.6
   },
@@ -5913,7 +5914,7 @@
     "units": "mm",
     "value": 0.04064
    },
-   "In1.Cu": {
+   "GND1": {
     "applicability": "internal 0.5 oz finished copper",
     "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
     "source": "finished_copper_internal_0.5oz_mil",
@@ -5921,7 +5922,7 @@
     "units": "mm",
     "value": 0.01524
    },
-   "In2.Cu": {
+   "GND2": {
     "applicability": "internal 0.5 oz finished copper",
     "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
     "source": "finished_copper_internal_0.5oz_mil",

@@ -2,62 +2,102 @@
  "scenario": "board-a-5v-fused-link-drop",
  "backend": {
   "name": "ngspice",
-  "available": false,
-  "path": null,
-  "version": null,
-  "detail": "ngspice binary not found on PATH"
+  "available": true,
+  "mode": "shared-library",
+  "path": "C:\\Program Files\\KiCad\\10.0\\bin\\ngspice.dll",
+  "version": "ngspice-46",
+  "detail": "in-process shared-library engine"
  },
- "deck_sha256": "557f7191b8cc9312438d88e4a9554ed08d29b8bab7b8db74ba9e8a5162dc4b31",
+ "deck_sha256": "3998ae33688885c1b5abaed9720bbc019c7bc62a593ba3aedbb9c0fea26b1451",
  "model_coverage": {
-  "models": {
-   "net:5V_FUSED@9ddb432333d3": {
-    "kind": "board-interconnect",
-    "coverage": {
-     "interconnect_dc": "geometry-derived"
-    },
-    "provenance": {
-     "source": "pcbqa.extract segment inventory",
-     "board_file_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
-     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
-     "two_terminal_asserted_by": "scenario author; verified on this board: 5V_FUSED carries exactly pads F1.2 and D1.2"
-    },
-    "omissions": [
-     "inductance",
-     "capacitance",
-     "distributed effects",
-     "frequency dependence",
-     "temperature dependence beyond the 20 C resistivity reference"
-    ]
-   }
-  },
   "requirement": {
    "interconnect_dc": [
     "geometry-derived"
    ]
   },
   "satisfied": true,
-  "per_phenomenon": {
-   "interconnect_dc": {
-    "accepted_classes": [
-     "geometry-derived"
+  "per_measurement": {
+   "vout": {
+    "contributing_elements": [
+     "demand",
+     "host",
+     "link"
     ],
-    "satisfied_by": [
-     "net:5V_FUSED@9ddb432333d3"
-    ],
-    "covered_at_unaccepted_class": [],
+    "ideal_elements": {
+     "demand": "resistor",
+     "host": "vsource_dc"
+    },
+    "models": {
+     "link": "net:5V_FUSED@9ddb432333d3+phys:d284d6085f88"
+    },
+    "per_phenomenon": {
+     "interconnect_dc": {
+      "accepted_classes": [
+       "geometry-derived"
+      ],
+      "providers": {
+       "link": {
+        "identity": "net:5V_FUSED@9ddb432333d3+phys:d284d6085f88",
+        "evidence_class": "geometry-derived",
+        "accepted": true
+       }
+      },
+      "violating": [],
+      "met": true,
+      "why": "every contributing provider is individually acceptable"
+     }
+    },
     "met": true
    }
-  }
+  },
+  "meaning": "coverage is judged per measurement over its own contribution closure: every contributing model covering a required phenomenon must be individually acceptable, and each measurement needs at least one acceptable provider of each required phenomenon among its own contributors"
  },
  "operating_conditions_applied": {
-  "temperature_c": 25.0
+  "temperature_c": 20.0
+ },
+ "condition_coverage": {
+  "conditions": {
+   "temperature_c": {
+    "requested": 20.0,
+    "models": {
+     "net:5V_FUSED@9ddb432333d3+phys:d284d6085f88": {
+      "kind": "fixed-reference",
+      "reference_value": 20.0,
+      "matches_requested": true,
+      "detail": null
+     }
+    }
+   }
+  },
+  "fully_covered": true,
+  "meaning": "a simulator-applied condition never implies model condition coverage; fully_covered is true only when every referenced model is parameterized over, or fixed exactly at, every requested condition (ideal declared elements are exact by declaration and are not model claims)"
  },
  "significance": {
   "release_grade": false,
-  "meaning": "a numerical result under exactly the stated model coverage; convergence and assertion verdicts never imply stronger evidence than model_coverage records"
+  "meaning": "a numerical result under exactly the stated model coverage and condition coverage; convergence and assertion verdicts never imply stronger evidence than those blocks record, and a simulator-applied operating condition is not model condition coverage"
  },
- "status": "backend-unavailable",
- "converged": null,
- "measurements": null,
+ "raw_log_sha256": "f29b5d7755bc930d123ed3514058661d3f41e8b0157fd6d9b5c151aa021f153c",
+ "execution": {
+  "mode": "shared-library",
+  "commands": [
+   "op"
+  ],
+  "load_status": 0,
+  "command_status": {
+   "op": 0
+  }
+ },
+ "converged": true,
+ "status": "ran",
+ "measurements": {
+  "vout": {
+   "value": 4.999762261704436,
+   "assertion": {
+    "op": ">=",
+    "value": 4.999
+   },
+   "passed": true
+  }
+ },
  "unsupported": []
 }

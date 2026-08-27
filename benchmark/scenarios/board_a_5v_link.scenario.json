@@ -1,7 +1,7 @@
 {
  "scenario": {
   "name": "board-a-5v-fused-link-drop",
-  "description": "DC drop across the fused 5 V entry link's copper at 100 mA. SUBSTITUTIONS, stated: the host supply is an ideal 5 V source; the downstream demand is a 50 ohm resistor drawing 100 mA at 5 V. The fuse and diode are NOT modeled and nothing here claims them.",
+  "description": "DC drop across the fused 5 V entry link's copper at 100 mA. SUBSTITUTIONS, stated: the host supply is an ideal 5 V source; the downstream demand is a 50 ohm resistor drawing 100 mA at 5 V. The fuse and diode are NOT modeled and nothing here claims them. 20 C is requested because the extracted copper model is fixed at the IEC 60028 resistivity reference; any other temperature would be flagged as not fully covered by condition coverage.",
   "elements": [
    {
     "kind": "vsource_dc",
@@ -19,7 +19,7 @@
      "vin",
      "vout"
     ],
-    "model": "net:5V_FUSED@9ddb432333d3"
+    "model": "net:5V_FUSED@9ddb432333d3+phys:d284d6085f88"
    },
    {
     "kind": "resistor",
@@ -37,7 +37,7 @@
    }
   ],
   "operating_conditions": {
-   "temperature_c": 25.0
+   "temperature_c": 20.0
   },
   "measurements": [
    {
@@ -58,7 +58,7 @@
  },
  "models": [
   {
-   "identity": "net:5V_FUSED@9ddb432333d3",
+   "identity": "net:5V_FUSED@9ddb432333d3+phys:d284d6085f88",
    "kind": "board-interconnect",
    "coverage": {
     "interconnect_dc": "geometry-derived"
@@ -69,17 +69,63 @@
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
     "two_terminal_asserted_by": "scenario author; verified on this board: 5V_FUSED carries exactly pads F1.2 and D1.2"
    },
+   "derivation": {
+    "chain": [
+     "approved-fabrication-evidence",
+     "physical-parameters",
+     "board-geometry",
+     "extracted-electrical-quantity",
+     "simulation-model"
+    ],
+    "board_file_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+    "extract_version": "2",
+    "physical_inputs_sha256": "d284d6085f88b48d0548fa9c6ab82ca3b079b6020c071327ae594e731fab1014",
+    "copper_thickness_mm": {
+     "F.Cu": {
+      "applicability": "external 1 oz finished copper",
+      "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+      "source": "finished_copper_external_1oz_mil",
+      "source_type": "approved-evidence",
+      "units": "mm",
+      "value": 0.04064
+     }
+    },
+    "board_thickness_mm": {
+     "applicability": "the board's own declared fabrication requirement; through-via barrel estimates only",
+     "digest": "acc939a4622907a805ec4699d495dfbb53a4802aeefa50d04cd065bd0bb58d16",
+     "source": "board fabrication requirements (board_thickness_mm)",
+     "source_type": "derived",
+     "units": "mm",
+     "value": 1.6
+    },
+    "resistivity": {
+     "value_ohm_m": 1.7241e-08,
+     "source": "IEC 60028 international annealed copper standard, 20 C"
+    },
+    "two_terminal_assertion": "scenario author; verified on this board: 5V_FUSED carries exactly pads F1.2 and D1.2",
+    "assumptions": [
+     "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+    ]
+   },
    "omissions": [
     "inductance",
     "capacitance",
     "distributed effects",
     "frequency dependence",
-    "temperature dependence beyond the 20 C resistivity reference"
+    "temperature dependence beyond the stated resistivity reference"
    ],
    "notes": [
     "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
    ],
-   "spice": ".subckt net:5V_FUSED@9ddb432333d3 a b\nR1 a b 0.002377496\n.ends"
+   "conditions": {
+    "temperature_c": {
+     "kind": "fixed-reference",
+     "value": 20.0,
+     "units": "C",
+     "source": "IEC 60028 resistivity reference temperature"
+    }
+   },
+   "spice": ".subckt net:5V_FUSED@9ddb432333d3+phys:d284d6085f88 a b\nR1 a b 0.002377496\n.ends"
   }
  ]
 }

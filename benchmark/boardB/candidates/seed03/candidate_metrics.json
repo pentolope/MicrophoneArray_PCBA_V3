@@ -1,0 +1,1912 @@
+{
+ "kind": "ab-benchmark-report",
+ "binding": {
+  "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1",
+  "toolkit_commit": "efef85606e5b8690113eef12f423dcbdb6e76165",
+  "physical_evidence": {
+   "kind": "approved-catalog-finished-copper",
+   "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+   "detail": "finished-copper records resolved from the approved catalog via the board's declared fabrication requirements (requirements digest acc939a4622907a8)"
+  },
+  "schema_version": "ab-metrics-3"
+ },
+ "metrics": [
+  {
+   "name": "+3V3A:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 269.279247,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "+3V3A:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 30,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "+3V3A:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 1.675282667,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "+3V3_CLK:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 79.335626,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "+3V3_CLK:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 5,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "+3V3_CLK:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.429723518,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "+5V:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 40.696757,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "+5V:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 4,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "+5V:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.235053079,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "5V_FUSED:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 8.812954,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "5V_FUSED:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 0,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "5V_FUSED:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.042056051,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "AUDIO_MCLK:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 30.697669,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "AUDIO_MCLK:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 1,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "AUDIO_MCLK:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.114710882,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "MCLK_OSC:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 5.919466,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "MCLK_OSC:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 0,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "MCLK_OSC:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.008370859,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "MIC_DOUT_0:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 4.044543,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "MIC_DOUT_0:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 0,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "MIC_DOUT_0:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.019300851,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "MIC_DOUT_15:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 3.158883,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "MIC_DOUT_15:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 0,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "MIC_DOUT_15:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.015074417,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "MIC_VDD_0:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 10.328658,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "MIC_VDD_0:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "MIC_VDD_0:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.060289895,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "MIC_VDD_15:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 16.956726,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "MIC_VDD_15:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "MIC_VDD_15:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.091507715,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_B0:copper_length_mm",
+   "scope": "net",
+   "status": "unmeasured",
+   "blocked_on": "routing",
+   "why_unmeasured": "this net carries no copper on this board; absence is reported, never zero"
+  },
+  {
+   "name": "PDM_CLK_B0:via_count",
+   "scope": "net",
+   "status": "unmeasured",
+   "blocked_on": "routing",
+   "why_unmeasured": "this net carries no copper on this board; absence is reported, never zero"
+  },
+  {
+   "name": "PDM_CLK_B0:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "unmeasured",
+   "blocked_on": "routing",
+   "why_unmeasured": "this net carries no copper on this board; absence is reported, never zero"
+  },
+  {
+   "name": "PDM_CLK_B1:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 84.489072,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_B1:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_B1:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.2157047,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_B2:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 67.385081,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_B2:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 0,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_B2:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.180274406,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_B3:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 58.719512,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_B3:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_B3:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.306157946,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_B4:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 64.16864,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_B4:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 0,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_B4:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.175561075,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_B5:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 110.56488,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_B5:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_B5:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.272435198,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_B6:copper_length_mm",
+   "scope": "net",
+   "status": "unmeasured",
+   "blocked_on": "routing",
+   "why_unmeasured": "this net carries no copper on this board; absence is reported, never zero"
+  },
+  {
+   "name": "PDM_CLK_B6:via_count",
+   "scope": "net",
+   "status": "unmeasured",
+   "blocked_on": "routing",
+   "why_unmeasured": "this net carries no copper on this board; absence is reported, never zero"
+  },
+  {
+   "name": "PDM_CLK_B6:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "unmeasured",
+   "blocked_on": "routing",
+   "why_unmeasured": "this net carries no copper on this board; absence is reported, never zero"
+  },
+  {
+   "name": "PDM_CLK_B7:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 139.688486,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_B7:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 4,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_B7:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.301608639,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_FPGA:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 20.307762,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_FPGA:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 0,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_FPGA:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.028717694,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_IN:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 84.802516,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_IN:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 7,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_IN:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.147965025,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_Y0:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 6.542979,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_Y0:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_Y0:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.013585644,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_Y1:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 2.564144,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_Y1:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_Y1:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.008673076,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_Y2:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 3.453441,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_Y2:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_Y2:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.009216654,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_Y3:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 2.334504,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_Y3:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_Y3:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.00832465,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_Y4:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 10.649747,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_Y4:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_Y4:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.015060063,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_Y5:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 1.974504,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_Y5:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_Y5:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.006620378,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_Y6:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 2.633267,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_Y6:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_Y6:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.007999639,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_CLK_Y7:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 3.124264,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_CLK_Y7:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_CLK_Y7:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.01144828,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_D0:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 38.676401,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_D0:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 0,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_D0:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.184566572,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_D1:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 59.269193,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_D1:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 0,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_D1:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.282836859,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_D2:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 68.440436,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_D2:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 3,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_D2:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.434878692,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_D3:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 52.496493,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_D3:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 1,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_D3:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.537002904,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_D4:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 60.036081,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_D4:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 3,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_D4:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.350905757,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_D5:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 57.007179,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_D5:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 3,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_D5:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.298015839,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_D6:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 60.719054,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_D6:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 1,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_D6:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.311126677,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PDM_D7:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 31.398345,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PDM_D7:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PDM_D7:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.158833471,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PI_5V:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 52.398153,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PI_5V:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PI_5V:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.537145668,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PI_CS_N:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 37.329381,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PI_CS_N:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 1,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PI_CS_N:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.325932231,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PI_MISO:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 31.822783,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PI_MISO:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PI_MISO:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.159814067,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PI_MOSI:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 37.15965,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PI_MOSI:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 3,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PI_MOSI:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.225524848,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "PI_SCLK:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 32.516785,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "PI_SCLK:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 3,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "PI_SCLK:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.191132549,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "SPI_CS_N:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 10.166905,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "SPI_CS_N:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 1,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "SPI_CS_N:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.06988818,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "SPI_MISO:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 14.855635,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "SPI_MISO:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 1,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "SPI_MISO:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.089627594,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "SPI_MOSI:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 25.890159,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "SPI_MOSI:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 1,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "SPI_MOSI:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.147170252,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "SPI_SCLK:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 10.072792,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "SPI_SCLK:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 1,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "SPI_SCLK:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.066144634,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "TANG_3V3:copper_length_mm",
+   "scope": "net",
+   "status": "measured",
+   "value": 51.647107,
+   "units": "mm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "track segments of one net"
+  },
+  {
+   "name": "TANG_3V3:via_count",
+   "scope": "net",
+   "status": "measured",
+   "value": 2,
+   "units": "count",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "vias on one net"
+  },
+  {
+   "name": "TANG_3V3:segment_resistance_sum_ohm",
+   "scope": "net",
+   "status": "measured",
+   "value": 0.367455538,
+   "units": "ohm",
+   "evidence_class": "geometry-derived",
+   "provenance": {
+    "extractor": "pcbqa.extract",
+    "extract_version": "2",
+    "board_file_sha256": "f24ba3587896c1bd7e862986b2a1ecc340da75041cb1aefd0977f1e53237bbf1"
+   },
+   "applicability": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"
+  },
+  {
+   "name": "clock_leaf_length_spread_mm",
+   "scope": "board",
+   "status": "unmeasured",
+   "blocked_on": "routing",
+   "why_unmeasured": "not every PDM clock leaf carries copper; a spread over a partial set would be fiction"
+  }
+ ]
+}
