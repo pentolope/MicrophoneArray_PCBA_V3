@@ -108,6 +108,17 @@ project's closure. Its reusable core already lives in the toolkit as
 - Record the board commit, toolkit submodule commit, configuration hashes, tool
   versions and output hashes.
 
+## Publishing discipline
+
+Before any push of cycle work, run `/claim-audit` on the drafted
+commit message and report (every claim-bearing word binds to an
+artifact recomputed on the spot, never to the process that produced
+it), then `/pre-push-review` (a fresh-context adversarial subagent
+attacks the diff and drafts against the standing invariants).
+Genuine findings are fixed before the push; dismissals are recorded
+with evidence. The claim table and the review's disposition belong
+in the cycle report.
+
 ## Toolkit consumption
 
 The toolkit is used **only** from `tooling/PCB_AutoDesignAndTest`, pinned to a
