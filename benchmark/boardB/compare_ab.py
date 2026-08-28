@@ -88,12 +88,9 @@ def main():
     if recorded_closure is None:
         raise SystemExit("gates.json carries no producer closure; "
                          "unverifiable evidence is refused")
-    with open(candidate_board, "rb") as handle:
-        import hashlib
-        candidate_sha = hashlib.sha256(handle.read()).hexdigest()
     verdict = freshness.verify(
         recorded_closure,
-        vc.closure_components(candidate_sha, seed_dir))
+        vc.gates_closure_components(candidate_board, seed_dir))
     if not verdict["fresh"]:
         raise SystemExit(
             "gates.json is stale (moved: {}); regenerate with "
@@ -138,8 +135,21 @@ def main():
     with open(out_path, "w", encoding="utf-8",
               newline="\n") as handle:
         json.dump({"reports": reports, "comparison": comparison,
-                   "producer_closure": vc.producer_closure(
-                       candidate_sha, seed_dir)},
+                   # The A/B consumes the gates artifact (candidate
+                   # timing paths) and the Board A baseline; both
+                   # are named canonically, so regenerated timing
+                   # evidence makes this comparison honestly stale.
+                   "producer_closure": freshness.closure(dict(
+                       vc.closure_components(candidate_board,
+                                             seed_dir),
+                       **{"compare_ab.py": {"text_path":
+                          os.path.abspath(__file__)},
+                          "gates_artifact": {"json_path":
+                          gates_path},
+                          "board_a_baseline": {"json_path":
+                          os.path.join(REPO, "benchmark",
+                                       "board_a_baseline.json")},
+                          }))},
                   handle, indent=1)
         handle.write("\n")
 

@@ -756,12 +756,93 @@ def strip_slivers(source_path, target_path,
     return removed
 
 
+def net_clearance_map(board, project_path):
+    """Per-net clearance exactly as the DRC will judge it: each
+    net's class clearance, resolved from the authoritative
+    project's OWN netclass patterns (fnmatch), deliberately NOT
+    from pcbnew's GetNetClassName - that lookup was observed
+    mid-run (2026-08-28, first seed11/13 runs, since superseded)
+    resolving every net to Default, pricing POWER pads at 0.20 mm
+    and refusing 0.15-designed escape corridors; it could not be
+    reproduced in isolation, so the defense is structural: this
+    resolution never consults process state, and the derivation
+    records the map's histogram. When several patterns match a
+    net, the LARGEST matching clearance wins: the planner may
+    over-clear, never under-clear. Fail-closed: a pattern naming a
+    class without a defined clearance, or a project without a
+    Default clearance, refuses the run rather than guessing."""
+    import fnmatch
+    project = json.load(open(project_path, encoding="utf-8"))
+    settings = project["net_settings"]
+    classes = {}
+    default_clearance = None
+    for record in settings["classes"]:
+        clearance = record.get("clearance")
+        if clearance is not None:
+            classes[record["name"]] = float(clearance)
+        if record.get("name") == "Default":
+            default_clearance = clearance
+    if default_clearance is None:
+        raise SystemExit(
+            "the authoritative project defines no Default netclass "
+            "clearance; refusing to plan blind")
+    patterns = settings.get("netclass_patterns") or []
+    for entry in patterns:
+        if entry["netclass"] not in classes:
+            raise SystemExit(
+                "netclass pattern {!r} names class {!r}, which "
+                "defines no clearance; refusing to plan "
+                "blind".format(entry["pattern"], entry["netclass"]))
+    mapping = {}
+    for key in board.GetNetsByName().keys():
+        name = str(key)
+        if not name:
+            continue
+        matched = [classes[entry["netclass"]]
+                   for entry in patterns
+                   if fnmatch.fnmatchcase(name, entry["pattern"])]
+        mapping[name] = max(matched) if matched \
+            else float(default_clearance)
+    # Copper with NO net (netname ""): the planner's fallback for
+    # an unmapped name is rules.clearance_mm, which can be BELOW
+    # Default - an under-clearance. Price it at the largest class
+    # clearance instead: over-clearing is the only safe direction
+    # for copper whose pairing rules are unknown.
+    mapping[""] = max(classes.values())
+    return mapping
+
+
+def clearance_map_fingerprint(mapping):
+    """A machine-checkable shape of the clearance map for the
+    derivation record: if a run ever plans with a degenerate map
+    again (every net at one value), the artifact says so."""
+    histogram = {}
+    for value in mapping.values():
+        key = "{:.3f}".format(value)
+        histogram[key] = histogram.get(key, 0) + 1
+    return {
+        "nets": len(mapping),
+        "histogram": dict(sorted(histogram.items())),
+        "sha256": hashlib.sha256(json.dumps(
+            mapping, sort_keys=True).encode("utf-8")).hexdigest(),
+    }
+
+
 def refill_zones(board_file):
     import pcbnew
     board = pcbnew.LoadBoard(board_file)
     filler = pcbnew.ZONE_FILLER(board)
     filler.Fill(board.Zones())
     pcbnew.SaveBoard(board_file, board)
+    # SaveBoard writes a DEFAULT project sibling when the board has
+    # no attached project - factory floors beside a candidate. The
+    # declared rules must travel with every artifact, so the
+    # authoritative project is re-placed here, at the one choke
+    # point every publish passes through (the seed14 lesson:
+    # a last-mile round that changed nothing shipped a stripped
+    # sibling, and the release DRC judged 790 phantom errors at
+    # KiCad defaults).
+    _place_pro_sibling(board_file)
     return _sha256_file(board_file)
 
 
@@ -1179,6 +1260,9 @@ def main():
             intent["stitches"]["pad_regex"])
         planner_outcome = {"escapes": {"placed": 0, "refused": []},
                            "stitches": {"placed": 0, "refused": []}}
+        clearance_by_net = net_clearance_map(
+            board, os.path.join(REPO,
+                                "microphone_array_v2.kicad_pro"))
         for footprint in board.GetFootprints():
             center = footprint.GetPosition()
             for pad in footprint.Pads():
@@ -1202,7 +1286,8 @@ def main():
                             outline={"center_mm": [circle[0],
                                                    circle[1]],
                                      "radius_mm": circle[2],
-                                     "clearance_mm": 0.3})
+                                     "clearance_mm": 0.3},
+                            net_clearances=clearance_by_net)
                         critical_topology.apply_proposal(board,
                                                          proposal)
                         planner_outcome["escapes"]["placed"] += 1
@@ -1229,7 +1314,8 @@ def main():
                                 outline={"center_mm": [circle[0],
                                                        circle[1]],
                                          "radius_mm": circle[2],
-                                         "clearance_mm": 0.3})
+                                         "clearance_mm": 0.3},
+                                net_clearances=clearance_by_net)
                         critical_topology.apply_proposal(board,
                                                          proposal)
                         planner_outcome["stitches"]["placed"] += 1
@@ -1247,6 +1333,8 @@ def main():
                                         "fabcheck-critical"))
         record({"stage": "critical_topology",
                 "planner": "pcbqa.critical_topology",
+                "net_clearances": clearance_map_fingerprint(
+                    clearance_by_net),
                 "intent_sha256": _sha256_file(os.path.join(
                     HERE, "critical_structures.json")),
                 "outcome": planner_outcome,
@@ -1395,6 +1483,9 @@ def main():
             from pcbqa.connectivity import classify_net
             for repair_round in range(2):
                 board = pcbnew.LoadBoard(final_path)
+                lastmile_clearances = net_clearance_map(
+                    board, os.path.join(
+                        REPO, "microphone_array_v2.kicad_pro"))
                 partial = {}
                 for net in all_nets:
                     state = classify_net(
@@ -1431,7 +1522,9 @@ def main():
                                     board, net,
                                     pad_lookup[best[1]], net,
                                     intent["rules"]["stitch"],
-                                    geom_module.pad_copper_polygon)
+                                    geom_module.pad_copper_polygon,
+                                    net_clearances=(
+                                        lastmile_clearances))
                         else:
                             proposal = \
                                 critical_topology.local_connect(
@@ -1441,7 +1534,9 @@ def main():
                                     dict(intent["rules"]["escape"],
                                          search_radius_mm=7.0,
                                          track_width_mm=0.2),
-                                    geom_module.pad_copper_polygon)
+                                    geom_module.pad_copper_polygon,
+                                    net_clearances=(
+                                        lastmile_clearances))
                         critical_topology.apply_proposal(board,
                                                          proposal)
                         outcome[net] = {"joined": [best[1],

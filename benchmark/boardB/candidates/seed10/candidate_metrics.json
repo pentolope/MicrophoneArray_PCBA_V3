@@ -3,7 +3,7 @@
   "kind": "ab-benchmark-report",
   "binding": {
    "board_file_sha256": "f42e096b5e60639c55adcbda06856d5e052ea31b46e7a6bda8eb104e31bcbd13",
-   "toolkit_commit": "8251f658b268aa7b3b2c62d3c14662f9b63bdcf1",
+   "toolkit_commit": "d2c722b333bdeba3a67cac1a73d4e39fee26ad9c",
    "physical_evidence": {
     "kind": "resolved-physical-construction",
     "digest": "6ff4225cf2a7f1c505ff8a7c48aac5671dc5a5f487153782a75ece9eeb0400ef",
@@ -2081,17 +2081,21 @@
  "producer_closure": {
   "kind": "producer-closure",
   "components": {
-   "candidate_5v_result": "fd35939a5ab6f3522c51565ab410f4405a2283631a2426b7aecd2d9e828942dc",
-   "candidate_board": "f42e096b5e60639c55adcbda06856d5e052ea31b46e7a6bda8eb104e31bcbd13",
-   "constraints": "512e0ac1c1ab6625a20f136d12ce2107b993c04323e511de0a403a14d9ee20b9",
+   "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
+   "candidate_5v_result": "f83381b8d1357da95de804b2ae358970e1390dcbd0e53fdd34c198066c7c3a7b",
+   "candidate_board": "cf37296cea16442cd43f7b8537cdfe8a764e9d20ccea1d5ab44d917ce18e9a57",
+   "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
+   "derivation": "13a9535d513405db636f2ed44c94ac0fd6b412055c3b769cce83a93a0d219bd0",
+   "generate_candidate.py": "f8babac2d93c301e8de6a9367655780d09ced15d8f4f9ad778926ce296af7f5a",
    "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
    "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
    "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
-   "toolkit.extract": "8961e30ace6f9a13c0f20c0c912a6d270e5c6386a99cf876efa894dbada1adf0",
-   "toolkit.progression": "71bd7acfb79eaddd7e27db0d3010c2578a843dc9ec12b697e1a4165111b2f6bd",
-   "validate_candidate.py": "81f098910cb6bfc5547efd2ab0c8dda31a1e597d21b3cc6b6e967337c7a862f0",
-   "zone_policy": "878201e317cb631553f760d5253ef5ecc842f3dddb73dd1e1ab78f37f090cdff"
+   "toolkit.extract": "3c294c28327bbc6745547f654d75763a096b9100fd3d2409f70ecf499a87bd13",
+   "toolkit.netlist_contract": "d8e4000fad095d998157e0554ac67a6dbc8de516f9eb06ecb7ae2bc4a7b96708",
+   "toolkit.progression": "19e1fe73f67cd1b1190a9134e5dc3bf3fc1c1bcd534adf3eb1956b97e2682758",
+   "validate_candidate.py": "4470a1dae63ad94ae9b181be26a2ec3534aa9b1d7e09b1b9a9c3fa33f4e254df",
+   "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
   },
-  "digest": "d14980b73f4d880d590cee4c4d52a5e338b66bb91bc9013313ef7e6b98a4890e"
+  "digest": "bf69cd52118dea575810885297d8b6fa4b0aba7f45712aebabebf4cde43c78b9"
  }
 }

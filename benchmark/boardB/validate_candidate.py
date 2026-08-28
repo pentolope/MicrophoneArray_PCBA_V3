@@ -43,6 +43,7 @@ sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
 from pcbqa import headless                        # noqa: E402
 headless.suppress_blocking_ui()
 from pcbqa import benchmark, extract, freshness    # noqa: E402
+from pcbqa import netlist_contract                 # noqa: E402
 from pcbqa import progression                      # noqa: E402
 from pcbqa.fabricators.store import CatalogStore   # noqa: E402
 
@@ -51,54 +52,91 @@ TOOLKIT_ROOT = (os.environ.get("PCB_TOOLKIT_PATH")
                                 "PCB_AutoDesignAndTest"))
 
 
-def closure_components(candidate_board_sha,
+def closure_components(candidate_board_path,
                        seed_dir=None):
     """The deliberate dependency set of every artifact this script
     derives: its own code, the toolkit modules whose semantics the
-    numbers depend on, the candidate board, the semantic inputs and
-    the metric schema. Unrelated files are deliberately absent - a
-    doc change invalidates nothing."""
+    numbers depend on, the candidate board, the AUTHORITATIVE board
+    (the netlist contract's source), the semantic inputs and the
+    metric schema. Unrelated files are deliberately absent - a doc
+    change invalidates nothing.
+
+    Identities are canonical: source text and KiCad files by
+    LF-normalized content, JSON artifacts by canonical
+    serialization - checkout byte conventions never masquerade as
+    change, while any content change always registers."""
     five_v = os.path.join(seed_dir or "",
                           "candidate_5v_link.result.json")
+    derivation = os.path.join(seed_dir or "", "derivation.json")
     return {
-        "validate_candidate.py": os.path.abspath(__file__),
-        "toolkit.extract": os.path.join(TOOLKIT_ROOT, "pcbqa",
-                                        "extract.py"),
-        "toolkit.connectivity": os.path.join(TOOLKIT_ROOT, "pcbqa",
-                                             "connectivity.py"),
-        "toolkit.benchmark": os.path.join(TOOLKIT_ROOT, "pcbqa",
-                                          "benchmark.py"),
-        "toolkit.progression": os.path.join(TOOLKIT_ROOT, "pcbqa",
-                                            "progression.py"),
-        "candidate_board": {"digest": candidate_board_sha},
-        "constraints": os.path.join(HERE, "constraints.json"),
-        "zone_policy": os.path.join(HERE, "zone_policy.json"),
+        "validate_candidate.py": {
+            "text_path": os.path.abspath(__file__)},
+        "generate_candidate.py": {
+            "text_path": os.path.join(
+                HERE, "generate_candidate.py")},
+        "toolkit.extract": {"text_path": os.path.join(
+            TOOLKIT_ROOT, "pcbqa", "extract.py")},
+        "toolkit.connectivity": {"text_path": os.path.join(
+            TOOLKIT_ROOT, "pcbqa", "connectivity.py")},
+        "toolkit.benchmark": {"text_path": os.path.join(
+            TOOLKIT_ROOT, "pcbqa", "benchmark.py")},
+        "toolkit.progression": {"text_path": os.path.join(
+            TOOLKIT_ROOT, "pcbqa", "progression.py")},
+        "toolkit.netlist_contract": {"text_path": os.path.join(
+            TOOLKIT_ROOT, "pcbqa", "netlist_contract.py")},
+        "candidate_board": {"text_path": candidate_board_path},
+        "authoritative_board": {"text_path": os.path.join(
+            REPO, "microphone_array_v2.kicad_pcb")},
+        "constraints": {"json_path": os.path.join(
+            HERE, "constraints.json")},
+        "zone_policy": {"json_path": os.path.join(
+            HERE, "zone_policy.json")},
         "schema": {"text": benchmark.SCHEMA_VERSION},
-        # The 5V evidence is an INPUT to the decision (its usable
-        # count); an absent result is part of the identity too, so
-        # producing it later makes the decision honestly stale.
+        # The derivation and the 5V evidence are INPUTS to the
+        # decision; an absent result is part of the identity too,
+        # so producing it later makes the decision honestly stale.
+        "derivation": (
+            {"json_path": derivation}
+            if os.path.isfile(derivation) else {"text": "absent"}),
         "candidate_5v_result": (
-            {"path": five_v} if os.path.isfile(five_v)
+            {"json_path": five_v} if os.path.isfile(five_v)
             else {"text": "absent"}),
     }
 
 
-def producer_closure(candidate_board_sha, seed_dir=None):
+def gates_closure_components(candidate_board_path,
+                             seed_dir=None):
+    """The gate artifact's own dependency set: the toolkit
+    validation's inputs. The 5V evidence and the derivation are
+    deliberately absent - the gates read neither, so their later
+    appearance must not stale the gate record."""
+    components = closure_components(candidate_board_path, seed_dir)
+    for absent in ("candidate_5v_result", "derivation"):
+        components.pop(absent, None)
+    return components
+
+
+def decision_closure_components(candidate_board_path,
+                                seed_dir=None):
+    """The decision's dependency set: the base components plus the
+    upstream ARTIFACTS the decision consumes - gates and metrics -
+    by canonical content. A regenerated gates.json moves the
+    decision; a regenerated decision moves the search, which names
+    decisions the same way: transitive freshness, link by link."""
+    components = closure_components(candidate_board_path, seed_dir)
+    for name, basename in (
+            ("gates_artifact", "gates.json"),
+            ("metrics_artifact", "candidate_metrics.json")):
+        path = os.path.join(seed_dir or "", basename)
+        components[name] = (
+            {"json_path": path} if os.path.isfile(path)
+            else {"text": "absent"})
+    return components
+
+
+def producer_closure(candidate_board_path, seed_dir=None):
     return freshness.closure(
-        closure_components(candidate_board_sha, seed_dir))
-
-
-def board_required_nets(board):
-    """Every net with at least two pads: the board-wide required
-    set. The benchmark inventory never stands in for this."""
-    counts = {}
-    for footprint in board.GetFootprints():
-        for pad in footprint.Pads():
-            name = pad.GetNetname()
-            if name:
-                counts[name] = counts.get(name, 0) + 1
-    return sorted(name for name, count in counts.items()
-                  if count >= 2)
+        closure_components(candidate_board_path, seed_dir))
 
 
 def complete_path_metrics(delay_measurements, board_sha):
@@ -475,23 +513,54 @@ def main():
                                              "reuse_revalidation")]
     policy_ok = bool(policy_records) and \
         policy_records[-1]["policy_ok"]
-    fabrication_records = [
-        record.get("fabrication_geometry")
-        for record in derivation["records"]
-        if isinstance(record.get("fabrication_geometry"), dict)]
-    if fabrication_records:
-        last_fabrication = fabrication_records[-1]
-        fabrication_geometry = {
-            "ok": last_fabrication.get("ok", "unknown"),
-            "detail": json.dumps(last_fabrication.get(
-                "violations_by_type",
-                last_fabrication.get("detail", "")))[:400],
-        }
-    else:
-        fabrication_geometry = {
-            "ok": "unknown",
-            "detail": "no recorded stage fabrication check covers "
-                      "this candidate"}
+
+    # The fabrication verdict the DECISION consumes is computed
+    # HERE, on the exact bytes being decided - never inherited from
+    # a stage record that some later write may have outrun. The raw
+    # candidate bytes and the canonical zone-refilled copy the DRC
+    # judged are two declared identities, bound side by side.
+    raw_board_sha = _sha256_file(board_file)
+    # The declared rules must have travelled with the artifact: a
+    # candidate whose sibling .kicad_pro is not the authoritative
+    # project would be judged - by the gates and by any DRC - at
+    # floors some tool wrote for its own convenience. Refuse, never
+    # judge at undeclared floors.
+    sibling_pro = os.path.splitext(board_file)[0] + ".kicad_pro"
+    authoritative_pro = os.path.join(
+        REPO, "microphone_array_v2.kicad_pro")
+    if not os.path.isfile(sibling_pro) or \
+            _sha256_file(sibling_pro) != _sha256_file(
+                authoritative_pro):
+        raise SystemExit(
+            "the candidate's sibling .kicad_pro is not the "
+            "authoritative project; the declared rules did not "
+            "travel with this artifact and every judgment would "
+            "be at undeclared floors - refusing to validate")
+    import generate_candidate as generator
+    direct_verdict = generator.stage_fabrication_check(
+        board_file, os.path.join(seed_dir, "stages",
+                                 "fabcheck-decision"))
+    fabrication_geometry = {
+        "ok": direct_verdict.get("ok", "unknown"),
+        "detail": ("direct kicad-cli DRC at the declared rules on "
+                   "this exact candidate; raw sha {}, judged "
+                   "refilled-copy sha {}; violations: {}".format(
+                       raw_board_sha[:12],
+                       str(direct_verdict.get(
+                           "judged_board_sha256"))[:12],
+                       json.dumps(direct_verdict.get(
+                           "violations_by_type", {}))))[:400],
+    }
+    fabrication_identity = {
+        "raw_board_sha256": raw_board_sha,
+        "judged_board_sha256": direct_verdict.get(
+            "judged_board_sha256"),
+        "verdict_ok": direct_verdict.get("ok", "unknown"),
+        "meaning": "raw is the candidate file as decided on; "
+                   "judged is the canonical zone-refilled working "
+                   "copy the DRC measured - two declared "
+                   "identities, never conflated",
+    }
 
     from pcbqa import geom as geom_module
     from pcbqa.connectivity import classify_net
@@ -507,7 +576,19 @@ def main():
                                                copper, thickness)
     import pcbnew as pcbnew_module
     whole_board = pcbnew_module.LoadBoard(board_file)
-    required_nets = board_required_nets(whole_board)
+    # Required connectivity comes from the AUTHORITATIVE product
+    # intent: the candidate never defines its own denominator, so a
+    # dropped footprint or a lost net shrinks nothing - it shows up
+    # as parity findings and incomplete required nets instead.
+    authoritative_contract = netlist_contract.contract_from_board(
+        pcbnew_module.LoadBoard(os.path.join(
+            REPO, "microphone_array_v2.kicad_pcb")))
+    candidate_contract = netlist_contract.contract_from_board(
+        whole_board)
+    parity = netlist_contract.compare(authoritative_contract,
+                                      candidate_contract)
+    required_nets = netlist_contract.required_nets(
+        authoritative_contract)
     board_connectivity = {}
     for net in required_nets:
         board_connectivity[net] = classify_net(
@@ -516,7 +597,7 @@ def main():
     board_complete = sum(
         1 for state in board_connectivity.values()
         if state == "connectivity-complete")
-    closure_record = producer_closure(sha, seed_dir)
+    closure_record = producer_closure(board_file, seed_dir)
     toolkit_commit = subprocess.run(
         ["git", "-C", os.path.join(REPO, "tooling",
                                    "PCB_AutoDesignAndTest"),
@@ -554,9 +635,37 @@ def main():
     if arguments.skip_validate:
         gates_path = os.path.join(seed_dir, "gates.json")
         if os.path.isfile(gates_path):
-            validation_summary = json.load(open(
-                gates_path, encoding="utf-8"))[
-                    "statuses"]["validation"]
+            with open(gates_path, encoding="utf-8") as handle:
+                gates_doc = json.load(handle)
+            recorded_gates_closure = gates_doc.get(
+                "producer_closure")
+            if recorded_gates_closure is None:
+                raise SystemExit(
+                    "gates.json carries no producer closure; "
+                    "unverifiable gate evidence is refused")
+            gates_verdict = freshness.verify(
+                recorded_gates_closure,
+                gates_closure_components(board_file, seed_dir))
+            if not gates_verdict["fresh"]:
+                raise SystemExit(
+                    "gates.json is stale (moved: {}); a "
+                    "skip-validate decision must not inherit gate "
+                    "verdicts its inputs have outgrown - rerun "
+                    "the full validation".format(
+                        gates_verdict["moved"]
+                        + gates_verdict["missing"]
+                        + gates_verdict["added"]))
+            if gates_doc.get("candidate_board_sha256") \
+                    != raw_board_sha:
+                raise SystemExit(
+                    "gates.json was measured on different board "
+                    "bytes ({}... vs {}...); refusing to mix "
+                    "verdicts across candidates".format(
+                        str(gates_doc.get(
+                            "candidate_board_sha256"))[:12],
+                        raw_board_sha[:12]))
+            validation_summary = gates_doc["statuses"][
+                "validation"]
     if not arguments.skip_validate:
         manifest_path, board_id = derive_manifest(
             seed_dir, arguments.seed,
@@ -586,19 +695,22 @@ def main():
         else:
             validation_summary = {"verdict": "NO-ATTEMPT",
                                   "runner": outcome}
-        failure_classes = {}
-        if validation_summary and \
-                validation_summary.get("failing_gates"):
-            for gate in validation_summary["failing_gates"]:
-                failure_classes[gate] = GATE_FAILURE_CLASSES.get(
-                    gate, "unclassified")
+    failure_classes = {}
+    if validation_summary and \
+            validation_summary.get("failing_gates"):
+        for gate in validation_summary["failing_gates"]:
+            failure_classes[gate] = GATE_FAILURE_CLASSES.get(
+                gate, "unclassified")
+    if not arguments.skip_validate:
         with open(os.path.join(seed_dir, "gates.json"), "w",
                   encoding="utf-8", newline="\n") as handle:
             json.dump({
                 "kind": "candidate-gate-status",
                 "candidate_board_sha256": sha,
                 "manifest": os.path.basename(manifest_path),
-                "producer_closure": closure_record,
+                "producer_closure": freshness.closure(
+                    gates_closure_components(board_file,
+                                             seed_dir)),
                 "statuses": {
                     "placement_policy_satisfied": policy_ok,
                     "benchmark_net_completion": {
@@ -614,7 +726,9 @@ def main():
                             if state != "connectivity-complete"}},
                     "critical_clock_nets_connected":
                         critical_clock_connected,
+                    "netlist_parity": parity,
                     "fabrication_geometry": fabrication_geometry,
+                    "fabrication_identity": fabrication_identity,
                     "candidate_derived_artifacts":
                         artifact_outcomes,
                     "failing_gate_classes": failure_classes,
@@ -667,7 +781,20 @@ def main():
         if (five_v.get("result", {}).get("result_policy", {})
                 .get("usable_for_design_decision")):
             usable_results = 1
+    parity_counts = {
+        key: len(parity[key]) for key in (
+            "missing_footprints", "added_footprints",
+            "missing_pads", "added_pads", "missing_nets",
+            "unexpected_nets")}
+    parity_counts["changed_assignments"] = len(
+        parity["changed_assignments"])
     assessment = progression.assess({
+        "netlist_parity": {
+            "ok": parity["ok"],
+            "detail": "authoritative Board A netlist contract vs "
+                      "candidate pad-net map; differences: "
+                      + json.dumps(parity_counts,
+                                   sort_keys=True)},
         "placement_policy_ok": policy_ok,
         "critical": {
             "nets_connected": critical_clock_connected,
@@ -709,6 +836,9 @@ def main():
             "rank_key": list(assessment["rank_key"]),
         },
         "components": {
+            "netlist_parity_ok": parity["ok"],
+            "netlist_parity_differences": parity_counts,
+            "fabrication_identity": fabrication_identity,
             "benchmark_net_completion": {
                 "complete": len(complete_nets),
                 "total": len(nets)},
@@ -738,6 +868,8 @@ def main():
         },
         "decision": "accept-for-comparison"
         if assessment["accept_for_comparison"] else "reject",
+        "search_winner_eligible":
+            assessment["search_winner_eligible"],
         "candidate_ready_for_next_stage":
             assessment["candidate_ready_for_next_stage"],
         "reasons": reasons or ["every correctness class up to the "
@@ -745,13 +877,18 @@ def main():
         "next_design_action": "the progress class names the "
                               "failing correctness class; its "
                               "detail names the design variable",
-        "producer_closure": closure_record,
+        # The decision's OWN closure names the artifacts it
+        # consumed (gates, metrics) canonically, on top of the base
+        # inputs - the transitive link the search verifies.
+        "producer_closure": freshness.closure(
+            decision_closure_components(board_file, seed_dir)),
     }
     with open(os.path.join(seed_dir, "decision.json"), "w",
               encoding="utf-8", newline="\n") as handle:
         json.dump(decision, handle, indent=1)
         handle.write("\n")
     print(json.dumps({
+        "parity": parity["ok"],
         "board": decision["components"][
             "board_required_net_completion"],
         "benchmark": decision["components"][

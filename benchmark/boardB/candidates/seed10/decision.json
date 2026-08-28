@@ -4,6 +4,10 @@
  "board_file_sha256": "f42e096b5e60639c55adcbda06856d5e052ea31b46e7a6bda8eb104e31bcbd13",
  "assessment": {
   "classes": {
+   "netlist-parity": {
+    "status": "pass",
+    "detail": "authoritative Board A netlist contract vs candidate pad-net map; differences: {\"added_footprints\": 0, \"added_pads\": 0, \"changed_assignments\": 0, \"missing_footprints\": 0, \"missing_nets\": 0, \"missing_pads\": 0, \"unexpected_nets\": 0}"
+   },
    "placement-policy": {
     "status": "pass",
     "detail": "toolkit placement-policy evaluation on actual positions"
@@ -31,7 +35,7 @@
    },
    "fabrication-geometry": {
     "status": "fail",
-    "detail": "{\"connection_width\": 1}"
+    "detail": "direct kicad-cli DRC at the declared rules on this exact candidate; raw sha f42e096b5e60, judged refilled-copy sha f42e096b5e60; violations: {\"connection_width\": 1}"
    },
    "blocking-gates": {
     "status": "fail",
@@ -67,6 +71,7 @@
   "fully_connected": false,
   "rank_key": [
    true,
+   true,
    false,
    false,
    false,
@@ -78,6 +83,22 @@
   ]
  },
  "components": {
+  "netlist_parity_ok": true,
+  "netlist_parity_differences": {
+   "missing_footprints": 0,
+   "added_footprints": 0,
+   "missing_pads": 0,
+   "added_pads": 0,
+   "missing_nets": 0,
+   "unexpected_nets": 0,
+   "changed_assignments": 0
+  },
+  "fabrication_identity": {
+   "raw_board_sha256": "f42e096b5e60639c55adcbda06856d5e052ea31b46e7a6bda8eb104e31bcbd13",
+   "judged_board_sha256": "f42e096b5e60639c55adcbda06856d5e052ea31b46e7a6bda8eb104e31bcbd13",
+   "verdict_ok": false,
+   "meaning": "raw is the candidate file as decided on; judged is the canonical zone-refilled working copy the DRC measured - two declared identities, never conflated"
+  },
   "benchmark_net_completion": {
    "complete": 35,
    "total": 46
@@ -130,6 +151,7 @@
   "measured_net_set_sha256": "067131d45e8287d158fd20be02ba769163acfb5389747f2c696a0459f7cfac0d"
  },
  "decision": "reject",
+ "search_winner_eligible": false,
  "candidate_ready_for_next_stage": false,
  "reasons": [
   "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
@@ -138,17 +160,23 @@
  "producer_closure": {
   "kind": "producer-closure",
   "components": {
-   "candidate_5v_result": "fd35939a5ab6f3522c51565ab410f4405a2283631a2426b7aecd2d9e828942dc",
-   "candidate_board": "f42e096b5e60639c55adcbda06856d5e052ea31b46e7a6bda8eb104e31bcbd13",
-   "constraints": "512e0ac1c1ab6625a20f136d12ce2107b993c04323e511de0a403a14d9ee20b9",
+   "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
+   "candidate_5v_result": "f83381b8d1357da95de804b2ae358970e1390dcbd0e53fdd34c198066c7c3a7b",
+   "candidate_board": "cf37296cea16442cd43f7b8537cdfe8a764e9d20ccea1d5ab44d917ce18e9a57",
+   "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
+   "derivation": "13a9535d513405db636f2ed44c94ac0fd6b412055c3b769cce83a93a0d219bd0",
+   "gates_artifact": "3855509c7ad02765cbc4c50712ddb75a315ae823518efb356b97c6556ce31dce",
+   "generate_candidate.py": "f8babac2d93c301e8de6a9367655780d09ced15d8f4f9ad778926ce296af7f5a",
+   "metrics_artifact": "fa45549df35115218778109c84c8ce9fbd071e0dbc7552ad74d5342da10990a5",
    "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
    "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
    "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
-   "toolkit.extract": "8961e30ace6f9a13c0f20c0c912a6d270e5c6386a99cf876efa894dbada1adf0",
-   "toolkit.progression": "71bd7acfb79eaddd7e27db0d3010c2578a843dc9ec12b697e1a4165111b2f6bd",
-   "validate_candidate.py": "81f098910cb6bfc5547efd2ab0c8dda31a1e597d21b3cc6b6e967337c7a862f0",
-   "zone_policy": "878201e317cb631553f760d5253ef5ecc842f3dddb73dd1e1ab78f37f090cdff"
+   "toolkit.extract": "3c294c28327bbc6745547f654d75763a096b9100fd3d2409f70ecf499a87bd13",
+   "toolkit.netlist_contract": "d8e4000fad095d998157e0554ac67a6dbc8de516f9eb06ecb7ae2bc4a7b96708",
+   "toolkit.progression": "19e1fe73f67cd1b1190a9134e5dc3bf3fc1c1bcd534adf3eb1956b97e2682758",
+   "validate_candidate.py": "4470a1dae63ad94ae9b181be26a2ec3534aa9b1d7e09b1b9a9c3fa33f4e254df",
+   "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
   },
-  "digest": "d14980b73f4d880d590cee4c4d52a5e338b66bb91bc9013313ef7e6b98a4890e"
+  "digest": "82b66b2d4e466295caa77b81a5b40f8436aa0b8032c1eac1409374d34498ed59"
  }
 }

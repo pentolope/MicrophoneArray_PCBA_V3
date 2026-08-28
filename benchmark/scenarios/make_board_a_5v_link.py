@@ -56,6 +56,20 @@ def main():
                                  "board: 5V_FUSED carries exactly "
                                  "pads F1.2 and D1.2")
     registry = fidelity.ModelRegistry([link])
+    # Bound direction derived from the net record's own omission
+    # facts: with zero vias traversed the omitted-barrel term is
+    # zero and the value is exact; any via would make the
+    # resistance a lower bound and the load voltage an upper bound.
+    vout_measurement = {"name": "vout", "kind": "op_voltage",
+                        "node": "vout",
+                        "assertion": {"op": ">=", "value": 4.999}}
+    if net_record["totals"]["via_count"] > 0:
+        vout_measurement["value_bound"] = {
+            "direction": "upper",
+            "reason": "the link resistance omits {} via "
+                      "barrel(s) and is a lower bound; the load "
+                      "voltage is therefore an upper bound".format(
+                          net_record["totals"]["via_count"])}
     scenario = {
         "name": "board-a-5v-fused-link-drop",
         "description": "DC drop across the fused 5 V entry link's "
@@ -87,10 +101,7 @@ def main():
                                         "100 mA at 5 V",
                        "accepted_for_design_decision": True},
         },
-        "measurements": [
-            {"name": "vout", "kind": "op_voltage", "node": "vout",
-             "assertion": {"op": ">=", "value": 4.999}},
-        ],
+        "measurements": [vout_measurement],
         "required_coverage": {
             "interconnect_dc": ["geometry-derived"],
         },

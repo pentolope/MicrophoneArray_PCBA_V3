@@ -24,7 +24,6 @@ Run with KiCad's python from the repository root:
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import os
 import sys
@@ -40,13 +39,12 @@ from pcbqa import freshness                        # noqa: E402
 import validate_candidate as vc                    # noqa: E402
 
 
-def _board_sha(seed_dir):
+def _board_path(seed_dir):
     for basename in ("candidate_routed.kicad_pcb",
                      "candidate_placed.kicad_pcb"):
         path = os.path.join(seed_dir, basename)
         if os.path.isfile(path):
-            with open(path, "rb") as handle:
-                return hashlib.sha256(handle.read()).hexdigest()
+            return path
     return None
 
 
@@ -56,6 +54,7 @@ def main():
                         required=True)
     arguments = parser.parse_args()
     pool = []
+    decision_components = {}
     for seed in arguments.seeds:
         name = "seed{:02d}".format(seed)
         seed_dir = os.path.join(HERE, "candidates", name)
@@ -68,9 +67,11 @@ def main():
             continue
         decision = json.load(open(path, encoding="utf-8"))
         decision["candidate"] = name
+        decision_components["decision." + name] = {
+            "json_path": path}
         recorded = decision.get("producer_closure")
-        board_sha = _board_sha(seed_dir)
-        if recorded is None or board_sha is None:
+        board_path = _board_path(seed_dir)
+        if recorded is None or board_path is None:
             pool.append({"candidate": name,
                          "decision": "stale-artifacts",
                          "reasons": ["the decision carries no "
@@ -79,7 +80,8 @@ def main():
                                      "refused"]})
             continue
         verdict = freshness.verify(
-            recorded, vc.closure_components(board_sha, seed_dir))
+            recorded, vc.decision_closure_components(board_path,
+                                                     seed_dir))
         if not verdict["fresh"]:
             pool.append({
                 "candidate": name,
@@ -97,11 +99,16 @@ def main():
                 if entry.get("decision") == "accept-for-comparison"]
     accepted.sort(key=lambda entry: tuple(
         entry["assessment"]["rank_key"]), reverse=True)
-    if len(accepted) > 1:
-        top_key = tuple(accepted[0]["assessment"]["rank_key"])
-        top_set = accepted[0]["components"][
+    # A measured candidate whose critical truths are failed or
+    # unresolved may be COMPARED but never PRESENTED as best: the
+    # winner filter applies on top of the ranking.
+    eligible = [entry for entry in accepted
+                if entry.get("search_winner_eligible") is True]
+    if len(eligible) > 1:
+        top_key = tuple(eligible[0]["assessment"]["rank_key"])
+        top_set = eligible[0]["components"][
             "measured_net_set_sha256"]
-        peers = [entry for entry in accepted
+        peers = [entry for entry in eligible
                  if tuple(entry["assessment"]["rank_key"])
                  == top_key
                  and entry["components"][
@@ -109,9 +116,9 @@ def main():
         if len(peers) > 1:
             peers.sort(key=lambda entry: entry["components"][
                 "measured_copper_total_mm"])
-            accepted.remove(peers[0])
-            accepted.insert(0, peers[0])
-    best = accepted[0] if accepted else None
+            eligible.remove(peers[0])
+            eligible.insert(0, peers[0])
+    best = eligible[0] if eligible else None
     outcome = {
         "kind": "search-decision",
         "pool": [{
@@ -137,6 +144,8 @@ def main():
                     "fabrication_geometry_ok"),
             "candidate_ready_for_next_stage":
                 entry.get("candidate_ready_for_next_stage"),
+            "search_winner_eligible":
+                entry.get("search_winner_eligible"),
             "reasons": entry.get("reasons"),
         } for entry in pool],
         "best": best["candidate"] if best else None,
@@ -150,15 +159,21 @@ def main():
                     "gates, usable evidence); copper only between "
                     "equal keys with identical complete-net sets",
         },
-        "no_winner_reason": None if best else
-            "no fresh candidate reached accept-for-comparison",
-        "producer_closure": freshness.closure({
-            "search.py": os.path.abspath(__file__),
-            "toolkit.freshness": os.path.join(
-                vc.TOOLKIT_ROOT, "pcbqa", "freshness.py"),
-            "toolkit.progression": os.path.join(
-                vc.TOOLKIT_ROOT, "pcbqa", "progression.py"),
-        }),
+        "no_winner_reason": None if best else (
+            "accepted candidates exist but none is "
+            "search-winner-eligible: an unresolved or failed "
+            "critical truth never wins" if accepted else
+            "no fresh candidate reached accept-for-comparison"),
+        # The search names every pool decision canonically: a
+        # regenerated decision moves this closure - the transitive
+        # link a downstream consumer verifies.
+        "producer_closure": freshness.closure(dict({
+            "search.py": {"text_path": os.path.abspath(__file__)},
+            "toolkit.freshness": {"text_path": os.path.join(
+                vc.TOOLKIT_ROOT, "pcbqa", "freshness.py")},
+            "toolkit.progression": {"text_path": os.path.join(
+                vc.TOOLKIT_ROOT, "pcbqa", "progression.py")},
+        }, **decision_components)),
     }
     out_path = os.path.join(HERE, "search_decision.json")
     with open(out_path, "w", encoding="utf-8",
@@ -169,7 +184,9 @@ def main():
         print(entry["candidate"], entry["decision"],
               "| progress:", entry.get("progress_class"),
               "| board:", entry.get(
-                  "board_required_net_completion"))
+                  "board_required_net_completion"),
+              "| winner-eligible:", entry.get(
+                  "search_winner_eligible"))
     print("best:", outcome["best"])
     return 0
 

@@ -56,6 +56,26 @@ def run_board(board_file, copper, thickness, workdir):
         {"copper_thickness_mm": copper,
          "board_thickness_mm": thickness})
     registry = fidelity.ModelRegistry([link])
+    # The bound direction comes from the path record itself: a
+    # lower-bound resistance (omitted via barrels) makes the load
+    # voltage an UPPER bound, so a numeric pass of "vout >= x" is
+    # unresolvable while a numeric fail is conclusively FAIL. No
+    # omitted positive physics may create an exact PASS.
+    vout_measurement = {"name": "vout", "kind": "op_voltage",
+                        "node": "vout",
+                        "assertion": {"op": ">=", "value": 4.999}}
+    if path_record["resistance_bound"] == "lower":
+        vout_measurement["value_bound"] = {
+            "direction": "upper",
+            "reason": "the link resistance omits {} via "
+                      "barrel(s) and is a lower bound; the load "
+                      "voltage is therefore an upper bound".format(
+                          path_record["via_count_in_path"])}
+    elif path_record["resistance_bound"] != "exact":
+        # 'uncertain': symmetric junction ambiguity has no sound
+        # one-sided direction, so no assertion is made at all -
+        # the value is still reported, unclassified.
+        del vout_measurement["assertion"]
     scenario = {
         "name": "5v-fused-link-drop-path-scoped",
         "description": "DC drop over the traced F1.2 -> D1.2 copper "
@@ -81,10 +101,7 @@ def run_board(board_file, copper, thickness, workdir):
                                         "100 mA at 5 V",
                        "accepted_for_design_decision": True},
         },
-        "measurements": [
-            {"name": "vout", "kind": "op_voltage", "node": "vout",
-             "assertion": {"op": ">=", "value": 4.999}},
-        ],
+        "measurements": [vout_measurement],
         "required_coverage": {
             "interconnect_dc": ["geometry-derived"],
         },
@@ -145,6 +162,14 @@ def main():
                 if outcome["result"].get("measurements")}
         document["comparison"] = {
             "path_resistance_ohm": resistance,
+            "resistance_bound": {
+                label: outcome["path"]["resistance_bound"]
+                for label, outcome in outcomes.items()},
+            "assertion_verdicts": {
+                label: outcome["result"]["measurements"]["vout"]
+                .get("verdict")
+                for label, outcome in outcomes.items()
+                if outcome["result"].get("measurements")},
             "vout_v": vout,
             "usable_for_design_decision": {
                 label: outcome["result"]["result_policy"]

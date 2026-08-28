@@ -22,3 +22,4 @@ benchmark/boardB/candidates/*/stages/fabcheck-*/fabcheck.kicad_pcb
 benchmark/boardB/candidates/*/stages/fabcheck-*/fabcheck.kicad_prl
 benchmark/boardB/candidates/*/stages/fabcheck-*/fabcheck.kicad_pro
 benchmark/boardB/candidates/*/workdir_*/
+benchmark/boardB/candidates/*/candidate_routed.kicad_pcb.pre-lastmile

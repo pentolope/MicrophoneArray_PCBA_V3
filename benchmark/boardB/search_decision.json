@@ -2,162 +2,21 @@
  "kind": "search-decision",
  "pool": [
   {
-   "candidate": "seed01",
-   "decision": "missing",
-   "progress_class": null,
-   "board_required_net_completion": null,
-   "benchmark_net_completion": null,
-   "critical": [
-    null,
-    null,
-    null
-   ],
-   "fabrication_geometry_ok": null,
-   "candidate_ready_for_next_stage": null,
-   "reasons": [
-    "no decision.json; the candidate pipeline did not complete"
-   ]
-  },
-  {
-   "candidate": "seed02",
-   "decision": "stale-artifacts",
-   "progress_class": null,
-   "board_required_net_completion": null,
-   "benchmark_net_completion": null,
-   "critical": [
-    null,
-    null,
-    null
-   ],
-   "fabrication_geometry_ok": null,
-   "candidate_ready_for_next_stage": null,
-   "reasons": [
-    "the decision carries no producer closure; unverifiable evidence is refused"
-   ]
-  },
-  {
-   "candidate": "seed03",
-   "decision": "stale-artifacts",
-   "progress_class": null,
-   "board_required_net_completion": null,
-   "benchmark_net_completion": null,
-   "critical": [
-    null,
-    null,
-    null
-   ],
-   "fabrication_geometry_ok": null,
-   "candidate_ready_for_next_stage": null,
-   "reasons": [
-    "the decision carries no producer closure; unverifiable evidence is refused"
-   ]
-  },
-  {
-   "candidate": "seed04",
-   "decision": "stale-artifacts",
-   "progress_class": null,
-   "board_required_net_completion": null,
-   "benchmark_net_completion": null,
-   "critical": [
-    null,
-    null,
-    null
-   ],
-   "fabrication_geometry_ok": null,
-   "candidate_ready_for_next_stage": null,
-   "reasons": [
-    "the decision carries no producer closure; unverifiable evidence is refused"
-   ]
-  },
-  {
-   "candidate": "seed05",
-   "decision": "stale-artifacts",
-   "progress_class": null,
-   "board_required_net_completion": null,
-   "benchmark_net_completion": null,
-   "critical": [
-    null,
-    null,
-    null
-   ],
-   "fabrication_geometry_ok": null,
-   "candidate_ready_for_next_stage": null,
-   "reasons": [
-    "the decision carries no producer closure; unverifiable evidence is refused"
-   ]
-  },
-  {
-   "candidate": "seed06",
-   "decision": "stale-artifacts",
-   "progress_class": null,
-   "board_required_net_completion": null,
-   "benchmark_net_completion": null,
-   "critical": [
-    null,
-    null,
-    null
-   ],
-   "fabrication_geometry_ok": null,
-   "candidate_ready_for_next_stage": null,
-   "reasons": [
-    "the decision carries no producer closure; unverifiable evidence is refused"
-   ]
-  },
-  {
-   "candidate": "seed07",
-   "decision": "missing",
-   "progress_class": null,
-   "board_required_net_completion": null,
-   "benchmark_net_completion": null,
-   "critical": [
-    null,
-    null,
-    null
-   ],
-   "fabrication_geometry_ok": null,
-   "candidate_ready_for_next_stage": null,
-   "reasons": [
-    "no decision.json; the candidate pipeline did not complete"
-   ]
-  },
-  {
-   "candidate": "seed08",
-   "decision": "stale-artifacts",
-   "progress_class": null,
-   "board_required_net_completion": null,
-   "benchmark_net_completion": null,
-   "critical": [
-    null,
-    null,
-    null
-   ],
-   "fabrication_geometry_ok": null,
-   "candidate_ready_for_next_stage": null,
-   "reasons": [
-    "the decision carries no producer closure; unverifiable evidence is refused"
-   ]
-  },
-  {
    "candidate": "seed09",
-   "decision": "reject",
-   "progress_class": "critical-structures",
-   "board_required_net_completion": {
-    "complete": 47,
-    "total": 83
-   },
-   "benchmark_net_completion": {
-    "complete": 25,
-    "total": 46
-   },
+   "decision": "stale-artifacts",
+   "progress_class": null,
+   "board_required_net_completion": null,
+   "benchmark_net_completion": null,
    "critical": [
-    false,
-    false,
-    false
+    null,
+    null,
+    null
    ],
-   "fabrication_geometry_ok": true,
-   "candidate_ready_for_next_stage": false,
+   "fabrication_geometry_ok": null,
+   "candidate_ready_for_next_stage": null,
+   "search_winner_eligible": null,
    "reasons": [
-    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+    "producer closure is stale; moved: ['candidate_board', 'constraints', 'toolkit.extract', 'toolkit.progression', 'validate_candidate.py', 'zone_policy', 'authoritative_board', 'derivation', 'gates_artifact', 'generate_candidate.py', 'metrics_artifact', 'toolkit.netlist_contract']"
    ]
   },
   {
@@ -179,6 +38,235 @@
    ],
    "fabrication_geometry_ok": false,
    "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed11",
+   "decision": "missing",
+   "progress_class": null,
+   "board_required_net_completion": null,
+   "benchmark_net_completion": null,
+   "critical": [
+    null,
+    null,
+    null
+   ],
+   "fabrication_geometry_ok": null,
+   "candidate_ready_for_next_stage": null,
+   "search_winner_eligible": null,
+   "reasons": [
+    "no decision.json; the candidate pipeline did not complete"
+   ]
+  },
+  {
+   "candidate": "seed12",
+   "decision": "missing",
+   "progress_class": null,
+   "board_required_net_completion": null,
+   "benchmark_net_completion": null,
+   "critical": [
+    null,
+    null,
+    null
+   ],
+   "fabrication_geometry_ok": null,
+   "candidate_ready_for_next_stage": null,
+   "search_winner_eligible": null,
+   "reasons": [
+    "no decision.json; the candidate pipeline did not complete"
+   ]
+  },
+  {
+   "candidate": "seed13",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 0,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 0,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    true
+   ],
+   "fabrication_geometry_ok": false,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": true}}"
+   ]
+  },
+  {
+   "candidate": "seed14",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 76,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 40,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed15",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 0,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 0,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    true
+   ],
+   "fabrication_geometry_ok": false,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": true}}"
+   ]
+  },
+  {
+   "candidate": "seed16",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 0,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 0,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    true
+   ],
+   "fabrication_geometry_ok": false,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": true}}"
+   ]
+  },
+  {
+   "candidate": "seed17",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 76,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 39,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed18",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 64,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 27,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed19",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 0,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 0,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    true
+   ],
+   "fabrication_geometry_ok": false,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": true}}"
+   ]
+  },
+  {
+   "candidate": "seed20",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 62,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 26,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
    "reasons": [
     "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
    ]
@@ -190,10 +278,20 @@
  "producer_closure": {
   "kind": "producer-closure",
   "components": {
-   "search.py": "811f227838731e815af15368d326e0c71402fcb90bed38fc061db170afcb0ed4",
-   "toolkit.freshness": "f274c49e17755a0add2e90e71f3bb18446505767c471bc84b46dba2e521ce3ba",
-   "toolkit.progression": "71bd7acfb79eaddd7e27db0d3010c2578a843dc9ec12b697e1a4165111b2f6bd"
+   "decision.seed09": "2bf9f9e1ae500f4932a9790ef0a26eacc7f179e843a9e8f8c1e1c400d9c5b93c",
+   "decision.seed10": "561d68a5b7c92e0c36f2f3fed1437a6202fcecff66902c7356bd329906283ac3",
+   "decision.seed13": "e93e11ae59973c70d89ebfe84b1448cb7015bf694e410325ce574527bedf2042",
+   "decision.seed14": "04e4bc083619e32755c36eb38d352947830189ad816ce66f53b92fc9465683ea",
+   "decision.seed15": "128d419898c01024ab85ede9436e4ee08ed208cb41bd3eea79e965db444133de",
+   "decision.seed16": "3d181a498cab8d2f7f57be694ea8c16db3f4b656d5d9b3a361dc0d49ee2238f3",
+   "decision.seed17": "a28cd9450d0241612a7fa8ea778441f650af9b86a5df96de916e1e933e1721bc",
+   "decision.seed18": "4b720f01632f4230214ab5534485cd208524edbf59008e2ccd3b29031f4d8229",
+   "decision.seed19": "d54993ce97f90abb45e147266623ef8953b65cb4ce3f746601e597160aedd848",
+   "decision.seed20": "7654bcff5b235176c81c659d443fa6591d074c6f6b3e6e8751792be811c421e3",
+   "search.py": "8c0dd6acabdf0e0fa8e8ee08e556614e6b981d27bf1bb753348acf68350112af",
+   "toolkit.freshness": "313ce08ce6a06d3be759aed90f7ea54f2405cf7149f3f97bb3f154cb9c4dedb7",
+   "toolkit.progression": "19e1fe73f67cd1b1190a9134e5dc3bf3fc1c1bcd534adf3eb1956b97e2682758"
   },
-  "digest": "a5107d41df30fea9daacca7251064e0415cd5c2a524381d4a3772b034fdc2ff5"
+  "digest": "3d3e311943657daba65a3434cc37547231ff8f69f288d55f7986ffcca85d0a4d"
  }
 }

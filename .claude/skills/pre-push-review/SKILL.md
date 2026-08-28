@@ -26,8 +26,11 @@ context — before the push instead of after it.
      to board bytes; the board file — never a tool log — is the
      arbiter; unmeasured never becomes zero.
 
-3. **Spawn a general-purpose subagent** with only that package. Its
-   instructions, verbatim in spirit:
+3. **Spawn a general-purpose subagent** with only that package,
+   **running on Opus 5** (pass the model override; user-directed
+   2026-08-28): a different model family from the authoring session
+   shares fewer of its blind spots. Its instructions, verbatim in
+   spirit:
    - You are reviewing work you did not do. Do not trust any
      assertion in the drafts; the diff and the repository artifacts
      are the only evidence. You may run read-only commands to check

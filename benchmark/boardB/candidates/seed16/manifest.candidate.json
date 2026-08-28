@@ -1,0 +1,1589 @@
+{
+ "schema_version": 2,
+ "board_id": "boardB-seed16-candidate",
+ "constraint_version": "revA-frozen-2026-08-01",
+ "description": "DISPOSABLE Board B candidate seed16: same product requirements and gates as the live board, pointed at the candidate PCB. Never a release input.",
+ "project_root": "../../../..",
+ "tools": {
+  "kicad_cli": "C:\\Program Files\\KiCad\\10.0\\bin\\kicad-cli.exe"
+ },
+ "sources": {
+  "pcb": "benchmark/boardB/candidates/seed16/candidate_placed.kicad_pcb",
+  "schematic": "microphone_array_v2.kicad_sch",
+  "project": "microphone_array_v2.kicad_pro"
+ },
+ "board_origin_mm": [
+  150.0,
+  150.0
+ ],
+ "documentation_globs": [
+  "README.md",
+  "docs/*.md",
+  "constraints.json"
+ ],
+ "fixture": {
+  "attributes_file": ".gitattributes",
+  "reject_globs": [
+   "*.lck",
+   "~*",
+   ".#*",
+   "*.bak",
+   "*.tmp",
+   "*~",
+   "*.kicad_pcb-bak",
+   "*.kicad_sch-bak"
+  ],
+  "inventory_policy": "the live board declares no frozen fixture of its own; these globs are what a clean-room release rejects from the copy it freezes"
+ },
+ "artifacts": {
+  "gerber_dir": "benchmark/boardB/candidates/seed16/generated/release/gerbers",
+  "bom": "generated/release/bom.csv",
+  "cpl": "generated/release/cpl.csv",
+  "position_tolerance_mm": 0.01,
+  "cpl_fields": {
+   "designator": "Designator",
+   "x": "Mid X",
+   "y": "Mid Y",
+   "side": "Layer",
+   "rotation": "Rotation"
+  },
+  "cpl_origin": {
+   "frame": "absolute page origin; the board's plot/drill origin is 0,0, so the Gerbers, the drills and this file share one frame",
+   "offset_mm": [
+    0.0,
+    0.0
+   ]
+  },
+  "gerber_export_flags": [
+   "--layers",
+   "F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts",
+   "--no-x2",
+   "--no-netlist",
+   "--use-drill-file-origin",
+   "--subtract-soldermask"
+  ],
+  "note": "These describe what the clean-room release writes. They used to describe tools/make_release.py, which derived the BOM and CPL from the Python model and has been retired for exactly that reason; the two layouts differ in field names and in origin, so a stale description reads every placement as wrong."
+ },
+ "checks": {
+  "description": "The mandatory ERC/DRC options, severities and exit-code meanings are defined and verified by the validator (pcbqa.gates.g_checks), not here: a board that could relax them could pass a check it never ran. Only additional board-specific options belong in this block.",
+  "erc": {
+   "extra_flags": []
+  },
+  "drc": {
+   "extra_flags": [],
+   "forbidden_severities": [
+    "ignore"
+   ],
+   "permitted_ignored_rules": []
+  }
+ },
+ "reports": {
+  "files": [
+   "generated/release/reports/*.json"
+  ],
+  "source_field": "source",
+  "date_field": "date",
+  "require_source_hash": true,
+  "tolerance_seconds": 0,
+  "source_closure": [
+   "*.kicad_sch",
+   "*.kicad_pcb",
+   "*.kicad_pro",
+   "*.kicad_dru",
+   "*.kicad_sym",
+   "fp-lib-table",
+   "sym-lib-table",
+   "constraints.json",
+   "tools/jlc_orientation.py",
+   "fabrication/jlc_orientation/*.json",
+   "fabrication/jlc_orientation/raw/*.json",
+   "fabrication/jlc_orientation/README.md",
+   "board/timing/*.json"
+  ],
+  "source_closure_note": "The design as it is manufactured, plus what the offsets are derived from. The schematic is one sheet, so the hierarchy is the root file; a recursive **/*.kicad_sch glob used to pull in every other board's fixture and every past attempt's copy, which made the closure depend on what happened to be lying in the output tree. Whatever these globs reach, every file named in `sources` is added to the closure by name as well, so the selected board and schematic are covered because they were selected and not because a glob happened to find them.",
+  "implementation_closure": [
+   "pcbqa.orientation",
+   "pcbqa.cleanroom",
+   "pcbqa.gates.g_orientation",
+   "pcbqa.connectivity",
+   "pcbqa.electrical_path",
+   "pcbqa.stackup_physical",
+   "pcbqa.propagation",
+   "pcbqa.gates.g_timing",
+   "pcbqa.rules",
+   "pcbqa.gates.g_contracts",
+   "pcbqa.component_models"
+  ],
+  "implementation_closure_note": "Modules that DERIVE a shipped value rather than read one off the board, addressed by import name rather than by path. The orientation offsets are computed by this code, so a release is only reproducible if the code is pinned as well as its inputs. Each entry is hashed from the loaded module's own __file__, so what is recorded is the implementation that ran and not a copy of it that happened to be lying next to it. tools/jlc_orientation.py is not listed here because it travels with the project and is already a file-closure member; PROV.SOURCE_CLOSURE separately proves the imported copy is that same file.\n\nThe interconnect timing modules are here for the same reason. A path length is not read off the board either: it is the shortest connected walk over polygon intersections, composed across nets and component crossings, and every one of those steps is code. pcbqa.connectivity is included because it is the primitive that actually measures the copper - pinning the composition layer while leaving the measurement unpinned would be a provenance claim that is not true.\n\nThree of these were added when PROV.DERIVATION_CLOSURE started asking the gate registry rather than this list what has to be covered. pcbqa.rules and pcbqa.gates.g_contracts compute NET.TOPOLOGY's path lengths and had never been pinned - a gap that predates the timing work and that no check could see while the only question asked was whether this list agreed with itself.",
+  "source_hash_field": "source_sha256",
+  "closure_field": "source_closure_sha256",
+  "files_note": "Where the installed release keeps the check reports it shipped. This used to name a directory that held none, so the freshness gate passed by examining nothing.",
+  "required_steps": [
+   "erc",
+   "drc"
+  ],
+  "required_steps_note": "Which generation steps must have left a report in the package. The file names come from release_generation.<step>.output rather than being written down twice.",
+  "source_closure_exclude": [
+   "verification/**",
+   "generated/**",
+   "build/**",
+   "candidates/**",
+   ".git/**"
+  ],
+  "source_closure_exclude_note": "Never inputs to the released design, and present on some machines and not others: the validator's own tree and its fixtures, this board's own output, and the routing scratch that produced the board rather than being produced from it. A closure that changed depending on whether a previous attempt was still on disk would identify nothing.",
+  "configuration_excludes": [
+   "board_id",
+   "project_root",
+   "fixture.hash_file",
+   "fixture.attributes_file",
+   "reports.files",
+   "artifacts.gerber_dir",
+   "artifacts.bom",
+   "artifacts.cpl",
+   "artifacts.cpl_fields",
+   "artifacts.cpl_origin",
+   "assembly.bom_fields",
+   "archive.zip",
+   "archive.manifest",
+   "archive.pre_normalization_digests"
+  ],
+  "configuration_excludes_note": "The manifest enters provenance as its CONTENT, not as its file digest, because a clean room must rewrite where everything is - the project moves, the outputs move, the board id gains a suffix - and hashing the manifest file would guarantee that the reports a run produced could never be checked against the repository that produced them.\n\nThese are the exact leaves derive_manifest assigns, and nothing else. Whole objects are deliberately not listed: sources and tools are copied through untouched, and only two of fixture's leaves move, so excluding those objects would let the selected board, the selected schematic, the toolchain and the fixture rejection policy change without changing the identity of the result.\n\nThe permitted set is owned by pcbqa.cleanroom, not by this file. A board may name a subset of it and nothing more: a manifest that could exclude release_generation would be a manifest that could change the reviewed offsets without changing what the closure says about them. The three values listed here that are not pure paths - cpl_fields, cpl_origin, bom_fields - are copied by derive_manifest out of release_generation, which is covered."
+ },
+ "stackup": {
+  "description": "Both inner layers are ground. The board draws about 200 mA, which the 0.6 mm supply tracks carry comfortably, so an unbroken reference plane under every outer trace is worth more here than a power plane - and no PDM clock or data line can cross a plane split. This entry used to say the second inner layer carried +3V3A, which the board has never done.",
+  "expected": [
+   {
+    "role": "signal"
+   },
+   {
+    "role": "plane",
+    "plane_net": "GND"
+   },
+   {
+    "role": "plane",
+    "plane_net": "GND"
+   },
+   {
+    "role": "signal"
+   }
+  ]
+ },
+ "via_mask": {
+  "metric": "annulus_to_opening_mm",
+  "design_target_mm": 0.4,
+  "process": {
+   "name": "JLCPCB ordinary ink via plugging (tented/plugged vias)",
+   "limit_mm": 0.35,
+   "rule": "Minimum distance from a plugged via to an adjacent solder-mask opening (pad) so the ink dam is retained.",
+   "url": "https://jlcpcb.com/capabilities/pcb-capabilities",
+   "retrieved": "2026-08-04",
+   "interpretation": "Measured from the via annular-ring edge to the nearest solder-mask aperture edge, on the same board side. Vias whose annulus intersects an aperture cannot be plugged at all and are reported separately."
+  },
+  "pad_contact": {
+   "populated_pad_attributes": [
+    "SMD"
+   ],
+   "require_paste": true
+  },
+  "contact_semantics": "annulus_contacts counts zero-distance tangency as contact; annulus_strict_overlaps counts positive shared area only",
+  "mask_dam_rule": "contact"
+ },
+ "routing": {
+  "permitted_turn_degrees": [
+   0.0,
+   45.0
+  ],
+  "angle_tolerance_deg": 1.0,
+  "min_segment_mm": 0.25,
+  "short_segment_justification": {
+   "allow_pad_or_via_entry": true
+  },
+  "hygiene": {
+   "forbid_duplicate_geometry": true,
+   "forbid_net_crossings": true,
+   "forbid_dangling": true
+  }
+ },
+ "net_topology": {
+  "rules": [
+   {
+    "id": "PDM_CLOCK_BRANCHES",
+    "net_regex": "^PDM_CLK_B\\d+$",
+    "source_pad_regex": "^RC\\d+\\.2$",
+    "load_pad_regex": "^MK\\d+\\.3$",
+    "max_spread_mm": 5.0,
+    "max_vias_per_net": 0,
+    "permitted_layers": [
+     "F.Cu"
+    ]
+   },
+   {
+    "id": "PDM_CLOCK_ROOT",
+    "net_regex": "^(PDM_CLK_IN|PDM_CLK_FPGA)$",
+    "source_pad_regex": "^(R2\\.2|J\\d+\\.\\d+)$",
+    "load_pad_regex": "^(U2\\.(2|4|6|8|11|13|15|17)|R2\\.1)$",
+    "max_vias_per_net": 0,
+    "permitted_layers": [
+     "F.Cu"
+    ]
+   },
+   {
+    "id": "AUDIO_MCLK",
+    "net_regex": "^(AUDIO_MCLK|MCLK_OSC)$",
+    "source_pad_regex": "^(R1\\.2|X1\\.3)$",
+    "load_pad_regex": "^(J\\d+\\.\\d+|R1\\.1)$",
+    "max_vias_per_net": 0,
+    "permitted_layers": [
+     "F.Cu"
+    ]
+   }
+  ]
+ },
+ "timing": {
+  "description": [
+   "Passive PCB interconnect timing for this board's clock distribution.",
+   "",
+   "This block describes copper, and only copper. The gates it drives",
+   "measure how long a signal takes to travel the board's own",
+   "interconnect between two pads. They do not model the FPGA's output",
+   "timing, the SN74LVC244's propagation delay or its output-to-output",
+   "skew, either package, the microphones' input threshold behaviour, or",
+   "process, voltage and temperature. On this clock tree the buffer's own",
+   "output-to-output skew is a few nanoseconds, which is larger than the",
+   "whole copper term - so the PCB interconnect skew reported here is a",
+   "component of clock arrival skew, never the whole of it.",
+   "",
+   "The reason this exists separately from net_topology.rules is that a",
+   "net is not a path. NET.TOPOLOGY's PDM_CLOCK_BRANCHES rule measures",
+   "from RCn.2, the output side of the branch resistor, because that is",
+   "where net PDM_CLK_Bn begins. The copper between U2 and RCn.1 is on a",
+   "different net and is therefore not in that measurement at all - and",
+   "on two branches it is not even on the same layer. The paths declared",
+   "below start at the buffer pin and cross the resistor."
+  ],
+  "physical_stackup": {
+   "reference_nets": [
+    "GND"
+   ],
+   "reference_nets_note": "Which nets make a copper layer a reference plane. Which LAYERS carry them is read off the board's own zones, so a layer counts as a plane because copper is poured on it and not because a file says so. Both inner layers are unbroken GND here, which is why no clock line on this board crosses a plane split.",
+   "supplement": "board/timing/physical_stackup.json",
+   "supplement_note": "The board file carries no (setup (stackup ...)) block, so KiCad holds no dielectric thickness, material, permittivity or loss tangent for this design. The supplement declares the STRUCTURE of the stack - which dielectric sits between which coppers - and leaves every material figure explicitly null. It does not invent them, and until they are obtained from the fabricator's stackup drawing no propagation delay is derivable.",
+   "require_complete": false,
+   "require_complete_note": "False, because this board has no requirement expressed in picoseconds and therefore does not need a complete physical stackup to be releasable. STACK.PHYSICAL is non-applicable rather than failing, and names each absent field. Set this to true the moment any limit below is expressed in time: an unevaluated requirement must block.",
+   "reference_continuity_note": "No max_unreferenced_mm is declared, so any copper without poured reference conductor beneath it refuses a delay for that run. The toolkit's measure is now per endpoint path against the union of both ground pours: the worst single PDM path carries 2.087 mm of such copper (pdm_clock_branch_4, the plane antipads around its vias), branch 3's paths carry 1.809 mm, and the other twelve paths none. An earlier note here said 7.792 mm; that figure summed per-plane exposure across all sixteen resolved paths, counting each shared branch segment once per microphone hanging off it, and described no single physical quantity. That is ordinary via clearance and probably acceptable, but deciding how much is acceptable is a design decision with a number attached, and it belongs to whoever makes it rather than to a default."
+  },
+  "propagation": {
+   "backend": "analytic",
+   "model": "hammerstad",
+   "model_note": "Hammerstad's closed form for microstrip effective permittivity. Named explicitly rather than defaulted because the choice changes the number and therefore belongs in configuration identity. The zero-thickness form is selected over the thickness-corrected one because no copper weight is known either; when the fabricator's stackup supplies one, hammerstad-thickness-corrected is the better choice for 0.15 mm traces.",
+   "via_delay_model": "none",
+   "via_delay_model_note": "Named, and deliberately not justified. Naming the treatment says this board has chosen to omit the vertical transit; it does not say the transit is negligible, and it is not: a barrel through 1.6 mm of board is a few picoseconds, and only two of the eight branches have one, so it does not cancel in a skew comparison the way a term common to every branch would. Under the toolkit's via policy an unjustified `none` therefore makes any total containing a via a lower bound, which is the honest reading. Adding a justification here would assert something about this board that nobody has established, and switching to the geometric model would need dielectric thicknesses this board does not have."
+  },
+  "models": {
+   "physical_stackup": "board/timing/physical_stackup.json"
+  },
+  "models_note": "Timing model files by role, so PROV.TIMING_MODELS can prove each one exists and is inside the source closure. A timing result that depended on a material file nothing hashed would keep looking fresh after the figure in it changed. Device, IBIS, Touchstone and cable models get further roles here when this board acquires any.",
+  "interfaces": {
+   "pdm_clock": {
+    "description": "The 3.072 MHz PDM clock from the SN74LVC244APWR fan-out buffer to all sixteen microphone clock pins. Eight buffer outputs, each through a 33 ohm series resistor, each feeding one microphone pair.",
+    "scope": "PCB interconnect only. Not total clock arrival time and not total clock skew.",
+    "expected_path_count": 16,
+    "expected_path_count_note": "Eight branches, two microphones each. This is the frozen array population expressed as a path count: if a branch stops resolving, or a microphone stops being reachable from its buffer output, the count changes and PATH_INTEGRITY fails.",
+    "required_component_crossings": 1,
+    "required_component_crossings_note": "Every complete branch path must cross its series resistor. This is the assertion that a measurement starts at the buffer pin rather than on the resistor's output net - the exact defect that makes a net-scoped length look shorter than the signal's actual route.",
+    "routes": {
+     "template": {
+      "id": "pdm_clock_branch_{n}",
+      "steps": [
+       {
+        "kind": "copper",
+        "net": "PDM_CLK_Y{y}",
+        "from": "^U2\\.\\d+$",
+        "to": "RC{n}.1"
+       },
+       {
+        "kind": "component",
+        "reference": "RC{n}",
+        "from_pad": "1",
+        "to_pad": "2"
+       },
+       {
+        "kind": "copper",
+        "net": "PDM_CLK_B{y}",
+        "from": "RC{n}.2",
+        "to": "^MK\\d+\\.3$"
+       }
+      ]
+     },
+     "template_note": "One branch written once and bound eight times. The buffer output is selected by pattern because which U2 pin drives PDM_CLK_Yn is a fact about the netlist, not something this policy should restate; the resistor pins are named exactly, because a step that must land on one particular pin has to fail if it would match two. The final step fans out to both microphones on the branch, which is why eight routes resolve to sixteen paths.",
+     "bindings": [
+      {
+       "n": "1",
+       "y": "0"
+      },
+      {
+       "n": "2",
+       "y": "1"
+      },
+      {
+       "n": "3",
+       "y": "2"
+      },
+      {
+       "n": "4",
+       "y": "3"
+      },
+      {
+       "n": "5",
+       "y": "4"
+      },
+      {
+       "n": "6",
+       "y": "5"
+      },
+      {
+       "n": "7",
+       "y": "6"
+      },
+      {
+       "n": "8",
+       "y": "7"
+      }
+     ]
+    },
+    "groups": {
+     "microphone_clock_endpoints": {
+      "description": "All sixteen microphone clock pins, compared against each other. The spread reported here is the difference in passive PCB propagation between the earliest and latest arrival, measured from the buffer pins.",
+      "paths": "^pdm_clock_branch_",
+      "limit_note": "No limit is declared, deliberately. The frozen requirement this board actually carries is constraints.json critical_routes.pdm_clock_branches.branch_length_match_mm = 5.0, and it governs a different quantity: the spread of the LONGEST driver-to-load path PER NET, post-resistor, which NET.TOPOLOGY enforces and which still passes. An endpoint-to-endpoint limit over complete paths is a requirement this design has never stated, and adding one here would be a new constraint smuggled in as a measurement. The measurement is reported; the requirement is a reviewed design decision."
+     }
+    }
+   }
+  }
+ },
+ "connector_gender_tokens": {
+  "female": [
+   "pinsocket",
+   "socket",
+   "receptacle",
+   "female"
+  ],
+  "male": [
+   "pinheader",
+   "pin header",
+   "male",
+   "plug",
+   "header_"
+  ]
+ },
+ "connector_contracts": [
+  {
+   "id": "HOST_DIRECT_STACK",
+   "reference": "J1",
+   "required_gender": "female",
+   "required_positions": 26,
+   "required_rows": 2,
+   "required_pitch_mm": 2.54,
+   "required_side": "back",
+   "population": {
+    "dnp": true,
+    "exclude_from_bom": true
+   },
+   "unconnected_net_prefix": "unconnected-",
+   "pin_map": {
+    "1": null,
+    "2": "PI_5V",
+    "3": null,
+    "4": "PI_5V",
+    "5": null,
+    "6": "GND",
+    "9": "GND",
+    "14": "GND",
+    "20": "GND",
+    "25": "GND",
+    "16": "PI_SYNC",
+    "18": "PI_STATUS",
+    "19": "PI_MOSI",
+    "21": "PI_MISO",
+    "22": "PI_IRQ",
+    "23": "PI_SCLK",
+    "24": "PI_CS_N",
+    "26": "PI_RESET_N"
+   },
+   "documentation": {
+    "must_not_claim": [
+     {
+      "label": "ribbon cable",
+      "pattern": "\\bribbon\\b"
+     },
+     {
+      "label": "IDC connector",
+      "pattern": "\\bIDC\\b"
+     },
+     {
+      "label": "shrouded/keyed connector",
+      "pattern": "\\bshroud(ed)?\\b|\\bkeyed\\b"
+     }
+    ],
+    "must_claim": [
+     {
+      "label": "female stacking socket",
+      "pattern": "female (2x13|stacking|socket)|stacking (socket|header)"
+     },
+     {
+      "label": "direct board-to-board mating",
+      "pattern": "direct(ly)? (board[- ]to[- ]board|plug|stack)|plugs? (straight )?(on)?to the (Raspberry )?Pi"
+     }
+    ]
+   }
+  }
+ ],
+ "placement_rules": [
+  {
+   "id": "MIC_ACOUSTIC_PORT_RING",
+   "reference_regex": "^MK\\d+$",
+   "count": 16,
+   "reference_offset_local_mm": [
+    0.0,
+    -0.78
+   ],
+   "polar": {
+    "radius_mm": 54.0,
+    "tolerance_mm": 0.05,
+    "angular_pitch_deg": 22.5,
+    "angle_tolerance_deg": 0.05
+   },
+   "rotation": {
+    "mode": "radial",
+    "offset_deg": 270.0,
+    "tolerance_deg": 0.1
+   }
+  }
+ ],
+ "source_authority": {
+  "authority": "native_kicad",
+  "claim_scan": [
+   {
+    "claim": "native_kicad_is_authority",
+    "files": [
+     "README.md",
+     "docs/*.md"
+    ],
+    "pattern": "no longer (regenerated|reproducible)|source of truth for routing|edited in place"
+   },
+   {
+    "claim": "python_model_is_authority",
+    "files": [
+     "README.md",
+     "docs/*.md"
+    ],
+    "pattern": "generated from `?tools/netlist\\.py|single source of truth|Nothing in the KiCad files should be hand-edited|do not hand-edit"
+   }
+  ],
+  "mutually_exclusive_claims": [
+   [
+    "native_kicad_is_authority",
+    "python_model_is_authority"
+   ]
+  ],
+  "forbidden_derivations": [
+   {
+    "files": [
+     "tools/make_release.py"
+    ],
+    "pattern": "import netlist|nl\\.build\\(\\)",
+    "issue": "released BOM/CPL data is taken from a Python model instead of the native KiCad project"
+   }
+  ]
+ },
+ "archive": {
+  "zip": "generated/release/microphone_array_v2-revA-fabrication.zip",
+  "manifest": "generated/release/MANIFEST.md",
+  "manifest_required_fields": [
+   "sha256",
+   "kicad",
+   "command",
+   "constraint"
+  ],
+  "allow": [
+   {
+    "file": "microphone_array_v2.GTL",
+    "role": "copper",
+    "require_payload": true,
+    "min_count": 1
+   },
+   {
+    "file": "microphone_array_v2.G2L",
+    "role": "copper",
+    "require_payload": true,
+    "min_count": 1
+   },
+   {
+    "file": "microphone_array_v2.G3L",
+    "role": "copper",
+    "require_payload": true,
+    "min_count": 1
+   },
+   {
+    "file": "microphone_array_v2.GBL",
+    "role": "copper",
+    "require_payload": true,
+    "min_count": 1
+   },
+   {
+    "file": "microphone_array_v2.GTS",
+    "role": "soldermask",
+    "require_payload": true,
+    "min_count": 1
+   },
+   {
+    "file": "microphone_array_v2.GBS",
+    "role": "soldermask",
+    "require_payload": true,
+    "min_count": 1
+   },
+   {
+    "file": "microphone_array_v2.GTP",
+    "role": "paste",
+    "require_payload": true,
+    "min_count": 1
+   },
+   {
+    "file": "microphone_array_v2.GBP",
+    "role": "paste",
+    "require_payload": false,
+    "min_count": 1,
+    "may_be_empty_because": "every SMT part is on the top side, so there is no bottom stencil aperture to cut; the layer is exported for completeness"
+   },
+   {
+    "file": "microphone_array_v2.GTO",
+    "role": "legend",
+    "require_payload": true,
+    "min_count": 1
+   },
+   {
+    "file": "microphone_array_v2.GBO",
+    "role": "legend",
+    "require_payload": true,
+    "min_count": 1
+   },
+   {
+    "file": "microphone_array_v2.GM1",
+    "role": "outline",
+    "require_payload": true,
+    "min_count": 1
+   },
+   {
+    "file": "microphone_array_v2-PTH.DRL",
+    "role": "drill",
+    "require_payload": true,
+    "min_count": 1
+   },
+   {
+    "file": "microphone_array_v2-NPTH.DRL",
+    "role": "drill",
+    "require_payload": false,
+    "min_count": 1,
+    "may_be_empty_because": "the board has no non-plated holes - it carries no mounting holes, because it hangs from J1 on the Raspberry Pi's P1 pins"
+   }
+  ],
+  "deny": [
+   {
+    "file_glob": "*.gbrjob",
+    "reason": "a Gerber job file restates the stackup in metadata the fab does not read; the filenames are the contract"
+   },
+   {
+    "file_glob": "*.g[0-9]",
+    "reason": "raw KiCad inner-layer extensions are not identifiable by the fab; they must be renamed to .G2L and .G3L"
+   },
+   {
+    "file_glob": "*GND[0-9]*",
+    "reason": "a layer named for its net says nothing about its position in the stack"
+   }
+  ],
+  "pre_normalization_digests": "../PRE_NORMALIZATION_HASHES.json",
+  "identification": "by filename, cross-checked against content. Gerber X2 FileFunction is deliberately absent from this export, so it cannot be the basis; a file still has to parse as the kind of thing its name claims and carry real geometry."
+ },
+ "constraint_parity": {
+  "rival_scan": {
+   "files": [
+    "tools/check_routes.py"
+   ],
+   "watched_constants": {
+    "BRANCH_SKEW_LIMIT_MM": {
+     "manifest_key": "net_topology.rules.0.max_spread_mm"
+    },
+    "MIN_SEGMENT_MM": {
+     "manifest_key": "routing.min_segment_mm"
+    },
+    "MAX_TURN_DEGREES": {
+     "manifest_key": "routing.permitted_turn_degrees.1"
+    }
+   }
+  }
+ },
+ "waivers": [
+  {
+   "id": "PI_STATUS-track-not-centred-on-via-3606f0c0",
+   "gate": "DRC.AUTHORITATIVE",
+   "rule": "track_not_centered_on_via",
+   "category": "violations",
+   "items": [
+    {
+     "description": "Track [PI_STATUS] on F.Cu, length 0.2828 mm",
+     "uuid": "8b2ff47b-d876-43e4-8503-8808b63c1cde",
+     "location_mm": [
+      153.7,
+      183.2
+     ]
+    },
+    {
+     "description": "Via [PI_STATUS] on F.Cu - B.Cu",
+     "uuid": "3606f0c0-911b-4048-95fb-8c4ceb246831",
+     "location_mm": [
+      153.8,
+      183.2
+     ]
+    }
+   ],
+   "reason": "The track ends one step of the router's own grid - 0.1 mm - from the via centre it connects to: a 0.2 mm track well inside a 0.45 mm annulus, overlapping it by more than the track's full width, connected and clear. What fails is the style rule that an entry be centred, not the connection. Every ordinary net on this board is routed by KiCad Routing Tools, which offers no setting to centre a terminal, and the only other correction is to move routed copper by hand, which this board's process forbids. Bound to this exact track and via on this exact revision: if either moves, or the board, rules, command or findings change, the waiver stops matching and the finding blocks again.",
+   "reviewed_by": "pentolope",
+   "reviewed_utc": "2026-08-07T01:19:46Z",
+   "approved_source_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+   "approved_rules_sha256": "c9b52fae0142d6900d0f81a0b722bc85aa0698a0935c5c5b036dc7989828b027",
+   "approved_command_sha256": "43c9102d9070ee5dbd74ea47655436ded2fd2b0db4dd53931bad3d4f0556236b",
+   "approved_report_sha256": "591ac156dccb6b11881891a0ec4ca90c49051282632143b8521016bba4072025"
+  },
+  {
+   "id": "HOST_RESET_N-track-not-centred-on-via-cd18f18d",
+   "gate": "DRC.AUTHORITATIVE",
+   "rule": "track_not_centered_on_via",
+   "category": "violations",
+   "items": [
+    {
+     "description": "Track [HOST_RESET_N] on B.Cu, length 9.6167 mm",
+     "uuid": "c546d56f-f70c-4060-85bf-588b825551ee",
+     "location_mm": [
+      141.8,
+      168.2
+     ]
+    },
+    {
+     "description": "Via [HOST_RESET_N] on F.Cu - B.Cu",
+     "uuid": "cd18f18d-2541-4c9b-8958-6dd9410c0920",
+     "location_mm": [
+      141.8,
+      168.3
+     ]
+    }
+   ],
+   "reason": "The track ends one step of the router's own grid - 0.1 mm - from the via centre it connects to: a 0.2 mm track well inside a 0.45 mm annulus, overlapping it by more than the track's full width, connected and clear. What fails is the style rule that an entry be centred, not the connection. Every ordinary net on this board is routed by KiCad Routing Tools, which offers no setting to centre a terminal, and the only other correction is to move routed copper by hand, which this board's process forbids. Bound to this exact track and via on this exact revision: if either moves, or the board, rules, command or findings change, the waiver stops matching and the finding blocks again.",
+   "reviewed_by": "pentolope",
+   "reviewed_utc": "2026-08-07T01:19:46Z",
+   "approved_source_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+   "approved_rules_sha256": "c9b52fae0142d6900d0f81a0b722bc85aa0698a0935c5c5b036dc7989828b027",
+   "approved_command_sha256": "43c9102d9070ee5dbd74ea47655436ded2fd2b0db4dd53931bad3d4f0556236b",
+   "approved_report_sha256": "591ac156dccb6b11881891a0ec4ca90c49051282632143b8521016bba4072025"
+  }
+ ],
+ "geometry_profile": {
+  "version": "geom-1",
+  "tolerances": {
+   "polygon_chord_error_mm": {
+    "value": 0.001,
+    "units": "mm",
+    "why": "outward chord error when polygonising arcs; conservative direction only.",
+    "provenance": "maximum chord error when a curve is approximated by a polygon, applied outward (pcbnew ERROR_OUTSIDE) so an approximation can never over-state a clearance. Removed constants: native_gerber_match_mm and coincidence_mm were declared but never applied; coordinate_match_mm and contact_mm carry those roles."
+   },
+   "rotation_match_deg": {
+    "value": 0.1,
+    "units": "deg",
+    "why": "CPL rotation is written to 4 dp; this bounds formatting round-trip."
+   },
+   "coordinate_match_mm": {
+    "value": 0.002,
+    "units": "mm",
+    "why": "Gerber coordinates are written at 1e-6 mm; this bounds format round-trip when matching an exported object to a native one."
+   },
+   "dimension_match_mm": {
+    "value": 0.002,
+    "units": "mm",
+    "why": "aperture and drill diameters are written to 6 dp."
+   },
+   "clearance_match_mm": {
+    "value": 0.01,
+    "units": "mm",
+    "why": "native shapes are polygonised outward at 1 um; Gerber apertures are re-polygonised independently, so identical geometry can differ by a few chord errors."
+   },
+   "layer_symmetric_difference_mm2": {
+    "value": 0.05,
+    "units": "mm2",
+    "why": "two independent polygonisations of the same layer differ only by chord error along shared boundaries."
+   },
+   "contact_mm": {
+    "value": 1e-06,
+    "units": "mm",
+    "why": "Two independent polygonisations of the same tangency can leave a sub-nanometre gap. Separation at or below this is treated as contact, i.e. as loss of the solder-mask ink dam."
+   },
+   "waiver_location_mm": {
+    "value": 0.001,
+    "units": "mm",
+    "provenance": "waiver matching: a finding must be at the coordinate the reviewer approved. One micrometre is below KiCad's own report rounding, so a genuinely relocated finding never matches an old waiver."
+   }
+  }
+ },
+ "assembly": {
+  "schematic_fields": [
+   "LCSC",
+   "MPN",
+   "Manufacturer",
+   "Description"
+  ],
+  "required_part_fields": [
+   "LCSC"
+  ],
+  "bom_fields": {
+   "designators": "Designator",
+   "value": "Comment",
+   "footprint": "Footprint",
+   "quantity": "Quantity",
+   "LCSC": "LCSC Part #"
+  },
+  "schematic_export": {
+   "description": "How the authoritative assembly data is read out of the native schematic. One row per symbol, no grouping, no reference ranges: this is the design authority, not a report.",
+   "fields": [
+    "Reference",
+    "Value",
+    "Footprint",
+    "${DNP}",
+    "${EXCLUDE_FROM_BOM}",
+    "LCSC",
+    "MPN",
+    "Manufacturer",
+    "Description"
+   ],
+   "labels": [
+    "Reference",
+    "Value",
+    "Footprint",
+    "DNP",
+    "ExcludeFromBOM",
+    "LCSC",
+    "MPN",
+    "Manufacturer",
+    "Description"
+   ],
+   "reference_label": "Reference",
+   "value_label": "Value",
+   "footprint_label": "Footprint",
+   "dnp_label": "DNP",
+   "exclude_label": "ExcludeFromBOM",
+   "true_tokens": [
+    "1",
+    "true",
+    "yes",
+    "x",
+    "dnp"
+   ],
+   "flags": []
+  },
+  "compared_part_fields": [
+   "LCSC",
+   "MPN",
+   "Manufacturer"
+  ]
+ },
+ "release_profile": {
+  "id": "jlcpcb-4layer-assembled",
+  "visual_review_evidence": "generated/release/visual_review.json",
+  "mandatory_gates": [
+   "PROV.FIXTURE_INTEGRITY",
+   "PROV.SOURCE_AUTHORITY",
+   "PROV.REPORT_FRESHNESS",
+   "PROV.SOURCE_CLOSURE",
+   "PROV.RELEASE_COHERENCE",
+   "ERC.AUTHORITATIVE",
+   "DRC.AUTHORITATIVE",
+   "DRC.NO_SUPPRESSED_RULES",
+   "STACK.NATIVE_VS_MANIFEST",
+   "STACK.GERBER_PARITY",
+   "VIA.MASK_CLEARANCE_TARGET",
+   "VIA.MASK_CLEARANCE_PROCESS",
+   "VIA.ANNULUS_MASK_OVERLAP",
+   "VIA.IN_PAD_CONTACT",
+   "VIA.NATIVE_GERBER_AGREEMENT",
+   "NET.TOPOLOGY",
+   "ROUTE.ANGLE_STYLE",
+   "ROUTE.TINY_SEGMENTS",
+   "ROUTE.GEOMETRY_HYGIENE",
+   "CONTRACT.CONNECTOR",
+   "CONTRACT.PLACEMENT",
+   "BOM.NATIVE_PARITY",
+   "CPL.NATIVE_PARITY",
+   "CPL.ORIENTATION",
+   "FAB.LAYER_IDENTITY",
+   "ARCH.CONTENTS",
+   "ARCH.PROVENANCE",
+   "CFG.NO_RIVAL_THRESHOLDS",
+   "CFG.THRESHOLD_PARITY",
+   "TIMING.PATH_INTEGRITY",
+   "PROV.TIMING_MODELS",
+   "PROV.DERIVATION_CLOSURE"
+  ],
+  "mandatory_gates_note": "TIMING.PATH_INTEGRITY and PROV.TIMING_MODELS are mandatory: both pass today and neither needs material data, so a release cannot be produced unless all sixteen PDM clock paths still resolve end to end through their series resistors and every declared timing model file is still inside the source closure. STACK.PHYSICAL, TIMING.INTERCONNECT_DELAY and TIMING.INTERCONNECT_SKEW are deliberately NOT mandatory: they are NOT_APPLICABLE on this board because it declares no limit in picoseconds, and a mandatory gate that is NOT_APPLICABLE blocks a release. Add them when a time-domain limit is declared. PROV.DERIVATION_CLOSURE joins them for the same reason: it passes, it needs no material data, and it is the only check that can notice a module dropped out of this board's implementation closure."
+ },
+ "release_generation": {
+  "description": "Every command a clean-room release runs, and the field names the artifacts it generates actually carry. The ERC and DRC option sets are taken from the validator so a release cannot run a weaker check than validation demands.",
+  "lock_file_globs": [
+   "*.lck",
+   "~*.lck",
+   ".#*",
+   "*-lock",
+   "*.kicad_prl-lock"
+  ],
+  "purge_globs": [
+   "generated/**",
+   "generated"
+  ],
+  "erc": {
+   "output": "erc.json"
+  },
+  "drc": {
+   "output": "drc.json"
+  },
+  "drill": {
+   "flags": [
+    "--format",
+    "excellon",
+    "--excellon-separate-th",
+    "--drill-origin",
+    "plot"
+   ]
+  },
+  "bom": {
+   "output": "bom.csv",
+   "fields": [
+    "${QUANTITY}",
+    "Reference",
+    "Value",
+    "Footprint",
+    "LCSC"
+   ],
+   "labels": [
+    "Quantity",
+    "Designator",
+    "Comment",
+    "Footprint",
+    "LCSC Part #"
+   ],
+   "group_by": [
+    "Value",
+    "Footprint",
+    "LCSC"
+   ],
+   "flags": [
+    "--exclude-dnp",
+    "--ref-range-delimiter",
+    ""
+   ],
+   "field_map": {
+    "designators": "Designator",
+    "value": "Comment",
+    "footprint": "Footprint",
+    "quantity": "Quantity",
+    "LCSC": "LCSC Part #"
+   }
+  },
+  "cpl": {
+   "output": "cpl.csv",
+   "flags": [
+    "--format",
+    "csv",
+    "--units",
+    "mm",
+    "--side",
+    "both",
+    "--exclude-dnp"
+   ],
+   "field_map": {
+    "designator": "Ref",
+    "x": "PosX",
+    "y": "PosY",
+    "side": "Side",
+    "rotation": "Rot"
+   },
+   "origin": {
+    "frame": "absolute page origin",
+    "offset_mm": [
+     0.0,
+     0.0
+    ]
+   }
+  },
+  "archive": {
+   "zip": "microphone_array_v2-revA-fabrication.zip",
+   "manifest": "MANIFEST.md"
+  },
+  "fab_format": {
+   "description": "The columns the assembly house reads, and where each one comes from in kicad-cli's own export. Only the labels and the Top/Bottom spelling change; every number is the native export's. JLCPCB looks for Designator, Mid X, Mid Y, Layer and Rotation, and rejects the whole file with 'Failed processing CPL file' if they are not there - which is what KiCad's native Ref/PosX/PosY/Side/Rot headers produce.",
+   "cpl": {
+    "columns": [
+     {
+      "label": "Designator",
+      "from": "Ref"
+     },
+     {
+      "label": "Mid X",
+      "from": "PosX"
+     },
+     {
+      "label": "Mid Y",
+      "from": "PosY"
+     },
+     {
+      "label": "Layer",
+      "from": "Side",
+      "values": {
+       "top": "Top",
+       "bottom": "Bottom"
+      }
+     },
+     {
+      "label": "Rotation",
+      "from": "Rot"
+     }
+    ],
+    "field_map": {
+     "designator": "Designator",
+     "x": "Mid X",
+     "y": "Mid Y",
+     "side": "Layer",
+     "rotation": "Rotation"
+    },
+    "required_columns": [
+     "Designator",
+     "Mid X",
+     "Mid Y",
+     "Layer",
+     "Rotation"
+    ]
+   },
+   "bom": {
+    "columns": [
+     {
+      "label": "Comment",
+      "from": "Comment"
+     },
+     {
+      "label": "Designator",
+      "from": "Designator"
+     },
+     {
+      "label": "Footprint",
+      "from": "Footprint"
+     },
+     {
+      "label": "LCSC Part #",
+      "from": "LCSC Part #"
+     },
+     {
+      "label": "Quantity",
+      "from": "Quantity"
+     }
+    ],
+    "field_map": {
+     "designators": "Designator",
+     "value": "Comment",
+     "footprint": "Footprint",
+     "quantity": "Quantity",
+     "LCSC": "LCSC Part #"
+    },
+    "required_columns": [
+     "Comment",
+     "Designator",
+     "Footprint",
+     "LCSC Part #"
+    ]
+   }
+  },
+  "cpl_orientation": {
+   "description": "Reviewed placement-orientation policy. Two separate corrections, and conflating them turns parts.\n\nNormalisation moves every angle into [0, 360). KiCad writes rotations in (-180, 180]; the assembly house reads the other range. Same orientation, different words, applied to everything, never recorded as an offset.\n\nA library-zero offset is a property of the PART, not of the board: where the part's zero in JLCPCB's library differs from the zero of the footprint here, every instance is fitted turned by the difference. Every populated part carries an explicit reviewed entry below, including the twelve whose offset is zero - 'nobody has checked this one' and 'checked, needs nothing' are different statements and only the second may ship. There is no default: generation fails on a part with no entry rather than assuming zero.",
+   "part_number_field": "LCSC",
+   "part_number_field_note": "The footprint field carrying the distributor part number the offsets are keyed by. Named here rather than in the validator: which field holds a part number is a property of this project's libraries, not of the checking framework.",
+   "normalize_range_deg": [
+    0,
+    360
+   ],
+   "angle_decimals": 4,
+   "sign_convention": "offset_deg is ADDED to the KiCad rotation and the sum normalised. Positive is counter-clockwise, which is what both KiCad and the assembly house use for a top-side part.",
+   "evidence": {
+    "method": "tools/jlc_orientation.py fetches the footprint JLCPCB actually uses - EasyEDA is their EDA and serves it - reads the pads into a top view in millimetres, and scores each 90-degree candidate by the worst pad-direction disagreement against this board's KiCad footprint with its placement rotation removed. Every pad votes, so the answer cannot rest on pin 1 alone: a pin-1 match cannot tell a rotation from a mirror.",
+    "fixtures": "fabrication/jlc_orientation/<LCSC>.json",
+    "fixture_contents": "A NORMALISED EXTRACT of the raw body - not the body, and not described as one. Pad centres in millimetres in a top view keyed by pad number, plus the source URL, the retrieval date, and the length and SHA-256 of the raw file it was derived from. It is a convenience, never an authority: report and check re-derive the pads from the raw body and fail if this file disagrees with them.",
+    "reproduce": "tools/jlc_orientation.py report        (offline)",
+    "recheck": "tools/jlc_orientation.py check         (offline; registry vs evidence)",
+    "raw_evidence": "fabrication/jlc_orientation/raw/<LCSC>.json",
+    "raw_evidence_contents": "The response body exactly as EasyEDA served it, byte for byte: one line of JSON, no re-encoding and no trailing newline. This is the evidence. Its SHA-256 and length are recorded in the extract beside it.",
+    "tamper_resistance": "Three ways to move an offset, all of which fail: editing the raw body breaks its recorded digest; editing the extract makes it disagree with what the raw body derives; editing the registry's offset makes it disagree with what the evidence scores.",
+    "upstream_drift": "tools/jlc_orientation.py check-live    (the only routine reader of the network; exit 1 means the committed evidence is corrupt, exit 2 means JLC's library has moved since it was frozen. Drift is a prompt to re-freeze and re-review, not a release failure, and neither the test suite nor a clean release reaches upstream.)",
+    "schema": "fabrication/jlc_orientation/README.md"
+   },
+   "undocumented_production_edits": {
+    "summary": "JLCPCB flagged 52 references on the first upload. Four were genuine library-zero offsets and are registered below. The other 48 are listed here because their angles were changed by JLCPCB and the revised numeric rotations were never supplied, so what those 48 became cannot be reproduced or verified from anything in this repository.",
+    "policy": "Their submitted fractional angles are preserved exactly, with negative values normalised into [0, 360) and nothing else done to them. No rounding policy is invented: rounding to a value nobody has seen would move sixteen microphones off the array geometry to match a guess.",
+    "verification_limit": "It cannot be confirmed that these 48 now match what JLCPCB produced. That needs their revised CPL, which is unavailable.",
+    "evidence_that_they_need_no_offset": "JLCPCB corrected 11 of the 16 microphones, 11 of 16 data resistors, 11 of 16 supply resistors and 11 of 16 channel capacitors - and the five left alone in each family are exactly those already sitting at a multiple of 45 degrees. A library mismatch is a property of the part and would have turned all sixteen. C15850 is the clearest case: C3 at 0 degrees was untouched while CB1-CB4, the same part in the same footprint at fractional angles, were revised. The frozen library evidence agrees, deriving a zero offset for every one of these parts.",
+    "references": [
+     "CB1",
+     "CB2",
+     "CB3",
+     "CB4",
+     "CM2",
+     "CM3",
+     "CM4",
+     "CM5",
+     "CM6",
+     "CM7",
+     "CM8",
+     "CM10",
+     "CM12",
+     "CM14",
+     "CM16",
+     "MK1",
+     "MK2",
+     "MK3",
+     "MK4",
+     "MK6",
+     "MK8",
+     "MK10",
+     "MK12",
+     "MK14",
+     "MK15",
+     "MK16",
+     "RD2",
+     "RD3",
+     "RD4",
+     "RD5",
+     "RD6",
+     "RD7",
+     "RD8",
+     "RD10",
+     "RD12",
+     "RD14",
+     "RD16",
+     "RV2",
+     "RV4",
+     "RV6",
+     "RV8",
+     "RV10",
+     "RV11",
+     "RV12",
+     "RV13",
+     "RV14",
+     "RV15",
+     "RV16"
+    ]
+   },
+   "registry": [
+    {
+     "lcsc": "C1017",
+     "mpn": "GZ2012D601TF",
+     "package": "L0805",
+     "kicad_footprint": "Inductor_SMD:L_0805_2012Metric",
+     "offset_deg": 0.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 0 degrees with a worst pad disagreement of 0.0 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB requested no orientation correction for this part",
+     "evidence_file": "fabrication/jlc_orientation/C1017.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C1017.json",
+     "evidence_sha256": "eb9c74fc0f842cb4e15c5906c3cad5f6994f1ee5419e3bb3c33615976a37cfd3",
+     "derived_worst_deg": 0.0,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "FB1"
+     ]
+    },
+    {
+     "lcsc": "C106858",
+     "mpn": "CC0603KRX7R8BB105",
+     "package": "C0603",
+     "kicad_footprint": "Capacitor_SMD:C_0603_1608Metric",
+     "offset_deg": 0.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 0 degrees with a worst pad disagreement of 0.0 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB requested no orientation correction for this part",
+     "evidence_file": "fabrication/jlc_orientation/C106858.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C106858.json",
+     "evidence_sha256": "0f7bcb02453589522f7a02d0c693e0173b0482ec293d806adab05c8e58bca4c8",
+     "derived_worst_deg": 0.0,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "C1",
+      "C2",
+      "C7",
+      "C9"
+     ]
+    },
+    {
+     "lcsc": "C111212",
+     "mpn": "USBLC6-4SC6",
+     "package": "SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BL",
+     "kicad_footprint": "Package_TO_SOT_SMD:SOT-23-6",
+     "offset_deg": -90.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is -90 degrees with a worst pad disagreement of 0.287 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB corrected this part during production review of the first upload",
+     "evidence_file": "fabrication/jlc_orientation/C111212.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C111212.json",
+     "evidence_sha256": "64c78a657f8808e550ba8acabd2c356f21423b21b1b5a5d202d9d2adf991334b",
+     "derived_worst_deg": 0.287,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "U3",
+      "U4"
+     ]
+    },
+    {
+     "lcsc": "C1525",
+     "mpn": "CL05B104KO5NNNC",
+     "package": "C0402",
+     "kicad_footprint": "Capacitor_SMD:C_0402_1005Metric",
+     "offset_deg": 0.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 0 degrees with a worst pad disagreement of 0.0 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB requested no orientation correction for this part",
+     "evidence_file": "fabrication/jlc_orientation/C1525.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C1525.json",
+     "evidence_sha256": "7826a74f5dd3b0c4acd30493446620c66ae1674a91d666a280de8b66d02da7a0",
+     "derived_worst_deg": 0.0,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "C5",
+      "C6",
+      "C8",
+      "CM1",
+      "CM10",
+      "CM11",
+      "CM12",
+      "CM13",
+      "CM14",
+      "CM15",
+      "CM16",
+      "CM2",
+      "CM3",
+      "CM4",
+      "CM5",
+      "CM6",
+      "CM7",
+      "CM8",
+      "CM9"
+     ]
+    },
+    {
+     "lcsc": "C15850",
+     "mpn": "CL21A106KAYNNNE",
+     "package": "C0805",
+     "kicad_footprint": "Capacitor_SMD:C_0805_2012Metric",
+     "offset_deg": 0.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 0 degrees with a worst pad disagreement of 0.0 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB requested no orientation correction for this part",
+     "evidence_file": "fabrication/jlc_orientation/C15850.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C15850.json",
+     "evidence_sha256": "21a4f1747d41d4dc8f6811e22acf055edba9db2065f92edd8da4f9f17a763e73",
+     "derived_worst_deg": 0.0,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "C3",
+      "CB1",
+      "CB2",
+      "CB3",
+      "CB4"
+     ]
+    },
+    {
+     "lcsc": "C22390138",
+     "mpn": "MSM261DHP006",
+     "package": "QFN-8_L4.0-W3.0_WMM7040DTHN0-8-TR",
+     "kicad_footprint": "MicArrayV2:MSM261DHP006_LGA-8_3x4mm_TopPort",
+     "offset_deg": 0.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 0 degrees with a worst pad disagreement of 1.493 and the next candidate 89.998 degrees behind",
+     "production_review": "JLCPCB requested no orientation correction for this part",
+     "evidence_file": "fabrication/jlc_orientation/C22390138.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C22390138.json",
+     "evidence_sha256": "2109971b08f0bfd875f82b08e1f69ad1e10a328c71e7472350318f28eccbb901",
+     "derived_worst_deg": 1.493,
+     "derived_margin_deg": 89.998,
+     "references": [
+      "MK1",
+      "MK10",
+      "MK11",
+      "MK12",
+      "MK13",
+      "MK14",
+      "MK15",
+      "MK16",
+      "MK2",
+      "MK3",
+      "MK4",
+      "MK5",
+      "MK6",
+      "MK7",
+      "MK8",
+      "MK9"
+     ]
+    },
+    {
+     "lcsc": "C2480",
+     "mpn": "SS14",
+     "package": "SMA_L4.2-W2.6-LS5.0-RD_1",
+     "kicad_footprint": "Diode_SMD:D_SMA",
+     "offset_deg": 0.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 0 degrees with a worst pad disagreement of 0.0 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB requested no orientation correction for this part",
+     "evidence_file": "fabrication/jlc_orientation/C2480.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C2480.json",
+     "evidence_sha256": "a2bb7f5f87fb31f23388595a35c936e164c713a38e7cba6cc4691f923349aaa5",
+     "derived_worst_deg": 0.0,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "D1"
+     ]
+    },
+    {
+     "lcsc": "C25076",
+     "mpn": "0402WGF1000TCE",
+     "package": "R0402",
+     "kicad_footprint": "Resistor_SMD:R_0402_1005Metric",
+     "offset_deg": 0.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 0 degrees with a worst pad disagreement of 0.0 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB requested no orientation correction for this part",
+     "evidence_file": "fabrication/jlc_orientation/C25076.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C25076.json",
+     "evidence_sha256": "b6018e059d6b5196b64a22556bc81215ccc4bd0e0755fa072d5688a0c4b8a99e",
+     "derived_worst_deg": 0.0,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "RV1",
+      "RV10",
+      "RV11",
+      "RV12",
+      "RV13",
+      "RV14",
+      "RV15",
+      "RV16",
+      "RV2",
+      "RV3",
+      "RV4",
+      "RV5",
+      "RV6",
+      "RV7",
+      "RV8",
+      "RV9"
+     ]
+    },
+    {
+     "lcsc": "C25092",
+     "mpn": "0402WGF220JTCE",
+     "package": "R0402",
+     "kicad_footprint": "Resistor_SMD:R_0402_1005Metric",
+     "offset_deg": 0.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 0 degrees with a worst pad disagreement of 0.0 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB requested no orientation correction for this part",
+     "evidence_file": "fabrication/jlc_orientation/C25092.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C25092.json",
+     "evidence_sha256": "401495402819ed289cc1590eee32bbaec62de5698286f475c8e49b2f3e09013b",
+     "derived_worst_deg": 0.0,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "RD1",
+      "RD10",
+      "RD11",
+      "RD12",
+      "RD13",
+      "RD14",
+      "RD15",
+      "RD16",
+      "RD2",
+      "RD3",
+      "RD4",
+      "RD5",
+      "RD6",
+      "RD7",
+      "RD8",
+      "RD9"
+     ]
+    },
+    {
+     "lcsc": "C25105",
+     "mpn": "0402WGF330JTCE",
+     "package": "R0402",
+     "kicad_footprint": "Resistor_SMD:R_0402_1005Metric",
+     "offset_deg": 0.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 0 degrees with a worst pad disagreement of 0.0 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB requested no orientation correction for this part",
+     "evidence_file": "fabrication/jlc_orientation/C25105.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C25105.json",
+     "evidence_sha256": "a1f32245e3c97176ad644a7bef1187c3a7de52f81c765a36ffc5820425f45e85",
+     "derived_worst_deg": 0.0,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "R1",
+      "R2",
+      "RC1",
+      "RC2",
+      "RC3",
+      "RC4",
+      "RC5",
+      "RC6",
+      "RC7",
+      "RC8",
+      "RH1",
+      "RH2",
+      "RH3",
+      "RH4",
+      "RH5",
+      "RH6",
+      "RH7",
+      "RH8"
+     ]
+    },
+    {
+     "lcsc": "C2831388",
+     "mpn": "OT322524.576MJBA4SL",
+     "package": "OSC-SMD_4P-L3.2-W2.5-BL",
+     "kicad_footprint": "MicArrayV2:Oscillator_SMD_YXC_3.2x2.5mm_4Pin",
+     "offset_deg": 0.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 0 degrees with a worst pad disagreement of 3.638 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB requested no orientation correction for this part",
+     "evidence_file": "fabrication/jlc_orientation/C2831388.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C2831388.json",
+     "evidence_sha256": "e0f1b9a1b92975c8fe0bec4e6380ca723288bc986423bcf15047b1b6c98e07e2",
+     "derived_worst_deg": 3.638,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "X1"
+     ]
+    },
+    {
+     "lcsc": "C369168",
+     "mpn": "JK-MSMD050-30",
+     "package": "F1812",
+     "kicad_footprint": "Fuse:Fuse_1812_4532Metric",
+     "offset_deg": 0.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 0 degrees with a worst pad disagreement of 0.0 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB requested no orientation correction for this part",
+     "evidence_file": "fabrication/jlc_orientation/C369168.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C369168.json",
+     "evidence_sha256": "9436b402a53d10e02b8677f0b5206937c1473526b3ff903aa4d02b0728671e5d",
+     "derived_worst_deg": 0.0,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "F1"
+     ]
+    },
+    {
+     "lcsc": "C76637",
+     "mpn": "C2012X5R1C226KT000E",
+     "package": "C0805",
+     "kicad_footprint": "Capacitor_SMD:C_0805_2012Metric",
+     "offset_deg": 0.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 0 degrees with a worst pad disagreement of 0.0 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB requested no orientation correction for this part",
+     "evidence_file": "fabrication/jlc_orientation/C76637.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C76637.json",
+     "evidence_sha256": "68b9c125a117de357534fb672df66db3cc9308993de46fddf0a769c29df7a5de",
+     "derived_worst_deg": 0.0,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "C4"
+     ]
+    },
+    {
+     "lcsc": "C7668",
+     "mpn": "SN74LVC244APWR",
+     "package": "TSSOP-20_L6.5-W4.4-P0.65-LS6.4-BL",
+     "kicad_footprint": "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm",
+     "offset_deg": -90.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is -90 degrees with a worst pad disagreement of 0.084 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB corrected this part during production review of the first upload",
+     "evidence_file": "fabrication/jlc_orientation/C7668.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C7668.json",
+     "evidence_sha256": "42b44827f1d7fc58a317738b0c528698a76ad94bdfb01ee9204f28852055a75e",
+     "derived_worst_deg": 0.084,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "U2"
+     ]
+    },
+    {
+     "lcsc": "C80670",
+     "mpn": "LP5907MFX-3.3/NOPB",
+     "package": "SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR",
+     "kicad_footprint": "Package_TO_SOT_SMD:SOT-23-5",
+     "offset_deg": 180.0,
+     "review_status": "reviewed",
+     "review_basis": "re-derived from JLCPCB's own library footprint, pad by pad, against this board's KiCad footprint; the winning candidate is 180 degrees with a worst pad disagreement of 3.825 and the next candidate 90.0 degrees behind",
+     "production_review": "JLCPCB corrected this part during production review of the first upload",
+     "evidence_file": "fabrication/jlc_orientation/C80670.json",
+     "raw_file": "fabrication/jlc_orientation/raw/C80670.json",
+     "evidence_sha256": "941b9b453f30661c2b87ca90ada2b5ddd6f10c63ef6203a4ac89e88b928f7610",
+     "derived_worst_deg": 3.825,
+     "derived_margin_deg": 90.0,
+     "references": [
+      "U1"
+     ]
+    }
+   ],
+   "reproduction_inputs": {
+    "description": "Everything a third party needs to arrive at the same offsets: the evidence, the registry, and the code that reads them. Each must appear in the release's source closure; PROV.SOURCE_CLOSURE fails if one disappears, which is how an input silently dropping out of the closure is caught rather than noticed later.",
+    "required_globs": [
+     "tools/jlc_orientation.py",
+     "fabrication/jlc_orientation/README.md",
+     "fabrication/jlc_orientation/*.json",
+     "fabrication/jlc_orientation/raw/*.json"
+    ],
+    "required_modules": [
+     "pcbqa.orientation",
+     "pcbqa.cleanroom",
+     "pcbqa.gates.g_orientation"
+    ],
+    "per_entry_files": "every registry entry's evidence_file and raw_file, checked individually rather than by glob",
+    "configuration": "this manifest, whose digest enters the closure as <manifest>",
+    "implementation": "The executable code that applies and validates these offsets is bound into the same closure through reports.implementation_closure: pcbqa.orientation (the registry and the arithmetic), pcbqa.cleanroom (where generation applies them), pcbqa.gates.g_orientation (where they are checked) and tools/jlc_orientation.py (where they are derived from the frozen evidence). Each is hashed from the module that was actually imported, and PROV.SOURCE_CLOSURE re-hashes them at validation time and requires agreement with what the closure recorded."
+   },
+   "review_status_policy": "An entry is usable only when review_status is exactly 'reviewed'. 'pending', 'unreviewed', an empty string and a missing field all block generation and fail validation. Enforced in the shared registry so generation and validation cannot disagree about it.",
+   "normalize_range_note": "Half-open, and enforced as half-open: 0 is a placement angle and 360 is not. Generation normalises 360 to 0, including when rounding to angle_decimals would otherwise carry a value up to it."
+  }
+ },
+ "advisory_gates": [
+  {
+   "gate": "ROUTE.ANGLE_STYLE",
+   "reason": "Octolinear style, on a board whose architecture is polar. The supply ring follows a circle, sixteen data spokes and sixteen clock arms run on radii, and the clock trunks walk a ring: none of that lands on a 0/45 degree turn, and forcing it to would make the geometry worse, not the board better. The manufacturable concern in this measurement is the acute corner, and tools/check_routes.py reports those separately. Kept as a measurement so a genuine regression is still visible."
+  },
+  {
+   "gate": "ROUTE.TINY_SEGMENTS",
+   "reason": "Every ordinary net on this board is routed by KiCad Routing Tools, and its fine-grid tap retries emit 0.07 to 0.14 mm legs where an escape is tight. Those retries are what make the escapes route at all, the router offers no setting to coarsen them, and shortening the fragments afterwards would mean editing routed copper by hand - which this board's process forbids. No fragment is a sliver in copper: they are collinear continuations at full track width."
+  }
+ ],
+ "fabrication_naming": {
+  "description": "What each exported file is called in the archive, and what it is. The fab has to be able to tell the four copper layers apart from the filename and nothing else: JLCPCB does not reliably read Gerber X2 FileFunction attributes, and a board whose inner layers arrive as GND1.gbr and GND2.gbr can be quoted and built as two-layer. So the export drops X2 entirely (--no-x2) and ships Protel extensions, and these names carry the whole message. This block is the single place that mapping is written: the release renames by it, the archive gate admits by it, and the export-parity gates find their layers by it.",
+  "stem": "microphone_array_v2",
+  "rename_basis": "KiCad's own extension, which is fixed by the layer being plotted: F.Cu is .gtl, B.Cu is .gbl, and the first and second inner copper layers are .g1 and .g2 whatever the board happens to have named them. Renaming is the only thing done to these files; not one byte of their contents is rewritten.",
+  "files": [
+   {
+    "kicad_layer": "F.Cu",
+    "kicad_ext": "gtl",
+    "ship_as": "microphone_array_v2.GTL",
+    "role": "copper",
+    "copper_index": 1,
+    "side": "front"
+   },
+   {
+    "kicad_layer": "In1.Cu",
+    "kicad_ext": "g1",
+    "ship_as": "microphone_array_v2.G2L",
+    "role": "copper",
+    "copper_index": 2
+   },
+   {
+    "kicad_layer": "In2.Cu",
+    "kicad_ext": "g2",
+    "ship_as": "microphone_array_v2.G3L",
+    "role": "copper",
+    "copper_index": 3
+   },
+   {
+    "kicad_layer": "B.Cu",
+    "kicad_ext": "gbl",
+    "ship_as": "microphone_array_v2.GBL",
+    "role": "copper",
+    "copper_index": 4,
+    "side": "back"
+   },
+   {
+    "kicad_layer": "F.Mask",
+    "kicad_ext": "gts",
+    "ship_as": "microphone_array_v2.GTS",
+    "role": "soldermask",
+    "side": "front"
+   },
+   {
+    "kicad_layer": "B.Mask",
+    "kicad_ext": "gbs",
+    "ship_as": "microphone_array_v2.GBS",
+    "role": "soldermask",
+    "side": "back"
+   },
+   {
+    "kicad_layer": "F.Paste",
+    "kicad_ext": "gtp",
+    "ship_as": "microphone_array_v2.GTP",
+    "role": "paste",
+    "side": "front"
+   },
+   {
+    "kicad_layer": "B.Paste",
+    "kicad_ext": "gbp",
+    "ship_as": "microphone_array_v2.GBP",
+    "role": "paste",
+    "side": "back"
+   },
+   {
+    "kicad_layer": "F.Silkscreen",
+    "kicad_ext": "gto",
+    "ship_as": "microphone_array_v2.GTO",
+    "role": "legend",
+    "side": "front"
+   },
+   {
+    "kicad_layer": "B.Silkscreen",
+    "kicad_ext": "gbo",
+    "ship_as": "microphone_array_v2.GBO",
+    "role": "legend",
+    "side": "back"
+   },
+   {
+    "kicad_layer": "Edge.Cuts",
+    "kicad_ext": "gm1",
+    "ship_as": "microphone_array_v2.GM1",
+    "role": "outline"
+   },
+   {
+    "kicad_layer": "PTH",
+    "kicad_ext": "drl",
+    "ship_as": "microphone_array_v2-PTH.DRL",
+    "role": "drill",
+    "plated": true,
+    "kicad_suffix": "-PTH.drl"
+   },
+   {
+    "kicad_layer": "NPTH",
+    "kicad_ext": "drl",
+    "ship_as": "microphone_array_v2-NPTH.DRL",
+    "role": "drill",
+    "plated": false,
+    "kicad_suffix": "-NPTH.drl"
+   }
+  ],
+  "exclude": [
+   {
+    "glob": "*.gbrjob",
+    "reason": "The job file is X2 metadata in another form. It is not read by the fab, it restates a layer stack this archive now states in its filenames, and leaving it in gives a second answer that could disagree with the first."
+   },
+   {
+    "glob": "*-drl_map.*",
+    "reason": "Drill maps are a human aid, not fabrication data."
+   }
+  ]
+ }
+}

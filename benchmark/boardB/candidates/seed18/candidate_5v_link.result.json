@@ -1,0 +1,801 @@
+{
+ "kind": "path-scoped-5v-link-ab",
+ "endpoints": {
+  "net": "5V_FUSED",
+  "from_pad": "F1.2",
+  "to_pad": "D1.2",
+  "equivalence": "identical fixed-part pads on both boards"
+ },
+ "outcomes": {
+  "board_a": {
+   "board_file_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+   "path": {
+    "kind": "path-scoped-dc",
+    "net": "5V_FUSED",
+    "from_pad": "F1.2",
+    "to_pad": "D1.2",
+    "path_length_mm": 3.3625,
+    "length_uncertainty_mm": 0.0,
+    "length_by_layer_mm": {
+     "F.Cu": 3.3625
+    },
+    "via_count_in_path": 0,
+    "resistance_ohm": 0.002377496,
+    "resistance_bound": "exact",
+    "resistance_uncertainty_ohm": 0.0,
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "omissions": [
+     "via barrel resistance (no supported model; 0 via(s) traversed contribute zero)"
+    ],
+    "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely; resistance_bound is 'lower' when omitted positive contributions (via barrels) are the only deviation, 'exact' when there is none, and 'uncertain' when the junction-span ambiguity is nonzero - a symmetric uncertainty is never passed off as a one-sided bound"
+   },
+   "model": {
+    "identity": "path:5V_FUSED:F1.2->D1.2@9ddb432333d3+phys:49c4fed5a90f",
+    "kind": "board-interconnect-path",
+    "coverage": {
+     "interconnect_dc": "geometry-derived",
+     "interconnect_si": "unsupported",
+     "power_integrity": "unsupported",
+     "functional_behavior": "not-applicable",
+     "device_electrical": "not-applicable",
+     "digital_io": "not-applicable"
+    },
+    "provenance": {
+     "source": "pcbqa.extract path-scoped traversal",
+     "board_file_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+     "two_terminal_asserted_by": "established by construction: path-scoped traversal between F1.2 and D1.2 with stubs excluded and alternate copper paths refused during extraction"
+    },
+    "derivation": {
+     "chain": [
+      "physical-parameters[approved-evidence+derived]",
+      "board-geometry",
+      "path-traversal",
+      "simulation-model"
+     ],
+     "roots": {
+      "copper_thickness_mm.F.Cu": "approved-evidence"
+     },
+     "board_file_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+     "extract_version": "3",
+     "physical_inputs_sha256": "49c4fed5a90fd9409e5bbc4950eb407b444f57ae5baffa2905b0f1358a69d136",
+     "copper_thickness_mm": {
+      "F.Cu": {
+       "value": 0.04064,
+       "units": "mm",
+       "source_type": "approved-evidence",
+       "source": "finished_copper_external_1oz_mil",
+       "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+       "applicability": "external 1 oz finished copper"
+      }
+     },
+     "board_thickness_mm": {
+      "value": 1.6,
+      "units": "mm",
+      "source_type": "derived",
+      "source": "board fabrication requirements (board_thickness_mm)",
+      "digest": "acc939a4622907a805ec4699d495dfbb53a4802aeefa50d04cd065bd0bb58d16",
+      "applicability": "the board's own declared fabrication requirement; through-via barrel estimates only"
+     },
+     "resistivity": {
+      "value_ohm_m": 1.7241e-08,
+      "source": "IEC 60028 international annealed copper standard, 20 C"
+     },
+     "path": {
+      "from_pad": "F1.2",
+      "to_pad": "D1.2",
+      "length_mm": 3.3625,
+      "length_uncertainty_mm": 0.0,
+      "via_count": 0,
+      "resistance_bound": "exact"
+     },
+     "two_terminal_assertion": "established by construction: path-scoped traversal between F1.2 and D1.2 with stubs excluded and alternate copper paths refused during extraction",
+     "assumptions": [
+      "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely; resistance_bound is 'lower' when omitted positive contributions (via barrels) are the only deviation, 'exact' when there is none, and 'uncertain' when the junction-span ambiguity is nonzero - a symmetric uncertainty is never passed off as a one-sided bound"
+     ]
+    },
+    "omissions": [
+     "via barrel resistance (no supported model; 0 via(s) traversed contribute zero)",
+     "inductance",
+     "capacitance",
+     "distributed effects",
+     "frequency dependence",
+     "temperature dependence beyond the stated resistivity reference"
+    ],
+    "notes": [
+     "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely; resistance_bound is 'lower' when omitted positive contributions (via barrels) are the only deviation, 'exact' when there is none, and 'uncertain' when the junction-span ambiguity is nonzero - a symmetric uncertainty is never passed off as a one-sided bound"
+    ],
+    "spice": ".subckt path:5V_FUSED:F1.2->D1.2@9ddb432333d3+phys:49c4fed5a90f a b\nR1 a b 0.002377496\n.ends",
+    "conditions": {
+     "temperature_c": {
+      "kind": "fixed-reference",
+      "value": 20.0,
+      "units": "C",
+      "source": "IEC 60028 resistivity reference temperature"
+     }
+    }
+   },
+   "scenario": {
+    "name": "5v-fused-link-drop-path-scoped",
+    "description": "DC drop over the traced F1.2 -> D1.2 copper traversal at 100 mA; fuse and diode NOT modeled; 20 C because the extracted copper is fixed at the IEC 60028 resistivity reference.",
+    "elements": [
+     {
+      "kind": "vsource_dc",
+      "name": "host",
+      "nodes": [
+       "vin",
+       "0"
+      ],
+      "value": 5.0
+     },
+     {
+      "kind": "model_instance",
+      "name": "link",
+      "nodes": [
+       "vin",
+       "vout"
+      ],
+      "model": "path:5V_FUSED:F1.2->D1.2@9ddb432333d3+phys:49c4fed5a90f"
+     },
+     {
+      "kind": "resistor",
+      "name": "demand",
+      "nodes": [
+       "vout",
+       "0"
+      ],
+      "value": 50.0
+     }
+    ],
+    "analyses": [
+     {
+      "kind": "op"
+     }
+    ],
+    "operating_conditions": {
+     "temperature_c": 20.0
+    },
+    "assumptions": {
+     "host": {
+      "stands_in_for": "the host 5 V supply, whose model is unavailable",
+      "accepted_for_design_decision": true
+     },
+     "demand": {
+      "stands_in_for": "downstream demand drawing 100 mA at 5 V",
+      "accepted_for_design_decision": true
+     }
+    },
+    "measurements": [
+     {
+      "name": "vout",
+      "kind": "op_voltage",
+      "node": "vout",
+      "assertion": {
+       "op": ">=",
+       "value": 4.999
+      }
+     }
+    ],
+    "required_coverage": {
+     "interconnect_dc": [
+      "geometry-derived"
+     ]
+    }
+   },
+   "result": {
+    "scenario": "5v-fused-link-drop-path-scoped",
+    "backend": {
+     "name": "ngspice",
+     "available": true,
+     "mode": "shared-library",
+     "path": "C:\\Program Files\\KiCad\\10.0\\bin\\ngspice.dll",
+     "version": "ngspice-46",
+     "detail": "in-process shared-library engine"
+    },
+    "deck_sha256": "6318a53e9273e2c7b70ea8adaf14fd73e3cd0018e49120df8668736a811ce933",
+    "model_coverage": {
+     "requirement": {
+      "interconnect_dc": [
+       "geometry-derived"
+      ]
+     },
+     "satisfied": true,
+     "per_measurement": {
+      "vout": {
+       "contributing_elements": [
+        "demand",
+        "host",
+        "link"
+       ],
+       "ideal_elements": {
+        "demand": "resistor",
+        "host": "vsource_dc"
+       },
+       "models": {
+        "link": "path:5V_FUSED:F1.2->D1.2@9ddb432333d3+phys:49c4fed5a90f"
+       },
+       "per_phenomenon": {
+        "interconnect_dc": {
+         "accepted_classes": [
+          "geometry-derived"
+         ],
+         "providers": {
+          "link": {
+           "identity": "path:5V_FUSED:F1.2->D1.2@9ddb432333d3+phys:49c4fed5a90f",
+           "evidence_class": "geometry-derived",
+           "accepted": true
+          }
+         },
+         "violating": [],
+         "not_applicable": [],
+         "unaccounted": [],
+         "met": true,
+         "why": "every contributing model accounts for the phenomenon and every provider is individually acceptable"
+        }
+       },
+       "met": true
+      }
+     },
+     "meaning": "coverage is judged per measurement over its own contribution closure: every contributing model covering a required phenomenon must be individually acceptable, and each measurement needs at least one acceptable provider of each required phenomenon among its own contributors"
+    },
+    "operating_conditions_applied": {
+     "temperature_c": 20.0
+    },
+    "condition_coverage": {
+     "conditions": {
+      "temperature_c": {
+       "requested": 20.0,
+       "models": {
+        "path:5V_FUSED:F1.2->D1.2@9ddb432333d3+phys:49c4fed5a90f": {
+         "kind": "fixed-reference",
+         "reference_value": 20.0,
+         "matches_requested": true,
+         "detail": null
+        }
+       }
+      }
+     },
+     "fully_covered": true,
+     "meaning": "a simulator-applied condition never implies model condition coverage; fully_covered is true only when every referenced model is parameterized over, or fixed exactly at, every requested condition (ideal declared elements are exact by declaration and are not model claims)"
+    },
+    "assumption_dependencies": {
+     "per_measurement": {
+      "vout": {
+       "demand": {
+        "kind": "resistor",
+        "declared": true,
+        "stands_in_for": "downstream demand drawing 100 mA at 5 V",
+        "accepted_for_design_decision": true
+       },
+       "host": {
+        "kind": "vsource_dc",
+        "declared": true,
+        "stands_in_for": "the host 5 V supply, whose model is unavailable",
+        "accepted_for_design_decision": true
+       }
+      }
+     },
+     "assumption_dependent": true,
+     "all_assumptions_accepted_for_design_decision": true,
+     "meaning": "results built on ideal primitives are usable for a design decision only when every such primitive's assumption is declared and accepted; usable-under-assumption is never evidence about the real source or load"
+    },
+    "significance": {
+     "release_grade": false,
+     "meaning": "a numerical result under exactly the stated model coverage and condition coverage; convergence and assertion verdicts never imply stronger evidence than those blocks record, and a simulator-applied operating condition is not model condition coverage"
+    },
+    "raw_log_sha256": "7049f87e9c87ce91afea84d188ded46481ef5ca83456738ee4826ce38eb3de7f",
+    "execution": {
+     "mode": "shared-library",
+     "commands": [
+      "op"
+     ],
+     "load_status": 0,
+     "command_status": {
+      "op": 0
+     }
+    },
+    "converged": true,
+    "status": "ran",
+    "measurements": {
+     "vout": {
+      "value": 4.999762261704436,
+      "assertion": {
+       "op": ">=",
+       "value": 4.999
+      },
+      "value_bound": null,
+      "passed": true,
+      "verdict": "exact-PASS"
+     }
+    },
+    "unsupported": [],
+    "result_policy": {
+     "numerical_assertions_passed": true,
+     "assertions_claimable": true,
+     "result_applicable_to_requested_conditions": true,
+     "assumption_dependent": true,
+     "assumptions_accepted_for_design_decision": true,
+     "usable_for_design_decision": true,
+     "usable_for_release": false,
+     "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those. assertions_claimable is the actionable assertion truth: True only when every declared assertion's VERDICT is a PASS class - numerical_assertions_passed is the raw numeric fact and must never be acted on alone, because a bounded value can pass numerically while its claim is unresolved"
+    }
+   }
+  },
+  "board_b": {
+   "board_file_sha256": "71da09df958f54a685c7bbc74ac9b951a3a2a8ba5d0faefadfe5ba5ebe38a81b",
+   "path": {
+    "kind": "path-scoped-dc",
+    "net": "5V_FUSED",
+    "from_pad": "F1.2",
+    "to_pad": "D1.2",
+    "path_length_mm": 17.897771,
+    "length_uncertainty_mm": 0.0,
+    "length_by_layer_mm": {
+     "F.Cu": 17.897771
+    },
+    "via_count_in_path": 0,
+    "resistance_ohm": 0.012654834,
+    "resistance_bound": "exact",
+    "resistance_uncertainty_ohm": 0.0,
+    "resistivity_ohm_m": 1.7241e-08,
+    "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+    "omissions": [
+     "via barrel resistance (no supported model; 0 via(s) traversed contribute zero)"
+    ],
+    "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely; resistance_bound is 'lower' when omitted positive contributions (via barrels) are the only deviation, 'exact' when there is none, and 'uncertain' when the junction-span ambiguity is nonzero - a symmetric uncertainty is never passed off as a one-sided bound"
+   },
+   "model": {
+    "identity": "path:5V_FUSED:F1.2->D1.2@71da09df958f+phys:49c4fed5a90f",
+    "kind": "board-interconnect-path",
+    "coverage": {
+     "interconnect_dc": "geometry-derived",
+     "interconnect_si": "unsupported",
+     "power_integrity": "unsupported",
+     "functional_behavior": "not-applicable",
+     "device_electrical": "not-applicable",
+     "digital_io": "not-applicable"
+    },
+    "provenance": {
+     "source": "pcbqa.extract path-scoped traversal",
+     "board_file_sha256": "71da09df958f54a685c7bbc74ac9b951a3a2a8ba5d0faefadfe5ba5ebe38a81b",
+     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+     "two_terminal_asserted_by": "established by construction: path-scoped traversal between F1.2 and D1.2 with stubs excluded and alternate copper paths refused during extraction"
+    },
+    "derivation": {
+     "chain": [
+      "physical-parameters[approved-evidence+derived]",
+      "board-geometry",
+      "path-traversal",
+      "simulation-model"
+     ],
+     "roots": {
+      "copper_thickness_mm.F.Cu": "approved-evidence"
+     },
+     "board_file_sha256": "71da09df958f54a685c7bbc74ac9b951a3a2a8ba5d0faefadfe5ba5ebe38a81b",
+     "extract_version": "3",
+     "physical_inputs_sha256": "49c4fed5a90fd9409e5bbc4950eb407b444f57ae5baffa2905b0f1358a69d136",
+     "copper_thickness_mm": {
+      "F.Cu": {
+       "value": 0.04064,
+       "units": "mm",
+       "source_type": "approved-evidence",
+       "source": "finished_copper_external_1oz_mil",
+       "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+       "applicability": "external 1 oz finished copper"
+      }
+     },
+     "board_thickness_mm": {
+      "value": 1.6,
+      "units": "mm",
+      "source_type": "derived",
+      "source": "board fabrication requirements (board_thickness_mm)",
+      "digest": "acc939a4622907a805ec4699d495dfbb53a4802aeefa50d04cd065bd0bb58d16",
+      "applicability": "the board's own declared fabrication requirement; through-via barrel estimates only"
+     },
+     "resistivity": {
+      "value_ohm_m": 1.7241e-08,
+      "source": "IEC 60028 international annealed copper standard, 20 C"
+     },
+     "path": {
+      "from_pad": "F1.2",
+      "to_pad": "D1.2",
+      "length_mm": 17.897771,
+      "length_uncertainty_mm": 0.0,
+      "via_count": 0,
+      "resistance_bound": "exact"
+     },
+     "two_terminal_assertion": "established by construction: path-scoped traversal between F1.2 and D1.2 with stubs excluded and alternate copper paths refused during extraction",
+     "assumptions": [
+      "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely; resistance_bound is 'lower' when omitted positive contributions (via barrels) are the only deviation, 'exact' when there is none, and 'uncertain' when the junction-span ambiguity is nonzero - a symmetric uncertainty is never passed off as a one-sided bound"
+     ]
+    },
+    "omissions": [
+     "via barrel resistance (no supported model; 0 via(s) traversed contribute zero)",
+     "inductance",
+     "capacitance",
+     "distributed effects",
+     "frequency dependence",
+     "temperature dependence beyond the stated resistivity reference"
+    ],
+    "notes": [
+     "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely; resistance_bound is 'lower' when omitted positive contributions (via barrels) are the only deviation, 'exact' when there is none, and 'uncertain' when the junction-span ambiguity is nonzero - a symmetric uncertainty is never passed off as a one-sided bound"
+    ],
+    "spice": ".subckt path:5V_FUSED:F1.2->D1.2@71da09df958f+phys:49c4fed5a90f a b\nR1 a b 0.012654834\n.ends",
+    "conditions": {
+     "temperature_c": {
+      "kind": "fixed-reference",
+      "value": 20.0,
+      "units": "C",
+      "source": "IEC 60028 resistivity reference temperature"
+     }
+    }
+   },
+   "scenario": {
+    "name": "5v-fused-link-drop-path-scoped",
+    "description": "DC drop over the traced F1.2 -> D1.2 copper traversal at 100 mA; fuse and diode NOT modeled; 20 C because the extracted copper is fixed at the IEC 60028 resistivity reference.",
+    "elements": [
+     {
+      "kind": "vsource_dc",
+      "name": "host",
+      "nodes": [
+       "vin",
+       "0"
+      ],
+      "value": 5.0
+     },
+     {
+      "kind": "model_instance",
+      "name": "link",
+      "nodes": [
+       "vin",
+       "vout"
+      ],
+      "model": "path:5V_FUSED:F1.2->D1.2@71da09df958f+phys:49c4fed5a90f"
+     },
+     {
+      "kind": "resistor",
+      "name": "demand",
+      "nodes": [
+       "vout",
+       "0"
+      ],
+      "value": 50.0
+     }
+    ],
+    "analyses": [
+     {
+      "kind": "op"
+     }
+    ],
+    "operating_conditions": {
+     "temperature_c": 20.0
+    },
+    "assumptions": {
+     "host": {
+      "stands_in_for": "the host 5 V supply, whose model is unavailable",
+      "accepted_for_design_decision": true
+     },
+     "demand": {
+      "stands_in_for": "downstream demand drawing 100 mA at 5 V",
+      "accepted_for_design_decision": true
+     }
+    },
+    "measurements": [
+     {
+      "name": "vout",
+      "kind": "op_voltage",
+      "node": "vout",
+      "assertion": {
+       "op": ">=",
+       "value": 4.999
+      }
+     }
+    ],
+    "required_coverage": {
+     "interconnect_dc": [
+      "geometry-derived"
+     ]
+    }
+   },
+   "result": {
+    "scenario": "5v-fused-link-drop-path-scoped",
+    "backend": {
+     "name": "ngspice",
+     "available": true,
+     "mode": "shared-library",
+     "path": "C:\\Program Files\\KiCad\\10.0\\bin\\ngspice.dll",
+     "version": "ngspice-46",
+     "detail": "in-process shared-library engine"
+    },
+    "deck_sha256": "7b0bd462783f9ce1d92742f6080c7752e4b6e1d0b45456e5aa8d722e5f4d87d7",
+    "model_coverage": {
+     "requirement": {
+      "interconnect_dc": [
+       "geometry-derived"
+      ]
+     },
+     "satisfied": true,
+     "per_measurement": {
+      "vout": {
+       "contributing_elements": [
+        "demand",
+        "host",
+        "link"
+       ],
+       "ideal_elements": {
+        "demand": "resistor",
+        "host": "vsource_dc"
+       },
+       "models": {
+        "link": "path:5V_FUSED:F1.2->D1.2@71da09df958f+phys:49c4fed5a90f"
+       },
+       "per_phenomenon": {
+        "interconnect_dc": {
+         "accepted_classes": [
+          "geometry-derived"
+         ],
+         "providers": {
+          "link": {
+           "identity": "path:5V_FUSED:F1.2->D1.2@71da09df958f+phys:49c4fed5a90f",
+           "evidence_class": "geometry-derived",
+           "accepted": true
+          }
+         },
+         "violating": [],
+         "not_applicable": [],
+         "unaccounted": [],
+         "met": true,
+         "why": "every contributing model accounts for the phenomenon and every provider is individually acceptable"
+        }
+       },
+       "met": true
+      }
+     },
+     "meaning": "coverage is judged per measurement over its own contribution closure: every contributing model covering a required phenomenon must be individually acceptable, and each measurement needs at least one acceptable provider of each required phenomenon among its own contributors"
+    },
+    "operating_conditions_applied": {
+     "temperature_c": 20.0
+    },
+    "condition_coverage": {
+     "conditions": {
+      "temperature_c": {
+       "requested": 20.0,
+       "models": {
+        "path:5V_FUSED:F1.2->D1.2@71da09df958f+phys:49c4fed5a90f": {
+         "kind": "fixed-reference",
+         "reference_value": 20.0,
+         "matches_requested": true,
+         "detail": null
+        }
+       }
+      }
+     },
+     "fully_covered": true,
+     "meaning": "a simulator-applied condition never implies model condition coverage; fully_covered is true only when every referenced model is parameterized over, or fixed exactly at, every requested condition (ideal declared elements are exact by declaration and are not model claims)"
+    },
+    "assumption_dependencies": {
+     "per_measurement": {
+      "vout": {
+       "demand": {
+        "kind": "resistor",
+        "declared": true,
+        "stands_in_for": "downstream demand drawing 100 mA at 5 V",
+        "accepted_for_design_decision": true
+       },
+       "host": {
+        "kind": "vsource_dc",
+        "declared": true,
+        "stands_in_for": "the host 5 V supply, whose model is unavailable",
+        "accepted_for_design_decision": true
+       }
+      }
+     },
+     "assumption_dependent": true,
+     "all_assumptions_accepted_for_design_decision": true,
+     "meaning": "results built on ideal primitives are usable for a design decision only when every such primitive's assumption is declared and accepted; usable-under-assumption is never evidence about the real source or load"
+    },
+    "significance": {
+     "release_grade": false,
+     "meaning": "a numerical result under exactly the stated model coverage and condition coverage; convergence and assertion verdicts never imply stronger evidence than those blocks record, and a simulator-applied operating condition is not model condition coverage"
+    },
+    "raw_log_sha256": "7049f87e9c87ce91afea84d188ded46481ef5ca83456738ee4826ce38eb3de7f",
+    "execution": {
+     "mode": "shared-library",
+     "commands": [
+      "op"
+     ],
+     "load_status": 0,
+     "command_status": {
+      "op": 0
+     }
+    },
+    "converged": true,
+    "status": "ran",
+    "measurements": {
+     "vout": {
+      "value": 4.9987348368086035,
+      "assertion": {
+       "op": ">=",
+       "value": 4.999
+      },
+      "value_bound": null,
+      "passed": false,
+      "verdict": "exact-FAIL"
+     }
+    },
+    "unsupported": [],
+    "result_policy": {
+     "numerical_assertions_passed": false,
+     "assertions_claimable": false,
+     "result_applicable_to_requested_conditions": true,
+     "assumption_dependent": true,
+     "assumptions_accepted_for_design_decision": true,
+     "usable_for_design_decision": true,
+     "usable_for_release": false,
+     "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those. assertions_claimable is the actionable assertion truth: True only when every declared assertion's VERDICT is a PASS class - numerical_assertions_passed is the raw numeric fact and must never be acted on alone, because a bounded value can pass numerically while its claim is unresolved"
+    }
+   }
+  }
+ },
+ "result": {
+  "scenario": "5v-fused-link-drop-path-scoped",
+  "backend": {
+   "name": "ngspice",
+   "available": true,
+   "mode": "shared-library",
+   "path": "C:\\Program Files\\KiCad\\10.0\\bin\\ngspice.dll",
+   "version": "ngspice-46",
+   "detail": "in-process shared-library engine"
+  },
+  "deck_sha256": "7b0bd462783f9ce1d92742f6080c7752e4b6e1d0b45456e5aa8d722e5f4d87d7",
+  "model_coverage": {
+   "requirement": {
+    "interconnect_dc": [
+     "geometry-derived"
+    ]
+   },
+   "satisfied": true,
+   "per_measurement": {
+    "vout": {
+     "contributing_elements": [
+      "demand",
+      "host",
+      "link"
+     ],
+     "ideal_elements": {
+      "demand": "resistor",
+      "host": "vsource_dc"
+     },
+     "models": {
+      "link": "path:5V_FUSED:F1.2->D1.2@71da09df958f+phys:49c4fed5a90f"
+     },
+     "per_phenomenon": {
+      "interconnect_dc": {
+       "accepted_classes": [
+        "geometry-derived"
+       ],
+       "providers": {
+        "link": {
+         "identity": "path:5V_FUSED:F1.2->D1.2@71da09df958f+phys:49c4fed5a90f",
+         "evidence_class": "geometry-derived",
+         "accepted": true
+        }
+       },
+       "violating": [],
+       "not_applicable": [],
+       "unaccounted": [],
+       "met": true,
+       "why": "every contributing model accounts for the phenomenon and every provider is individually acceptable"
+      }
+     },
+     "met": true
+    }
+   },
+   "meaning": "coverage is judged per measurement over its own contribution closure: every contributing model covering a required phenomenon must be individually acceptable, and each measurement needs at least one acceptable provider of each required phenomenon among its own contributors"
+  },
+  "operating_conditions_applied": {
+   "temperature_c": 20.0
+  },
+  "condition_coverage": {
+   "conditions": {
+    "temperature_c": {
+     "requested": 20.0,
+     "models": {
+      "path:5V_FUSED:F1.2->D1.2@71da09df958f+phys:49c4fed5a90f": {
+       "kind": "fixed-reference",
+       "reference_value": 20.0,
+       "matches_requested": true,
+       "detail": null
+      }
+     }
+    }
+   },
+   "fully_covered": true,
+   "meaning": "a simulator-applied condition never implies model condition coverage; fully_covered is true only when every referenced model is parameterized over, or fixed exactly at, every requested condition (ideal declared elements are exact by declaration and are not model claims)"
+  },
+  "assumption_dependencies": {
+   "per_measurement": {
+    "vout": {
+     "demand": {
+      "kind": "resistor",
+      "declared": true,
+      "stands_in_for": "downstream demand drawing 100 mA at 5 V",
+      "accepted_for_design_decision": true
+     },
+     "host": {
+      "kind": "vsource_dc",
+      "declared": true,
+      "stands_in_for": "the host 5 V supply, whose model is unavailable",
+      "accepted_for_design_decision": true
+     }
+    }
+   },
+   "assumption_dependent": true,
+   "all_assumptions_accepted_for_design_decision": true,
+   "meaning": "results built on ideal primitives are usable for a design decision only when every such primitive's assumption is declared and accepted; usable-under-assumption is never evidence about the real source or load"
+  },
+  "significance": {
+   "release_grade": false,
+   "meaning": "a numerical result under exactly the stated model coverage and condition coverage; convergence and assertion verdicts never imply stronger evidence than those blocks record, and a simulator-applied operating condition is not model condition coverage"
+  },
+  "raw_log_sha256": "7049f87e9c87ce91afea84d188ded46481ef5ca83456738ee4826ce38eb3de7f",
+  "execution": {
+   "mode": "shared-library",
+   "commands": [
+    "op"
+   ],
+   "load_status": 0,
+   "command_status": {
+    "op": 0
+   }
+  },
+  "converged": true,
+  "status": "ran",
+  "measurements": {
+   "vout": {
+    "value": 4.9987348368086035,
+    "assertion": {
+     "op": ">=",
+     "value": 4.999
+    },
+    "value_bound": null,
+    "passed": false,
+    "verdict": "exact-FAIL"
+   }
+  },
+  "unsupported": [],
+  "result_policy": {
+   "numerical_assertions_passed": false,
+   "assertions_claimable": false,
+   "result_applicable_to_requested_conditions": true,
+   "assumption_dependent": true,
+   "assumptions_accepted_for_design_decision": true,
+   "usable_for_design_decision": true,
+   "usable_for_release": false,
+   "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those. assertions_claimable is the actionable assertion truth: True only when every declared assertion's VERDICT is a PASS class - numerical_assertions_passed is the raw numeric fact and must never be acted on alone, because a bounded value can pass numerically while its claim is unresolved"
+  }
+ },
+ "comparison": {
+  "path_resistance_ohm": {
+   "board_a": 0.002377496,
+   "board_b": 0.012654834
+  },
+  "resistance_bound": {
+   "board_a": "exact",
+   "board_b": "exact"
+  },
+  "assertion_verdicts": {
+   "board_a": "exact-PASS",
+   "board_b": "exact-FAIL"
+  },
+  "vout_v": {
+   "board_a": 4.999762261704436,
+   "board_b": 4.9987348368086035
+  },
+  "usable_for_design_decision": {
+   "board_a": true,
+   "board_b": true
+  }
+ }
+}

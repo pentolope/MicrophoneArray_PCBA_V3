@@ -1,0 +1,235 @@
+{
+ "kind": "candidate-decision",
+ "candidate": "seed15",
+ "board_file_sha256": "52dc760667a6c1b6d856acc0503dc7488c6aa12615c7d0a14bd89799c85c4f9e",
+ "assessment": {
+  "classes": {
+   "netlist-parity": {
+    "status": "pass",
+    "detail": "authoritative Board A netlist contract vs candidate pad-net map; differences: {\"added_footprints\": 0, \"added_pads\": 0, \"changed_assignments\": 0, \"missing_footprints\": 0, \"missing_nets\": 0, \"missing_pads\": 0, \"unexpected_nets\": 0}"
+   },
+   "placement-policy": {
+    "status": "pass",
+    "detail": "toolkit placement-policy evaluation on actual positions"
+   },
+   "critical-structures": {
+    "status": "fail",
+    "states": {
+     "nets_connected": false,
+     "paths_resolved": false,
+     "topology_valid": true
+    },
+    "detail": "net connectivity is necessary but never sufficient: paths and topology are policy-owned gate truths, and unknown is not credited"
+   },
+   "board-connectivity": {
+    "status": "fail",
+    "board_required": {
+     "complete": 0,
+     "total": 83
+    },
+    "benchmark": {
+     "complete": 0,
+     "total": 46
+    },
+    "detail": "judged over the board-required net set; the benchmark set is reported beside it and never stands in for it"
+   },
+   "fabrication-geometry": {
+    "status": "fail",
+    "detail": "direct kicad-cli DRC at the declared rules on this exact candidate; raw sha 52dc760667a6, judged refilled-copy sha f823e14c1bcf; violations: {\"copper_edge_clearance\": 1}"
+   },
+   "blocking-gates": {
+    "status": "fail",
+    "failing": [
+     "DRC.AUTHORITATIVE",
+     "TIMING.PATH_INTEGRITY"
+    ]
+   },
+   "quality-gates": {
+    "status": "pass",
+    "failing": []
+   },
+   "electrical-evidence": {
+    "status": "fail",
+    "usable_results": 0,
+    "detail": "results usable for a design decision under the simulation result policy"
+   },
+   "optimization": {
+    "status": "recorded",
+    "metrics": {
+     "measured_copper_total_mm": 0
+    },
+    "detail": "never judged here and never in the rank key"
+   }
+  },
+  "progress_class": "critical-structures",
+  "fully_connected": false,
+  "rank_key": [
+   true,
+   true,
+   false,
+   false,
+   true,
+   0.0,
+   false,
+   -2,
+   0,
+   0
+  ]
+ },
+ "components": {
+  "netlist_parity_ok": true,
+  "netlist_parity_differences": {
+   "missing_footprints": 0,
+   "added_footprints": 0,
+   "missing_pads": 0,
+   "added_pads": 0,
+   "missing_nets": 0,
+   "unexpected_nets": 0,
+   "changed_assignments": 0
+  },
+  "fabrication_identity": {
+   "raw_board_sha256": "52dc760667a6c1b6d856acc0503dc7488c6aa12615c7d0a14bd89799c85c4f9e",
+   "judged_board_sha256": "f823e14c1bcfda5aa4fb4f49b8fd39a4f01bdceec26efc7be48b35854d5343ff",
+   "verdict_ok": false,
+   "meaning": "raw is the candidate file as decided on; judged is the canonical zone-refilled working copy the DRC measured - two declared identities, never conflated"
+  },
+  "benchmark_net_completion": {
+   "complete": 0,
+   "total": 46
+  },
+  "board_required_net_completion": {
+   "complete": 0,
+   "total": 83
+  },
+  "critical_clock_nets_connected": false,
+  "critical_paths_resolved": false,
+  "critical_topology_valid": true,
+  "fabrication_geometry_ok": false,
+  "board_not_complete": {
+   "+3V3A": "no-copper",
+   "+3V3_CLK": "no-copper",
+   "+5V": "no-copper",
+   "5V_FUSED": "no-copper",
+   "AUDIO_MCLK": "no-copper",
+   "GND": "partial-copper",
+   "HOST_IRQ": "no-copper",
+   "HOST_RESET_N": "no-copper",
+   "HOST_STATUS": "no-copper",
+   "HOST_SYNC": "no-copper",
+   "MCLK_OSC": "no-copper",
+   "MIC_DOUT_0": "no-copper",
+   "MIC_DOUT_1": "no-copper",
+   "MIC_DOUT_10": "no-copper",
+   "MIC_DOUT_11": "no-copper",
+   "MIC_DOUT_12": "no-copper",
+   "MIC_DOUT_13": "no-copper",
+   "MIC_DOUT_14": "no-copper",
+   "MIC_DOUT_15": "no-copper",
+   "MIC_DOUT_2": "no-copper",
+   "MIC_DOUT_3": "no-copper",
+   "MIC_DOUT_4": "no-copper",
+   "MIC_DOUT_5": "no-copper",
+   "MIC_DOUT_6": "no-copper",
+   "MIC_DOUT_7": "no-copper",
+   "MIC_DOUT_8": "no-copper",
+   "MIC_DOUT_9": "no-copper",
+   "MIC_VDD_0": "no-copper",
+   "MIC_VDD_1": "no-copper",
+   "MIC_VDD_10": "no-copper",
+   "MIC_VDD_11": "no-copper",
+   "MIC_VDD_12": "no-copper",
+   "MIC_VDD_13": "no-copper",
+   "MIC_VDD_14": "no-copper",
+   "MIC_VDD_15": "no-copper",
+   "MIC_VDD_2": "no-copper",
+   "MIC_VDD_3": "no-copper",
+   "MIC_VDD_4": "no-copper",
+   "MIC_VDD_5": "no-copper",
+   "MIC_VDD_6": "no-copper",
+   "MIC_VDD_7": "no-copper",
+   "MIC_VDD_8": "no-copper",
+   "MIC_VDD_9": "no-copper",
+   "PDM_CLK_B0": "no-copper",
+   "PDM_CLK_B1": "no-copper",
+   "PDM_CLK_B2": "no-copper",
+   "PDM_CLK_B3": "no-copper",
+   "PDM_CLK_B4": "no-copper",
+   "PDM_CLK_B5": "no-copper",
+   "PDM_CLK_B6": "no-copper",
+   "PDM_CLK_B7": "no-copper",
+   "PDM_CLK_FPGA": "no-copper",
+   "PDM_CLK_IN": "no-copper",
+   "PDM_CLK_Y0": "no-copper",
+   "PDM_CLK_Y1": "no-copper",
+   "PDM_CLK_Y2": "no-copper",
+   "PDM_CLK_Y3": "no-copper",
+   "PDM_CLK_Y4": "no-copper",
+   "PDM_CLK_Y5": "no-copper",
+   "PDM_CLK_Y6": "no-copper",
+   "PDM_CLK_Y7": "no-copper",
+   "PDM_D0": "no-copper",
+   "PDM_D1": "no-copper",
+   "PDM_D2": "no-copper",
+   "PDM_D3": "no-copper",
+   "PDM_D4": "no-copper",
+   "PDM_D5": "no-copper",
+   "PDM_D6": "no-copper",
+   "PDM_D7": "no-copper",
+   "PI_5V": "no-copper",
+   "PI_CS_N": "no-copper",
+   "PI_IRQ": "no-copper",
+   "PI_MISO": "no-copper",
+   "PI_MOSI": "no-copper",
+   "PI_RESET_N": "no-copper",
+   "PI_SCLK": "no-copper",
+   "PI_STATUS": "no-copper",
+   "PI_SYNC": "no-copper",
+   "SPI_CS_N": "no-copper",
+   "SPI_MISO": "no-copper",
+   "SPI_MOSI": "no-copper",
+   "SPI_SCLK": "no-copper",
+   "TANG_3V3": "no-copper"
+  },
+  "placement_policy_ok": true,
+  "validation_verdict": "REJECTED",
+  "parity_failures_missing_candidate_artifacts": [
+   "CPL.NATIVE_PARITY",
+   "CPL.ORIENTATION",
+   "FAB.LAYER_IDENTITY",
+   "PROV.REPORT_FRESHNESS",
+   "STACK.GERBER_PARITY",
+   "TIMING.INTERCONNECT_SKEW"
+  ],
+  "measured_copper_total_mm": 0,
+  "measured_net_set_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+ },
+ "decision": "reject",
+ "search_winner_eligible": false,
+ "candidate_ready_for_next_stage": false,
+ "reasons": [
+  "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": true}}"
+ ],
+ "next_design_action": "the progress class names the failing correctness class; its detail names the design variable",
+ "producer_closure": {
+  "kind": "producer-closure",
+  "components": {
+   "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
+   "candidate_5v_result": "5ad38304b535c2987dbd24657c1a11b884984ff600d9f389deb0d4e634fee792",
+   "candidate_board": "69d7e4a2432925ce88b0d95ce28f78aa3ff7c7678f70a382e5977928999adb03",
+   "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
+   "derivation": "52507d0e4fc1b2cd47de69e0616fff725802243099cbe7de65674c35fad1f83f",
+   "gates_artifact": "29a8946b1f3616efa4da8f2b50a4968de79e7f14cd4c8a9ced8cf0d624c9a90e",
+   "generate_candidate.py": "f8babac2d93c301e8de6a9367655780d09ced15d8f4f9ad778926ce296af7f5a",
+   "metrics_artifact": "8c78ef38d4cfec58e0497a686bfec39fc3bb89df95e5646992a20d7d5aee81fd",
+   "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
+   "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
+   "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
+   "toolkit.extract": "3c294c28327bbc6745547f654d75763a096b9100fd3d2409f70ecf499a87bd13",
+   "toolkit.netlist_contract": "d8e4000fad095d998157e0554ac67a6dbc8de516f9eb06ecb7ae2bc4a7b96708",
+   "toolkit.progression": "19e1fe73f67cd1b1190a9134e5dc3bf3fc1c1bcd534adf3eb1956b97e2682758",
+   "validate_candidate.py": "4470a1dae63ad94ae9b181be26a2ec3534aa9b1d7e09b1b9a9c3fa33f4e254df",
+   "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
+  },
+  "digest": "ba594e2ad1dd3c7e2bc525c139bd1ac5e0a5cdb0fd86e7b77bd627c7c3b819f5"
+ }
+}
