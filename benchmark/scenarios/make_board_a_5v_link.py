@@ -38,6 +38,8 @@ sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
                                 "PCB_AutoDesignAndTest"))
 
+from pcbqa import headless                        # noqa: E402
+headless.suppress_blocking_ui()
 from pcbqa import extract                          # noqa: E402
 from pcbqa.sim import fidelity, ngspice            # noqa: E402
 
@@ -77,6 +79,14 @@ def main():
         ],
         "analyses": [{"kind": "op"}],
         "operating_conditions": {"temperature_c": 20.0},
+        "assumptions": {
+            "host": {"stands_in_for": "the host 5 V supply, whose "
+                                      "model is unavailable",
+                     "accepted_for_design_decision": True},
+            "demand": {"stands_in_for": "downstream demand drawing "
+                                        "100 mA at 5 V",
+                       "accepted_for_design_decision": True},
+        },
         "measurements": [
             {"name": "vout", "kind": "op_voltage", "node": "vout",
              "assertion": {"op": ">=", "value": 4.999}},

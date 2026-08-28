@@ -1,26 +1,21 @@
-"""Run the fused-5V-link scenario against a Board B candidate, with
-the two-terminal property ESTABLISHED AUTOMATICALLY.
+"""The fused-5V-link scenario, path-scoped, on BOTH boards.
 
-Board A's scenario rests on a human-recorded assertion that 5V_FUSED
-is an unbranched two-terminal run. A candidate's copper is machine
-routing; nobody inspected it, so nobody may hand-assert it. Instead
-this script establishes the property from the board itself:
+The net-scoped model refuses on a branched candidate net - honest,
+but it leaves the candidate without a number. The path-scoped model
+is the next honest abstraction: DC resistance over the ACTUAL copper
+traversal F1.2 -> D1.2, stubs excluded by construction, parallel
+copper refused during extraction. Endpoint semantics are identical
+on both boards (the same two pads of the same fixed parts), so the
+same scenario runs against Board A and the candidate and the two
+results are genuinely comparable.
 
-  * the toolkit's connectivity classification must say
-    connectivity-complete with EXACTLY two pads;
-  * the net's copper graph must contain zero track branch points
-    (a T-stub would make the segment sum exceed the two-terminal
-    resistance).
-
-Only when both hold is the extraction turned into a SPICE model,
-with the establishing evidence recorded in the assertion text. When
-either fails, the scenario refuses - a candidate with a branched or
-incomplete 5 V link gets no simulated number, not a wrong one.
+Ideal source and load are DECLARED assumptions, accepted for design
+decisions; the result policy carries that structurally.
 
 Run with KiCad's python from the repository root:
 
     ".../kicad/python.exe" \
-        benchmark/scenarios/make_candidate_5v_link.py --seed 6
+        benchmark/scenarios/make_candidate_5v_link.py --seed 9
 """
 
 from __future__ import annotations
@@ -40,81 +35,34 @@ sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
                                 "PCB_AutoDesignAndTest"))
 
+from pcbqa import headless                        # noqa: E402
+headless.suppress_blocking_ui()
 from pcbqa import extract, geom                    # noqa: E402
-from pcbqa.connectivity import NetGraph, classify_net  # noqa: E402
 from pcbqa.sim import fidelity, ngspice            # noqa: E402
 
 NET = "5V_FUSED"
+FROM_PAD, TO_PAD = "F1.2", "D1.2"
 
 
-def established_two_terminal(board, board_sha):
-    """The automatic establishment, or an explicit refusal."""
-    state = classify_net(board, NET, geom.pad_copper_polygon)
-    if state["class"] != "connectivity-complete":
-        raise SystemExit(
-            "refusing: {} is {} on this candidate; an incomplete "
-            "link gets no simulated number".format(
-                NET, state["class"]))
-    if state["pad_count"] != 2:
-        raise SystemExit(
-            "refusing: {} carries {} pads; the two-terminal "
-            "property does not hold".format(NET,
-                                            state["pad_count"]))
-    graph = NetGraph(board, NET, geom.pad_copper_polygon)
-    branches = graph.branch_points()
-    if branches:
-        raise SystemExit(
-            "refusing: {} has {} track branch point(s); the "
-            "segment sum would exceed the two-terminal "
-            "resistance".format(NET, branches))
-    return ("established automatically: connectivity analysis on "
-            "board {} found exactly two pads ({}) in one connected "
-            "copper component with zero track branch "
-            "points".format(board_sha[:12],
-                            " and ".join(state["pads"])))
-
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--seed", type=int, required=True)
-    arguments = parser.parse_args()
-    seed_dir = os.path.join(REPO, "benchmark", "boardB",
-                            "candidates",
-                            "seed{:02d}".format(arguments.seed))
-    board_file = os.path.join(seed_dir,
-                              "candidate_routed.kicad_pcb")
-
-    manifest_doc = json.load(open(
-        os.path.join(REPO, "board", "manifest.live.json"),
-        encoding="utf-8"))
-    geom.configure(manifest_doc["geometry_profile"]["tolerances"][
-        "polygon_chord_error_mm"]["value"])
-
-    sys.path.insert(0, os.path.join(REPO, "benchmark", "boardB"))
-    import validate_candidate as vc
-    copper, thickness, _evidence = vc.physical_inputs()
-
+def run_board(board_file, copper, thickness, workdir):
     import pcbnew
     board = pcbnew.LoadBoard(board_file)
     with open(board_file, "rb") as handle:
         board_sha = hashlib.sha256(handle.read()).hexdigest()
-
-    assertion = established_two_terminal(board, board_sha)
-    net_record = extract.extract_net(board, NET, copper, thickness)
-    link = extract.interconnect_model_from_net(
-        net_record, board_sha,
+    path_record = extract.path_resistance(board, NET, FROM_PAD,
+                                          TO_PAD, copper)
+    link = extract.interconnect_model_from_path(
+        path_record, board_sha,
         {"copper_thickness_mm": copper,
-         "board_thickness_mm": thickness},
-        two_terminal_asserted_by=assertion)
+         "board_thickness_mm": thickness})
     registry = fidelity.ModelRegistry([link])
     scenario = {
-        "name": "candidate-5v-fused-link-drop",
-        "description": "DC drop across the candidate's fused 5 V "
-                       "entry link at 100 mA, same substitutions as "
-                       "the Board A scenario (ideal 5 V source, "
-                       "50 ohm demand; fuse and diode NOT modeled). "
-                       "20 C because the extracted copper is fixed "
-                       "at the IEC 60028 resistivity reference.",
+        "name": "5v-fused-link-drop-path-scoped",
+        "description": "DC drop over the traced F1.2 -> D1.2 copper "
+                       "traversal at 100 mA; fuse and diode NOT "
+                       "modeled; 20 C because the extracted copper "
+                       "is fixed at the IEC 60028 resistivity "
+                       "reference.",
         "elements": [
             {"kind": "vsource_dc", "name": "host",
              "nodes": ["vin", "0"], "value": 5.0},
@@ -125,6 +73,14 @@ def main():
         ],
         "analyses": [{"kind": "op"}],
         "operating_conditions": {"temperature_c": 20.0},
+        "assumptions": {
+            "host": {"stands_in_for": "the host 5 V supply, whose "
+                                      "model is unavailable",
+                     "accepted_for_design_decision": True},
+            "demand": {"stands_in_for": "downstream demand drawing "
+                                        "100 mA at 5 V",
+                       "accepted_for_design_decision": True},
+        },
         "measurements": [
             {"name": "vout", "kind": "op_voltage", "node": "vout",
              "assertion": {"op": ">=", "value": 4.999}},
@@ -133,28 +89,90 @@ def main():
             "interconnect_dc": ["geometry-derived"],
         },
     }
-    result = ngspice.run_scenario(
-        registry, scenario,
-        os.path.join(seed_dir, "workdir_5v_link"))
+    result = ngspice.run_scenario(registry, scenario, workdir)
+    return {"board_file_sha256": board_sha,
+            "path": path_record, "model": link,
+            "scenario": scenario, "result": result}
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--seed", type=int, required=True)
+    arguments = parser.parse_args()
+    seed_dir = os.path.join(REPO, "benchmark", "boardB",
+                            "candidates",
+                            "seed{:02d}".format(arguments.seed))
+    manifest_doc = json.load(open(
+        os.path.join(REPO, "board", "manifest.live.json"),
+        encoding="utf-8"))
+    geom.configure(manifest_doc["geometry_profile"]["tolerances"][
+        "polygon_chord_error_mm"]["value"])
+    sys.path.insert(0, os.path.join(REPO, "benchmark", "boardB"))
+    import validate_candidate as vc
+    copper, thickness, _evidence = vc.physical_inputs()
+
+    outcomes = {}
+    for label, board_file in (
+            ("board_a", os.path.join(
+                REPO, "microphone_array_v2.kicad_pcb")),
+            ("board_b", os.path.join(
+                seed_dir, "candidate_routed.kicad_pcb"))):
+        try:
+            outcomes[label] = run_board(
+                board_file, copper, thickness,
+                os.path.join(seed_dir,
+                             "workdir_5v_path_" + label))
+        except extract.ExtractionError as error:
+            outcomes[label] = {"refused": str(error)}
     out_path = os.path.join(seed_dir,
                             "candidate_5v_link.result.json")
+    document = {"kind": "path-scoped-5v-link-ab",
+                "endpoints": {"net": NET, "from_pad": FROM_PAD,
+                              "to_pad": TO_PAD,
+                              "equivalence": "identical fixed-part "
+                                             "pads on both boards"},
+                "outcomes": outcomes}
+    both = all("result" in outcome
+               for outcome in outcomes.values())
+    if both:
+        document["result"] = outcomes["board_b"]["result"]
+        resistance = {
+            label: outcome["path"]["resistance_ohm"]
+            for label, outcome in outcomes.items()}
+        vout = {label: outcome["result"]["measurements"]["vout"]
+                ["value"]
+                for label, outcome in outcomes.items()
+                if outcome["result"].get("measurements")}
+        document["comparison"] = {
+            "path_resistance_ohm": resistance,
+            "vout_v": vout,
+            "usable_for_design_decision": {
+                label: outcome["result"]["result_policy"]
+                ["usable_for_design_decision"]
+                for label, outcome in outcomes.items()},
+        }
     with open(out_path, "w", encoding="utf-8",
               newline="\n") as handle:
-        json.dump({"scenario": scenario, "models": [link],
-                   "result": result}, handle, indent=1)
+        json.dump(document, handle, indent=1)
         handle.write("\n")
-    line = ["status:", result["status"],
-            "| R:", str(net_record["dc"][
-                "segment_resistance_sum_ohm"]), "ohm"]
-    if result.get("measurements"):
-        vout = result["measurements"]["vout"]
-        line += ["| vout:", str(vout["value"]),
-                 "passed:", str(vout["passed"]),
-                 "| usable_for_design_decision:",
-                 str(result["result_policy"][
-                     "usable_for_design_decision"])]
-    print(" ".join(line))
-    print("assertion:", assertion)
+    for label, outcome in outcomes.items():
+        if "refused" in outcome:
+            print(label, "REFUSED:", outcome["refused"][:160])
+        else:
+            result = outcome["result"]
+            line = [label, result["status"],
+                    "| R:", str(outcome["path"]["resistance_ohm"]),
+                    "ohm | len:",
+                    str(outcome["path"]["path_length_mm"]), "mm"]
+            if result.get("measurements"):
+                line += ["| vout:",
+                         str(result["measurements"]["vout"]
+                             ["value"]),
+                         "| usable:",
+                         str(result["result_policy"]
+                             ["usable_for_design_decision"])]
+            print(" ".join(line))
+    print("report:", out_path)
     return 0
 
 

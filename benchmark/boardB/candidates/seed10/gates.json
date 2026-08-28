@@ -1,0 +1,438 @@
+{
+ "kind": "candidate-gate-status",
+ "candidate_board_sha256": "f42e096b5e60639c55adcbda06856d5e052ea31b46e7a6bda8eb104e31bcbd13",
+ "manifest": "manifest.candidate.json",
+ "producer_closure": {
+  "kind": "producer-closure",
+  "components": {
+   "candidate_5v_result": "fd35939a5ab6f3522c51565ab410f4405a2283631a2426b7aecd2d9e828942dc",
+   "candidate_board": "f42e096b5e60639c55adcbda06856d5e052ea31b46e7a6bda8eb104e31bcbd13",
+   "constraints": "512e0ac1c1ab6625a20f136d12ce2107b993c04323e511de0a403a14d9ee20b9",
+   "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
+   "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
+   "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
+   "toolkit.extract": "8961e30ace6f9a13c0f20c0c912a6d270e5c6386a99cf876efa894dbada1adf0",
+   "toolkit.progression": "71bd7acfb79eaddd7e27db0d3010c2578a843dc9ec12b697e1a4165111b2f6bd",
+   "validate_candidate.py": "81f098910cb6bfc5547efd2ab0c8dda31a1e597d21b3cc6b6e967337c7a862f0",
+   "zone_policy": "878201e317cb631553f760d5253ef5ecc842f3dddb73dd1e1ab78f37f090cdff"
+  },
+  "digest": "d14980b73f4d880d590cee4c4d52a5e338b66bb91bc9013313ef7e6b98a4890e"
+ },
+ "statuses": {
+  "placement_policy_satisfied": true,
+  "benchmark_net_completion": {
+   "complete": 35,
+   "total": 46,
+   "connectivity": {
+    "+3V3A": "partial-copper",
+    "+3V3_CLK": "connectivity-complete",
+    "+5V": "connectivity-complete",
+    "5V_FUSED": "connectivity-complete",
+    "AUDIO_MCLK": "connectivity-complete",
+    "MCLK_OSC": "connectivity-complete",
+    "MIC_DOUT_0": "connectivity-complete",
+    "MIC_DOUT_15": "connectivity-complete",
+    "MIC_VDD_0": "partial-copper",
+    "MIC_VDD_15": "partial-copper",
+    "PDM_CLK_B0": "no-copper",
+    "PDM_CLK_B1": "partial-copper",
+    "PDM_CLK_B2": "connectivity-complete",
+    "PDM_CLK_B3": "no-copper",
+    "PDM_CLK_B4": "partial-copper",
+    "PDM_CLK_B5": "partial-copper",
+    "PDM_CLK_B6": "no-copper",
+    "PDM_CLK_B7": "connectivity-complete",
+    "PDM_CLK_FPGA": "connectivity-complete",
+    "PDM_CLK_IN": "partial-copper",
+    "PDM_CLK_Y0": "connectivity-complete",
+    "PDM_CLK_Y1": "connectivity-complete",
+    "PDM_CLK_Y2": "connectivity-complete",
+    "PDM_CLK_Y3": "connectivity-complete",
+    "PDM_CLK_Y4": "no-copper",
+    "PDM_CLK_Y5": "connectivity-complete",
+    "PDM_CLK_Y6": "connectivity-complete",
+    "PDM_CLK_Y7": "connectivity-complete",
+    "PDM_D0": "connectivity-complete",
+    "PDM_D1": "connectivity-complete",
+    "PDM_D2": "connectivity-complete",
+    "PDM_D3": "connectivity-complete",
+    "PDM_D4": "connectivity-complete",
+    "PDM_D5": "connectivity-complete",
+    "PDM_D6": "connectivity-complete",
+    "PDM_D7": "connectivity-complete",
+    "PI_5V": "connectivity-complete",
+    "PI_CS_N": "connectivity-complete",
+    "PI_MISO": "connectivity-complete",
+    "PI_MOSI": "connectivity-complete",
+    "PI_SCLK": "connectivity-complete",
+    "SPI_CS_N": "connectivity-complete",
+    "SPI_MISO": "connectivity-complete",
+    "SPI_MOSI": "connectivity-complete",
+    "SPI_SCLK": "connectivity-complete",
+    "TANG_3V3": "connectivity-complete"
+   }
+  },
+  "board_required_net_completion": {
+   "complete": 57,
+   "total": 83,
+   "not_complete": {
+    "+3V3A": "partial-copper",
+    "GND": "partial-copper",
+    "MIC_VDD_0": "partial-copper",
+    "MIC_VDD_1": "partial-copper",
+    "MIC_VDD_10": "partial-copper",
+    "MIC_VDD_11": "partial-copper",
+    "MIC_VDD_12": "no-copper",
+    "MIC_VDD_13": "partial-copper",
+    "MIC_VDD_14": "partial-copper",
+    "MIC_VDD_15": "partial-copper",
+    "MIC_VDD_2": "partial-copper",
+    "MIC_VDD_3": "partial-copper",
+    "MIC_VDD_4": "partial-copper",
+    "MIC_VDD_5": "partial-copper",
+    "MIC_VDD_6": "partial-copper",
+    "MIC_VDD_7": "partial-copper",
+    "MIC_VDD_8": "no-copper",
+    "MIC_VDD_9": "partial-copper",
+    "PDM_CLK_B0": "no-copper",
+    "PDM_CLK_B1": "partial-copper",
+    "PDM_CLK_B3": "no-copper",
+    "PDM_CLK_B4": "partial-copper",
+    "PDM_CLK_B5": "partial-copper",
+    "PDM_CLK_B6": "no-copper",
+    "PDM_CLK_IN": "partial-copper",
+    "PDM_CLK_Y4": "no-copper"
+   }
+  },
+  "critical_clock_nets_connected": false,
+  "fabrication_geometry": {
+   "ok": false,
+   "detail": "{\"connection_width\": 1}"
+  },
+  "candidate_derived_artifacts": {
+   "gerbers": 0,
+   "drill": 0,
+   "files": [
+    "candidate_routed-B_Cu.gbl",
+    "candidate_routed-B_Mask.gbs",
+    "candidate_routed-B_Paste.gbp",
+    "candidate_routed-B_Silkscreen.gbo",
+    "candidate_routed-Edge_Cuts.gm1",
+    "candidate_routed-F_Cu.gtl",
+    "candidate_routed-F_Mask.gts",
+    "candidate_routed-F_Paste.gtp",
+    "candidate_routed-F_Silkscreen.gto",
+    "candidate_routed-GND1.g1",
+    "candidate_routed-GND2.g2",
+    "candidate_routed-NPTH.drl",
+    "candidate_routed-PTH.drl",
+    "candidate_routed-job.gbrjob"
+   ]
+  },
+  "failing_gate_classes": {
+   "CPL.NATIVE_PARITY": "board-a-release-parity (missing candidate-derived artifacts)",
+   "CPL.ORIENTATION": "board-a-release-parity (missing candidate-derived artifacts)",
+   "DRC.AUTHORITATIVE": "candidate-design",
+   "FAB.LAYER_IDENTITY": "board-a-release-parity (missing candidate-derived artifacts)",
+   "NET.TOPOLOGY": "candidate-design",
+   "PROV.REPORT_FRESHNESS": "board-a-release-parity (missing candidate-derived artifacts)",
+   "TIMING.PATH_INTEGRITY": "candidate-design",
+   "VIA.ANNULUS_MASK_OVERLAP": "candidate-design",
+   "VIA.IN_PAD_CONTACT": "candidate-design",
+   "VIA.MASK_CLEARANCE_PROCESS": "candidate-design",
+   "VIA.MASK_CLEARANCE_TARGET": "candidate-design"
+  },
+  "validation": {
+   "verdict": "REJECTED",
+   "counts": {
+    "PASS": 18,
+    "FAIL": 11,
+    "NOT_APPLICABLE": 5,
+    "ADVISORY": 2
+   },
+   "blocking": [
+    "CPL.NATIVE_PARITY",
+    "CPL.ORIENTATION",
+    "DRC.AUTHORITATIVE",
+    "FAB.LAYER_IDENTITY",
+    "NET.TOPOLOGY",
+    "PROV.REPORT_FRESHNESS",
+    "VIA.ANNULUS_MASK_OVERLAP",
+    "VIA.IN_PAD_CONTACT",
+    "VIA.MASK_CLEARANCE_PROCESS",
+    "VIA.MASK_CLEARANCE_TARGET",
+    "TIMING.PATH_INTEGRITY"
+   ],
+   "failing_gates": [
+    "CPL.NATIVE_PARITY",
+    "CPL.ORIENTATION",
+    "DRC.AUTHORITATIVE",
+    "FAB.LAYER_IDENTITY",
+    "NET.TOPOLOGY",
+    "PROV.REPORT_FRESHNESS",
+    "TIMING.PATH_INTEGRITY",
+    "VIA.ANNULUS_MASK_OVERLAP",
+    "VIA.IN_PAD_CONTACT",
+    "VIA.MASK_CLEARANCE_PROCESS",
+    "VIA.MASK_CLEARANCE_TARGET"
+   ],
+   "gate_status": {
+    "ARCH.CONTENTS": "PASS",
+    "ARCH.PROVENANCE": "PASS",
+    "BOM.NATIVE_PARITY": "PASS",
+    "CFG.NO_RIVAL_THRESHOLDS": "PASS",
+    "CONTRACT.CONNECTOR": "PASS",
+    "CONTRACT.PLACEMENT": "PASS",
+    "CPL.NATIVE_PARITY": "FAIL",
+    "CPL.ORIENTATION": "FAIL",
+    "DRC.AUTHORITATIVE": "FAIL",
+    "DRC.NO_SUPPRESSED_RULES": "PASS",
+    "ERC.AUTHORITATIVE": "PASS",
+    "FAB.LAYER_IDENTITY": "FAIL",
+    "NET.TOPOLOGY": "FAIL",
+    "PROV.FIXTURE_INTEGRITY": "NOT_APPLICABLE",
+    "PROV.RELEASE_COHERENCE": "PASS",
+    "PROV.REPORT_FRESHNESS": "FAIL",
+    "PROV.SOURCE_AUTHORITY": "PASS",
+    "PROV.SOURCE_CLOSURE": "PASS",
+    "ROUTE.ANGLE_STYLE": "ADVISORY",
+    "ROUTE.GEOMETRY_HYGIENE": "PASS",
+    "ROUTE.TINY_SEGMENTS": "ADVISORY",
+    "STACK.GERBER_PARITY": "PASS",
+    "STACK.NATIVE_VS_MANIFEST": "PASS",
+    "VIA.ANNULUS_MASK_OVERLAP": "FAIL",
+    "VIA.IN_PAD_CONTACT": "FAIL",
+    "VIA.MASK_CLEARANCE_PROCESS": "FAIL",
+    "VIA.MASK_CLEARANCE_TARGET": "FAIL",
+    "VIA.NATIVE_GERBER_AGREEMENT": "PASS",
+    "STACK.PHYSICAL": "NOT_APPLICABLE",
+    "TIMING.PATH_INTEGRITY": "FAIL",
+    "TIMING.INTERCONNECT_DELAY": "NOT_APPLICABLE",
+    "TIMING.INTERCONNECT_SKEW": "NOT_APPLICABLE",
+    "TIMING.SETUP_HOLD": "NOT_APPLICABLE",
+    "PROV.TIMING_MODELS": "PASS",
+    "PROV.DERIVATION_CLOSURE": "PASS",
+    "CFG.THRESHOLD_PARITY": "PASS"
+   },
+   "timing_delay_measurements": {
+    "scope": "passive PCB interconnect only: copper propagation and, where a model is declared, via vertical transit. Excludes driver output delay and output-to-output skew, package delay, receiver threshold behaviour and PVT variation.",
+    "backend_requested": "analytic",
+    "backend_used": "analytic",
+    "backend_fell_back": false,
+    "backend_detail": "closed-form analytic model, always available",
+    "paths": [
+     {
+      "interface": "pdm_clock",
+      "path": "pdm_clock_branch_3",
+      "source": "U2.3",
+      "destination": "MK5.3",
+      "copper_length_mm": 24.855014,
+      "length_by_layer_mm": {
+       "F.Cu": 24.855014
+      },
+      "delay_ps": null,
+      "delay_lower_ps": null,
+      "delay_upper_ps": null,
+      "geometric_uncertainty_ps": null,
+      "length_uncertainty_mm": 0.002145,
+      "delay_is_lower_bound": false,
+      "assumptions": [],
+      "fidelity": "geometry-only",
+      "crosses": [
+       "RC3"
+      ],
+      "component_traversals": [
+       {
+        "reference": "RC3",
+        "from_net": "PDM_CLK_Y2",
+        "to_net": "PDM_CLK_B2",
+        "model": null,
+        "model_status": "unmodelled",
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "reason": "no delay model is declared for RC3.1, so nothing is attributed to it and any total containing this path is a lower bound"
+       }
+      ],
+      "vias": 0,
+      "insufficient": [
+       {
+        "portion": "conductor",
+        "layer": "F.Cu",
+        "width_mm": 0.15,
+        "length_mm": 24.855014,
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+       }
+      ]
+     },
+     {
+      "interface": "pdm_clock",
+      "path": "pdm_clock_branch_3",
+      "source": "U2.3",
+      "destination": "MK6.3",
+      "copper_length_mm": 42.411025,
+      "length_by_layer_mm": {
+       "F.Cu": 42.411025
+      },
+      "delay_ps": null,
+      "delay_lower_ps": null,
+      "delay_upper_ps": null,
+      "geometric_uncertainty_ps": null,
+      "length_uncertainty_mm": 0.006429,
+      "delay_is_lower_bound": false,
+      "assumptions": [],
+      "fidelity": "geometry-only",
+      "crosses": [
+       "RC3"
+      ],
+      "component_traversals": [
+       {
+        "reference": "RC3",
+        "from_net": "PDM_CLK_Y2",
+        "to_net": "PDM_CLK_B2",
+        "model": null,
+        "model_status": "unmodelled",
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "reason": "no delay model is declared for RC3.1, so nothing is attributed to it and any total containing this path is a lower bound"
+       }
+      ],
+      "vias": 0,
+      "insufficient": [
+       {
+        "portion": "conductor",
+        "layer": "F.Cu",
+        "width_mm": 0.15,
+        "length_mm": 42.411025,
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+       }
+      ]
+     },
+     {
+      "interface": "pdm_clock",
+      "path": "pdm_clock_branch_8",
+      "source": "U2.14",
+      "destination": "MK15.3",
+      "copper_length_mm": 112.159198,
+      "length_by_layer_mm": {
+       "F.Cu": 112.159198
+      },
+      "delay_ps": null,
+      "delay_lower_ps": null,
+      "delay_upper_ps": null,
+      "geometric_uncertainty_ps": null,
+      "length_uncertainty_mm": 0.022837,
+      "delay_is_lower_bound": false,
+      "assumptions": [],
+      "fidelity": "geometry-only",
+      "crosses": [
+       "RC8"
+      ],
+      "component_traversals": [
+       {
+        "reference": "RC8",
+        "from_net": "PDM_CLK_Y7",
+        "to_net": "PDM_CLK_B7",
+        "model": null,
+        "model_status": "unmodelled",
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "reason": "no delay model is declared for RC8.1, so nothing is attributed to it and any total containing this path is a lower bound"
+       }
+      ],
+      "vias": 0,
+      "insufficient": [
+       {
+        "portion": "conductor",
+        "layer": "F.Cu",
+        "width_mm": 0.15,
+        "length_mm": 30.563745,
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+       },
+       {
+        "portion": "conductor",
+        "layer": "F.Cu",
+        "width_mm": 0.2,
+        "length_mm": 81.595453,
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+       }
+      ]
+     },
+     {
+      "interface": "pdm_clock",
+      "path": "pdm_clock_branch_8",
+      "source": "U2.14",
+      "destination": "MK16.3",
+      "copper_length_mm": 89.202617,
+      "length_by_layer_mm": {
+       "F.Cu": 89.202617
+      },
+      "delay_ps": null,
+      "delay_lower_ps": null,
+      "delay_upper_ps": null,
+      "geometric_uncertainty_ps": null,
+      "length_uncertainty_mm": 0.024187,
+      "delay_is_lower_bound": false,
+      "assumptions": [],
+      "fidelity": "geometry-only",
+      "crosses": [
+       "RC8"
+      ],
+      "component_traversals": [
+       {
+        "reference": "RC8",
+        "from_net": "PDM_CLK_Y7",
+        "to_net": "PDM_CLK_B7",
+        "model": null,
+        "model_status": "unmodelled",
+        "delay_ps": 0.0,
+        "fidelity": "unmodelled-contribution",
+        "reason": "no delay model is declared for RC8.1, so nothing is attributed to it and any total containing this path is a lower bound"
+       }
+      ],
+      "vias": 0,
+      "insufficient": [
+       {
+        "portion": "conductor",
+        "layer": "F.Cu",
+        "width_mm": 0.15,
+        "length_mm": 7.607164,
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+       },
+       {
+        "portion": "conductor",
+        "layer": "F.Cu",
+        "width_mm": 0.2,
+        "length_mm": 81.595453,
+        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+       }
+      ]
+     }
+    ],
+    "fidelity": [
+     "geometry-only"
+    ],
+    "physical_stackup_source": "native_kicad_board+board_declaration",
+    "propagation_model": "hammerstad",
+    "via_delay_model": "none",
+    "paths_without_derivable_delay": 4,
+    "paths_with_lower_bound_delay": 0
+   },
+   "runner": {
+    "returncode": 1,
+    "seconds": 41.5,
+    "log_tail": "10-candidate\\attempts\\20260828T124320Z-32d14b81\\validation.json\nMarkdown: C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\boardB-seed10-candidate\\attempts\\20260828T124320Z-32d14b81\\validation.md\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\n"
+   }
+  },
+  "extraction_available": true,
+  "simulation_coverage": {
+   "available": [
+    "interconnect_dc (geometry-derived)"
+   ],
+   "unresolved_blockers": [
+    "interconnect_si: no field-solver backend",
+    "power_integrity: no PDN model"
+   ]
+  }
+ },
+ "acceptance_note": "router return codes play no role here; the board file, the gates and the recorded policy do"
+}

@@ -69,10 +69,24 @@ sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
                                 "PCB_AutoDesignAndTest"))
 
+from pcbqa import headless                        # noqa: E402
+headless.suppress_blocking_ui()
 from pcbqa import placement as placement_module    # noqa: E402
 from pcbqa import zone_inheritance                 # noqa: E402
+from pcbqa import critical_topology                # noqa: E402
 
-GENERATOR_SEMANTICS_VERSION = "4"
+#: DRC violation types that are FABRICATION GEOMETRY: a routing
+#: stage whose output carries any of these under the board's own
+#: declared rules is fabrication-invalid and cannot advance the
+#: checkpoint. Connectivity obtained by violating a declared minimum
+#: is not success.
+FABRICATION_VIOLATION_TYPES = (
+    "clearance", "hole_clearance", "track_width", "via_diameter",
+    "drill_out_of_range", "connection_width", "hole_near_hole",
+    "courtyards_overlap", "copper_edge_clearance",
+)
+
+GENERATOR_SEMANTICS_VERSION = "5"
 
 #: Nets with more fixed pads than this are broadcast nets (grounds,
 #: supplies); they carry no useful fanout direction.
@@ -86,6 +100,70 @@ class CandidateError(Exception):
 def _sha256_file(path):
     with open(path, "rb") as handle:
         return hashlib.sha256(handle.read()).hexdigest()
+
+
+def _place_pro_sibling(board_path):
+    """The board's DECLARED design rules travel with every candidate
+    artifact: the authoritative .kicad_pro is copied beside it, so
+    every DRC - the router's own read, the stage check, the gates -
+    judges at the declared floors and never at anything a tool wrote
+    down for its own convenience."""
+    source = os.path.join(REPO, "microphone_array_v2.kicad_pro")
+    sibling = os.path.splitext(board_path)[0] + ".kicad_pro"
+    with open(source, "rb") as handle:
+        data = handle.read()
+    with open(sibling, "wb") as handle:
+        handle.write(data)
+    return sibling
+
+
+def stage_fabrication_check(board_path, workdir):
+    """Judge one stage output's geometry against the DECLARED rules.
+
+    The attempt artifact itself is never touched: a copy (with the
+    authoritative .kicad_pro beside it) is refilled and DRC'd, and
+    only the FABRICATION_VIOLATION_TYPES count here - unconnected
+    items and parity findings are other gates' business. Returns a
+    machine-readable verdict; ok is strictly zero violations.
+    """
+    import shutil as shutil_module
+    os.makedirs(workdir, exist_ok=True)
+    check_pcb = os.path.join(workdir, "fabcheck.kicad_pcb")
+    shutil_module.copyfile(board_path, check_pcb)
+    _place_pro_sibling(check_pcb)
+    report_path = os.path.join(workdir, "fabcheck_drc.json")
+    completed = subprocess.run(
+        ["C:/Program Files/KiCad/10.0/bin/kicad-cli.exe", "pcb",
+         "drc", "--format", "json", "-o", report_path,
+         "--severity-all", "--all-track-errors", "--refill-zones",
+         "--save-board", check_pcb],
+        capture_output=True, text=True, timeout=600)
+    if not os.path.isfile(report_path):
+        return {"ok": "unknown",
+                "detail": "kicad-cli drc produced no report "
+                          "(rc {})".format(completed.returncode)}
+    report = json.load(open(report_path, encoding="utf-8"))
+    judged_sha = _sha256_file(check_pcb)
+    counts = {}
+    for violation in report.get("violations", []):
+        if violation.get("type") in FABRICATION_VIOLATION_TYPES:
+            counts[violation["type"]] =                 counts.get(violation["type"], 0) + 1
+    return {"ok": not counts,
+            "violations_by_type": dict(sorted(counts.items())),
+            "judged_board_sha256": judged_sha,
+            "detail": "kicad-cli DRC at the board's declared rules "
+                      "(judged bytes: the refilled working copy, "
+                      "bound above); only fabrication-geometry "
+                      "violation types counted"}
+
+
+def _parse_min_clearance(log_text):
+    import re
+    values = re.findall(r'"min_clearance_used":\s*([0-9.]+)',
+                        log_text or "")
+    if not values:
+        return None
+    return min(float(value) for value in values)
 
 
 def _configure_geometry():
@@ -118,24 +196,36 @@ def _routing_stages():
 
 
 def _stage_router_args(stage_name):
-    """Router parameters per stage.
+    """Router parameters per stage - the board's OWN values, never a
+    relaxation.
 
-    The clock stages carry the parameters the microphone guard-ring
-    escape REQUIRES, established by isolation experiments against
-    Board A's own placement: the mics are not BGAs (the router's
-    auto-detection walls its own target pad, so it is disabled), and
-    the 0.15 mm track/clearance with a 0.05 mm grid are exactly the
-    board's declared fabrication minimums - the 0.1 mm default grid
-    cannot resolve the ~0.5 mm guard-ring corner channel that Board
-    A's own committed escape threads. The via proximity cost is
-    raised everywhere to discourage vias near pad mask openings; the
-    VIA.* gates remain the authority on whether that sufficed.
+    Clearances and track widths are NOT overridden anywhere: with
+    them omitted the router honors the board's net classes in full,
+    and --no-fix-drc-settings forbids it from rewriting the output
+    project's DRC floors to legalize whatever it produced - the
+    declared constraints stay authoritative and the per-stage
+    geometry DRC judges the actual copper against them. The clock
+    stage additionally runs on F.Cu only (the declared clock
+    topology permits no other layer and no vias), with the
+    microphone BGA-misdetection disabled and the fine grid the
+    guard-ring corner channel needs; the escapes through that
+    channel themselves come from the critical-topology planner at
+    the declared values, so the router never needs a sub-floor
+    allowance to reach a microphone clock pad.
     """
-    base = ["--via-proximity-cost", "25"]
-    if stage_name in ("clock", "cleanup"):
-        return base + ["--no-bga-zones", "--track-width", "0.15",
-                       "--clearance", "0.15",
-                       "--grid-step", "0.05"]
+    base = ["--via-proximity-cost", "25", "--no-fix-drc-settings",
+            "--fab-overrides",
+            os.path.join(HERE, "fab_floors.txt")]
+    if stage_name == "power":
+        # The largest via any net class on this stage demands
+        # (POWER/PLANE: 0.6/0.35); a via at the largest class
+        # minimum satisfies every class minimum.
+        return base + ["--via-size", "0.6", "--via-drill", "0.35"]
+    if stage_name == "clock":
+        return base + ["--no-bga-zones", "--grid-step", "0.05",
+                       "--layers", "F.Cu"]
+    if stage_name == "cleanup":
+        return base + ["--no-bga-zones", "--grid-step", "0.05"]
     return base
 
 
@@ -281,15 +371,23 @@ class SeedPlacer:
         box = self._set(reference, x, y, rotation)
         if _overlaps(box, self.boxes):
             return False
-        inside = math.hypot(x - self.center[0], y - self.center[1])
-        if inside > self.radius - 2.0:
+        # The part's EXTENT stays clear of the board edge, with the
+        # declared 0.3 mm copper-to-edge clearance plus margin - an
+        # origin-only check let a test point's pad sit ON the edge.
+        corner_reach = max(
+            math.hypot(cx - self.center[0], cy - self.center[1])
+            for cx in (box[0], box[2]) for cy in (box[1], box[3]))
+        if corner_reach > self.radius - 0.5:
             return False
         self.boxes[reference] = box
         return True
 
     def _place_near(self, reference, anchor_xy, budget_mm,
                     prefer_angle, rotation=None):
-        self.boxes.pop(reference, None)
+        original_box = self.boxes.pop(reference, None)
+        footprint = self.footprints[reference]
+        original_position = footprint.GetPosition()
+        original_rotation = footprint.GetOrientationDegrees()
         rotations = ([rotation] if rotation is not None
                      else [self.rng.choice([0.0, 90.0, 180.0,
                                             270.0])])
@@ -306,6 +404,12 @@ class SeedPlacer:
             step += 1
             if step % 12 == 0:
                 radius += 0.6
+        # Failure must leave no ghost: the part returns to exactly
+        # where it was, and its collision box returns to the field.
+        footprint.SetPosition(original_position)
+        footprint.SetOrientationDegrees(original_rotation)
+        if original_box is not None:
+            self.boxes[reference] = original_box
         raise CandidateError(
             "no collision-free position for {!r} within {} mm of "
             "its anchor".format(reference, budget_mm))
@@ -491,11 +595,15 @@ class SeedPlacer:
 
         Proximity: re-place the reference within its budget of the
         anchor's CURRENT position. Block spread: pull the farthest
-        member toward the block centroid. Separation violations are
+        members toward the block centroid. Separation violations are
         not repaired - a quench that collapsed a required separation
-        fails the candidate honestly.
+        fails the candidate honestly. An individual re-place that
+        finds no room is RECORDED and skipped, not fatal: the next
+        round retries it after overlap decluttering has loosened
+        the field.
         """
         repaired = []
+        self.repair_failures = []
         for entry in evaluation["results"]:
             if entry["status"] != "violated":
                 continue
@@ -506,34 +614,47 @@ class SeedPlacer:
                     constraint["reference"])
                 angle = math.atan2(current[1] - anchor_xy[1],
                                    current[0] - anchor_xy[0])
-                self._place_near(constraint["reference"],
-                                 anchor_xy,
-                                 constraint["max_distance_mm"],
-                                 angle)
-                repaired.append(constraint["reference"])
+                try:
+                    self._place_near(constraint["reference"],
+                                     anchor_xy,
+                                     constraint["max_distance_mm"],
+                                     angle)
+                    repaired.append(constraint["reference"])
+                except CandidateError as error:
+                    self.repair_failures.append(str(error))
             elif constraint["kind"] == "functional_block" and \
                     "max_spread_mm" in constraint:
                 members = constraint["members"]
                 positions = {m: self._position_of(m)
                              for m in members}
-                cx = sum(p[0] for p in positions.values()) \
-                    / len(positions)
-                cy = sum(p[1] for p in positions.values()) \
-                    / len(positions)
+                # The LARGEST member anchors the block: small parts
+                # come to it. Asking the big IC to fit into the
+                # crowd of its own already-gathered members is how
+                # repair used to wedge.
+                def _area(member):
+                    box = self.boxes.get(member) or _bbox_mm(
+                        self.footprints[member])
+                    return (box[2] - box[0]) * (box[3] - box[1])
+                anchor_member = max(members, key=_area)
+                cx, cy = positions[anchor_member]
                 budget = constraint["max_spread_mm"] / 2.0 - 0.5
                 # Every member outside the compliant radius comes
                 # home this round; one-at-a-time repair oscillates.
                 for member in sorted(
                         m for m in members
                         if m not in self.fixed
+                        and m != anchor_member
                         and math.hypot(positions[m][0] - cx,
                                        positions[m][1] - cy)
                         > budget):
-                    self._place_near(
-                        member, (cx, cy), budget,
-                        math.atan2(positions[member][1] - cy,
-                                   positions[member][0] - cx))
-                    repaired.append(member)
+                    try:
+                        self._place_near(
+                            member, (cx, cy), budget,
+                            math.atan2(positions[member][1] - cy,
+                                       positions[member][0] - cx))
+                        repaired.append(member)
+                    except CandidateError as error:
+                        self.repair_failures.append(str(error))
         return repaired
 
     def resolve_overlaps(self, pairs):
@@ -612,6 +733,29 @@ def connectivity_by_net(board_file, nets):
     return outcome
 
 
+def strip_slivers(source_path, target_path,
+                  minimum_width_mm=0.127):
+    """Delete track segments narrower than the board's DRC floor.
+
+    The general router sometimes emits sub-floor taper slivers at
+    tight pads; deleting them makes the geometry honest at the cost
+    of connectivity - the affected net degrades to partial, which
+    the classification reports and the cleanup stage retries. No
+    via is ever touched.
+    """
+    import pcbnew
+    board = pcbnew.LoadBoard(source_path)
+    removed = 0
+    for track in list(board.GetTracks()):
+        if track.GetClass() in ("PCB_VIA", "VIA"):
+            continue
+        if track.GetWidth() / 1e6 < minimum_width_mm:
+            board.Delete(track)
+            removed += 1
+    pcbnew.SaveBoard(target_path, board)
+    return removed
+
+
 def refill_zones(board_file):
     import pcbnew
     board = pcbnew.LoadBoard(board_file)
@@ -645,8 +789,34 @@ def main():
                                  encoding="utf-8"))
     zone_inheritance.validate_policy(zone_policy)
 
+    import inspect
+
+    def _placement_semantics_sha256():
+        """The digest of the code that actually decides placement:
+        the seed placer, the lock translation, the policy
+        evaluation, the geometry helpers, plus the optimizer script.
+        Reuse binds to THIS, not to a manually bumped version
+        string - when any of these change, a placed artifact was
+        produced under different semantics."""
+        import hashlib as hashlib_module
+        pieces = [inspect.getsource(SeedPlacer),
+                  inspect.getsource(locked_references),
+                  inspect.getsource(evaluate_policy),
+                  inspect.getsource(positions_of),
+                  inspect.getsource(_bbox_mm),
+                  inspect.getsource(_overlaps)]
+        digest = hashlib_module.sha256()
+        for piece in pieces:
+            digest.update(piece.encode("utf-8"))
+        with open(os.path.join(PLUGIN, "place_optimize.py"),
+                  "rb") as handle:
+            digest.update(handle.read())
+        return digest.hexdigest()
+
     current_inputs = {
         "board_a_sha256": _sha256_file(BOARD_A),
+        "placement_semantics_sha256":
+            _placement_semantics_sha256(),
         "constraints_sha256": _sha256_file(constraints_path),
         "zone_policy_sha256": _sha256_file(zone_policy_path),
         "generator_semantics_version": GENERATOR_SEMANTICS_VERSION,
@@ -712,18 +882,35 @@ def main():
         if extra:
             entry.update(extra)
         start = time.time()
+        _place_pro_sibling(input_path)
         try:
             completed = subprocess.run(
                 command, capture_output=True, text=True,
                 timeout=timeout)
             entry["seconds"] = round(time.time() - start, 1)
             entry["returncode"] = completed.returncode
-            entry["log_tail"] = (completed.stdout
-                                 + completed.stderr)[-1500:]
+            log_text = completed.stdout + completed.stderr
+            entry["log_tail"] = log_text[-1500:]
+            entry["min_clearance_used_mm"] = \
+                _parse_min_clearance(log_text)
             produced = os.path.isfile(output_path)
             if completed.returncode == 0 and produced:
-                entry["status"] = "completed"
                 entry["output_sha256"] = _sha256_file(output_path)
+                if tool == "route.py":
+                    verdict = stage_fabrication_check(
+                        output_path,
+                        os.path.join(out_dir, "stages",
+                                     "fabcheck-" + attempt_id))
+                    entry["fabrication_geometry"] = verdict
+                    if verdict["ok"] is True:
+                        entry["status"] = "completed"
+                    else:
+                        # Connectivity below the declared floor is
+                        # not success: the attempt stands recorded,
+                        # the checkpoint does not move.
+                        entry["status"] = "fabrication-invalid"
+                else:
+                    entry["status"] = "completed"
             else:
                 entry["status"] = "failed"
                 entry["output_sha256"] = None
@@ -847,7 +1034,8 @@ def main():
         mismatched = sorted(
             key for key in ("board_a_sha256", "constraints_sha256",
                             "zone_policy_sha256",
-                            "generator_semantics_version")
+                            "generator_semantics_version",
+                            "placement_semantics_sha256")
             if stored.get(key) != current_inputs[key])
         if mismatched:
             record({"stage": "reuse_refused",
@@ -867,7 +1055,10 @@ def main():
                 "policy_ok": policy["summary"]["ok"],
                 "violated": policy["summary"]["violated"],
                 "overlapping_pairs": overlaps})
-        placement_ok = policy["summary"]["ok"]
+        # Reuse requires the policy AND collision-free courtyards:
+        # an overlapping placement is not reusable, whatever the
+        # thresholded constraints say.
+        placement_ok = policy["summary"]["ok"] and not overlaps
     else:
         board = pcbnew.LoadBoard(BOARD_A)
         converted = convert_circular_outline(board)
@@ -937,14 +1128,18 @@ def main():
                 if policy["summary"]["ok"] and not overlaps:
                     break
                 try:
-                    repaired = placer.repair(policy)
-                    repaired += placer.resolve_overlaps(overlaps)
+                    # Declutter first: overlapping courtyards are
+                    # why constraint repair finds no room.
+                    repaired = placer.resolve_overlaps(overlaps)
+                    repaired += placer.repair(policy)
                 except CandidateError as error:
                     repair_rounds.append({"round": round_index,
                                           "failed": str(error)})
                     break
-                repair_rounds.append({"round": round_index,
-                                      "moved": repaired})
+                repair_rounds.append({
+                    "round": round_index, "moved": repaired,
+                    "deferred": list(getattr(
+                        placer, "repair_failures", []))})
                 if not repaired:
                     break
             policy = evaluate_policy(board, constraints_doc,
@@ -965,12 +1160,140 @@ def main():
 
     if not arguments.skip_route and placement_ok:
         checkpoint = placed_path
+        _place_pro_sibling(checkpoint)
+
+        # ---- critical-topology stages: verified escapes out of the
+        # microphone guard ring for every mic clock pad, and GND
+        # stitches from the guard bars to the internal planes - all
+        # at the DECLARED values, before any general routing.
+        intent = json.load(open(os.path.join(
+            HERE, "critical_structures.json"), encoding="utf-8"))
+        import re as re_module
+        from pcbqa import geom as geom_module
+        board = pcbnew.LoadBoard(checkpoint)
+        refill_board = pcbnew.ZONE_FILLER(board)
+        refill_board.Fill(board.Zones())
+        escape_regex = re_module.compile(
+            intent["escapes"]["pad_regex"])
+        stitch_regex = re_module.compile(
+            intent["stitches"]["pad_regex"])
+        planner_outcome = {"escapes": {"placed": 0, "refused": []},
+                           "stitches": {"placed": 0, "refused": []}}
+        for footprint in board.GetFootprints():
+            center = footprint.GetPosition()
+            for pad in footprint.Pads():
+                label = "{}.{}".format(footprint.GetReference(),
+                                       pad.GetNumber())
+                position = pad.GetPosition()
+                pad_xy = (position.x / 1e6, position.y / 1e6)
+                if escape_regex.match(label):
+                    direction = math.atan2(
+                        position.y - center.y,
+                        position.x - center.x)
+                    end = (pad_xy[0] + intent["escapes"][
+                               "length_mm"] * math.cos(direction),
+                           pad_xy[1] + intent["escapes"][
+                               "length_mm"] * math.sin(direction))
+                    try:
+                        proposal = critical_topology.local_connect(
+                            board, pad.GetNetname(), pad_xy, end,
+                            intent["rules"]["escape"],
+                            geom_module.pad_copper_polygon,
+                            outline={"center_mm": [circle[0],
+                                                   circle[1]],
+                                     "radius_mm": circle[2],
+                                     "clearance_mm": 0.3})
+                        critical_topology.apply_proposal(board,
+                                                         proposal)
+                        planner_outcome["escapes"]["placed"] += 1
+                    except critical_topology.TopologyPlanError \
+                            as error:
+                        planner_outcome["escapes"][
+                            "refused"].append(
+                            {"pad": label, "reason": str(error)})
+                elif stitch_regex.match(label) and \
+                        pad.GetNetname() == intent["stitches"][
+                            "net"]:
+                    direction = math.atan2(
+                        position.y - center.y,
+                        position.x - center.x)
+                    try:
+                        proposal = \
+                            critical_topology.stitch_to_plane(
+                                board, intent["stitches"]["net"],
+                                pad_xy,
+                                intent["stitches"]["plane_net"],
+                                intent["rules"]["stitch"],
+                                geom_module.pad_copper_polygon,
+                                prefer_angle=direction,
+                                outline={"center_mm": [circle[0],
+                                                       circle[1]],
+                                         "radius_mm": circle[2],
+                                         "clearance_mm": 0.3})
+                        critical_topology.apply_proposal(board,
+                                                         proposal)
+                        planner_outcome["stitches"]["placed"] += 1
+                    except critical_topology.TopologyPlanError \
+                            as error:
+                        planner_outcome["stitches"][
+                            "refused"].append(
+                            {"pad": label, "reason": str(error)})
+        critical_path = os.path.join(
+            out_dir, "candidate_critical.kicad_pcb")
+        pcbnew.SaveBoard(critical_path, board)
+        _place_pro_sibling(critical_path)
+        verdict = stage_fabrication_check(
+            critical_path, os.path.join(out_dir, "stages",
+                                        "fabcheck-critical"))
+        record({"stage": "critical_topology",
+                "planner": "pcbqa.critical_topology",
+                "intent_sha256": _sha256_file(os.path.join(
+                    HERE, "critical_structures.json")),
+                "outcome": planner_outcome,
+                "fabrication_geometry": verdict,
+                "output_sha256": _sha256_file(critical_path)})
+        if verdict["ok"] is True:
+            checkpoint = critical_path
         for stage_name, nets in _routing_stages():
             entry = run_attempt(
                 "route_{}".format(stage_name), checkpoint,
                 _stage_router_args(stage_name) + ["--nets"] + nets,
                 _stage_timeout(stage_name, arguments.stage_timeout),
                 "route.py")
+            if entry["status"] == "fabrication-invalid" and \
+                    set((entry.get("fabrication_geometry") or {})
+                        .get("violations_by_type") or {}) <= {
+                            "track_width", "connection_width"}:
+                # Sliver-only invalidity is recoverable: delete the
+                # sub-floor tapers and re-judge. The net that loses
+                # its slivers degrades to partial - honestly - and
+                # the group cleanup retries it.
+                stripped_path = os.path.join(
+                    out_dir, "stages",
+                    "{}-slivstrip.kicad_pcb".format(
+                        entry["attempt_id"]))
+                removed = strip_slivers(
+                    os.path.join(out_dir, entry["output_path"]),
+                    stripped_path)
+                _place_pro_sibling(stripped_path)
+                verdict = stage_fabrication_check(
+                    stripped_path,
+                    os.path.join(out_dir, "stages",
+                                 "fabcheck-{}-slivstrip".format(
+                                     entry["attempt_id"])))
+                record({"stage": "sliver_strip",
+                        "from_attempt": entry["attempt_id"],
+                        "removed_sub_floor_segments": removed,
+                        "fabrication_geometry": verdict,
+                        "output_sha256": _sha256_file(
+                            stripped_path),
+                        "output_path": os.path.relpath(
+                            stripped_path, out_dir)})
+                if verdict["ok"] is True:
+                    entry = dict(entry,
+                                 status="completed",
+                                 output_path=os.path.relpath(
+                                     stripped_path, out_dir))
             if entry["status"] == "completed":
                 checkpoint = os.path.join(out_dir,
                                           entry["output_path"])
@@ -1008,23 +1331,165 @@ def main():
 
             # Missed nets are judged AFTER a refill: stale inherited
             # fills would misclassify plane-served nets and send the
-            # cleanup stage chasing copper that already connects.
+            # cleanup stages chasing copper that already connects.
+            # Cleanup runs PER STAGE GROUP, with that group's own
+            # router parameters - a power net is never rerouted
+            # with clock-stage via geometry.
             refilled_sha = publish(checkpoint)
-            missed = [net for net, cls in connectivity_by_net(
-                final_path, all_nets).items()
-                if cls != "connectivity-complete"]
-            if missed:
+            for group_name, group_nets in _routing_stages():
+                missed = [net for net, cls in connectivity_by_net(
+                    final_path, group_nets).items()
+                    if cls != "connectivity-complete"]
+                if not missed:
+                    continue
                 entry = run_attempt(
-                    "route_cleanup", final_path,
-                    _stage_router_args("cleanup") + ["--nets"]
+                    "route_cleanup_{}".format(group_name),
+                    final_path,
+                    _stage_router_args(group_name) + ["--nets"]
                     + missed,
-                    _stage_timeout("cleanup",
+                    _stage_timeout(group_name,
                                    arguments.stage_timeout),
                     "route.py",
                     extra={"reattempted_nets": missed})
+                if entry["status"] == "fabrication-invalid" and \
+                        set((entry.get("fabrication_geometry")
+                             or {}).get("violations_by_type")
+                            or {}) <= {"track_width",
+                                       "connection_width"}:
+                    stripped_path = os.path.join(
+                        out_dir, "stages",
+                        "{}-slivstrip.kicad_pcb".format(
+                            entry["attempt_id"]))
+                    removed = strip_slivers(
+                        os.path.join(out_dir,
+                                     entry["output_path"]),
+                        stripped_path)
+                    _place_pro_sibling(stripped_path)
+                    verdict = stage_fabrication_check(
+                        stripped_path,
+                        os.path.join(
+                            out_dir, "stages",
+                            "fabcheck-{}-slivstrip".format(
+                                entry["attempt_id"])))
+                    record({"stage": "sliver_strip",
+                            "from_attempt": entry["attempt_id"],
+                            "removed_sub_floor_segments": removed,
+                            "fabrication_geometry": verdict,
+                            "output_sha256": _sha256_file(
+                                stripped_path),
+                            "output_path": os.path.relpath(
+                                stripped_path, out_dir)})
+                    if verdict["ok"] is True:
+                        entry = dict(entry, status="completed",
+                                     output_path=os.path.relpath(
+                                         stripped_path, out_dir))
                 if entry["status"] == "completed":
                     refilled_sha = publish(os.path.join(
                         out_dir, entry["output_path"]))
+
+            # ---- planner last-mile repair: still-partial nets get
+            # verified local connections between their stranded pad
+            # groups (plane stitches for the plane net), at the
+            # declared values, judged by the same fabrication check.
+            from pcbqa import geom as geom_module
+            from pcbqa.connectivity import classify_net
+            for repair_round in range(2):
+                board = pcbnew.LoadBoard(final_path)
+                partial = {}
+                for net in all_nets:
+                    state = classify_net(
+                        board, net, geom_module.pad_copper_polygon)
+                    if state["class"] == "partial-copper":
+                        partial[net] = state["pad_components"]
+                if not partial:
+                    break
+                pad_lookup = {}
+                for footprint in board.GetFootprints():
+                    for pad in footprint.Pads():
+                        pad_lookup["{}.{}".format(
+                            footprint.GetReference(),
+                            pad.GetNumber())] = (
+                            pad.GetPosition().x / 1e6,
+                            pad.GetPosition().y / 1e6)
+                outcome = {}
+                changed = False
+                for net, groups in sorted(partial.items()):
+                    groups = sorted(groups, key=len)
+                    small, large = groups[0], groups[-1]
+                    best = None
+                    for a in small:
+                        for b in large:
+                            ax, ay = pad_lookup[a]
+                            bx, by = pad_lookup[b]
+                            distance = math.hypot(bx - ax, by - ay)
+                            if best is None or distance < best[0]:
+                                best = (distance, a, b)
+                    try:
+                        if net == intent["stitches"]["plane_net"]:
+                            proposal = \
+                                critical_topology.stitch_to_plane(
+                                    board, net,
+                                    pad_lookup[best[1]], net,
+                                    intent["rules"]["stitch"],
+                                    geom_module.pad_copper_polygon)
+                        else:
+                            proposal = \
+                                critical_topology.local_connect(
+                                    board, net,
+                                    pad_lookup[best[1]],
+                                    pad_lookup[best[2]],
+                                    dict(intent["rules"]["escape"],
+                                         search_radius_mm=7.0,
+                                         track_width_mm=0.2),
+                                    geom_module.pad_copper_polygon)
+                        critical_topology.apply_proposal(board,
+                                                         proposal)
+                        outcome[net] = {"joined": [best[1],
+                                                   best[2]],
+                                        "distance_mm": round(
+                                            best[0], 3)}
+                        changed = True
+                    except critical_topology.TopologyPlanError \
+                            as error:
+                        outcome[net] = {"refused": str(error)}
+                if changed:
+                    previous_final = final_path + ".pre-lastmile"
+                    with open(final_path, "rb") as source:
+                        held = source.read()
+                    with open(previous_final, "wb") as target:
+                        target.write(held)
+                    pcbnew.SaveBoard(final_path, board)
+                    refilled_sha = refill_zones(final_path)
+                    _place_pro_sibling(final_path)
+                verdict = stage_fabrication_check(
+                    final_path,
+                    os.path.join(out_dir, "stages",
+                                 "fabcheck-lastmile-{}".format(
+                                     repair_round)))
+                if changed and verdict["ok"] is not True:
+                    # A repair that violates the declared floors is
+                    # REVERTED, exactly like a routing stage: the
+                    # previous fabrication-clean final stands, and
+                    # the attempt stays recorded.
+                    with open(previous_final, "rb") as source:
+                        held = source.read()
+                    with open(final_path, "wb") as target:
+                        target.write(held)
+                    refilled_sha = _sha256_file(final_path)
+                    record({"stage": "last_mile_repair",
+                            "round": repair_round,
+                            "outcome": outcome,
+                            "fabrication_geometry": verdict,
+                            "reverted": True,
+                            "output_sha256": refilled_sha})
+                    break
+                record({"stage": "last_mile_repair",
+                        "round": repair_round,
+                        "outcome": outcome,
+                        "fabrication_geometry": verdict,
+                        "output_sha256": refilled_sha})
+                if not changed:
+                    break
             classes = connectivity_by_net(final_path, all_nets)
             complete = sum(1 for c in classes.values()
                            if c == "connectivity-complete")

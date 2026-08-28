@@ -2,62 +2,198 @@
  "kind": "search-decision",
  "pool": [
   {
-   "candidate": "seed06",
-   "decision": "accept-for-comparison",
-   "components": {
-    "connectivity_complete_fraction": 1.0,
-    "connectivity_complete_nets": 46,
-    "net_total": 46,
-    "critical_clock_complete": true,
-    "not_complete": {},
-    "placement_policy_ok": true,
-    "validation_verdict": "REJECTED",
-    "measured_copper_total_mm": 2038.704,
-    "measured_net_set_sha256": "71e6949108abcfdaded2f464239890c595e79ee060d117f261695222bb283211"
-   },
-   "ranking_score": 0.85,
+   "candidate": "seed01",
+   "decision": "missing",
+   "progress_class": null,
+   "board_required_net_completion": null,
+   "benchmark_net_completion": null,
+   "critical": [
+    null,
+    null,
+    null
+   ],
+   "fabrication_geometry_ok": null,
+   "candidate_ready_for_next_stage": null,
    "reasons": [
-    "thresholded placement policy holds and routing cleared the completeness bar"
+    "no decision.json; the candidate pipeline did not complete"
+   ]
+  },
+  {
+   "candidate": "seed02",
+   "decision": "stale-artifacts",
+   "progress_class": null,
+   "board_required_net_completion": null,
+   "benchmark_net_completion": null,
+   "critical": [
+    null,
+    null,
+    null
+   ],
+   "fabrication_geometry_ok": null,
+   "candidate_ready_for_next_stage": null,
+   "reasons": [
+    "the decision carries no producer closure; unverifiable evidence is refused"
+   ]
+  },
+  {
+   "candidate": "seed03",
+   "decision": "stale-artifacts",
+   "progress_class": null,
+   "board_required_net_completion": null,
+   "benchmark_net_completion": null,
+   "critical": [
+    null,
+    null,
+    null
+   ],
+   "fabrication_geometry_ok": null,
+   "candidate_ready_for_next_stage": null,
+   "reasons": [
+    "the decision carries no producer closure; unverifiable evidence is refused"
+   ]
+  },
+  {
+   "candidate": "seed04",
+   "decision": "stale-artifacts",
+   "progress_class": null,
+   "board_required_net_completion": null,
+   "benchmark_net_completion": null,
+   "critical": [
+    null,
+    null,
+    null
+   ],
+   "fabrication_geometry_ok": null,
+   "candidate_ready_for_next_stage": null,
+   "reasons": [
+    "the decision carries no producer closure; unverifiable evidence is refused"
+   ]
+  },
+  {
+   "candidate": "seed05",
+   "decision": "stale-artifacts",
+   "progress_class": null,
+   "board_required_net_completion": null,
+   "benchmark_net_completion": null,
+   "critical": [
+    null,
+    null,
+    null
+   ],
+   "fabrication_geometry_ok": null,
+   "candidate_ready_for_next_stage": null,
+   "reasons": [
+    "the decision carries no producer closure; unverifiable evidence is refused"
+   ]
+  },
+  {
+   "candidate": "seed06",
+   "decision": "stale-artifacts",
+   "progress_class": null,
+   "board_required_net_completion": null,
+   "benchmark_net_completion": null,
+   "critical": [
+    null,
+    null,
+    null
+   ],
+   "fabrication_geometry_ok": null,
+   "candidate_ready_for_next_stage": null,
+   "reasons": [
+    "the decision carries no producer closure; unverifiable evidence is refused"
    ]
   },
   {
    "candidate": "seed07",
    "decision": "missing",
-   "components": null,
-   "ranking_score": null,
+   "progress_class": null,
+   "board_required_net_completion": null,
+   "benchmark_net_completion": null,
+   "critical": [
+    null,
+    null,
+    null
+   ],
+   "fabrication_geometry_ok": null,
+   "candidate_ready_for_next_stage": null,
    "reasons": [
     "no decision.json; the candidate pipeline did not complete"
    ]
   },
   {
    "candidate": "seed08",
-   "decision": "accept-for-comparison",
-   "components": {
-    "connectivity_complete_fraction": 0.9783,
-    "connectivity_complete_nets": 45,
-    "net_total": 46,
-    "critical_clock_complete": true,
-    "not_complete": {
-     "MIC_VDD_15": "partial-copper"
-    },
-    "placement_policy_ok": true,
-    "validation_verdict": "REJECTED",
-    "measured_copper_total_mm": 1972.587,
-    "measured_net_set_sha256": "4b8dbbd16f9b83fd903cb311b10f99b8399823179a89c6235b7fdd20e82b1c81"
-   },
-   "ranking_score": 0.8391,
+   "decision": "stale-artifacts",
+   "progress_class": null,
+   "board_required_net_completion": null,
+   "benchmark_net_completion": null,
+   "critical": [
+    null,
+    null,
+    null
+   ],
+   "fabrication_geometry_ok": null,
+   "candidate_ready_for_next_stage": null,
    "reasons": [
-    "thresholded placement policy holds and routing cleared the completeness bar"
+    "the decision carries no producer closure; unverifiable evidence is refused"
+   ]
+  },
+  {
+   "candidate": "seed09",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 47,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 25,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed10",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 57,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 35,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": false,
+   "candidate_ready_for_next_stage": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
    ]
   }
  ],
- "best": "seed06",
- "why_best": {
-  "critical_clock_complete": true,
-  "connectivity_complete_fraction": 1.0,
-  "ranking_score": 0.85,
-  "measured_copper_total_mm": 2038.704,
-  "rule": "critical clock-tree completeness, then overall connectivity completion, then the composite; LOWEST measured copper is the last tie-break and only among candidates with identical complete-net sets - a missing route never reads as saved copper; the components are the evidence"
- },
- "no_winner_reason": null
+ "best": null,
+ "why_best": null,
+ "no_winner_reason": "no fresh candidate reached accept-for-comparison",
+ "producer_closure": {
+  "kind": "producer-closure",
+  "components": {
+   "search.py": "811f227838731e815af15368d326e0c71402fcb90bed38fc061db170afcb0ed4",
+   "toolkit.freshness": "f274c49e17755a0add2e90e71f3bb18446505767c471bc84b46dba2e521ce3ba",
+   "toolkit.progression": "71bd7acfb79eaddd7e27db0d3010c2578a843dc9ec12b697e1a4165111b2f6bd"
+  },
+  "digest": "a5107d41df30fea9daacca7251064e0415cd5c2a524381d4a3772b034fdc2ff5"
+ }
 }

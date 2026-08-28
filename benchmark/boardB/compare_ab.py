@@ -36,7 +36,9 @@ sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
                                 "PCB_AutoDesignAndTest"))
 
-from pcbqa import benchmark                        # noqa: E402
+from pcbqa import headless                        # noqa: E402
+headless.suppress_blocking_ui()
+from pcbqa import benchmark, freshness             # noqa: E402
 
 import validate_candidate as vc                    # noqa: E402
 
@@ -72,6 +74,38 @@ def main():
          "rev-parse", "HEAD"], capture_output=True,
         text=True).stdout.strip() or "unknown"
 
+    baseline = json.load(open(
+        os.path.join(REPO, "benchmark", "board_a_baseline.json"),
+        encoding="utf-8"))
+    gates_path = os.path.join(seed_dir, "gates.json")
+    if not os.path.isfile(gates_path):
+        raise SystemExit(
+            "no gates.json for this candidate; run "
+            "validate_candidate first - complete-path truth comes "
+            "from the validation gates")
+    gates_doc = json.load(open(gates_path, encoding="utf-8"))
+    recorded_closure = gates_doc.get("producer_closure")
+    if recorded_closure is None:
+        raise SystemExit("gates.json carries no producer closure; "
+                         "unverifiable evidence is refused")
+    with open(candidate_board, "rb") as handle:
+        import hashlib
+        candidate_sha = hashlib.sha256(handle.read()).hexdigest()
+    verdict = freshness.verify(
+        recorded_closure,
+        vc.closure_components(candidate_sha, seed_dir))
+    if not verdict["fresh"]:
+        raise SystemExit(
+            "gates.json is stale (moved: {}); regenerate with "
+            "validate_candidate before comparing".format(
+                verdict["moved"] + verdict["missing"]
+                + verdict["added"]))
+    delay_by_label = {
+        "board_a": (baseline.get("interface_paths") or {}).get(
+            "TIMING.INTERCONNECT_DELAY", {}).get("measurements"),
+        "board_b": (gates_doc["statuses"].get("validation")
+                    or {}).get("timing_delay_measurements"),
+    }
     reports = {}
     connectivity = {}
     for label, board_file in (
@@ -81,6 +115,17 @@ def main():
         sha, metrics, states = vc.measure_board(
             board_file, nets, copper, thickness)
         connectivity[label] = states
+        delay = delay_by_label[label]
+        if delay:
+            metrics.extend(vc.complete_path_metrics(delay, sha))
+        else:
+            metrics.append(benchmark.unmeasured(
+                "complete_path_spread_mm", "board",
+                vc.extract.METRIC_DEFINITIONS[
+                    "complete_path_spread_mm"],
+                "path-resolution",
+                "no timing-gate path records exist for this "
+                "board"))
         reports[label] = benchmark.report(
             {"board_file_sha256": sha,
              "toolkit_commit": toolkit_commit,
@@ -92,7 +137,9 @@ def main():
     out_path = os.path.join(seed_dir, "ab_comparison.json")
     with open(out_path, "w", encoding="utf-8",
               newline="\n") as handle:
-        json.dump({"reports": reports, "comparison": comparison},
+        json.dump({"reports": reports, "comparison": comparison,
+                   "producer_closure": vc.producer_closure(
+                       candidate_sha, seed_dir)},
                   handle, indent=1)
         handle.write("\n")
 
@@ -113,9 +160,29 @@ def main():
         "" if not incomplete else " | " + ", ".join(
             "{}={}".format(net, state)
             for net, state in incomplete.items())))
+    path_spread = next(
+        (pair for pair in comparison["compared"]
+         if pair["name"] == "complete_path_spread_mm"), None)
+    if path_spread is not None:
+        print("complete PDM path spread: A {:.3f} mm | "
+              "B {:.3f} mm".format(path_spread["a"],
+                                   path_spread["b"]))
+    else:
+        print("complete PDM path spread: unmeasured on at least "
+              "one side")
+    path_pairs = [pair for pair in comparison["compared"]
+                  if pair["name"].startswith("path:")
+                  and pair["name"].endswith(":copper_length_mm")]
+    if path_pairs:
+        deltas = [pair["delta_b_minus_a"] for pair in path_pairs]
+        print("complete PDM paths compared: {} | mean delta "
+              "B-A: {:+.2f} mm".format(
+                  len(path_pairs),
+                  sum(deltas) / len(deltas)))
     spread = next(
         (pair for pair in comparison["compared"]
-         if pair["name"] == "clock_leaf_length_spread_mm"), None)
+         if pair["name"] == "clock_leaf_net_length_spread_mm"),
+        None)
     print("comparable copper totals: A {:.1f} mm | B {:.1f} mm "
           "(over {} mutually measured nets)".format(
               total_a, total_b,
@@ -124,10 +191,12 @@ def main():
     print("candidate nets unmeasured (routing): {} -> {}".format(
         len(blocked_nets), ", ".join(blocked_nets) or "none"))
     if spread is not None:
-        print("clock leaf spread: A {:.3f} mm | B {:.3f} mm".format(
-            spread["a"], spread["b"]))
+        print("leaf NET inventory spread (not path spread): "
+              "A {:.3f} mm | B {:.3f} mm".format(
+                  spread["a"], spread["b"]))
     else:
-        print("clock leaf spread: unmeasured on at least one side")
+        print("leaf NET inventory spread: unmeasured on at least "
+              "one side")
     print("report:", out_path)
     return 0
 

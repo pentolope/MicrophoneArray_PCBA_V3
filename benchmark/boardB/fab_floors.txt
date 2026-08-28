@@ -1,0 +1,14 @@
+# This board's DECLARED fabrication floors, pinned as the router's
+# hard capability rung (KiCadRoutingTools --fab-overrides). Values
+# from board/jlcpcb_requirements.json (min_track/min_space 0.15,
+# min_drill 0.3, min_via 0.45) and the board's own design rules
+# (hole clearance 0.25, copper-to-edge 0.3). Supplying this file
+# FORBIDS the router's automatic standard->advanced escalation:
+# a structure that cannot exist at these values fails honestly
+# instead of being built below the declared minimums.
+clearance = 0.15
+track_width = 0.15
+via_diameter = 0.45
+via_drill = 0.30
+hole_to_hole = 0.25
+board_edge = 0.30

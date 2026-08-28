@@ -74,6 +74,27 @@
   "fully_covered": true,
   "meaning": "a simulator-applied condition never implies model condition coverage; fully_covered is true only when every referenced model is parameterized over, or fixed exactly at, every requested condition (ideal declared elements are exact by declaration and are not model claims)"
  },
+ "assumption_dependencies": {
+  "per_measurement": {
+   "vout": {
+    "demand": {
+     "kind": "resistor",
+     "declared": true,
+     "stands_in_for": "downstream demand drawing 100 mA at 5 V",
+     "accepted_for_design_decision": true
+    },
+    "host": {
+     "kind": "vsource_dc",
+     "declared": true,
+     "stands_in_for": "the host 5 V supply, whose model is unavailable",
+     "accepted_for_design_decision": true
+    }
+   }
+  },
+  "assumption_dependent": true,
+  "all_assumptions_accepted_for_design_decision": true,
+  "meaning": "results built on ideal primitives are usable for a design decision only when every such primitive's assumption is declared and accepted; usable-under-assumption is never evidence about the real source or load"
+ },
  "significance": {
   "release_grade": false,
   "meaning": "a numerical result under exactly the stated model coverage and condition coverage; convergence and assertion verdicts never imply stronger evidence than those blocks record, and a simulator-applied operating condition is not model condition coverage"
@@ -105,8 +126,10 @@
  "result_policy": {
   "numerical_assertions_passed": true,
   "result_applicable_to_requested_conditions": true,
+  "assumption_dependent": true,
+  "assumptions_accepted_for_design_decision": true,
   "usable_for_design_decision": true,
   "usable_for_release": false,
-  "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement whose models represent the requested operating conditions; assertions passing numerically never overrides an inapplicable condition"
+  "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those"
  }
 }

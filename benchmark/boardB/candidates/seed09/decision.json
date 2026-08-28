@@ -1,0 +1,165 @@
+{
+ "kind": "candidate-decision",
+ "candidate": "seed09",
+ "board_file_sha256": "e9b7f17c8061883f2d9610ad4bf95d8c4dc8283cde128d2a7a90a16c968a44aa",
+ "assessment": {
+  "classes": {
+   "placement-policy": {
+    "status": "pass",
+    "detail": "toolkit placement-policy evaluation on actual positions"
+   },
+   "critical-structures": {
+    "status": "fail",
+    "states": {
+     "nets_connected": false,
+     "paths_resolved": false,
+     "topology_valid": false
+    },
+    "detail": "net connectivity is necessary but never sufficient: paths and topology are policy-owned gate truths, and unknown is not credited"
+   },
+   "board-connectivity": {
+    "status": "fail",
+    "board_required": {
+     "complete": 47,
+     "total": 83
+    },
+    "benchmark": {
+     "complete": 25,
+     "total": 46
+    },
+    "detail": "judged over the board-required net set; the benchmark set is reported beside it and never stands in for it"
+   },
+   "fabrication-geometry": {
+    "status": "pass",
+    "detail": "{}"
+   },
+   "blocking-gates": {
+    "status": "fail",
+    "failing": [
+     "DRC.AUTHORITATIVE",
+     "TIMING.PATH_INTEGRITY",
+     "VIA.ANNULUS_MASK_OVERLAP",
+     "VIA.IN_PAD_CONTACT",
+     "VIA.MASK_CLEARANCE_PROCESS",
+     "VIA.MASK_CLEARANCE_TARGET"
+    ]
+   },
+   "quality-gates": {
+    "status": "fail",
+    "failing": [
+     "NET.TOPOLOGY"
+    ]
+   },
+   "electrical-evidence": {
+    "status": "fail",
+    "usable_results": 0,
+    "detail": "results usable for a design decision under the simulation result policy"
+   },
+   "optimization": {
+    "status": "recorded",
+    "metrics": {
+     "measured_copper_total_mm": 833.421
+    },
+    "detail": "never judged here and never in the rank key"
+   }
+  },
+  "progress_class": "critical-structures",
+  "fully_connected": false,
+  "rank_key": [
+   true,
+   false,
+   false,
+   false,
+   0.5662650602409639,
+   true,
+   -6,
+   -1,
+   0
+  ]
+ },
+ "components": {
+  "benchmark_net_completion": {
+   "complete": 25,
+   "total": 46
+  },
+  "board_required_net_completion": {
+   "complete": 47,
+   "total": 83
+  },
+  "critical_clock_nets_connected": false,
+  "critical_paths_resolved": false,
+  "critical_topology_valid": false,
+  "fabrication_geometry_ok": true,
+  "board_not_complete": {
+   "+3V3A": "no-copper",
+   "+3V3_CLK": "no-copper",
+   "+5V": "no-copper",
+   "5V_FUSED": "no-copper",
+   "GND": "partial-copper",
+   "MIC_VDD_0": "no-copper",
+   "MIC_VDD_1": "no-copper",
+   "MIC_VDD_10": "no-copper",
+   "MIC_VDD_11": "no-copper",
+   "MIC_VDD_12": "no-copper",
+   "MIC_VDD_13": "no-copper",
+   "MIC_VDD_14": "no-copper",
+   "MIC_VDD_15": "no-copper",
+   "MIC_VDD_2": "no-copper",
+   "MIC_VDD_3": "no-copper",
+   "MIC_VDD_4": "no-copper",
+   "MIC_VDD_5": "no-copper",
+   "MIC_VDD_6": "no-copper",
+   "MIC_VDD_7": "no-copper",
+   "MIC_VDD_8": "no-copper",
+   "MIC_VDD_9": "no-copper",
+   "PDM_CLK_B0": "no-copper",
+   "PDM_CLK_B1": "partial-copper",
+   "PDM_CLK_B2": "partial-copper",
+   "PDM_CLK_B3": "no-copper",
+   "PDM_CLK_B4": "partial-copper",
+   "PDM_CLK_B5": "partial-copper",
+   "PDM_CLK_B6": "no-copper",
+   "PDM_CLK_B7": "partial-copper",
+   "PDM_CLK_FPGA": "no-copper",
+   "PDM_CLK_IN": "partial-copper",
+   "PDM_CLK_Y0": "no-copper",
+   "PDM_CLK_Y4": "no-copper",
+   "PDM_CLK_Y6": "no-copper",
+   "PI_5V": "no-copper",
+   "TANG_3V3": "no-copper"
+  },
+  "placement_policy_ok": true,
+  "validation_verdict": "REJECTED",
+  "parity_failures_missing_candidate_artifacts": [
+   "CPL.NATIVE_PARITY",
+   "CPL.ORIENTATION",
+   "FAB.LAYER_IDENTITY",
+   "PROV.REPORT_FRESHNESS",
+   "TIMING.INTERCONNECT_SKEW"
+  ],
+  "measured_copper_total_mm": 833.421,
+  "measured_net_set_sha256": "ab025e88bcc443cfb96895df152ac23584e0c125f9b05d6bde7c1f4cbffa3a0c"
+ },
+ "decision": "reject",
+ "candidate_ready_for_next_stage": false,
+ "reasons": [
+  "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+ ],
+ "next_design_action": "the progress class names the failing correctness class; its detail names the design variable",
+ "producer_closure": {
+  "kind": "producer-closure",
+  "components": {
+   "candidate_5v_result": "5ad38304b535c2987dbd24657c1a11b884984ff600d9f389deb0d4e634fee792",
+   "candidate_board": "e9b7f17c8061883f2d9610ad4bf95d8c4dc8283cde128d2a7a90a16c968a44aa",
+   "constraints": "512e0ac1c1ab6625a20f136d12ce2107b993c04323e511de0a403a14d9ee20b9",
+   "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
+   "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
+   "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
+   "toolkit.extract": "8961e30ace6f9a13c0f20c0c912a6d270e5c6386a99cf876efa894dbada1adf0",
+   "toolkit.progression": "71bd7acfb79eaddd7e27db0d3010c2578a843dc9ec12b697e1a4165111b2f6bd",
+   "validate_candidate.py": "81f098910cb6bfc5547efd2ab0c8dda31a1e597d21b3cc6b6e967337c7a862f0",
+   "zone_policy": "878201e317cb631553f760d5253ef5ecc842f3dddb73dd1e1ab78f37f090cdff"
+  },
+  "digest": "9d538f0e29922a6c05df12c71607ecf11bcc2941751d2f35a1f023b299360a98"
+ }
+}
