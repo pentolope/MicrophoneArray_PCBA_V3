@@ -434,6 +434,13 @@
    "stage": "final_checkpoint",
    "from": "candidate_routed_cleanup.kicad_pcb",
    "output_sha256": "2a7416ca40912d08ec6e7ffbb5505471b96a66acbcc2dbb5589170dc82ef304f"
+  },
+  {
+   "stage": "reuse_refused",
+   "mismatched_inputs": [
+    "generator_semantics_version"
+   ],
+   "note": "the placed artifact was produced under different design intent; reuse would smuggle stale semantics"
   }
  ]
 }

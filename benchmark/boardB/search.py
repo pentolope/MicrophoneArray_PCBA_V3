@@ -43,8 +43,16 @@ def main():
         pool.append(json.load(open(path, encoding="utf-8")))
     accepted = [entry for entry in pool
                 if entry.get("decision") == "accept-for-comparison"]
+    # The completeness hierarchy sorts first: critical clock tree
+    # complete, then overall connectivity completion, then the
+    # recorded composite. Copper enters only as the LAST tie-break,
+    # below, and only among identical complete-net sets - so a
+    # candidate with partial routes can never beat a complete one by
+    # carrying less copper.
     accepted.sort(key=lambda entry: (
-        entry["components"]["routed_fraction"],
+        bool(entry["components"].get("critical_clock_complete")),
+        entry["components"].get("connectivity_complete_fraction",
+                                0.0),
         entry["ranking_score"]), reverse=True)
     # Copper is a tie-break ONLY among candidates whose measured-net
     # sets are identical: totals over different net sets are not
@@ -53,8 +61,12 @@ def main():
     if accepted:
         top = accepted[0]["components"]
         peers = [entry for entry in accepted
-                 if entry["components"]["routed_fraction"]
-                 == top["routed_fraction"]
+                 if entry["components"].get(
+                     "connectivity_complete_fraction")
+                 == top.get("connectivity_complete_fraction")
+                 and entry["components"].get(
+                     "critical_clock_complete")
+                 == top.get("critical_clock_complete")
                  and entry["ranking_score"]
                  == accepted[0]["ranking_score"]
                  and entry["components"].get(
@@ -79,16 +91,21 @@ def main():
         } for entry in pool],
         "best": best["candidate"] if best else None,
         "why_best": None if best is None else {
-            "routed_fraction":
-                best["components"]["routed_fraction"],
+            "critical_clock_complete":
+                best["components"].get("critical_clock_complete"),
+            "connectivity_complete_fraction":
+                best["components"].get(
+                    "connectivity_complete_fraction"),
             "ranking_score": best["ranking_score"],
             "measured_copper_total_mm":
                 best["components"].get("measured_copper_total_mm"),
-            "rule": "highest routed completeness on the A/B net "
-                    "set; composite, then LOWEST measured copper "
-                    "as tie-breaks - copper only among candidates "
-                    "with identical measured-net sets; the "
-                    "components are the evidence",
+            "rule": "critical clock-tree completeness, then "
+                    "overall connectivity completion, then the "
+                    "composite; LOWEST measured copper is the last "
+                    "tie-break and only among candidates with "
+                    "identical complete-net sets - a missing route "
+                    "never reads as saved copper; the components "
+                    "are the evidence",
         },
         "no_winner_reason": None if best else
             "no candidate reached accept-for-comparison",

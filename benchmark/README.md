@@ -27,9 +27,12 @@ finished = 0.6 mil = 0.01524 mm), each parameter carrying the record
 identity and catalog digest in the report's physical_inputs - never the
 nominal foil weight, and never a bare number. Typed metric records
 (measured/unmeasured, scoped, identity-bound) are defined by the toolkit's
-pcbqa/benchmark.py contract, schema version ab-metrics-3 (structured
-physical-evidence identity; comparisons only through the toolkit's
-compare_reports). GND is
+pcbqa/benchmark.py contract, schema version ab-metrics-4: structured
+resolved-construction identity, stable metric definition identities,
+and comparisons only through the toolkit's compare_reports. Per-net
+comparable metrics exist only for connectivity-complete nets
+(toolkit classify_net; the board file is the arbiter, never router
+logs); partial copper appears solely as explicitly partial inventory. GND is
 deliberately not in the net list: its copper is zone-dominated and the
 extractor inventories track segments only - reporting a "length" for a
 plane net would misrepresent it.
@@ -80,3 +83,17 @@ additionally needs the KiCadRoutingTools plugin (script SHA-256s are
 bound into each candidate's derivation.json); candidate MEASUREMENT,
 comparison and search re-derivation need only the committed files
 and KiCad's python.
+
+Seeds 02-05 predate connectivity-governed semantics and the v4
+pipeline; their committed decisions and ab-metrics-3 artifacts are
+historical evidence only. Under real connectivity their recorded
+ranking inverts (the old copper tie-break rewarded MISSING routes),
+which is precisely why the semantics changed. The current pipeline
+starts at seed06 (generator semantics 4: attempt-bound stages,
+executable zone policy, reuse safety, fanout-aware placement,
+repair-based quench freedom, connectivity-first ranking).
+
+The retired planning brief (AUTONOMOUS_PCBA_AGENT_ARCHITECTURE.md)
+is superseded by the maintained architecture document in the
+toolkit: tooling/PCB_AutoDesignAndTest/docs/
+autonomous_pcba_architecture.md.

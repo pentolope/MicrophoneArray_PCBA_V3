@@ -55,13 +55,58 @@ def baseline_nets():
 CLOCK_LEAVES = (["PDM_CLK_Y{}".format(i) for i in range(8)]
                 + ["PDM_CLK_B{}".format(i) for i in range(8)])
 
-#: Composite ranking weights - recorded, not implied. The composite
-#: exists ONLY to rank candidates for the next search step; the
-#: component metrics are the evidence, and a reviewer reads those.
+#: The 20 clock nets: the board's critical structure. A candidate
+#: whose clock tree is not connectivity-complete cannot win, whatever
+#: else it saves.
+CLOCK_NETS = (["MCLK_OSC", "AUDIO_MCLK", "PDM_CLK_IN",
+               "PDM_CLK_FPGA"]
+              + ["PDM_CLK_Y{}".format(i) for i in range(8)]
+              + ["PDM_CLK_B{}".format(i) for i in range(8)])
+
+#: Composite ranking weights - recorded, not implied. Connectivity
+#: completion dominates BY CONSTRUCTION: the search sorts on the
+#: completeness hierarchy first and touches this scalar only among
+#: candidates that tie there, so a candidate with partial routes can
+#: never outrank a complete one on any downstream metric.
 RANKING_WEIGHTS = {
-    "routed_fraction": 0.6,
-    "placement_policy_ok": 0.2,
-    "gate_acceptance": 0.2,
+    "connectivity_complete_fraction": 0.5,
+    "critical_clock_complete": 0.2,
+    "placement_policy_ok": 0.15,
+    "gate_acceptance": 0.15,
+}
+
+#: Why a failing gate fails, for a candidate: a real candidate-design
+#: problem, or a comparison against Board A's release artifacts that
+#: the candidate never generated. The second class is missing
+#: candidate-derived artifacts, not board correctness - kept visible,
+#: never waived.
+GATE_FAILURE_CLASSES = {
+    "DRC.AUTHORITATIVE": "candidate-design",
+    "NET.TOPOLOGY": "candidate-design",
+    "TIMING.PATH_INTEGRITY": "candidate-design",
+    "ROUTE.GEOMETRY_HYGIENE": "candidate-design",
+    "VIA.ANNULUS_MASK_OVERLAP": "candidate-design",
+    "VIA.IN_PAD_CONTACT": "candidate-design",
+    "VIA.MASK_CLEARANCE_PROCESS": "candidate-design",
+    "VIA.MASK_CLEARANCE_TARGET": "candidate-design",
+    "VIA.NATIVE_GERBER_AGREEMENT":
+        "board-a-release-parity (missing candidate-derived "
+        "artifacts)",
+    "CPL.NATIVE_PARITY":
+        "board-a-release-parity (missing candidate-derived "
+        "artifacts)",
+    "CPL.ORIENTATION":
+        "board-a-release-parity (missing candidate-derived "
+        "artifacts)",
+    "FAB.LAYER_IDENTITY":
+        "board-a-release-parity (missing candidate-derived "
+        "artifacts)",
+    "STACK.GERBER_PARITY":
+        "board-a-release-parity (missing candidate-derived "
+        "artifacts)",
+    "PROV.REPORT_FRESHNESS":
+        "board-a-release-parity (missing candidate-derived "
+        "artifacts)",
 }
 
 
@@ -98,51 +143,88 @@ def physical_inputs():
         requirements,
         hashlib.sha256(requirements_bytes).hexdigest())
     evidence = {
-        "kind": "approved-catalog-finished-copper",
-        "digest": approved["normalized_sha256"],
-        "detail": "finished-copper records resolved from the "
-                  "approved catalog via the board's declared "
-                  "fabrication requirements (requirements digest "
-                  "{})".format(hashlib.sha256(
-                      requirements_bytes).hexdigest()[:16]),
+        "kind": "resolved-physical-construction",
+        "digest": extract.construction_digest(copper, thickness),
+        "detail": "canonical digest of the exact resolved physical "
+                  "inputs (per-layer finished copper, board "
+                  "thickness, IEC 60028 resistivity); resolved from "
+                  "approved catalog {}... via requirements "
+                  "{}...".format(
+                      approved["normalized_sha256"][:12],
+                      hashlib.sha256(
+                          requirements_bytes).hexdigest()[:12]),
     }
     return copper, thickness, evidence
 
 
 def measure_board(board_file, nets, copper, thickness):
-    """Typed metrics for one board file over the A/B net set."""
+    """Typed metrics for one board over the A/B net set - governed
+    by REAL connectivity, never by the presence of tracks.
+
+    Only a connectivity-complete net produces the comparable
+    metrics. A partial net's copper appears solely as an explicitly
+    partial inventory metric under its own semantic definition, so
+    it can never pair with a complete route; its comparable metrics
+    stay unmeasured. Classification comes from the toolkit's
+    classify_net on this very board file."""
     import pcbnew
+    from pcbqa import geom
+    from pcbqa.connectivity import classify_net
     board = pcbnew.LoadBoard(board_file)
     sha = _sha256_file(board_file)
+    definitions = extract.METRIC_DEFINITIONS
     metrics = []
     measured_lengths = {}
+    connectivity = {}
     for net in nets:
-        try:
-            record = extract.extract_net(board, net, copper,
-                                         thickness)
-        except extract.ExtractionError:
+        state = classify_net(board, net, geom.pad_copper_polygon)
+        connectivity[net] = state["class"]
+        if state["class"] != "connectivity-complete":
             for name in ("copper_length_mm", "via_count",
                          "segment_resistance_sum_ohm"):
                 metrics.append(benchmark.unmeasured(
-                    "{}:{}".format(net, name), "net", "routing",
-                    "this net carries no copper on this board; "
-                    "absence is reported, never zero"))
+                    "{}:{}".format(net, name), "net",
+                    definitions[name], "routing",
+                    "net connectivity is {!r}; only a "
+                    "connectivity-complete net yields comparable "
+                    "metrics".format(state["class"])))
+            if state["class"] == "partial-copper":
+                record = extract.extract_net(board, net, copper,
+                                             thickness)
+                metrics.append(benchmark.measured(
+                    "{}:partial_copper_length_mm".format(net),
+                    "net", definitions["partial_copper_length_mm"],
+                    record["totals"]["copper_length_mm"], "mm",
+                    "geometry-derived",
+                    {"extractor": "pcbqa.extract",
+                     "extract_version": extract.EXTRACT_VERSION,
+                     "board_file_sha256": sha,
+                     "connectivity_class": state["class"]},
+                    "PARTIAL copper inventory of an incompletely "
+                    "connected net; never comparable to a complete "
+                    "route"))
             continue
+        record = extract.extract_net(board, net, copper, thickness)
         provenance = {"extractor": "pcbqa.extract",
                       "extract_version": extract.EXTRACT_VERSION,
-                      "board_file_sha256": sha}
+                      "board_file_sha256": sha,
+                      "connectivity_class": state["class"]}
         measured_lengths[net] = record["totals"]["copper_length_mm"]
         metrics.append(benchmark.measured(
             "{}:copper_length_mm".format(net), "net",
+            definitions["copper_length_mm"],
             record["totals"]["copper_length_mm"], "mm",
             "geometry-derived", provenance,
-            "track segments of one net"))
+            "track segments of one connectivity-complete net"))
         metrics.append(benchmark.measured(
             "{}:via_count".format(net), "net",
+            definitions["via_count"],
             record["totals"]["via_count"], "count",
-            "geometry-derived", provenance, "vias on one net"))
+            "geometry-derived", provenance,
+            "vias on one connectivity-complete net"))
         metrics.append(benchmark.measured(
             "{}:segment_resistance_sum_ohm".format(net), "net",
+            definitions["segment_resistance_sum_ohm"],
             record["dc"]["segment_resistance_sum_ohm"], "ohm",
             "geometry-derived", provenance,
             record["dc"]["meaning"]))
@@ -150,19 +232,22 @@ def measure_board(board_file, nets, copper, thickness):
     if all(length is not None for length in leaves):
         metrics.append(benchmark.measured(
             "clock_leaf_length_spread_mm", "board",
+            definitions["clock_leaf_length_spread_mm"],
             round(max(leaves) - min(leaves), 6), "mm",
             "geometry-derived",
             {"definition": "max minus min copper length over the "
-                           "16 PDM clock leaf nets",
+                           "16 PDM clock leaf nets, all "
+                           "connectivity-complete",
              "board_file_sha256": sha},
             "a routed-length spread, not an electrical-delay "
             "measurement"))
     else:
         metrics.append(benchmark.unmeasured(
-            "clock_leaf_length_spread_mm", "board", "routing",
-            "not every PDM clock leaf carries copper; a spread "
-            "over a partial set would be fiction"))
-    return sha, metrics
+            "clock_leaf_length_spread_mm", "board",
+            definitions["clock_leaf_length_spread_mm"], "routing",
+            "not every PDM clock leaf is connectivity-complete; a "
+            "spread over a partial set would be fiction"))
+    return sha, metrics, connectivity
 
 
 def derive_manifest(seed_dir, seed, board_basename):
@@ -243,10 +328,17 @@ def main():
     policy_ok = bool(policy_records) and \
         policy_records[-1]["policy_ok"]
 
+    from pcbqa import geom as geom_module
+    manifest_doc = json.load(open(
+        os.path.join(REPO, "board", "manifest.live.json"),
+        encoding="utf-8"))
+    geom_module.configure(
+        manifest_doc["geometry_profile"]["tolerances"][
+            "polygon_chord_error_mm"]["value"])
     nets = baseline_nets()
     copper, thickness, evidence = physical_inputs()
-    sha, metrics = measure_board(board_file, nets, copper,
-                                 thickness)
+    sha, metrics, connectivity = measure_board(board_file, nets,
+                                               copper, thickness)
     toolkit_commit = subprocess.run(
         ["git", "-C", os.path.join(REPO, "tooling",
                                    "PCB_AutoDesignAndTest"),
@@ -261,15 +353,14 @@ def main():
         json.dump(report, handle, indent=1)
         handle.write("\n")
 
-    routed = sum(
-        1 for metric in metrics
-        if metric["name"].endswith(":copper_length_mm")
-        and metric["status"] == "measured")
-    routed_fraction = routed / float(len(nets))
-    measured_nets = sorted(
-        metric["name"].split(":")[0] for metric in metrics
-        if metric["name"].endswith(":copper_length_mm")
-        and metric["status"] == "measured")
+    complete_nets = sorted(
+        net for net, state in connectivity.items()
+        if state == "connectivity-complete")
+    complete_fraction = len(complete_nets) / float(len(nets))
+    critical_clock_complete = all(
+        connectivity.get(net) == "connectivity-complete"
+        for net in CLOCK_NETS)
+    measured_nets = complete_nets
     copper_total = round(sum(
         metric["value"] for metric in metrics
         if metric["name"].endswith(":copper_length_mm")
@@ -305,6 +396,12 @@ def main():
         else:
             validation_summary = {"verdict": "NO-ATTEMPT",
                                   "runner": outcome}
+        failure_classes = {}
+        if validation_summary and \
+                validation_summary.get("failing_gates"):
+            for gate in validation_summary["failing_gates"]:
+                failure_classes[gate] = GATE_FAILURE_CLASSES.get(
+                    gate, "unclassified")
         with open(os.path.join(seed_dir, "gates.json"), "w",
                   encoding="utf-8", newline="\n") as handle:
             json.dump({
@@ -313,8 +410,13 @@ def main():
                 "manifest": os.path.basename(manifest_path),
                 "statuses": {
                     "placement_policy_satisfied": policy_ok,
-                    "routed_baseline_nets": routed,
-                    "routed_baseline_net_total": len(nets),
+                    "connectivity": connectivity,
+                    "connectivity_complete_nets":
+                        len(complete_nets),
+                    "connectivity_net_total": len(nets),
+                    "critical_clock_complete":
+                        critical_clock_complete,
+                    "failing_gate_classes": failure_classes,
                     "validation": validation_summary,
                     "extraction_available": True,
                     "simulation_coverage": {
@@ -336,7 +438,10 @@ def main():
 
     accepted = validation_summary is not None and \
         validation_summary.get("verdict") == "ACCEPTED"
-    ranking = (RANKING_WEIGHTS["routed_fraction"] * routed_fraction
+    ranking = (RANKING_WEIGHTS["connectivity_complete_fraction"]
+               * complete_fraction
+               + RANKING_WEIGHTS["critical_clock_complete"]
+               * (1.0 if critical_clock_complete else 0.0)
                + RANKING_WEIGHTS["placement_policy_ok"]
                * (1.0 if policy_ok else 0.0)
                + RANKING_WEIGHTS["gate_acceptance"]
@@ -344,17 +449,27 @@ def main():
     reasons = []
     if not policy_ok:
         reasons.append("placement policy not satisfied")
-    if routed_fraction < 0.5:
-        reasons.append("routed completeness below 0.5 on the A/B "
-                       "net set")
+    if not critical_clock_complete:
+        reasons.append(
+            "the PDM clock tree is not connectivity-complete: "
+            + ", ".join(sorted(
+                net for net in CLOCK_NETS
+                if connectivity.get(net)
+                != "connectivity-complete")))
     decision = {
         "kind": "candidate-decision",
         "candidate": "seed{:02d}".format(arguments.seed),
         "board_file_sha256": sha,
         "components": {
-            "routed_fraction": round(routed_fraction, 4),
-            "routed_nets": routed,
+            "connectivity_complete_fraction":
+                round(complete_fraction, 4),
+            "connectivity_complete_nets": len(complete_nets),
             "net_total": len(nets),
+            "critical_clock_complete": critical_clock_complete,
+            "not_complete": {
+                net: state for net, state in sorted(
+                    connectivity.items())
+                if state != "connectivity-complete"},
             "placement_policy_ok": policy_ok,
             "validation_verdict":
                 (validation_summary or {}).get("verdict"),

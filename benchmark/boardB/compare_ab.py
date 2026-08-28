@@ -1,13 +1,14 @@
 """Board A vs one Board B candidate, through the sanctioned path.
 
 Both boards are measured by validate_candidate's own measurement
-code (same extractor, same approved physical evidence, same net
-inventory - the committed Board A baseline's), expressed as typed
-ab-metrics-3 reports, and compared ONLY through
-benchmark.compare_reports, which refuses mismatched schemas,
-evidence or units before any number meets another. A net the
-candidate has not routed stays unmeasured (blocked_on: routing) and
-appears in the blocked list, never as a zero in a total.
+code (same extractor, same resolved physical construction, same net
+inventory - the committed Board A baseline's), governed by REAL
+connectivity: only connectivity-complete nets produce comparable
+metrics, a partial net's copper appears solely as an explicitly
+partial inventory under its own semantic definition, and the
+comparison itself runs ONLY through benchmark.compare_reports,
+which refuses mismatched schemas, constructions, definitions or
+units before any number meets another.
 
 Nothing here calls a shorter total "better": comparable copper is
 reported next to the count of unmeasured nets, and the reviewer -
@@ -57,6 +58,12 @@ def main():
         raise SystemExit("no candidate board for seed{:02d}".format(
             arguments.seed))
 
+    manifest_doc = json.load(open(
+        os.path.join(REPO, "board", "manifest.live.json"),
+        encoding="utf-8"))
+    from pcbqa import geom
+    geom.configure(manifest_doc["geometry_profile"]["tolerances"][
+        "polygon_chord_error_mm"]["value"])
     nets = vc.baseline_nets()
     copper, thickness, evidence = vc.physical_inputs()
     toolkit_commit = subprocess.run(
@@ -66,12 +73,14 @@ def main():
         text=True).stdout.strip() or "unknown"
 
     reports = {}
+    connectivity = {}
     for label, board_file in (
             ("board_a", os.path.join(
                 REPO, "microphone_array_v2.kicad_pcb")),
             ("board_b", candidate_board)):
-        sha, metrics = vc.measure_board(board_file, nets, copper,
-                                        thickness)
+        sha, metrics, states = vc.measure_board(
+            board_file, nets, copper, thickness)
+        connectivity[label] = states
         reports[label] = benchmark.report(
             {"board_file_sha256": sha,
              "toolkit_commit": toolkit_commit,
@@ -96,6 +105,14 @@ def main():
         entry["name"].split(":")[0]
         for entry in comparison["blocked"]
         if entry["name"].count(":")})
+    b_states = connectivity["board_b"]
+    incomplete = {net: state for net, state in sorted(
+        b_states.items()) if state != "connectivity-complete"}
+    print("candidate connectivity: {}/{} complete{}".format(
+        len(b_states) - len(incomplete), len(b_states),
+        "" if not incomplete else " | " + ", ".join(
+            "{}={}".format(net, state)
+            for net, state in incomplete.items())))
     spread = next(
         (pair for pair in comparison["compared"]
          if pair["name"] == "clock_leaf_length_spread_mm"), None)

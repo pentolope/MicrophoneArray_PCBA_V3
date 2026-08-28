@@ -1,14 +1,14 @@
 {
   "kind": "ab-benchmark-metric-schema",
-  "version": "ab-metrics-3",
+  "version": "ab-metrics-4",
   "note": "One schema for both boards. Every metric names its evidence class; a metric without a supporting backend is reported as {\"status\": \"unmeasured\", \"blocked_on\": <backend>} and never fabricated.",
   "identity": {
     "board_file_sha256": "sha-256 of the exact board file measured",
     "toolkit_commit": "toolkit commit that produced the measurements",
-    "physical_evidence": "structured identity {kind, digest, detail}; free text cannot bind a report since ab-metrics-3"
+    "physical_evidence": "structured identity {kind, digest, detail}; since ab-metrics-4 the digest is the canonical identity of the RESOLVED physical construction (per-layer copper records, board thickness, resistivity), not merely the catalog snapshot"
   },
   "comparison": {
-    "sanctioned_path": "toolkit benchmark.compare_reports: refuses unknown schema versions, mismatched physical evidence and mismatched units before any numbers meet; unmeasured sides land in the blocked list, never in totals"
+    "sanctioned_path": "toolkit benchmark.compare_reports: refuses unknown schema versions, mismatched physical constructions, mismatched metric DEFINITIONS (every metric carries a stable semantic definition identity) and mismatched units before any numbers meet; unmeasured sides land in the blocked list, never in totals"
   },
   "interconnect": {
     "per_path": [
@@ -73,12 +73,13 @@
     ]
   },
   "typed_contract": {
-    "defined_by": "toolkit pcbqa/benchmark.py (SCHEMA_VERSION ab-metrics-3)",
+    "defined_by": "toolkit pcbqa/benchmark.py (SCHEMA_VERSION ab-metrics-4)",
     "metric": {
       "measured": [
         "name",
         "scope",
         "status",
+        "definition",
         "value",
         "units",
         "evidence_class",
@@ -89,10 +90,11 @@
         "name",
         "scope",
         "status",
+        "definition",
         "blocked_on",
         "why_unmeasured"
       ],
-      "rule": "an unmeasured metric may not carry a value; absence never reads as zero"
+      "rule": "an unmeasured metric may not carry a value; absence never reads as zero. Comparable per-net metrics exist ONLY for connectivity-complete nets (toolkit classify_net on the board file); a partial net contributes at most an explicitly partial inventory metric under its own definition"
     },
     "scopes": [
       "net",

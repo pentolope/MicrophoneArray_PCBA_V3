@@ -1,0 +1,31 @@
+{
+ "kind": "candidate-decision",
+ "candidate": "seed08",
+ "board_file_sha256": "51365541ed0d0680e4ecd62d48106e91053a3315b91e99ad629d5a2848d6e50c",
+ "components": {
+  "connectivity_complete_fraction": 0.9783,
+  "connectivity_complete_nets": 45,
+  "net_total": 46,
+  "critical_clock_complete": true,
+  "not_complete": {
+   "MIC_VDD_15": "partial-copper"
+  },
+  "placement_policy_ok": true,
+  "validation_verdict": "REJECTED",
+  "measured_copper_total_mm": 1972.587,
+  "measured_net_set_sha256": "4b8dbbd16f9b83fd903cb311b10f99b8399823179a89c6235b7fdd20e82b1c81"
+ },
+ "ranking_score": 0.8391,
+ "ranking_weights": {
+  "connectivity_complete_fraction": 0.5,
+  "critical_clock_complete": 0.2,
+  "placement_policy_ok": 0.15,
+  "gate_acceptance": 0.15
+ },
+ "ranking_note": "the composite ranks candidates for the next search step only; the components are the evidence, and WHY a candidate lost is read from them, never from the scalar",
+ "decision": "accept-for-comparison",
+ "reasons": [
+  "thresholded placement policy holds and routing cleared the completeness bar"
+ ],
+ "next_step_if_rejected": "perturb: try another seed; the derivation records which stage lost the nets"
+}

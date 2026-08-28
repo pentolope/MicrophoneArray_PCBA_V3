@@ -8,7 +8,7 @@
   "version": "ngspice-46",
   "detail": "in-process shared-library engine"
  },
- "deck_sha256": "3998ae33688885c1b5abaed9720bbc019c7bc62a593ba3aedbb9c0fea26b1451",
+ "deck_sha256": "f5c57768f7e636ceef98d69a01bcef3083ce8f766827389a2be2efdb6f89b851",
  "model_coverage": {
   "requirement": {
    "interconnect_dc": [
@@ -28,7 +28,7 @@
      "host": "vsource_dc"
     },
     "models": {
-     "link": "net:5V_FUSED@9ddb432333d3+phys:d284d6085f88"
+     "link": "net:5V_FUSED@9ddb432333d3+phys:49c4fed5a90f"
     },
     "per_phenomenon": {
      "interconnect_dc": {
@@ -37,14 +37,16 @@
       ],
       "providers": {
        "link": {
-        "identity": "net:5V_FUSED@9ddb432333d3+phys:d284d6085f88",
+        "identity": "net:5V_FUSED@9ddb432333d3+phys:49c4fed5a90f",
         "evidence_class": "geometry-derived",
         "accepted": true
        }
       },
       "violating": [],
+      "not_applicable": [],
+      "unaccounted": [],
       "met": true,
-      "why": "every contributing provider is individually acceptable"
+      "why": "every contributing model accounts for the phenomenon and every provider is individually acceptable"
      }
     },
     "met": true
@@ -60,7 +62,7 @@
    "temperature_c": {
     "requested": 20.0,
     "models": {
-     "net:5V_FUSED@9ddb432333d3+phys:d284d6085f88": {
+     "net:5V_FUSED@9ddb432333d3+phys:49c4fed5a90f": {
       "kind": "fixed-reference",
       "reference_value": 20.0,
       "matches_requested": true,
@@ -99,5 +101,12 @@
    "passed": true
   }
  },
- "unsupported": []
+ "unsupported": [],
+ "result_policy": {
+  "numerical_assertions_passed": true,
+  "result_applicable_to_requested_conditions": true,
+  "usable_for_design_decision": true,
+  "usable_for_release": false,
+  "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement whose models represent the requested operating conditions; assertions passing numerically never overrides an inapplicable condition"
+ }
 }

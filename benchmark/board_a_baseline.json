@@ -1,6 +1,6 @@
 {
  "board_file_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
- "extract_version": "2",
+ "extract_version": "3",
  "interface_paths": {
   "TIMING.INTERCONNECT_DELAY": {
    "measurements": {
@@ -1293,6 +1293,73 @@
  "kind": "board-geometry-baseline",
  "nets": {
   "+3V3A": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 122,
+     "vias": 28,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "+3V3A",
+    "pad_components": [
+     [
+      "C2.1",
+      "C3.1",
+      "CB1.1",
+      "CB2.1",
+      "CB3.1",
+      "CB4.1",
+      "FB1.1",
+      "RV1.1",
+      "RV10.1",
+      "RV11.1",
+      "RV12.1",
+      "RV13.1",
+      "RV14.1",
+      "RV15.1",
+      "RV16.1",
+      "RV2.1",
+      "RV3.1",
+      "RV4.1",
+      "RV5.1",
+      "RV6.1",
+      "RV7.1",
+      "RV8.1",
+      "RV9.1",
+      "TP2.1",
+      "U1.5"
+     ]
+    ],
+    "pad_count": 25,
+    "pads": [
+     "C2.1",
+     "C3.1",
+     "CB1.1",
+     "CB2.1",
+     "CB3.1",
+     "CB4.1",
+     "FB1.1",
+     "RV1.1",
+     "RV10.1",
+     "RV11.1",
+     "RV12.1",
+     "RV13.1",
+     "RV14.1",
+     "RV15.1",
+     "RV16.1",
+     "RV2.1",
+     "RV3.1",
+     "RV4.1",
+     "RV5.1",
+     "RV6.1",
+     "RV7.1",
+     "RV8.1",
+     "RV9.1",
+     "TP2.1",
+     "U1.5"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -1923,6 +1990,41 @@
    }
   },
   "+3V3_CLK": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 69,
+     "vias": 5,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "+3V3_CLK",
+    "pad_components": [
+     [
+      "C6.1",
+      "C7.1",
+      "C8.1",
+      "C9.1",
+      "FB1.2",
+      "TP3.1",
+      "U2.20",
+      "X1.1",
+      "X1.4"
+     ]
+    ],
+    "pad_count": 9,
+    "pads": [
+     "C6.1",
+     "C7.1",
+     "C8.1",
+     "C9.1",
+     "FB1.2",
+     "TP3.1",
+     "U2.20",
+     "X1.1",
+     "X1.4"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -2288,6 +2390,39 @@
    }
   },
   "+5V": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 16,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "+5V",
+    "pad_components": [
+     [
+      "C1.1",
+      "C4.1",
+      "C5.1",
+      "D1.1",
+      "J3.18",
+      "TP1.1",
+      "U1.1",
+      "U1.3"
+     ]
+    ],
+    "pad_count": 8,
+    "pads": [
+     "C1.1",
+     "C4.1",
+     "C5.1",
+     "D1.1",
+     "J3.18",
+     "TP1.1",
+     "U1.1",
+     "U1.3"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -2387,6 +2522,27 @@
    }
   },
   "5V_FUSED": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 1,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "5V_FUSED",
+    "pad_components": [
+     [
+      "D1.2",
+      "F1.2"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "D1.2",
+     "F1.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -2411,6 +2567,27 @@
    }
   },
   "AUDIO_MCLK": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 1,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "AUDIO_MCLK",
+    "pad_components": [
+     [
+      "J2.17",
+      "R1.2"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "J2.17",
+     "R1.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -2435,6 +2612,27 @@
    }
   },
   "MCLK_OSC": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 2,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "MCLK_OSC",
+    "pad_components": [
+     [
+      "R1.1",
+      "X1.3"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "R1.1",
+     "X1.3"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -2464,6 +2662,27 @@
    }
   },
   "MIC_DOUT_0": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 6,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "MIC_DOUT_0",
+    "pad_components": [
+     [
+      "MK1.4",
+      "RD1.1"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "MK1.4",
+     "RD1.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -2513,6 +2732,27 @@
    }
   },
   "MIC_DOUT_15": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 6,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "MIC_DOUT_15",
+    "pad_components": [
+     [
+      "MK16.4",
+      "RD16.1"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "MK16.4",
+     "RD16.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -2562,6 +2802,29 @@
    }
   },
   "MIC_VDD_0": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 8,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "MIC_VDD_0",
+    "pad_components": [
+     [
+      "CM1.1",
+      "MK1.1",
+      "RV1.2"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "CM1.1",
+     "MK1.1",
+     "RV1.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -2621,6 +2884,31 @@
    }
   },
   "MIC_VDD_15": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 9,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "MIC_VDD_15",
+    "pad_components": [
+     [
+      "CM16.1",
+      "MK16.1",
+      "MK16.2",
+      "RV16.2"
+     ]
+    ],
+    "pad_count": 4,
+    "pads": [
+     "CM16.1",
+     "MK16.1",
+     "MK16.2",
+     "RV16.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -2685,6 +2973,29 @@
    }
   },
   "PDM_CLK_B0": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 35,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_B0",
+    "pad_components": [
+     [
+      "MK1.3",
+      "MK2.3",
+      "RC1.2"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "MK1.3",
+     "MK2.3",
+     "RC1.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -2879,6 +3190,29 @@
    }
   },
   "PDM_CLK_B1": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 27,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_B1",
+    "pad_components": [
+     [
+      "MK3.3",
+      "MK4.3",
+      "RC2.2"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "MK3.3",
+     "MK4.3",
+     "RC2.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -3033,6 +3367,29 @@
    }
   },
   "PDM_CLK_B2": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 27,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_B2",
+    "pad_components": [
+     [
+      "MK5.3",
+      "MK6.3",
+      "RC3.2"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "MK5.3",
+     "MK6.3",
+     "RC3.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -3187,6 +3544,29 @@
    }
   },
   "PDM_CLK_B3": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 27,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_B3",
+    "pad_components": [
+     [
+      "MK7.3",
+      "MK8.3",
+      "RC4.2"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "MK7.3",
+     "MK8.3",
+     "RC4.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -3341,6 +3721,29 @@
    }
   },
   "PDM_CLK_B4": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 28,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_B4",
+    "pad_components": [
+     [
+      "MK10.3",
+      "MK9.3",
+      "RC5.2"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "MK10.3",
+     "MK9.3",
+     "RC5.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -3500,6 +3903,29 @@
    }
   },
   "PDM_CLK_B5": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 29,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_B5",
+    "pad_components": [
+     [
+      "MK11.3",
+      "MK12.3",
+      "RC6.2"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "MK11.3",
+     "MK12.3",
+     "RC6.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -3664,6 +4090,29 @@
    }
   },
   "PDM_CLK_B6": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 25,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_B6",
+    "pad_components": [
+     [
+      "MK13.3",
+      "MK14.3",
+      "RC7.2"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "MK13.3",
+     "MK14.3",
+     "RC7.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -3808,6 +4257,29 @@
    }
   },
   "PDM_CLK_B7": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 27,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_B7",
+    "pad_components": [
+     [
+      "MK15.3",
+      "MK16.3",
+      "RC8.2"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "MK15.3",
+     "MK16.3",
+     "RC8.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -3962,6 +4434,27 @@
    }
   },
   "PDM_CLK_FPGA": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 4,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_FPGA",
+    "pad_components": [
+     [
+      "J2.14",
+      "R2.1"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "J2.14",
+     "R2.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4001,6 +4494,41 @@
    }
   },
   "PDM_CLK_IN": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 11,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_IN",
+    "pad_components": [
+     [
+      "R2.2",
+      "U2.11",
+      "U2.13",
+      "U2.15",
+      "U2.17",
+      "U2.2",
+      "U2.4",
+      "U2.6",
+      "U2.8"
+     ]
+    ],
+    "pad_count": 9,
+    "pads": [
+     "R2.2",
+     "U2.11",
+     "U2.13",
+     "U2.15",
+     "U2.17",
+     "U2.2",
+     "U2.4",
+     "U2.6",
+     "U2.8"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4075,6 +4603,27 @@
    }
   },
   "PDM_CLK_Y0": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 7,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_Y0",
+    "pad_components": [
+     [
+      "RC1.1",
+      "U2.16"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "RC1.1",
+     "U2.16"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4129,6 +4678,27 @@
    }
   },
   "PDM_CLK_Y1": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 6,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_Y1",
+    "pad_components": [
+     [
+      "RC2.1",
+      "U2.18"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "RC2.1",
+     "U2.18"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4178,6 +4748,27 @@
    }
   },
   "PDM_CLK_Y2": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 14,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_Y2",
+    "pad_components": [
+     [
+      "RC3.1",
+      "U2.3"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "RC3.1",
+     "U2.3"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4268,6 +4859,27 @@
    }
   },
   "PDM_CLK_Y3": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 14,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_Y3",
+    "pad_components": [
+     [
+      "RC4.1",
+      "U2.5"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "RC4.1",
+     "U2.5"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4358,6 +4970,27 @@
    }
   },
   "PDM_CLK_Y4": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 17,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_Y4",
+    "pad_components": [
+     [
+      "RC5.1",
+      "U2.7"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "RC5.1",
+     "U2.7"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4462,6 +5095,27 @@
    }
   },
   "PDM_CLK_Y5": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 11,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_Y5",
+    "pad_components": [
+     [
+      "RC6.1",
+      "U2.9"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "RC6.1",
+     "U2.9"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4536,6 +5190,27 @@
    }
   },
   "PDM_CLK_Y6": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 3,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_Y6",
+    "pad_components": [
+     [
+      "RC7.1",
+      "U2.12"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "RC7.1",
+     "U2.12"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4570,6 +5245,27 @@
    }
   },
   "PDM_CLK_Y7": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 6,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_CLK_Y7",
+    "pad_components": [
+     [
+      "RC8.1",
+      "U2.14"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "RC8.1",
+     "U2.14"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4619,6 +5315,31 @@
    }
   },
   "PDM_D0": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 13,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_D0",
+    "pad_components": [
+     [
+      "J2.5",
+      "RD1.2",
+      "RD2.2",
+      "TP6.1"
+     ]
+    ],
+    "pad_count": 4,
+    "pads": [
+     "J2.5",
+     "RD1.2",
+     "RD2.2",
+     "TP6.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4704,6 +5425,31 @@
    }
   },
   "PDM_D1": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 7,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_D1",
+    "pad_components": [
+     [
+      "J2.9",
+      "RD3.2",
+      "RD4.2",
+      "TP7.1"
+     ]
+    ],
+    "pad_count": 4,
+    "pads": [
+     "J2.9",
+     "RD3.2",
+     "RD4.2",
+     "TP7.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4759,6 +5505,31 @@
    }
   },
   "PDM_D2": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 7,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_D2",
+    "pad_components": [
+     [
+      "J2.19",
+      "RD5.2",
+      "RD6.2",
+      "TP8.1"
+     ]
+    ],
+    "pad_count": 4,
+    "pads": [
+     "J2.19",
+     "RD5.2",
+     "RD6.2",
+     "TP8.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4814,6 +5585,31 @@
    }
   },
   "PDM_D3": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 8,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_D3",
+    "pad_components": [
+     [
+      "J2.23",
+      "RD7.2",
+      "RD8.2",
+      "TP9.1"
+     ]
+    ],
+    "pad_count": 4,
+    "pads": [
+     "J2.23",
+     "RD7.2",
+     "RD8.2",
+     "TP9.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4874,6 +5670,31 @@
    }
   },
   "PDM_D4": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 13,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_D4",
+    "pad_components": [
+     [
+      "J3.22",
+      "RD10.2",
+      "RD9.2",
+      "TP10.1"
+     ]
+    ],
+    "pad_count": 4,
+    "pads": [
+     "J3.22",
+     "RD10.2",
+     "RD9.2",
+     "TP10.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -4959,6 +5780,31 @@
    }
   },
   "PDM_D5": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 11,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_D5",
+    "pad_components": [
+     [
+      "J3.21",
+      "RD11.2",
+      "RD12.2",
+      "TP11.1"
+     ]
+    ],
+    "pad_count": 4,
+    "pads": [
+     "J3.21",
+     "RD11.2",
+     "RD12.2",
+     "TP11.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -5034,6 +5880,31 @@
    }
   },
   "PDM_D6": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 15,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_D6",
+    "pad_components": [
+     [
+      "J3.10",
+      "RD13.2",
+      "RD14.2",
+      "TP12.1"
+     ]
+    ],
+    "pad_count": 4,
+    "pads": [
+     "J3.10",
+     "RD13.2",
+     "RD14.2",
+     "TP12.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -5129,6 +6000,31 @@
    }
   },
   "PDM_D7": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 8,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PDM_D7",
+    "pad_components": [
+     [
+      "J3.1",
+      "RD15.2",
+      "RD16.2",
+      "TP13.1"
+     ]
+    ],
+    "pad_count": 4,
+    "pads": [
+     "J3.1",
+     "RD15.2",
+     "RD16.2",
+     "TP13.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -5189,6 +6085,29 @@
    }
   },
   "PI_5V": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 7,
+     "vias": 0,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PI_5V",
+    "pad_components": [
+     [
+      "F1.1",
+      "J1.2",
+      "J1.4"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "F1.1",
+     "J1.2",
+     "J1.4"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -5243,6 +6162,29 @@
    }
   },
   "PI_CS_N": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 17,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PI_CS_N",
+    "pad_components": [
+     [
+      "J1.24",
+      "RH3.1",
+      "U3.6"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "J1.24",
+     "RH3.1",
+     "U3.6"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -5348,6 +6290,29 @@
    }
   },
   "PI_MISO": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 10,
+     "vias": 1,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PI_MISO",
+    "pad_components": [
+     [
+      "J1.21",
+      "RH4.1",
+      "U3.4"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "J1.21",
+     "RH4.1",
+     "U3.4"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -5418,6 +6383,29 @@
    }
   },
   "PI_MOSI": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 6,
+     "vias": 1,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PI_MOSI",
+    "pad_components": [
+     [
+      "J1.19",
+      "RH6.1",
+      "U4.1"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "J1.19",
+     "RH6.1",
+     "U4.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -5468,6 +6456,29 @@
    }
   },
   "PI_SCLK": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 8,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "PI_SCLK",
+    "pad_components": [
+     [
+      "J1.23",
+      "RH2.1",
+      "U3.1"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "J1.23",
+     "RH2.1",
+     "U3.1"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -5528,6 +6539,27 @@
    }
   },
   "SPI_CS_N": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 5,
+     "vias": 1,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "SPI_CS_N",
+    "pad_components": [
+     [
+      "J3.16",
+      "RH3.2"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "J3.16",
+     "RH3.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -5573,6 +6605,27 @@
    }
   },
   "SPI_MISO": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 8,
+     "vias": 1,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "SPI_MISO",
+    "pad_components": [
+     [
+      "J3.20",
+      "RH4.2"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "J3.20",
+     "RH4.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -5633,6 +6686,27 @@
    }
   },
   "SPI_MOSI": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 5,
+     "vias": 1,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "SPI_MOSI",
+    "pad_components": [
+     [
+      "J3.14",
+      "RH6.2"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "J3.14",
+     "RH6.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -5678,6 +6752,27 @@
    }
   },
   "SPI_SCLK": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 15,
+     "vias": 2,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "SPI_SCLK",
+    "pad_components": [
+     [
+      "J3.19",
+      "RH2.2"
+     ]
+    ],
+    "pad_count": 2,
+    "pads": [
+     "J3.19",
+     "RH2.2"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
@@ -5773,6 +6868,29 @@
    }
   },
   "TANG_3V3": {
+   "connectivity": {
+    "class": "connectivity-complete",
+    "copper": {
+     "tracks": 18,
+     "vias": 3,
+     "zone_fills": 0
+    },
+    "meaning": "connectivity-complete means every pad on the net is in one connected copper component; it never implies the topology the design requires - that is a separate, policy-owned judgment",
+    "net": "TANG_3V3",
+    "pad_components": [
+     [
+      "J3.24",
+      "U3.5",
+      "U4.5"
+     ]
+    ],
+    "pad_count": 3,
+    "pads": [
+     "J3.24",
+     "U3.5",
+     "U4.5"
+    ]
+   },
    "dc": {
     "meaning": "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made",
     "resistivity_ohm_m": 1.7241e-08,
