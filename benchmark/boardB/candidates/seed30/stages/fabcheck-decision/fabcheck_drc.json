@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-08-28T19:30:39",
+    "date": "2026-08-28T20:15:30",
     "ignored_checks": [],
     "included_severities": [
         "error",
@@ -39,12 +39,12 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Track [MIC_VDD_0] on F.Cu, length 0.0500 mm",
+                    "description": "Track [MIC_VDD_0] on F.Cu, length 0.1414 mm",
                     "pos": {
-                        "x": 202.2,
-                        "y": 150.8
+                        "x": 202.3,
+                        "y": 150.7
                     },
-                    "uuid": "3720cfd5-33c7-445c-95ce-1e4f70caad24"
+                    "uuid": "5d6b6518-73b7-45ad-acdd-046eb49ac9fa"
                 },
                 {
                     "description": "Pad 1 [MIC_VDD_0] of CM1 on F.Cu",
@@ -72,10 +72,10 @@
                 {
                     "description": "Track [GND] on F.Cu, length 0.0707 mm",
                     "pos": {
-                        "x": 97.0,
-                        "y": 148.6
+                        "x": 97.05,
+                        "y": 148.55
                     },
-                    "uuid": "97ec5fc0-a8a9-4215-8883-912cd5871c01"
+                    "uuid": "e3851532-8147-4bee-99ea-3970a268aa36"
                 }
             ],
             "severity": "error",
@@ -415,12 +415,12 @@
                     "uuid": "d2b27b67-2ea0-4db8-b24d-a05b096e2b22"
                 },
                 {
-                    "description": "Track [GND] on F.Cu, length 0.1000 mm",
+                    "description": "Track [GND] on F.Cu, length 0.0707 mm",
                     "pos": {
                         "x": 150.35,
-                        "y": 205.45
+                        "y": 205.55
                     },
-                    "uuid": "2ae12493-a0ff-411a-8698-41c2c1485863"
+                    "uuid": "5ec18e50-6a76-4e15-bfae-d295e344c808"
                 }
             ],
             "severity": "error",
@@ -484,12 +484,12 @@
                     "uuid": "bb9ed97d-39aa-4aa1-87fb-4e0f8afdefa5"
                 },
                 {
-                    "description": "Track [GND] on F.Cu, length 0.0707 mm",
+                    "description": "Track [GND] on F.Cu, length 0.1000 mm",
                     "pos": {
                         "x": 149.65,
-                        "y": 94.45
+                        "y": 94.55
                     },
-                    "uuid": "02fc4946-efeb-4191-ab3b-154daf549832"
+                    "uuid": "5d539eec-9afb-4d8d-9a19-dca21016cbde"
                 }
             ],
             "severity": "error",
@@ -829,12 +829,12 @@
                     "uuid": "dd5d40f3-60a3-4bd9-93b3-0bdc7111f43a"
                 },
                 {
-                    "description": "Track [GND] on F.Cu, length 0.0500 mm",
+                    "description": "Track [GND] on F.Cu, length 0.0707 mm",
                     "pos": {
-                        "x": 172.65,
+                        "x": 172.7,
                         "y": 101.2
                     },
-                    "uuid": "22dea0c9-9ac3-472b-b7c2-a0ec3be7c813"
+                    "uuid": "c9433c08-2a76-4cbc-8075-334d6ee67e55"
                 }
             ],
             "severity": "error",
@@ -877,10 +877,10 @@
                 {
                     "description": "Track [GND] on F.Cu, length 0.0707 mm",
                     "pos": {
-                        "x": 175.35,
-                        "y": 174.4
+                        "x": 175.3,
+                        "y": 174.35
                     },
-                    "uuid": "319708c5-2c8b-45a3-9729-5cea610d03d7"
+                    "uuid": "806e34b0-8d77-41d5-880b-6c9353d1b072"
                 }
             ],
             "severity": "error",
@@ -2738,12 +2738,12 @@
                     "uuid": "c312d276-fa2c-4092-aa8e-94958f31e83c"
                 },
                 {
-                    "description": "Track [MIC_VDD_1] on F.Cu, length 0.0500 mm",
+                    "description": "Track [MIC_VDD_1] on F.Cu, length 0.0707 mm",
                     "pos": {
-                        "x": 198.1,
-                        "y": 131.05
+                        "x": 198.15,
+                        "y": 131.0
                     },
-                    "uuid": "e05f89c2-fde3-4fef-8232-47fda0271a01"
+                    "uuid": "9196827c-a214-4071-be40-6b42d1c754a6"
                 }
             ],
             "severity": "error",

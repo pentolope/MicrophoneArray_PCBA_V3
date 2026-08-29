@@ -8,7 +8,7 @@
    "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
    "candidate_board": "6b444f2b2f723f4950f69a500e9692e869857e48115d7a38a094b8d56087db6f",
    "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
-   "generate_candidate.py": "c455d130797ac8f574dfe678e93a72ee1936cbca39801f48df6079d3039ed098",
+   "generate_candidate.py": "46c72c873cd08633f99d640a5f3648c78daccd16f5a7c4033a099aa46f6690e6",
    "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
    "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
    "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
@@ -18,7 +18,7 @@
    "validate_candidate.py": "11c8933f3d87d2eac060d370b25243943b99092b7ef8a4c2b3dc49645e8fb93d",
    "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
   },
-  "digest": "c9ed220e4ed895a80acfef700d889af82a1a8d7906bd0335c02c12d9f5f9664d"
+  "digest": "82865527015b3248f53d5ea3f7d2d473f81d52377de69633cf63fdb158e391c1"
  },
  "statuses": {
   "placement_policy_satisfied": true,
@@ -146,7 +146,6 @@
    "NET.TOPOLOGY": "candidate-design",
    "PROV.REPORT_FRESHNESS": "board-a-release-parity (missing candidate-derived artifacts)",
    "ROUTE.GEOMETRY_HYGIENE": "candidate-design",
-   "STACK.GERBER_PARITY": "board-a-release-parity (missing candidate-derived artifacts)",
    "TIMING.INTERCONNECT_SKEW": "unclassified",
    "TIMING.PATH_INTEGRITY": "candidate-design",
    "VIA.ANNULUS_MASK_OVERLAP": "candidate-design",
@@ -156,8 +155,8 @@
   },
   "validation": {
    "validation_artifact": {
-    "attempt_path": "out\\boardB-seed25-candidate\\attempts\\20260829T012902Z-5fc1e32c\\validation.json",
-    "canonical_sha256": "29484dde2625052c51d019e6e5efb1022ee5c8cbe283ab3b14c91d5469bdc30b",
+    "attempt_path": "out\\boardB-seed25-candidate\\attempts\\20260829T021347Z-1c4022d8\\validation.json",
+    "canonical_sha256": "6077666c5d8776988123d4eb4c5fc5e58c5fd5cf3a9d17b4fbbf7d59c0260ffd",
     "implementation": {
      "toolkit_root": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\tooling\\PCB_AutoDesignAndTest",
      "commit": "da53b30805afb35add4588e5e8b9419b76035b3f",
@@ -168,8 +167,9 @@
    },
    "verdict": "REJECTED",
    "counts": {
-    "PASS": 17,
-    "FAIL": 14,
+    "PASS": 18,
+    "FAIL": 12,
+    "ERROR": 1,
     "NOT_APPLICABLE": 3,
     "ADVISORY": 2
    },
@@ -181,7 +181,6 @@
     "NET.TOPOLOGY",
     "PROV.REPORT_FRESHNESS",
     "ROUTE.GEOMETRY_HYGIENE",
-    "STACK.GERBER_PARITY",
     "VIA.ANNULUS_MASK_OVERLAP",
     "VIA.IN_PAD_CONTACT",
     "VIA.MASK_CLEARANCE_PROCESS",
@@ -197,7 +196,6 @@
     "NET.TOPOLOGY",
     "PROV.REPORT_FRESHNESS",
     "ROUTE.GEOMETRY_HYGIENE",
-    "STACK.GERBER_PARITY",
     "TIMING.INTERCONNECT_SKEW",
     "TIMING.PATH_INTEGRITY",
     "VIA.ANNULUS_MASK_OVERLAP",
@@ -214,7 +212,7 @@
     "CONTRACT.PLACEMENT": "PASS",
     "CPL.NATIVE_PARITY": "FAIL",
     "CPL.ORIENTATION": "FAIL",
-    "DRC.AUTHORITATIVE": "FAIL",
+    "DRC.AUTHORITATIVE": "ERROR",
     "DRC.NO_SUPPRESSED_RULES": "PASS",
     "ERC.AUTHORITATIVE": "PASS",
     "FAB.LAYER_IDENTITY": "FAIL",
@@ -227,7 +225,7 @@
     "ROUTE.ANGLE_STYLE": "ADVISORY",
     "ROUTE.GEOMETRY_HYGIENE": "FAIL",
     "ROUTE.TINY_SEGMENTS": "ADVISORY",
-    "STACK.GERBER_PARITY": "FAIL",
+    "STACK.GERBER_PARITY": "PASS",
     "STACK.NATIVE_VS_MANIFEST": "PASS",
     "VIA.ANNULUS_MASK_OVERLAP": "FAIL",
     "VIA.IN_PAD_CONTACT": "FAIL",
@@ -259,8 +257,8 @@
    },
    "runner": {
     "returncode": 1,
-    "seconds": 158.4,
-    "log_tail": "25-candidate\\attempts\\20260829T012902Z-5fc1e32c\\validation.json\nMarkdown: C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\boardB-seed25-candidate\\attempts\\20260829T012902Z-5fc1e32c\\validation.md\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\n"
+    "seconds": 159.7,
+    "log_tail": "25-candidate\\attempts\\20260829T021347Z-1c4022d8\\validation.json\nMarkdown: C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\boardB-seed25-candidate\\attempts\\20260829T021347Z-1c4022d8\\validation.md\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\n"
    }
   },
   "extraction_available": true,

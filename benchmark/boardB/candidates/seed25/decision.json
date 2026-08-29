@@ -149,7 +149,6 @@
    "CPL.ORIENTATION",
    "FAB.LAYER_IDENTITY",
    "PROV.REPORT_FRESHNESS",
-   "STACK.GERBER_PARITY",
    "TIMING.INTERCONNECT_SKEW"
   ],
   "measured_copper_total_mm": 1333.295,
@@ -182,9 +181,9 @@
    "candidate_board": "6b444f2b2f723f4950f69a500e9692e869857e48115d7a38a094b8d56087db6f",
    "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
    "derivation": "7bbad0da19ec01cab923f0b82c86bfe1edb492b51a1059f157a253e567b4c981",
-   "gates_artifact": "5b0fa0e8c33ca49a9d5e0169330976ce0ef03e8088478f0fa95eec271d80543f",
-   "generate_candidate.py": "c455d130797ac8f574dfe678e93a72ee1936cbca39801f48df6079d3039ed098",
-   "metrics_artifact": "626cd30465901e5dc8eac325c273ced5f4b1c607eb27936eeacad141912db9b8",
+   "gates_artifact": "bfcfb7425ef4a9490aeb3fe59699a5b70417599f4fba9b17b455d8fdaa455818",
+   "generate_candidate.py": "46c72c873cd08633f99d640a5f3648c78daccd16f5a7c4033a099aa46f6690e6",
+   "metrics_artifact": "26d26c4808f4e0ef2ed243e491b314d89c9daf0a981232703b8ccc282d029b11",
    "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
    "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
    "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
@@ -194,6 +193,6 @@
    "validate_candidate.py": "11c8933f3d87d2eac060d370b25243943b99092b7ef8a4c2b3dc49645e8fb93d",
    "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
   },
-  "digest": "97cc0eaacac62335ede23d97d830dfb1d6d58ea9b636635da11174de3c2c9ef5"
+  "digest": "4c9ea34ef0d09a719062af08565f04902133045c6f801abea1d4717c9f7a2b3c"
  }
 }
