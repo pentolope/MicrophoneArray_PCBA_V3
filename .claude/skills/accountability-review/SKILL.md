@@ -110,7 +110,28 @@ fidelity through them, and that is why the claim audit runs first.
    whether each fix is itself correct, and whether it moved the work
    closer to the request or merely closer to the last review.**
 
-8. **Two passes per cycle, and no more.** If the second pass finds
+8. **A cycle is one user prompt.** Not one commit, not one push, not
+   one repository - the whole of the work done in response to a
+   single request, however many commits or repositories that takes.
+   Splitting work across more commits buys no additional passes.
+
+   **Not every prompt opens a cycle.** A prompt that asks a
+   question, corrects a misunderstanding, or directs a small
+   adjustment whose correctness the user is themselves asserting
+   owes no review. The review exists to catch this session drifting
+   from an intent it had to infer; when the user is specifying the
+   change directly and is present to see the result, there is no gap
+   for a fresh reviewer to find, and running one is ceremony.
+
+   A cycle is opened by **actual work on the repository**: anything
+   that changes what the board is, what the gates measure, what a
+   release contains, what the tooling does, or what the
+   documentation asserts on the project's behalf. When it is
+   genuinely unclear, review - one pass is cheaper than a cycle
+   nobody checked against the request. But do not manufacture a
+   review for a prompt that only told you what to type.
+
+9. **Two passes per cycle, and no more.** If the second pass finds
    something that means the user did not get what they asked for,
    fix it and push - the request outranks the review budget, and a
    cap that forbade correcting a real miss would defeat its own
@@ -118,7 +139,7 @@ fidelity through them, and that is why the claim audit runs first.
    polishing. Anything that reaches the push after the last review
    is named in the report.
 
-9. **Push only after triage.** The report states: how many passes
+10. **Push only after triage.** The report states: how many passes
    ran; each pass's findings, with which part of the request each
    bore on and how it was disposed of; and anything that went out
    after the last review. If a requirement was not met, that belongs
@@ -138,9 +159,9 @@ fidelity through them, and that is why the claim audit runs first.
 - A finding that is true, sharp, and irrelevant to the request is
   still irrelevant to the request. Record it; do not let it redirect
   the cycle.
-- The cap is two passes for the whole cycle, not two per repository
-  and not two per round of fixes. A cycle that pushes both repos
-  reviews both in one package.
+- The cap is two passes for the whole cycle as step 8 defines it -
+  not two per repository, not two per commit, not two per round of
+  fixes. A cycle that pushes both repos reviews both in one package.
 - The copy in this repository is the authoritative one; it is
   versioned with the work it governs, so a reader can see which rule
   a given cycle was run under. A convenience copy may sit in
