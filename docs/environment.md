@@ -79,8 +79,11 @@ KiCad Routing Tools ships a Rust extension (`rust_router`, crate
 `grid_router`). Ubuntu's default `cargo` is 1.75, which cannot parse that
 crate's `Cargo.lock` - it is lockfile format v4, which needs cargo 1.78 or
 newer. Ubuntu carries newer Rust as versioned packages in `noble-updates`, so
-`rustc-1.85`/`cargo-1.85` are installed and symlinked into `/usr/local/bin`,
-and the unusable 1.75 packages are removed. No `rustup`, no third-party binary.
+`rustc-1.85`/`cargo-1.85` are installed and symlinked into `/usr/local/bin`.
+The unusable `rustc` and `cargo` 1.75 *binary* packages are removed; their
+`libstd-rust-1.75` and `libstd-rust-dev` runtimes are still installed, because
+nothing needed them gone and apt did not pull them. No `rustup`, no
+third-party binary.
 
 The router is built from source rather than downloaded:
 
@@ -89,7 +92,51 @@ cd /home/pentolope/github/KiCadRoutingTools && python3 build_router.py --from-so
 ```
 
 That writes `rust_router/grid_router.so`, which is `.gitignore`d, so building
-leaves the KiCadRoutingTools checkout's tracked tree untouched.
+leaves the KiCadRoutingTools checkout's tracked tree untouched. A clean
+rebuild takes under 30 s of wall time - the one run with a surviving log
+reports `Finished release profile in 26.80s`, 26.89 s wall - with the cargo
+registry already populated; `--clean` removes `target/` and the `.so`, not the
+registry.
+
+One property worth knowing before you rebuild casually: the crate is **not
+bit-reproducible**, measured rather than assumed. Two clean rebuilds
+(`--clean` then `--from-source`) in this environment, same source, same
+`cargo 1.85.1`, eighteen minutes apart, gave `cf62ad5d..` and `97db6617..`.
+
+The two binaries are the same length and differ in exactly **24 of 1,150,552
+bytes**, across three contiguous runs from two causes, neither of them code:
+
+- **20 bytes at `0x280`** - the ELF `.note.gnu.build-id` descriptor (the
+  section starts at `0x270`; 16 bytes of note header precede it), regenerated
+  at every link: `bbb84a28..` against `5e50da68..`.
+- **4 bytes inside the string at `0xc4a87`** - an ASCII `__TIME__` in
+  `.rodata`, `13:13:18` against `13:31:42`. Only the differing digits show as
+  runs, at `0xc4a8a` and `0xc4a8d`. It is mimalloc's: `libmimalloc-sys` is the
+  only C-compiling dependency in `Cargo.lock`, and the literal that follows it
+  in `.rodata` is mimalloc's own `option '%s': %ld %s`. The adjacent
+  `__DATE__` matched only because both builds ran on one day.
+
+Scope that result honestly. It says these two builds differed in these two
+ways; it does not say a rebuild anywhere would. Absolute paths *are* embedded
+in the binary - 33 `/home/pentolope/.cargo/registry/...` panic locations and
+27 `/build/rustc-1.85-...` strings - and they held still only because both
+builds ran under one `$HOME` and one `CARGO_HOME`. A rebuild under a different
+home, registry or toolchain path would differ by far more than 24 bytes. What
+does *not* appear at all is the crate's own checkout path, which is embedded
+zero times.
+
+`pcbqa.krt.identity_digest` hashes this binary, so every rebuild is a
+different router identity by design, and any routing-derived artifact bound to
+the old one goes stale with it.
+
+No artifact in this repository binds to a binary built here. The committed
+records that carry a `grid_router` digest are five benchmark artifacts under
+`benchmark/`, and every one names a Windows `grid_router.pyd` from an earlier
+machine (`bc71d260..8218a031`, in `benchmark/boardB/candidates/seed{36,37}`
+and `benchmark/krt_bench/results/seed{13,17,34}/krt0213-a`). Those record runs
+that happened elsewhere. The two local hashes appear nowhere except this
+paragraph. A rebuild therefore invalidates nothing today - which stops being
+true the moment a routed candidate is recorded against a locally built router.
 
 ## Where the board finds its tools
 
