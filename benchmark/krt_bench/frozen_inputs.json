@@ -1,0 +1,56 @@
+{
+ "kind": "krt-benchmark-frozen-inputs",
+ "meaning": "The exact boards every router benchmark run consumes, byte-pinned. A benchmark result that names one of these inputs is comparable to any other result naming the same sha256; a changed file is a different benchmark. Board A is listed as reference identity only - it is never routed or mutated by any benchmark.",
+ "inputs": [
+  {
+   "candidate": "seed34",
+   "class": "76-of-83 frontier",
+   "why_frozen": "best historical candidate; 7 PDM branch nets short; the focused-investigation target",
+   "boards": {
+    "candidate_placed.kicad_pcb": {
+     "path": "benchmark/boardB/candidates/seed34/candidate_placed.kicad_pcb",
+     "sha256": "6a649c5703b214080f067922cb782fbb16943961c4073981767e55a53bc37387"
+    },
+    "candidate_critical.kicad_pcb": {
+     "path": "benchmark/boardB/candidates/seed34/candidate_critical.kicad_pcb",
+     "sha256": "f4c1cdeeb3528372a166f3715fde5e46ee19dac462dc92882e53a571ca87b6dc"
+    }
+   }
+  },
+  {
+   "candidate": "seed17",
+   "class": "76-of-83 frontier",
+   "why_frozen": "independent frontier placement (different lineage from seed34/14)",
+   "boards": {
+    "candidate_placed.kicad_pcb": {
+     "path": "benchmark/boardB/candidates/seed17/candidate_placed.kicad_pcb",
+     "sha256": "04dabfba63f0bd7fbee3dabd05cd5ecb57e9efdfcffa532a1691f3db0e32e806"
+    },
+    "candidate_critical.kicad_pcb": {
+     "path": "benchmark/boardB/candidates/seed17/candidate_critical.kicad_pcb",
+     "sha256": "550d5feab9cad3e84819d63007a14c58ef778be61a7236690d6d5c1614e3c69f"
+    }
+   }
+  },
+  {
+   "candidate": "seed13",
+   "class": "doomed",
+   "why_frozen": "copper_edge_clearance fabrication-invalid at critical; historical run still spent 1982 routing seconds on it",
+   "boards": {
+    "candidate_placed.kicad_pcb": {
+     "path": "benchmark/boardB/candidates/seed13/candidate_placed.kicad_pcb",
+     "sha256": "3b373a0ab257f62bda89a71e83c3681f1e5739af0c2c1569e8b0be9fda26d99c"
+    },
+    "candidate_critical.kicad_pcb": {
+     "path": "benchmark/boardB/candidates/seed13/candidate_critical.kicad_pcb",
+     "sha256": "1bc836f2699c3b37f0da257b8a5ff097f8fce6cc5a0b7fb670c40f7da615a1a4"
+    }
+   }
+  }
+ ],
+ "board_a": {
+  "path": "microphone_array_v2.kicad_pcb",
+  "sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+  "role": "reference identity only; never a benchmark routing input"
+ }
+}

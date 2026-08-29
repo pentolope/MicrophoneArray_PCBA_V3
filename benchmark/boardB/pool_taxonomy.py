@@ -48,9 +48,19 @@ def analyze_seed(seed):
     row["descended_from"] = next(
         (r.get("parent_candidate") for r in records
          if r.get("stage") == "descend"), None)
+    # A placement can arrive two ways: generated (seed_placement
+    # ok) or ingested from outside the generator (ingest_placed;
+    # the reuse revalidation then judges it). Both count as "the
+    # candidate HAS a placement"; whether that placement is any
+    # good is the policy record's business, below.
+    row["ingested"] = any(r.get("stage") == "ingest_placed"
+                          for r in records)
     row["seed_placement_ok"] = any(
         r.get("stage") == "seed_placement"
-        and r.get("outcome") == "ok" for r in records)
+        and r.get("outcome") == "ok" for r in records) \
+        or row["ingested"]
+    reuse = next((r for r in reversed(records)
+                  if r.get("stage") == "reuse_revalidation"), None)
     quench = next((r for r in reversed(records)
                    if r.get("stage") == "place_optimize"), None)
     row["quench_completed"] = (quench or {}).get(
@@ -59,6 +69,11 @@ def analyze_seed(seed):
     policy = next((r for r in reversed(records)
                    if r.get("stage") == "post_quench_policy"),
                   None)
+    if policy is None and reuse is not None:
+        # An ingested (or reused) placement is judged by the reuse
+        # revalidation instead of the post-quench policy pass; the
+        # verdict fields carry the same meaning.
+        policy = reuse
     if policy:
         row["policy_ok"] = policy.get("policy_ok")
         row["violated_constraints"] = policy.get("violated")

@@ -3,20 +3,26 @@
  "pool": [
   {
    "candidate": "seed09",
-   "decision": "stale-artifacts",
-   "progress_class": null,
-   "board_required_net_completion": null,
-   "benchmark_net_completion": null,
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 47,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 25,
+    "total": 46
+   },
    "critical": [
-    null,
-    null,
-    null
+    false,
+    false,
+    false
    ],
-   "fabrication_geometry_ok": null,
-   "candidate_ready_for_next_stage": null,
-   "search_winner_eligible": null,
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
    "reasons": [
-    "producer closure is stale; moved: ['candidate_board', 'constraints', 'toolkit.extract', 'toolkit.progression', 'validate_candidate.py', 'zone_policy', 'authoritative_board', 'derivation', 'gates_artifact', 'generate_candidate.py', 'metrics_artifact', 'toolkit.netlist_contract']"
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
    ]
   },
   {
@@ -570,6 +576,54 @@
    "reasons": [
     "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
    ]
+  },
+  {
+   "candidate": "seed36",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 76,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 39,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed37",
+   "decision": "reject",
+   "progress_class": "placement-policy",
+   "board_required_net_completion": {
+    "complete": 0,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 0,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    true
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at placement-policy: {\"status\": \"fail\"}"
+   ]
   }
  ],
  "best": null,
@@ -578,34 +632,36 @@
  "producer_closure": {
   "kind": "producer-closure",
   "components": {
-   "decision.seed09": "2bf9f9e1ae500f4932a9790ef0a26eacc7f179e843a9e8f8c1e1c400d9c5b93c",
-   "decision.seed10": "cd18a90e7de2b6c6bc2a5ef9bf39987bbc6fce9b50d35760aa210c57835f72c9",
-   "decision.seed13": "8b90ff213d0e42c88a473aa1807076fe08f816924c3ddd1810b730b0278e767f",
-   "decision.seed14": "b8c02ebbd81620c90ea2b09468aeb2ceef1cd3f43e543db1e585cd82dbe0b8a4",
-   "decision.seed15": "c385f759aaba6405d89bb50058b9df768e82fcf3ad4c137528b24f78dd02f209",
-   "decision.seed16": "37db4d01bbaa4e244a5d33057d1d99e7357756dafae10b2ce5e4a19b0cc56c56",
-   "decision.seed17": "9ae95a77995e41656e7a958593b3b3b415eeeb4c5b1090eef50d4c80c58c65ce",
-   "decision.seed18": "2f101b60f9d422e10d82ced061e85d59d971a686fca353cb9f3ed18d95e4f2a7",
-   "decision.seed19": "7111ab9798385a517e30b3cf9f8841dcd6fdbdd8c3d22a1b6d00ef27fe6d1bca",
-   "decision.seed20": "ddb81fedf56554019634bb2e234b724b83045d3775a0b877d25f3c920a7a63fb",
-   "decision.seed21": "f0b3f960ef1c4779c128a75934ae972cf7af4689ee86c17662dd11d465cbf462",
-   "decision.seed23": "a13e3830f508c098abda170dbacf01896ddab935e733bb219c4e08ea20b0bd7e",
-   "decision.seed24": "6a6655e0e2195830875be24f1eb92c26021eae7ecec292e16502d8492ab07b1c",
-   "decision.seed25": "2820436b8a8e5b8624898e6565ae53895f84501e16ae54c9425de79b30c3f0c7",
-   "decision.seed26": "68fa243951de91756c74106f70f30775a57840265ff63f67914765375cb99ba6",
-   "decision.seed27": "5f366e474ad1ee309f2f0aefe5199fcdd92ec987551b9b0eb99dc16375ecf33d",
-   "decision.seed28": "65421204307eab2b7f399ad8187d3309c31444d53ac9925e52b8cb0fe8391faf",
-   "decision.seed29": "07096536dec6fd69617fde8b5df776c9ca2a4072890cd17992a825d64853cb91",
-   "decision.seed30": "dca09057750fca7894a7eed852a24026a4f5f3fd3f93d60458a3ad91a70caa2a",
-   "decision.seed31": "f2b04d88a23d951d647e7534ec8163c3c89369cdfed6c15922b17404666378ec",
-   "decision.seed32": "4b66985482f87e3dc9c8e961080bd78126f658cb74f472f23d8aa24829396c18",
-   "decision.seed33": "5baa085b4997fc500d767acff5c3288bab9a29a71303d8d8bd781ee1cbf21751",
-   "decision.seed34": "effcc829ae76673fab19af66a8d14a57012d5f1488369c844eee423306e59209",
-   "decision.seed35": "4ccbe8cb64ab436b5287ad9da6199ac95a3623f8c117aaba3c776beec0581e3c",
+   "decision.seed09": "49ab1aa67ad40d30f17634377e8f42575a32849dbc651528d8e33f80df5d6168",
+   "decision.seed10": "83832c1bf2b118c46a79ee5e2945c0eaab696c11cbd0866d4f3eaacdb4fa8175",
+   "decision.seed13": "6a8c233d7e761bc868e971d8d5f08ba10d82c106ba4ed8079da4b4882c3d2ef6",
+   "decision.seed14": "a30366c83647ec7d91c19af92232992174ca657bf770c08d0d0947967de120ac",
+   "decision.seed15": "2aaf16c7dec4d8d7ff2c82032c44c643086b851801368fa2c52014e25440a1f7",
+   "decision.seed16": "0b15f7af28b0a0f017e54053b3f818b4bcef1b2bf56524dc2dc5cfc9cc2a7c3d",
+   "decision.seed17": "a981a97a6f8e72f25d2c5a44a42d6cd64ed1c4343e8bd3bce47d749889cef3a6",
+   "decision.seed18": "1b2d7e710525e6cddb8790458c7c0a31dff3b9ab105ca3a6926ffca23308bd99",
+   "decision.seed19": "5a5b8b75398659119617d2cc30d253862dc35f20b45bfa21810ac0fd440134d7",
+   "decision.seed20": "af9914d60a5fd54e645f94fc94488d210b1b5f2bd1538d1d340a38d2b5e770d4",
+   "decision.seed21": "fb87b8dc049f958468876e6583adc2741fbf7da6d2ee8d038e4d015d9b8f2d9e",
+   "decision.seed23": "5d392e064a5c6bb6b3c26fd7427dee94263987f98e12329577522b12f26f8e39",
+   "decision.seed24": "fbad30b3b387e45a8e55adc3382db5381c2639825a920c41d94604c540cb0faf",
+   "decision.seed25": "89f29c9231a4c4643f2c60f33dde3265f8d3499bc0ce565cf299913571cda1d1",
+   "decision.seed26": "baf370dbf619c17f1bc795b0e3ae1e483d53aaa6e6e07170b2de5ce56156972e",
+   "decision.seed27": "8b2e204b3b4c8f92c959821958c8fe33441319609a295d75b2eff4518bbf5db9",
+   "decision.seed28": "22bcbff2e765b7fd68687cfab4e6ec284ee83a0afd92f935506bfef2cdde5343",
+   "decision.seed29": "c0a391043af4b5c930e01ac20a0eecd7e238b1e4b023f7b5f8e42f7f15fcbbaa",
+   "decision.seed30": "b503c26581eea7b2132730d8e4e72419b4686c48ab32c3c8a8143c05a67f8208",
+   "decision.seed31": "8f3dc073834eb4d64c24339db5537d5779bd602750bfc855d82f59b7c222c70d",
+   "decision.seed32": "83fc426a3a255a92244d265d7f10d4519aa1c5042fb02a948c83705b339c958d",
+   "decision.seed33": "1c4b9f9da6bb936729f41f96e5c817f8a9a38a095a60686d33db057748be45f1",
+   "decision.seed34": "3a33bc7c927771214b4f67ab74d8bae682d85dec64dbae00890ffd286a9a8bfc",
+   "decision.seed35": "288e0824c17e9be4718868ffbf9ec3917414bd784553787d414b355772afc1d3",
+   "decision.seed36": "336e4b11caf147a208bd716a68f28ac274efbcc1976d75415ac7162baf707532",
+   "decision.seed37": "d3b146cb8474bb606fb291288ab6006413959b79a48321cc6f721706143d1203",
    "search.py": "8c0dd6acabdf0e0fa8e8ee08e556614e6b981d27bf1bb753348acf68350112af",
    "toolkit.freshness": "313ce08ce6a06d3be759aed90f7ea54f2405cf7149f3f97bb3f154cb9c4dedb7",
    "toolkit.progression": "f4e982b585d800b44ee7e5b70fb4dc3cf9608bed31b09504f7f6a08c3bf66706"
   },
-  "digest": "ddcc6e00662b2ae21e9b7d3082042fce717b727259cd9cddb99c91ec289b1c4b"
+  "digest": "3c2603b3946479e44cdddb5892b8887cc05f0cf9f274c95fbb33103e0a9e1beb"
  }
 }

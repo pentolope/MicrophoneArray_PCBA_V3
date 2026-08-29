@@ -8,7 +8,7 @@
    "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
    "candidate_board": "9cad4764f9a0f17e55769d87ea0977f5f15fc6cdb391063440759f46b6d9dd84",
    "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
-   "generate_candidate.py": "46c72c873cd08633f99d640a5f3648c78daccd16f5a7c4033a099aa46f6690e6",
+   "generate_candidate.py": "792a95cfa09388cff912e721fbdb961c8e8dffd81a8f0077c20b5515e977c5b8",
    "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
    "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
    "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
@@ -18,7 +18,7 @@
    "validate_candidate.py": "11c8933f3d87d2eac060d370b25243943b99092b7ef8a4c2b3dc49645e8fb93d",
    "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
   },
-  "digest": "6158b6f24e158b72e66645f5ceba241aba783c1792b361648a1f5767c82349de"
+  "digest": "29fcbf69082f5f0c9466bd7cf3418fc0758f81b4377e0e80ed6c4fbc0aac07d8"
  },
  "statuses": {
   "placement_policy_satisfied": true,
@@ -141,26 +141,7 @@
    "verdict_ok": true,
    "meaning": "raw is the candidate file as decided on; judged is the canonical zone-refilled working copy the DRC measured - two declared identities, never conflated"
   },
-  "candidate_derived_artifacts": {
-   "gerbers": 0,
-   "drill": 0,
-   "files": [
-    "candidate_routed-B_Cu.gbl",
-    "candidate_routed-B_Mask.gbs",
-    "candidate_routed-B_Paste.gbp",
-    "candidate_routed-B_Silkscreen.gbo",
-    "candidate_routed-Edge_Cuts.gm1",
-    "candidate_routed-F_Cu.gtl",
-    "candidate_routed-F_Mask.gts",
-    "candidate_routed-F_Paste.gtp",
-    "candidate_routed-F_Silkscreen.gto",
-    "candidate_routed-GND1.g1",
-    "candidate_routed-GND2.g2",
-    "candidate_routed-NPTH.drl",
-    "candidate_routed-PTH.drl",
-    "candidate_routed-job.gbrjob"
-   ]
-  },
+  "candidate_derived_artifacts": null,
   "failing_gate_classes": {
    "CPL.NATIVE_PARITY": "board-a-release-parity (missing candidate-derived artifacts)",
    "CPL.ORIENTATION": "board-a-release-parity (missing candidate-derived artifacts)",
@@ -179,12 +160,12 @@
   },
   "validation": {
    "validation_artifact": {
-    "attempt_path": "out\\boardB-seed29-candidate\\attempts\\20260829T021538Z-6d70a017\\validation.json",
-    "canonical_sha256": "e1c0ae599c0ec47cdc5ba3ee115fececf2798a787a7a3341b1d801a7b3abd68b",
+    "attempt_path": "out\\boardB-seed29-candidate\\attempts\\20260829T055939Z-61f79ed6\\validation.json",
+    "canonical_sha256": "a82a1f7836e71c450d4280c4f0263869e69baa62c5606a8a9b960dfc844fcf2a",
     "implementation": {
      "toolkit_root": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\tooling\\PCB_AutoDesignAndTest",
      "commit": "da53b30805afb35add4588e5e8b9419b76035b3f",
-     "working_tree_dirty": false,
+     "working_tree_dirty": true,
      "detail": "git HEAD of the toolkit checkout that executed this validation"
     },
     "meaning": "the exact validation artifact these gate truths were lifted from, by canonical content identity, with the implementation that produced it"
@@ -282,8 +263,8 @@
    },
    "runner": {
     "returncode": 1,
-    "seconds": 127.6,
-    "log_tail": "29-candidate\\attempts\\20260829T021538Z-6d70a017\\validation.json\nMarkdown: C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\boardB-seed29-candidate\\attempts\\20260829T021538Z-6d70a017\\validation.md\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\n"
+    "seconds": 41.5,
+    "log_tail": "ndler for 'WebP file'\nTraceback (most recent call last):\n  File \"C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\tooling\\PCB_AutoDesignAndTest\\run.py\", line 122, in _emit\n    json.dump(doc, fh, indent=2, default=str)\n  File \"C:\\Program Files\\KiCad\\10.0\\bin\\Lib\\json\\__init__.py\", line 180, in dump\n    fp.write(chunk)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\tooling\\PCB_AutoDesignAndTest\\run.py\", line 643, in <module>\n    sys.exit(main(sys.argv))\n             ^^^^^^^^^^^^^^\n  File \"C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\tooling\\PCB_AutoDesignAndTest\\run.py\", line 634, in main\n    return cmd_validate(path)[0]\n           ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\tooling\\PCB_AutoDesignAndTest\\run.py\", line 149, in cmd_validate\n    doc, jpath, mpath = _emit(ctx, results, \"validation\", attempt.path)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\tooling\\PCB_AutoDesignAndTest\\run.py\", line 121, in _emit\n    with open(jpath, \"w\", encoding=\"utf-8\") as fh:\nOSError: [Errno 28] No space left on device\n"
    }
   },
   "extraction_available": true,

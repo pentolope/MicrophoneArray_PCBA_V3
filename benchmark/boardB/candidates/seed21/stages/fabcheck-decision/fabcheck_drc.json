@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-08-28T20:12:39",
+    "date": "2026-08-29T02:20:48",
     "ignored_checks": [],
     "included_severities": [
         "error",
@@ -70,12 +70,12 @@
                     "uuid": "1d2b6607-643e-41de-a0fb-605e9e2f0d18"
                 },
                 {
-                    "description": "Track [GND] on F.Cu, length 0.0707 mm",
+                    "description": "Track [GND] on F.Cu, length 0.1000 mm",
                     "pos": {
-                        "x": 94.45,
+                        "x": 94.55,
                         "y": 150.35
                     },
-                    "uuid": "60645b50-eab0-4182-bcfa-386f93af5a92"
+                    "uuid": "38d4e34b-6e55-4490-9a54-342e77561a67"
                 }
             ],
             "severity": "error",
@@ -384,12 +384,12 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Track [GND] on F.Cu, length 0.0500 mm",
+                    "description": "Track [GND] on F.Cu, length 0.0707 mm",
                     "pos": {
                         "x": 149.55,
-                        "y": 94.3
+                        "y": 94.25
                     },
-                    "uuid": "c0838788-1f98-4b81-8872-f7ba4254d7cc"
+                    "uuid": "2651be46-9679-46ab-9cba-1644a112929f"
                 },
                 {
                     "description": "Pad 2 [GND] of CM5 on F.Cu",
@@ -430,12 +430,12 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Track [GND] on F.Cu, length 0.0500 mm",
+                    "description": "Track [GND] on F.Cu, length 0.0707 mm",
                     "pos": {
-                        "x": 152.25,
-                        "y": 98.0
+                        "x": 152.2,
+                        "y": 97.95
                     },
-                    "uuid": "6a8463b3-68f8-42a5-a9bf-973e52589ab1"
+                    "uuid": "416c6243-a962-44e1-82dc-f1b0f9582549"
                 },
                 {
                     "description": "Pad 1 [GND] of TP5 on F.Cu",
@@ -846,10 +846,10 @@
                 {
                     "description": "Track [GND] on F.Cu, length 0.0707 mm",
                     "pos": {
-                        "x": 170.4,
-                        "y": 147.45
+                        "x": 170.35,
+                        "y": 147.4
                     },
-                    "uuid": "ee69b3b5-500f-4a94-9010-09dbbc7cd3ef"
+                    "uuid": "211f7289-0f18-4123-9d08-2861fc1b5dca"
                 },
                 {
                     "description": "Pad 2 [GND] of C7 on F.Cu",
@@ -2462,12 +2462,12 @@
                     "uuid": "efa11ce1-4393-45ed-af70-208780000451"
                 },
                 {
-                    "description": "Track [PDM_CLK_B5] on F.Cu, length 0.0707 mm",
+                    "description": "Track [PDM_CLK_B5] on F.Cu, length 0.0500 mm",
                     "pos": {
                         "x": 111.95,
-                        "y": 189.95
+                        "y": 189.9
                     },
-                    "uuid": "c1cd3336-0da0-40fc-8692-9c0d6a604a90"
+                    "uuid": "62a7ac06-edc1-40d1-9bb2-2c034513a1a3"
                 }
             ],
             "severity": "error",
@@ -2569,20 +2569,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Track [PDM_CLK_IN] on F.Cu, length 0.1000 mm",
+                    "description": "Track [PDM_CLK_IN] on F.Cu, length 0.0500 mm",
                     "pos": {
-                        "x": 164.55,
+                        "x": 164.6,
                         "y": 145.45
                     },
-                    "uuid": "5eaeed7a-d9ca-4810-96c0-6ca5a0c9779d"
+                    "uuid": "96ebfbd2-ab39-4fea-8ad8-24846c1762c4"
                 },
                 {
-                    "description": "Track [PDM_CLK_IN] on F.Cu, length 0.1000 mm",
+                    "description": "Track [PDM_CLK_IN] on F.Cu, length 0.0500 mm",
                     "pos": {
-                        "x": 164.55,
+                        "x": 164.6,
                         "y": 144.2
                     },
-                    "uuid": "d4b09ef4-988b-4036-92b4-4031efec71a4"
+                    "uuid": "101e21ba-4b3c-4e98-b799-698de91b0f94"
                 }
             ],
             "severity": "error",
@@ -2671,10 +2671,10 @@
                 {
                     "description": "Track [PDM_CLK_IN] on F.Cu, length 0.0500 mm",
                     "pos": {
-                        "x": 170.4,
+                        "x": 170.35,
                         "y": 145.45
                     },
-                    "uuid": "cfaff075-3733-4efe-87f3-908ad9aeb66b"
+                    "uuid": "fa4ab2a5-6305-43c6-a75a-98b8a6543258"
                 }
             ],
             "severity": "error",
@@ -2763,10 +2763,10 @@
                 {
                     "description": "Track [PDM_CLK_Y7] on F.Cu, length 0.0500 mm",
                     "pos": {
-                        "x": 164.65,
+                        "x": 164.7,
                         "y": 152.0
                     },
-                    "uuid": "824cfb90-6465-4dee-9945-5c955e8d1e3d"
+                    "uuid": "5bf07604-d54c-4aa3-93f6-c3c799f466f6"
                 }
             ],
             "severity": "error",
@@ -2807,12 +2807,12 @@
                     "uuid": "2d82831a-8476-4f84-a8bb-088c85887c12"
                 },
                 {
-                    "description": "Track [PDM_CLK_Y1] on F.Cu, length 0.0707 mm",
+                    "description": "Track [PDM_CLK_Y1] on F.Cu, length 0.0500 mm",
                     "pos": {
                         "x": 172.75,
-                        "y": 143.7
+                        "y": 143.65
                     },
-                    "uuid": "a6e7c706-4c5f-4174-a3e6-e9e470eb92d1"
+                    "uuid": "b9ce2e0f-0e30-4cf5-8947-4f8669e9f120"
                 }
             ],
             "severity": "error",

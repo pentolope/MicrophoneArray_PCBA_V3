@@ -19,9 +19,11 @@
   },
   "router": {
     "name": "KiCad Routing Tools",
-    "package": "com_github_drandyhaas_kicadroutingtools",
-    "entry": "route.py",
-    "root": "C:/Users/pentolope/Documents/KiCad/10.0/3rdparty/plugins/com_github_drandyhaas_kicadroutingtools"
+    "development_checkout": "C:/Users/pentolope/Documents/GitHub/KiCadRoutingTools",
+    "plugin_dirs": [
+      "C:/Users/pentolope/Documents/KiCad/10.0/3rdparty/plugins"
+    ],
+    "note": "Resolved through pcbqa.krt: explicit override, then this development checkout, then a single active plugin installation; a path under disabled_pcm_plugins always refuses. The old PCM-rooted 'root' key is retired - that installation is disabled on purpose."
   },
   "toolkit": {
     "path": "tooling/PCB_AutoDesignAndTest",

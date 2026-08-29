@@ -1,0 +1,5004 @@
+{
+ "kind": "krt-replay",
+ "candidate": "seed34",
+ "label": "krt0213-a",
+ "historical_evidence": {
+  "historical": true,
+  "source": "benchmark\\boardB\\candidates\\seed34\\derivation.json",
+  "krt_identity": "unrecorded: these attempts predate KRT provenance; the installation of record was the PCM package at 0.19.1",
+  "route_attempts": [
+   {
+    "attempt_id": "a007",
+    "stage": "route_clock",
+    "status": "completed",
+    "seconds": 440.6,
+    "input_board_sha256": "f4c1cdeeb3528372a166f3715fde5e46ee19dac462dc92882e53a571ca87b6dc",
+    "output_sha256": "d2aef22549aa15d637a14fc879280af563c385d7b2c2cf884a2e9dba87d25352",
+    "min_clearance_used_mm": 0.1875
+   },
+   {
+    "attempt_id": "a009",
+    "stage": "route_mic-data",
+    "status": "completed",
+    "seconds": 18.7,
+    "input_board_sha256": "d2aef22549aa15d637a14fc879280af563c385d7b2c2cf884a2e9dba87d25352",
+    "output_sha256": "266e78685f10ff0220e7fe0e2bff58f5716c673d796ac7155270a3ab2bfd21f3",
+    "min_clearance_used_mm": 0.2
+   },
+   {
+    "attempt_id": "a011",
+    "stage": "route_host",
+    "status": "completed",
+    "seconds": 16.7,
+    "input_board_sha256": "266e78685f10ff0220e7fe0e2bff58f5716c673d796ac7155270a3ab2bfd21f3",
+    "output_sha256": "dc6059c8c92834bc768984b331d83b8a1e9573dfd82ca685e9026d7a4cda6a60",
+    "min_clearance_used_mm": 0.2
+   },
+   {
+    "attempt_id": "a013",
+    "stage": "route_power",
+    "status": "fabrication-invalid",
+    "seconds": 104.7,
+    "input_board_sha256": "dc6059c8c92834bc768984b331d83b8a1e9573dfd82ca685e9026d7a4cda6a60",
+    "output_sha256": "05c1e4cb455120248eb442c70b77135c1651ba6fac5b55d2352aad39ea46502e",
+    "min_clearance_used_mm": 0.2
+   },
+   {
+    "attempt_id": "a016",
+    "stage": "route_cleanup_clock",
+    "status": "completed",
+    "seconds": 433.8,
+    "input_board_sha256": "60536bff12defc2e087a5833ac976ae4f97db1b4f03b9dfc16ab5a38ebcace20",
+    "output_sha256": "60536bff12defc2e087a5833ac976ae4f97db1b4f03b9dfc16ab5a38ebcace20",
+    "min_clearance_used_mm": 0.1875
+   },
+   {
+    "attempt_id": "a017",
+    "stage": "route_cleanup_power",
+    "status": "completed",
+    "seconds": 24.7,
+    "input_board_sha256": "60536bff12defc2e087a5833ac976ae4f97db1b4f03b9dfc16ab5a38ebcace20",
+    "output_sha256": "ebb6e737ac438eeb3e2355194be65f9dfdffb15187a84e41c6a82b4fe2f0ea33",
+    "min_clearance_used_mm": 0.2
+   }
+  ],
+  "connectivity_records": [
+   {
+    "stage": "route_clock_connectivity",
+    "complete": 13,
+    "total": 20,
+    "not_complete": [
+     "PDM_CLK_B1",
+     "PDM_CLK_B2",
+     "PDM_CLK_B4",
+     "PDM_CLK_B5",
+     "PDM_CLK_B6",
+     "PDM_CLK_Y3",
+     "PDM_CLK_Y7"
+    ]
+   },
+   {
+    "stage": "route_mic-data_connectivity",
+    "complete": 24,
+    "total": 24,
+    "not_complete": []
+   },
+   {
+    "stage": "route_host_connectivity",
+    "complete": 16,
+    "total": 16,
+    "not_complete": []
+   },
+   {
+    "stage": "route_power_connectivity",
+    "complete": 22,
+    "total": 23,
+    "not_complete": [
+     "GND"
+    ]
+   }
+  ],
+  "total_route_seconds": 1039.2
+ },
+ "krt": {
+  "identity_sha256": "f8d6e639863feea0de61f5b5cd5572025c4b0993c54d73b86239ac3d1a4a56f9",
+  "provenance": {
+   "kind": "krt-provenance",
+   "source_path": "C:\\Users\\pentolope\\Documents\\GitHub\\KiCadRoutingTools",
+   "version": "0.21.3",
+   "git": {
+    "sha": "2c84c012e0185a789775726c5b3dc9e8fe120fde",
+    "dirty": false,
+    "upstream_base": "2c84c012e0185a789775726c5b3dc9e8fe120fde"
+   },
+   "grid_router": {
+    "path": "C:\\Users\\pentolope\\Documents\\GitHub\\KiCadRoutingTools\\rust_router\\grid_router.pyd",
+    "sha256": "bc71d2605f7ad70f4db55e9abbfd7516701e9887ed64436b37cbcb0e8218a031",
+    "version": "0.21.1"
+   },
+   "python": {
+    "executable": "C:/Program Files/KiCad/10.0/bin/python.exe",
+    "version": "3.11.5"
+   },
+   "kicad_version": "10.0.5",
+   "meaning": "the routing implementation identity for this run; a different sha, dirty state or native hash is a different router, and downstream routing-derived artifacts must go stale with it"
+  }
+ },
+ "comparison_point": "router + generic recovery after per-group cleanup; the planner's last-mile repair is not replayed",
+ "records": [
+  {
+   "stage": "begin",
+   "stage_timeout_s": 1200
+  },
+  {
+   "stage": "historical_endstate",
+   "board_sha256": "ebb6e737ac438eeb3e2355194be65f9dfdffb15187a84e41c6a82b4fe2f0ea33",
+   "measured_refilled_sha256": "644b410dcaff34921e972abca1afc217d22c311e2f90b08d0643f927875ed1bb",
+   "groups": {
+    "clock": {
+     "complete": 13,
+     "total": 20
+    },
+    "mic-data": {
+     "complete": 24,
+     "total": 24
+    },
+    "host": {
+     "complete": 16,
+     "total": 16
+    },
+    "power": {
+     "complete": 23,
+     "total": 23
+    }
+   },
+   "complete": 76,
+   "total": 83,
+   "nets_not_complete": [
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y7"
+   ],
+   "vias": 205,
+   "historical_bytes": true,
+   "measured_now": true,
+   "source": "benchmark\\boardB\\candidates\\seed34\\stages\\a017-route_cleanup_power-60536bff.kicad_pcb",
+   "note": "last pre-last-mile router artifact of the historical run; connectivity and via count computed today with the same function as the rerun's"
+  },
+  {
+   "stage": "frozen_input",
+   "candidate": "seed34",
+   "path": "benchmark\\boardB\\candidates\\seed34\\candidate_critical.kicad_pcb",
+   "board_sha256": "f4c1cdeeb3528372a166f3715fde5e46ee19dac462dc92882e53a571ca87b6dc"
+  },
+  {
+   "stage": "route_clock",
+   "router_stage": "clock",
+   "input_board_sha256": "f4c1cdeeb3528372a166f3715fde5e46ee19dac462dc92882e53a571ca87b6dc",
+   "configuration": [
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\krt_bench\\results\\seed34\\krt0213-a\\route_clock\\routed.kicad_pcb",
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+    "--no-bga-zones",
+    "--grid-step",
+    "0.05",
+    "--layers",
+    "F.Cu",
+    "--nets",
+    "MCLK_OSC",
+    "AUDIO_MCLK",
+    "PDM_CLK_IN",
+    "PDM_CLK_FPGA",
+    "PDM_CLK_Y0",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y2",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y4",
+    "PDM_CLK_Y5",
+    "PDM_CLK_Y6",
+    "PDM_CLK_Y7",
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7"
+   ],
+   "timeout_s": 1800,
+   "status": "completed",
+   "output_path": "route_clock\\routed.kicad_pcb",
+   "seconds": 243.6,
+   "returncode": 0,
+   "json_summaries": [
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [
+       "PDM_CLK_Y2",
+       "MCLK_OSC",
+       "PDM_CLK_Y4",
+       "PDM_CLK_Y6",
+       "PDM_CLK_B7",
+       "AUDIO_MCLK",
+       "PDM_CLK_B2",
+       "PDM_CLK_Y5",
+       "PDM_CLK_FPGA",
+       "PDM_CLK_B0",
+       "PDM_CLK_Y0",
+       "PDM_CLK_Y1",
+       "PDM_CLK_IN"
+      ],
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_Y7"
+      ],
+      "open_single": [],
+      "failed_multipoint": [
+       {
+        "net_name": "PDM_CLK_B5",
+        "failed_pads": [
+         {
+          "component_ref": "RC6",
+          "pad_number": "?",
+          "x": 167.880846,
+          "y": 166.171686
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_B4",
+        "failed_pads": [
+         {
+          "component_ref": "RC5",
+          "pad_number": "?",
+          "x": 177.162217,
+          "y": 168.927703
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_B6",
+        "failed_pads": [
+         {
+          "component_ref": "RC7",
+          "pad_number": "?",
+          "x": 170.56643,
+          "y": 165.122132
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_B1",
+        "failed_pads": [
+         {
+          "component_ref": "RC2",
+          "pad_number": "?",
+          "x": 170.74154,
+          "y": 166.310188
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_B3",
+        "failed_pads": [
+         {
+          "component_ref": "RC4",
+          "pad_number": "?",
+          "x": 172.901354,
+          "y": 165.322579
+         }
+        ]
+       }
+      ],
+      "multipoint_nets": 9,
+      "multipoint_pads_connected": 28,
+      "multipoint_pads_total": 33,
+      "multipoint_edges_routed": 18,
+      "multipoint_edges_failed": 5,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 13,
+      "failed": 7,
+      "total_time": 2.63,
+      "total_iterations": 1586740,
+      "total_vias": 0,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.1781,
+      "rescue": {
+       "attempted": 7,
+       "recovered": [],
+       "improved": [],
+       "unchanged": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B3",
+        "PDM_CLK_B4",
+        "PDM_CLK_B5",
+        "PDM_CLK_B6",
+        "PDM_CLK_Y3",
+        "PDM_CLK_Y7"
+       ],
+       "pads_reconnected": 0,
+       "widths": {},
+       "time": 17.33
+      },
+      "casualty_reconcile": {
+       "attempted": 1,
+       "restored": [],
+       "rerouted": [],
+       "partial": [
+        "PDM_CLK_Y7"
+       ],
+       "unrecovered": []
+      },
+      "oracle_check": "disabled",
+      "blockers": [
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y1",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y6",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_Y7",
+        "stage": "reroute",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_IN",
+          "blocked_count": 6,
+          "unique_cells": 6,
+          "track_cells": 6,
+          "via_cells": 0,
+          "near_target_cells": 6,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B5",
+        "stage": "phase3",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y6",
+          "blocked_count": 294,
+          "unique_cells": 294,
+          "track_cells": 294,
+          "via_cells": 0,
+          "near_target_cells": 232,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_B6",
+          "blocked_count": 73,
+          "unique_cells": 73,
+          "track_cells": 73,
+          "via_cells": 0,
+          "near_target_cells": 34,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "blocked_count": 43,
+          "unique_cells": 43,
+          "track_cells": 43,
+          "via_cells": 0,
+          "near_target_cells": 43,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y5",
+          "blocked_count": 13,
+          "unique_cells": 12,
+          "track_cells": 13,
+          "via_cells": 0,
+          "near_target_cells": 5,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_B1",
+          "blocked_count": 17,
+          "unique_cells": 16,
+          "track_cells": 17,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "stage": "phase3",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B7",
+          "blocked_count": 32,
+          "unique_cells": 32,
+          "track_cells": 32,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_FPGA",
+          "blocked_count": 10,
+          "unique_cells": 10,
+          "track_cells": 10,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "AUDIO_MCLK",
+          "blocked_count": 626,
+          "unique_cells": 623,
+          "track_cells": 626,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "blocked_count": 547,
+          "unique_cells": 453,
+          "track_cells": 547,
+          "via_cells": 0,
+          "near_target_cells": 97,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y1",
+          "blocked_count": 588,
+          "unique_cells": 498,
+          "track_cells": 588,
+          "via_cells": 0,
+          "near_target_cells": 3,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y2",
+          "blocked_count": 40,
+          "unique_cells": 39,
+          "track_cells": 40,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "+3V3_CLK",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B6",
+        "stage": "phase3",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y1",
+          "blocked_count": 926,
+          "unique_cells": 926,
+          "track_cells": 926,
+          "via_cells": 0,
+          "near_target_cells": 193,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_B2",
+          "blocked_count": 111,
+          "unique_cells": 111,
+          "track_cells": 111,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y2",
+          "blocked_count": 40,
+          "unique_cells": 40,
+          "track_cells": 40,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y5",
+          "blocked_count": 8,
+          "unique_cells": 8,
+          "track_cells": 8,
+          "via_cells": 0,
+          "near_target_cells": 8,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y0",
+          "blocked_count": 6,
+          "unique_cells": 6,
+          "track_cells": 6,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B6",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B3",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B0",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B7",
+          "preexisting": true
+         },
+         {
+          "net": "+3V3_CLK",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y7",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "stage": "phase3",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B2",
+          "blocked_count": 1063,
+          "unique_cells": 1063,
+          "track_cells": 1063,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_B0",
+          "blocked_count": 240,
+          "unique_cells": 240,
+          "track_cells": 240,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y1",
+          "blocked_count": 74,
+          "unique_cells": 74,
+          "track_cells": 74,
+          "via_cells": 0,
+          "near_target_cells": 13,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "blocked_count": 177,
+          "unique_cells": 176,
+          "track_cells": 177,
+          "via_cells": 0,
+          "near_target_cells": 87,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y6",
+          "blocked_count": 141,
+          "unique_cells": 140,
+          "track_cells": 141,
+          "via_cells": 0,
+          "near_target_cells": 116,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_B5",
+          "blocked_count": 24,
+          "unique_cells": 23,
+          "track_cells": 24,
+          "via_cells": 0,
+          "near_target_cells": 22,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y2",
+          "blocked_count": 40,
+          "unique_cells": 39,
+          "track_cells": 40,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y7",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B3",
+        "stage": "phase3",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y1",
+          "blocked_count": 357,
+          "unique_cells": 355,
+          "track_cells": 357,
+          "via_cells": 0,
+          "near_target_cells": 197,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y6",
+          "blocked_count": 192,
+          "unique_cells": 190,
+          "track_cells": 192,
+          "via_cells": 0,
+          "near_target_cells": 67,
+          "near_source_cells": 0
+         }
+        ]
+       }
+      ],
+      "boxed_in": [
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 5363,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y3"
+       }
+      ],
+      "pad_pairs_connected": 28,
+      "pad_pairs_total": 35,
+      "pad_pairs_open": [
+       {
+        "net": "PDM_CLK_B1",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_B3",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_B5",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_B6",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y7",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "collision_refused"
+       }
+      ],
+      "scope": "run",
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [
+       "PDM_CLK_Y7",
+       "PDM_CLK_B5",
+       "PDM_CLK_B3"
+      ],
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_B1",
+       "PDM_CLK_B6",
+       "PDM_CLK_B4"
+      ],
+      "open_single": [],
+      "failed_multipoint": [
+       {
+        "net_name": "+3V3_CLK",
+        "failed_pads": [
+         {
+          "component_ref": "C8",
+          "pad_number": "?",
+          "x": 129.440899,
+          "y": 158.372998
+         },
+         {
+          "component_ref": "C9",
+          "pad_number": "?",
+          "x": 162.0,
+          "y": 135.775
+         },
+         {
+          "component_ref": "C6",
+          "pad_number": "?",
+          "x": 173.978391,
+          "y": 174.859419
+         },
+         {
+          "component_ref": "C7",
+          "pad_number": "?",
+          "x": 166.711565,
+          "y": 171.748752
+         },
+         {
+          "component_ref": "FB1",
+          "pad_number": "?",
+          "x": 154.0,
+          "y": 131.3625
+         },
+         {
+          "component_ref": "TP3",
+          "pad_number": "?",
+          "x": 166.7,
+          "y": 152.0
+         },
+         {
+          "component_ref": "X1",
+          "pad_number": "?",
+          "x": 130.85,
+          "y": 155.75
+         },
+         {
+          "component_ref": "X1",
+          "pad_number": "?",
+          "x": 132.75,
+          "y": 155.75
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_Y1",
+        "failed_pads": [
+         {
+          "component_ref": "RC2",
+          "pad_number": "?",
+          "x": 171.76154,
+          "y": 166.310188
+         }
+        ]
+       }
+      ],
+      "multipoint_nets": 0,
+      "multipoint_pads_connected": 0,
+      "multipoint_pads_total": 0,
+      "multipoint_edges_routed": 0,
+      "multipoint_edges_failed": 0,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 3,
+      "failed": 4,
+      "total_time": 1.67,
+      "total_iterations": 736331,
+      "total_vias": 0,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.1625,
+      "rescue": {
+       "attempted": 6,
+       "recovered": [
+        "PDM_CLK_B5",
+        "PDM_CLK_Y7"
+       ],
+       "improved": [],
+       "unchanged": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B4",
+        "PDM_CLK_B6",
+        "PDM_CLK_Y3"
+       ],
+       "pads_reconnected": 0,
+       "widths": {
+        "PDM_CLK_B5": {
+         "requested_mm": 0.15,
+         "delivered_mm": 0.15,
+         "rescue_min_mm": 0.15,
+         "rescue_max_mm": 0.15,
+         "rescue_segments_emitted": 69,
+         "rescue_by_width": {
+          "0.15": 69
+         },
+         "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+        },
+        "PDM_CLK_Y7": {
+         "requested_mm": 0.15,
+         "delivered_mm": 0.15,
+         "rescue_min_mm": 0.15,
+         "rescue_max_mm": 0.15,
+         "rescue_segments_emitted": 40,
+         "rescue_by_width": {
+          "0.15": 40
+         },
+         "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+        }
+       },
+       "time": 14.28
+      },
+      "preexisting_rips": {
+       "PDM_CLK_Y6": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_B7": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_IN": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_Y1": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "+3V3_CLK": "original copper restored [was blocking 'PDM_CLK_Y7']",
+       "PDM_CLK_B0": "original copper restored [was blocking 'PDM_CLK_Y7']"
+      },
+      "oracle_check": "skipped",
+      "ripped_open": [
+       "+3V3_CLK",
+       "PDM_CLK_Y1"
+      ],
+      "ripped_open_uncounted": [
+       "+3V3_CLK",
+       "PDM_CLK_Y1"
+      ],
+      "ripped_open_note": "ripped_open nets are OUTSIDE this run's --nets scope, so they move neither failed_single nor open_single. Those listed in ripped_open_uncounted are additionally not in either scoped term: if they are also outside the multipoint pad deficit, the run's open-net verdict is understated by that many.",
+      "blockers": [
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "single_ended",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B7",
+          "blocked_count": 167,
+          "unique_cells": 167,
+          "track_cells": 167,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "+3V3_CLK",
+          "blocked_count": 73,
+          "unique_cells": 73,
+          "track_cells": 73,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y3",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B6",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B1",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y5",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y4",
+          "preexisting": true
+         }
+        ]
+       }
+      ],
+      "boxed_in": [
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 1020,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y3"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 6981,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_B1"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 6656,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_B6"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 6126,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y1"
+       }
+      ],
+      "pad_pairs_connected": 21,
+      "pad_pairs_total": 34,
+      "pad_pairs_open": [
+       {
+        "net": "+3V3_CLK",
+        "pairs_connected": 0,
+        "pairs_total": 8,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_B6",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "collision_refused"
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       }
+      ],
+      "scope": "reconciliation-subset",
+      "board_scoped_keys": [
+       "min_clearance_used"
+      ],
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [
+       "PDM_CLK_B6"
+      ],
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_B1",
+       "PDM_CLK_B4"
+      ],
+      "open_single": [],
+      "failed_multipoint": [
+       {
+        "net_name": "PDM_CLK_Y1",
+        "failed_pads": [
+         {
+          "component_ref": "RC2",
+          "pad_number": "?",
+          "x": 171.76154,
+          "y": 166.310188
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_B3",
+        "failed_pads": [
+         {
+          "component_ref": "RC4",
+          "pad_number": "?",
+          "x": 172.901354,
+          "y": 165.322579
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_Y6",
+        "failed_pads": [
+         {
+          "component_ref": "U2",
+          "pad_number": "?",
+          "x": 168.840832,
+          "y": 168.411932
+         }
+        ]
+       }
+      ],
+      "multipoint_nets": 0,
+      "multipoint_pads_connected": 0,
+      "multipoint_pads_total": 0,
+      "multipoint_edges_routed": 0,
+      "multipoint_edges_failed": 0,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 1,
+      "failed": 3,
+      "total_time": 1.27,
+      "total_iterations": 264149,
+      "total_vias": 0,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.1625,
+      "rescue": {
+       "attempted": 3,
+       "recovered": [],
+       "improved": [],
+       "unchanged": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B4",
+        "PDM_CLK_Y3"
+       ],
+       "pads_reconnected": 0,
+       "widths": {},
+       "time": 7.9
+      },
+      "preexisting_rips": {
+       "PDM_CLK_Y6": "NOT RECOVERED (still open; see terminal_restores/reconciliation) [was blocking 'PDM_CLK_B6']",
+       "PDM_CLK_IN": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_Y1": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_B3": "original copper restored [was blocking 'PDM_CLK_Y3']"
+      },
+      "casualty_reconcile": {
+       "attempted": 1,
+       "restored": [],
+       "rerouted": [],
+       "partial": [
+        "PDM_CLK_Y6"
+       ],
+       "unrecovered": []
+      },
+      "coverage_gate_nets": [
+       "PDM_CLK_Y6"
+      ],
+      "oracle_check": "skipped",
+      "ripped_open": [
+       "PDM_CLK_B3",
+       "PDM_CLK_Y1",
+       "PDM_CLK_Y6"
+      ],
+      "ripped_open_uncounted": [
+       "PDM_CLK_B3",
+       "PDM_CLK_Y1",
+       "PDM_CLK_Y6"
+      ],
+      "ripped_open_note": "ripped_open nets are OUTSIDE this run's --nets scope, so they move neither failed_single nor open_single. Those listed in ripped_open_uncounted are additionally not in either scoped term: if they are also outside the multipoint pad deficit, the run's open-net verdict is understated by that many.",
+      "blockers": [
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "single_ended",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y1",
+          "blocked_count": 24,
+          "unique_cells": 24,
+          "track_cells": 24,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 24
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y3",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y4",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B3",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B5",
+          "preexisting": true
+         }
+        ]
+       }
+      ],
+      "boxed_in": [
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 5649,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y3"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 6270,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_B1"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 898,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_B3"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 1657,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y6"
+       }
+      ],
+      "pad_pairs_connected": 15,
+      "pad_pairs_total": 21,
+      "pad_pairs_open": [
+       {
+        "net": "PDM_CLK_B1",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_B3",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "collision_refused"
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y6",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "collision_refused"
+       }
+      ],
+      "scope": "reconciliation-subset",
+      "board_scoped_keys": [
+       "min_clearance_used"
+      ],
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [
+       "PDM_CLK_B3"
+      ],
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_B1",
+       "PDM_CLK_B4"
+      ],
+      "open_single": [],
+      "failed_multipoint": [
+       {
+        "net_name": "PDM_CLK_Y1",
+        "failed_pads": [
+         {
+          "component_ref": "RC2",
+          "pad_number": "?",
+          "x": 171.76154,
+          "y": 166.310188
+         }
+        ]
+       }
+      ],
+      "multipoint_nets": 1,
+      "multipoint_pads_connected": 3,
+      "multipoint_pads_total": 3,
+      "multipoint_edges_routed": 1,
+      "multipoint_edges_failed": 0,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 1,
+      "failed": 3,
+      "total_time": 0.84,
+      "total_iterations": 492488,
+      "total_vias": 0,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.1625,
+      "rescue": {
+       "attempted": 3,
+       "recovered": [],
+       "improved": [],
+       "unchanged": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B4",
+        "PDM_CLK_Y3"
+       ],
+       "pads_reconnected": 0,
+       "widths": {},
+       "time": 6.22
+      },
+      "preexisting_rips": {
+       "PDM_CLK_IN": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_Y1": "original copper restored [was blocking 'PDM_CLK_Y3']"
+      },
+      "oracle_check": "skipped",
+      "ripped_open": [
+       "PDM_CLK_Y1"
+      ],
+      "ripped_open_uncounted": [
+       "PDM_CLK_Y1"
+      ],
+      "ripped_open_note": "ripped_open nets are OUTSIDE this run's --nets scope, so they move neither failed_single nor open_single. Those listed in ripped_open_uncounted are additionally not in either scoped term: if they are also outside the multipoint pad deficit, the run's open-net verdict is understated by that many.",
+      "blockers": [
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "single_ended",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y1",
+          "blocked_count": 24,
+          "unique_cells": 24,
+          "track_cells": 24,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 24
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y3",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y4",
+          "preexisting": true
+         }
+        ]
+       }
+      ],
+      "boxed_in": [
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 5649,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y3"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 6270,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_B1"
+       }
+      ],
+      "pad_pairs_connected": 14,
+      "pad_pairs_total": 18,
+      "pad_pairs_open": [
+       {
+        "net": "PDM_CLK_B1",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       }
+      ],
+      "scope": "reconciliation-subset",
+      "board_scoped_keys": [
+       "min_clearance_used"
+      ],
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY_MIN",
+     "summary": {
+      "failed": 3,
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_B1",
+       "PDM_CLK_B4"
+      ],
+      "finalize_excluded_nets": [
+       "GND"
+      ],
+      "main_loop_time_s": 6.41,
+      "min_clearance_used": 0.1625,
+      "multipoint_deficit": 0,
+      "open_single": [],
+      "pad_pairs_open": {
+       "count": 4,
+       "nets": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B4",
+        "PDM_CLK_Y1",
+        "PDM_CLK_Y3"
+       ]
+      },
+      "routed": 1,
+      "scope": "merged",
+      "terminal_restores_broken": [],
+      "vias": 0
+     }
+    }
+   ],
+   "min_clearance_used_mm": 0.1625,
+   "output_sha256": "23dd1c81b00e715686be25442a3524e3b2d9ddc898f3f1675b371361abc83c21",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "94d1f6a355b449c72c7ef1af81280cfc5771cc29294558f813b6d75b704b127a",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "route_clock_connectivity",
+   "checkpoint_advanced": true,
+   "complete": 15,
+   "total": 20,
+   "not_complete": [
+    "PDM_CLK_B1",
+    "PDM_CLK_B4",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y6"
+   ]
+  },
+  {
+   "stage": "route_mic-data",
+   "router_stage": "mic-data",
+   "input_board_sha256": "23dd1c81b00e715686be25442a3524e3b2d9ddc898f3f1675b371361abc83c21",
+   "configuration": [
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\krt_bench\\results\\seed34\\krt0213-a\\route_mic-data\\routed.kicad_pcb",
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+    "--nets",
+    "PDM_D0",
+    "PDM_D1",
+    "PDM_D2",
+    "PDM_D3",
+    "PDM_D4",
+    "PDM_D5",
+    "PDM_D6",
+    "PDM_D7",
+    "MIC_DOUT_0",
+    "MIC_DOUT_1",
+    "MIC_DOUT_2",
+    "MIC_DOUT_3",
+    "MIC_DOUT_4",
+    "MIC_DOUT_5",
+    "MIC_DOUT_6",
+    "MIC_DOUT_7",
+    "MIC_DOUT_8",
+    "MIC_DOUT_9",
+    "MIC_DOUT_10",
+    "MIC_DOUT_11",
+    "MIC_DOUT_12",
+    "MIC_DOUT_13",
+    "MIC_DOUT_14",
+    "MIC_DOUT_15"
+   ],
+   "timeout_s": 1200,
+   "status": "completed",
+   "output_path": "route_mic-data\\routed.kicad_pcb",
+   "seconds": 13.7,
+   "returncode": 0,
+   "json_summaries": [
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [
+       "MIC_DOUT_14",
+       "MIC_DOUT_10",
+       "MIC_DOUT_15",
+       "MIC_DOUT_5",
+       "MIC_DOUT_0",
+       "MIC_DOUT_12",
+       "MIC_DOUT_4",
+       "PDM_D0",
+       "MIC_DOUT_3",
+       "MIC_DOUT_2",
+       "MIC_DOUT_7",
+       "MIC_DOUT_1",
+       "MIC_DOUT_6",
+       "MIC_DOUT_9",
+       "MIC_DOUT_11",
+       "MIC_DOUT_8",
+       "MIC_DOUT_13",
+       "PDM_D3",
+       "PDM_D2",
+       "PDM_D7",
+       "PDM_D1",
+       "PDM_D5",
+       "PDM_D4",
+       "PDM_D6"
+      ],
+      "failed_single": [],
+      "open_single": [],
+      "failed_multipoint": [],
+      "multipoint_nets": 8,
+      "multipoint_pads_connected": 32,
+      "multipoint_pads_total": 32,
+      "multipoint_edges_routed": 24,
+      "multipoint_edges_failed": 0,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 24,
+      "failed": 0,
+      "total_time": 2.23,
+      "total_iterations": 79038,
+      "total_vias": 13,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.2,
+      "oracle_check": "disabled",
+      "pad_pairs_connected": 40,
+      "pad_pairs_total": 40,
+      "scope": "run",
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY_MIN",
+     "summary": {
+      "failed": 0,
+      "failed_single": [],
+      "finalize_excluded_nets": [
+       "GND"
+      ],
+      "main_loop_time_s": 2.23,
+      "min_clearance_used": 0.2,
+      "multipoint_deficit": 0,
+      "open_single": [],
+      "pad_pairs_open": {
+       "count": 0,
+       "nets": []
+      },
+      "routed": 24,
+      "scope": "merged",
+      "terminal_restores_broken": [],
+      "vias": 13
+     }
+    }
+   ],
+   "min_clearance_used_mm": 0.2,
+   "output_sha256": "f3324608729da58eec7fa22c8f37e95d231043ce270dc54b9fd517198840e261",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "178609ee3ee0b84d83529e67b50288b18e43cb2213e81a2533a0ce717e2fb5a2",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "route_mic-data_connectivity",
+   "checkpoint_advanced": true,
+   "complete": 24,
+   "total": 24,
+   "not_complete": []
+  },
+  {
+   "stage": "route_host",
+   "router_stage": "host",
+   "input_board_sha256": "f3324608729da58eec7fa22c8f37e95d231043ce270dc54b9fd517198840e261",
+   "configuration": [
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\krt_bench\\results\\seed34\\krt0213-a\\route_host\\routed.kicad_pcb",
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+    "--nets",
+    "SPI_SCLK",
+    "SPI_CS_N",
+    "SPI_MISO",
+    "SPI_MOSI",
+    "PI_SCLK",
+    "PI_CS_N",
+    "PI_MISO",
+    "PI_MOSI",
+    "PI_IRQ",
+    "PI_RESET_N",
+    "PI_STATUS",
+    "PI_SYNC",
+    "HOST_IRQ",
+    "HOST_RESET_N",
+    "HOST_STATUS",
+    "HOST_SYNC"
+   ],
+   "timeout_s": 1200,
+   "status": "completed",
+   "output_path": "route_host\\routed.kicad_pcb",
+   "seconds": 14.5,
+   "returncode": 0,
+   "json_summaries": [
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [
+       "HOST_STATUS",
+       "SPI_MOSI",
+       "SPI_SCLK",
+       "HOST_RESET_N",
+       "HOST_IRQ",
+       "PI_RESET_N",
+       "PI_MISO",
+       "PI_CS_N",
+       "HOST_SYNC",
+       "SPI_MISO",
+       "PI_STATUS",
+       "PI_SYNC",
+       "SPI_CS_N",
+       "PI_MOSI",
+       "PI_IRQ",
+       "PI_SCLK"
+      ],
+      "failed_single": [],
+      "open_single": [],
+      "failed_multipoint": [],
+      "multipoint_nets": 9,
+      "multipoint_pads_connected": 27,
+      "multipoint_pads_total": 27,
+      "multipoint_edges_routed": 18,
+      "multipoint_edges_failed": 0,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 16,
+      "failed": 0,
+      "total_time": 1.67,
+      "total_iterations": 329069,
+      "total_vias": 28,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.2,
+      "oracle_check": "disabled",
+      "pad_pairs_connected": 25,
+      "pad_pairs_total": 25,
+      "scope": "run",
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY_MIN",
+     "summary": {
+      "failed": 0,
+      "failed_single": [],
+      "finalize_excluded_nets": [
+       "GND"
+      ],
+      "main_loop_time_s": 1.67,
+      "min_clearance_used": 0.2,
+      "multipoint_deficit": 0,
+      "open_single": [],
+      "pad_pairs_open": {
+       "count": 0,
+       "nets": []
+      },
+      "routed": 16,
+      "scope": "merged",
+      "terminal_restores_broken": [],
+      "vias": 28
+     }
+    }
+   ],
+   "min_clearance_used_mm": 0.2,
+   "output_sha256": "f0021cd92a66789e673f43a8586acc4c437995f58376cbb6dfbd63939e3c3a56",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "ec993b321717d516382fba8860d8465b4b49df251a7c29e8f9326282df2b0457",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "route_host_connectivity",
+   "checkpoint_advanced": true,
+   "complete": 16,
+   "total": 16,
+   "not_complete": []
+  },
+  {
+   "stage": "route_power",
+   "router_stage": "power",
+   "input_board_sha256": "f0021cd92a66789e673f43a8586acc4c437995f58376cbb6dfbd63939e3c3a56",
+   "configuration": [
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\krt_bench\\results\\seed34\\krt0213-a\\route_power\\routed.kicad_pcb",
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+    "--via-size",
+    "0.6",
+    "--via-drill",
+    "0.35",
+    "--nets",
+    "5V_FUSED",
+    "+5V",
+    "PI_5V",
+    "+3V3A",
+    "+3V3_CLK",
+    "TANG_3V3",
+    "MIC_VDD_0",
+    "MIC_VDD_1",
+    "MIC_VDD_2",
+    "MIC_VDD_3",
+    "MIC_VDD_4",
+    "MIC_VDD_5",
+    "MIC_VDD_6",
+    "MIC_VDD_7",
+    "MIC_VDD_8",
+    "MIC_VDD_9",
+    "MIC_VDD_10",
+    "MIC_VDD_11",
+    "MIC_VDD_12",
+    "MIC_VDD_13",
+    "MIC_VDD_14",
+    "MIC_VDD_15",
+    "GND"
+   ],
+   "timeout_s": 1800,
+   "status": "completed",
+   "output_path": "route_power\\routed.kicad_pcb",
+   "seconds": 61.2,
+   "returncode": 0,
+   "json_summaries": [
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [
+       "MIC_VDD_15",
+       "MIC_VDD_3",
+       "MIC_VDD_5",
+       "MIC_VDD_1",
+       "MIC_VDD_11",
+       "MIC_VDD_9",
+       "MIC_VDD_7",
+       "MIC_VDD_13",
+       "GND",
+       "MIC_VDD_12",
+       "MIC_VDD_14",
+       "MIC_VDD_10",
+       "MIC_VDD_2",
+       "MIC_VDD_4",
+       "5V_FUSED",
+       "MIC_VDD_6",
+       "PI_5V",
+       "MIC_VDD_8",
+       "+5V",
+       "+3V3A",
+       "MIC_VDD_0",
+       "TANG_3V3",
+       "+3V3_CLK"
+      ],
+      "failed_single": [],
+      "open_single": [],
+      "failed_multipoint": [],
+      "multipoint_nets": 22,
+      "multipoint_pads_connected": 220,
+      "multipoint_pads_total": 220,
+      "multipoint_edges_routed": 187,
+      "multipoint_edges_failed": 16,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 23,
+      "failed": 0,
+      "total_time": 6.92,
+      "total_iterations": 1590345,
+      "total_vias": 109,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.2,
+      "rescue": {
+       "attempted": 3,
+       "recovered": [
+        "GND",
+        "MIC_VDD_11",
+        "MIC_VDD_3"
+       ],
+       "improved": [],
+       "unchanged": [],
+       "pads_reconnected": 6,
+       "widths": {
+        "GND": {
+         "requested_mm": 0.6,
+         "delivered_mm": 0.6,
+         "rescue_min_mm": 0.6,
+         "rescue_max_mm": 0.6,
+         "rescue_segments_emitted": 28,
+         "rescue_by_width": {
+          "0.6": 28
+         },
+         "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+        },
+        "MIC_VDD_11": {
+         "requested_mm": 0.15,
+         "delivered_mm": 0.15,
+         "rescue_min_mm": 0.15,
+         "rescue_max_mm": 0.15,
+         "rescue_segments_emitted": 3,
+         "rescue_by_width": {
+          "0.15": 3
+         },
+         "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+        },
+        "MIC_VDD_3": {
+         "requested_mm": 0.15,
+         "delivered_mm": 0.15,
+         "rescue_min_mm": 0.15,
+         "rescue_max_mm": 0.15,
+         "rescue_segments_emitted": 3,
+         "rescue_by_width": {
+          "0.15": 3
+         },
+         "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+        }
+       },
+       "time": 2.73
+      },
+      "preexisting_rips": {
+       "MIC_DOUT_3": "original copper restored [was blocking 'MIC_VDD_3']",
+       "PDM_D1": "original copper restored [was blocking 'MIC_VDD_3']"
+      },
+      "stacked_copper": [
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 159.75,
+        "y": 154.3,
+        "detail": "2 duplicate segments stacked on (159.750, 154.300)-(159.800, 154.300)",
+        "size": 0.05000000000001137
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 130.392,
+        "y": 196.53,
+        "detail": "2 duplicate segments stacked on (130.392, 196.530)-(130.400, 196.500)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 149.9,
+        "y": 200.6,
+        "detail": "2 duplicate segments stacked on (149.900, 200.600)-(149.930, 200.648)",
+        "size": 0.05660388679234177
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 169.575,
+        "y": 196.533,
+        "detail": "2 duplicate segments stacked on (169.575, 196.533)-(169.600, 196.500)",
+        "size": 0.041400483088962006
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 127.261,
+        "y": 198.853,
+        "detail": "2 duplicate segments stacked on (127.261, 198.853)-(127.300, 198.900)",
+        "size": 0.06107372593840855
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 111.452,
+        "y": 185.317,
+        "detail": "2 duplicate segments stacked on (111.452, 185.317)-(111.500, 185.300)",
+        "size": 0.05092150822589641
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 98.2,
+        "y": 171.2,
+        "detail": "2 duplicate segments stacked on (98.200, 171.200)-(98.250, 171.150)",
+        "size": 0.07071067811864068
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 99.352,
+        "y": 149.93,
+        "detail": "2 duplicate segments stacked on (99.352, 149.930)-(99.400, 149.900)",
+        "size": 0.05660388679234177
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 103.467,
+        "y": 169.575,
+        "detail": "2 duplicate segments stacked on (103.467, 169.575)-(103.500, 169.600)",
+        "size": 0.04140048308897333
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 98.057,
+        "y": 147.73,
+        "detail": "2 duplicate segments stacked on (98.057, 147.730)-(98.100, 147.700)",
+        "size": 0.052430906915667534
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 101.1,
+        "y": 127.3,
+        "detail": "2 duplicate segments stacked on (101.100, 127.300)-(101.147, 127.261)",
+        "size": 0.06107372593841949
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 103.47,
+        "y": 130.392,
+        "detail": "2 duplicate segments stacked on (103.470, 130.392)-(103.500, 130.400)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 110.052,
+        "y": 113.283,
+        "detail": "2 duplicate segments stacked on (110.052, 113.283)-(110.100, 113.300)",
+        "size": 0.05092150822588301
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 114.683,
+        "y": 111.452,
+        "detail": "2 duplicate segments stacked on (114.683, 111.452)-(114.700, 111.500)",
+        "size": 0.05092150822589641
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 127.252,
+        "y": 101.289,
+        "detail": "2 duplicate segments stacked on (127.252, 101.289)-(127.300, 101.300)",
+        "size": 0.04924428900898133
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 130.4,
+        "y": 103.5,
+        "detail": "2 duplicate segments stacked on (130.400, 103.500)-(130.425, 103.467)",
+        "size": 0.04140048308897333
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 150.07,
+        "y": 99.352,
+        "detail": "2 duplicate segments stacked on (150.070, 99.352)-(150.100, 99.400)",
+        "size": 0.05660388679234177
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 128.8,
+        "y": 98.2,
+        "detail": "2 duplicate segments stacked on (128.800, 98.200)-(128.850, 98.250)",
+        "size": 0.07071067811864068
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 169.6,
+        "y": 103.5,
+        "detail": "2 duplicate segments stacked on (169.600, 103.500)-(169.608, 103.470)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 172.7,
+        "y": 101.1,
+        "detail": "2 duplicate segments stacked on (172.700, 101.100)-(172.739, 101.147)",
+        "size": 0.06107372593842856
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 188.5,
+        "y": 114.7,
+        "detail": "2 duplicate segments stacked on (188.500, 114.700)-(188.548, 114.683)",
+        "size": 0.05092150822589641
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 196.5,
+        "y": 169.6,
+        "detail": "2 duplicate segments stacked on (196.500, 169.600)-(196.530, 169.608)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 201.9,
+        "y": 152.3,
+        "detail": "2 duplicate segments stacked on (201.900, 152.300)-(201.943, 152.270)",
+        "size": 0.05243090691567919
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 200.6,
+        "y": 150.1,
+        "detail": "2 duplicate segments stacked on (200.600, 150.100)-(200.648, 150.070)",
+        "size": 0.05660388679234177
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 196.5,
+        "y": 130.4,
+        "detail": "2 duplicate segments stacked on (196.500, 130.400)-(196.533, 130.425)",
+        "size": 0.041400483088962006
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 198.7,
+        "y": 127.3,
+        "detail": "2 duplicate segments stacked on (198.700, 127.300)-(198.711, 127.252)",
+        "size": 0.04924428900898768
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 201.75,
+        "y": 128.85,
+        "detail": "2 duplicate segments stacked on (201.750, 128.850)-(201.800, 128.800)",
+        "size": 0.07071067811865073
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 198.853,
+        "y": 172.739,
+        "detail": "2 duplicate segments stacked on (198.853, 172.739)-(198.900, 172.700)",
+        "size": 0.061073725938417624
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 205.792,
+        "y": 149.93,
+        "detail": "2 duplicate segments stacked on (205.792, 149.930)-(205.800, 149.900)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 96.85,
+        "y": 152.072,
+        "detail": "2 duplicate segments stacked on (96.850, 152.072)-(96.900, 152.100)",
+        "size": 0.05730619512758342
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 152.072,
+        "y": 96.71,
+        "detail": "2 duplicate segments stacked on (152.072, 96.710)-(152.100, 96.700)",
+        "size": 0.02973213749462603
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 147.9,
+        "y": 203.3,
+        "detail": "2 duplicate segments stacked on (147.900, 203.300)-(147.928, 203.290)",
+        "size": 0.029732137494635588
+       }
+      ],
+      "oracle_check": "disabled",
+      "pad_pairs_connected": 203,
+      "pad_pairs_total": 203,
+      "scope": "run",
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY_MIN",
+     "summary": {
+      "failed": 0,
+      "failed_single": [],
+      "main_loop_time_s": 6.92,
+      "min_clearance_used": 0.2,
+      "multipoint_deficit": 0,
+      "open_single": [],
+      "pad_pairs_open": {
+       "count": 0,
+       "nets": []
+      },
+      "routed": 23,
+      "scope": "merged",
+      "terminal_restores_broken": [],
+      "vias": 109
+     }
+    }
+   ],
+   "min_clearance_used_mm": 0.2,
+   "output_sha256": "beec5ecd77fe899e2d1c703d7f79d487a0c69951bf2ad581b2e7d6ef192ddba7",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "b0583b901927c5fb741ddc4c91c09c26d72c4a96f630f412e459fbf551a9ee04",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "route_power_connectivity",
+   "checkpoint_advanced": true,
+   "complete": 23,
+   "total": 23,
+   "not_complete": []
+  },
+  {
+   "stage": "cleanup_clock",
+   "router_stage": "clock",
+   "input_board_sha256": "a5051696e5953486ce80d474553ae739f6d439f81bbcbabea38dfc4dca26fde4",
+   "configuration": [
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\krt_bench\\results\\seed34\\krt0213-a\\cleanup_clock\\routed.kicad_pcb",
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+    "--no-bga-zones",
+    "--grid-step",
+    "0.05",
+    "--layers",
+    "F.Cu",
+    "--nets",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y6",
+    "PDM_CLK_B1",
+    "PDM_CLK_B4"
+   ],
+   "timeout_s": 1800,
+   "status": "completed",
+   "output_path": "cleanup_clock\\routed.kicad_pcb",
+   "seconds": 50.5,
+   "returncode": 0,
+   "json_summaries": [
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [],
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_Y1",
+       "PDM_CLK_B1",
+       "PDM_CLK_B4"
+      ],
+      "open_single": [],
+      "failed_multipoint": [
+       {
+        "net_name": "PDM_CLK_Y6",
+        "failed_pads": [
+         {
+          "component_ref": "U2",
+          "pad_number": "?",
+          "x": 168.840832,
+          "y": 168.411932
+         }
+        ]
+       }
+      ],
+      "multipoint_nets": 1,
+      "multipoint_pads_connected": 1,
+      "multipoint_pads_total": 2,
+      "multipoint_edges_routed": 0,
+      "multipoint_edges_failed": 1,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 0,
+      "failed": 5,
+      "total_time": 1.67,
+      "total_iterations": 239760,
+      "total_vias": 0,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.1875,
+      "rescue": {
+       "attempted": 5,
+       "recovered": [],
+       "improved": [],
+       "unchanged": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B4",
+        "PDM_CLK_Y1",
+        "PDM_CLK_Y3",
+        "PDM_CLK_Y6"
+       ],
+       "pads_reconnected": 0,
+       "widths": {},
+       "time": 12.45
+      },
+      "preexisting_rips": {
+       "PDM_CLK_Y5": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_Y2": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_Y4": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_Y0": "original copper restored [was blocking 'PDM_CLK_Y1']",
+       "PDM_CLK_FPGA": "original copper restored [was blocking 'PDM_CLK_Y3']"
+      },
+      "stacked_copper": [
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 96.85,
+        "y": 152.072,
+        "detail": "2 duplicate segments stacked on (96.850, 152.072)-(96.900, 152.100)",
+        "size": 0.05730619512758342
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 98.057,
+        "y": 147.73,
+        "detail": "2 duplicate segments stacked on (98.057, 147.730)-(98.100, 147.700)",
+        "size": 0.052430906915667534
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 98.2,
+        "y": 171.2,
+        "detail": "2 duplicate segments stacked on (98.200, 171.200)-(98.250, 171.150)",
+        "size": 0.07071067811864068
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 99.352,
+        "y": 149.93,
+        "detail": "2 duplicate segments stacked on (99.352, 149.930)-(99.400, 149.900)",
+        "size": 0.05660388679234177
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 101.1,
+        "y": 127.3,
+        "detail": "2 duplicate segments stacked on (101.100, 127.300)-(101.147, 127.261)",
+        "size": 0.06107372593841949
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 103.467,
+        "y": 169.575,
+        "detail": "2 duplicate segments stacked on (103.467, 169.575)-(103.500, 169.600)",
+        "size": 0.04140048308897333
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 103.47,
+        "y": 130.392,
+        "detail": "2 duplicate segments stacked on (103.470, 130.392)-(103.500, 130.400)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 110.052,
+        "y": 113.283,
+        "detail": "2 duplicate segments stacked on (110.052, 113.283)-(110.100, 113.300)",
+        "size": 0.05092150822588301
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 111.452,
+        "y": 185.317,
+        "detail": "2 duplicate segments stacked on (111.452, 185.317)-(111.500, 185.300)",
+        "size": 0.05092150822589641
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 114.683,
+        "y": 111.452,
+        "detail": "2 duplicate segments stacked on (114.683, 111.452)-(114.700, 111.500)",
+        "size": 0.05092150822589641
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 127.252,
+        "y": 101.289,
+        "detail": "2 duplicate segments stacked on (127.252, 101.289)-(127.300, 101.300)",
+        "size": 0.04924428900898133
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 127.261,
+        "y": 198.853,
+        "detail": "2 duplicate segments stacked on (127.261, 198.853)-(127.300, 198.900)",
+        "size": 0.06107372593840855
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 128.8,
+        "y": 98.2,
+        "detail": "2 duplicate segments stacked on (128.800, 98.200)-(128.850, 98.250)",
+        "size": 0.07071067811864068
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 130.392,
+        "y": 196.53,
+        "detail": "2 duplicate segments stacked on (130.392, 196.530)-(130.400, 196.500)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 130.4,
+        "y": 103.5,
+        "detail": "2 duplicate segments stacked on (130.400, 103.500)-(130.425, 103.467)",
+        "size": 0.04140048308897333
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 147.9,
+        "y": 203.3,
+        "detail": "2 duplicate segments stacked on (147.900, 203.300)-(147.928, 203.290)",
+        "size": 0.029732137494635588
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 149.9,
+        "y": 200.6,
+        "detail": "2 duplicate segments stacked on (149.900, 200.600)-(149.930, 200.648)",
+        "size": 0.05660388679234177
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 150.07,
+        "y": 99.352,
+        "detail": "2 duplicate segments stacked on (150.070, 99.352)-(150.100, 99.400)",
+        "size": 0.05660388679234177
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 152.072,
+        "y": 96.71,
+        "detail": "2 duplicate segments stacked on (152.072, 96.710)-(152.100, 96.700)",
+        "size": 0.02973213749462603
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 159.75,
+        "y": 154.3,
+        "detail": "2 duplicate segments stacked on (159.750, 154.300)-(159.800, 154.300)",
+        "size": 0.05000000000001137
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 169.575,
+        "y": 196.533,
+        "detail": "2 duplicate segments stacked on (169.575, 196.533)-(169.600, 196.500)",
+        "size": 0.041400483088962006
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 169.6,
+        "y": 103.5,
+        "detail": "2 duplicate segments stacked on (169.600, 103.500)-(169.608, 103.470)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 172.7,
+        "y": 101.1,
+        "detail": "2 duplicate segments stacked on (172.700, 101.100)-(172.739, 101.147)",
+        "size": 0.06107372593842856
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 188.5,
+        "y": 114.7,
+        "detail": "2 duplicate segments stacked on (188.500, 114.700)-(188.548, 114.683)",
+        "size": 0.05092150822589641
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 196.5,
+        "y": 130.4,
+        "detail": "2 duplicate segments stacked on (196.500, 130.400)-(196.533, 130.425)",
+        "size": 0.041400483088962006
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 196.5,
+        "y": 169.6,
+        "detail": "2 duplicate segments stacked on (196.500, 169.600)-(196.530, 169.608)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 198.7,
+        "y": 127.3,
+        "detail": "2 duplicate segments stacked on (198.700, 127.300)-(198.711, 127.252)",
+        "size": 0.04924428900898768
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 198.853,
+        "y": 172.739,
+        "detail": "2 duplicate segments stacked on (198.853, 172.739)-(198.900, 172.700)",
+        "size": 0.061073725938417624
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 200.6,
+        "y": 150.1,
+        "detail": "2 duplicate segments stacked on (200.600, 150.100)-(200.648, 150.070)",
+        "size": 0.05660388679234177
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 201.75,
+        "y": 128.85,
+        "detail": "2 duplicate segments stacked on (201.750, 128.850)-(201.800, 128.800)",
+        "size": 0.07071067811865073
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 201.9,
+        "y": 152.3,
+        "detail": "2 duplicate segments stacked on (201.900, 152.300)-(201.943, 152.270)",
+        "size": 0.05243090691567919
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 205.792,
+        "y": 149.93,
+        "detail": "2 duplicate segments stacked on (205.792, 149.930)-(205.800, 149.900)",
+        "size": 0.031048349392523666
+       }
+      ],
+      "oracle_check": "disabled",
+      "blockers": [
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "single_ended",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y2",
+          "blocked_count": 11,
+          "unique_cells": 11,
+          "track_cells": 11,
+          "via_cells": 0,
+          "near_target_cells": 11,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_IN",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y1",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "stage": "single_ended",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y0",
+          "blocked_count": 11,
+          "unique_cells": 11,
+          "track_cells": 11,
+          "via_cells": 0,
+          "near_target_cells": 11,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "+3V3_CLK",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y7",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B1",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B5",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y3",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y1",
+          "preexisting": true
+         },
+         {
+          "net": "+3V3_CLK",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "preexisting": true
+         }
+        ]
+       }
+      ],
+      "boxed_in": [
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 5964,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y3"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 2249,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y1"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 6610,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_B1"
+       }
+      ],
+      "pad_pairs_connected": 7,
+      "pad_pairs_total": 12,
+      "pad_pairs_open": [
+       {
+        "net": "PDM_CLK_B1",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y6",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "partial"
+       }
+      ],
+      "scope": "run",
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [],
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_Y1",
+       "PDM_CLK_B1",
+       "PDM_CLK_B4"
+      ],
+      "open_single": [],
+      "failed_multipoint": [
+       {
+        "net_name": "PDM_CLK_Y6",
+        "failed_pads": [
+         {
+          "component_ref": "U2",
+          "pad_number": "?",
+          "x": 168.840832,
+          "y": 168.411932
+         }
+        ]
+       }
+      ],
+      "multipoint_nets": 1,
+      "multipoint_pads_connected": 1,
+      "multipoint_pads_total": 2,
+      "multipoint_edges_routed": 0,
+      "multipoint_edges_failed": 1,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 0,
+      "failed": 5,
+      "total_time": 1.64,
+      "total_iterations": 239651,
+      "total_vias": 0,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.1875,
+      "rescue": {
+       "attempted": 5,
+       "recovered": [],
+       "improved": [],
+       "unchanged": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B4",
+        "PDM_CLK_Y1",
+        "PDM_CLK_Y3",
+        "PDM_CLK_Y6"
+       ],
+       "pads_reconnected": 0,
+       "widths": {},
+       "time": 10.44
+      },
+      "stacked_copper": [
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 96.85,
+        "y": 152.072,
+        "detail": "2 duplicate segments stacked on (96.850, 152.072)-(96.900, 152.100)",
+        "size": 0.05730619512758342
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 98.057,
+        "y": 147.73,
+        "detail": "2 duplicate segments stacked on (98.057, 147.730)-(98.100, 147.700)",
+        "size": 0.052430906915667534
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 98.2,
+        "y": 171.2,
+        "detail": "2 duplicate segments stacked on (98.200, 171.200)-(98.250, 171.150)",
+        "size": 0.07071067811864068
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 99.352,
+        "y": 149.93,
+        "detail": "2 duplicate segments stacked on (99.352, 149.930)-(99.400, 149.900)",
+        "size": 0.05660388679234177
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 101.1,
+        "y": 127.3,
+        "detail": "2 duplicate segments stacked on (101.100, 127.300)-(101.147, 127.261)",
+        "size": 0.06107372593841949
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 103.467,
+        "y": 169.575,
+        "detail": "2 duplicate segments stacked on (103.467, 169.575)-(103.500, 169.600)",
+        "size": 0.04140048308897333
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 103.47,
+        "y": 130.392,
+        "detail": "2 duplicate segments stacked on (103.470, 130.392)-(103.500, 130.400)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 110.052,
+        "y": 113.283,
+        "detail": "2 duplicate segments stacked on (110.052, 113.283)-(110.100, 113.300)",
+        "size": 0.05092150822588301
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 111.452,
+        "y": 185.317,
+        "detail": "2 duplicate segments stacked on (111.452, 185.317)-(111.500, 185.300)",
+        "size": 0.05092150822589641
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 114.683,
+        "y": 111.452,
+        "detail": "2 duplicate segments stacked on (114.683, 111.452)-(114.700, 111.500)",
+        "size": 0.05092150822589641
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 127.252,
+        "y": 101.289,
+        "detail": "2 duplicate segments stacked on (127.252, 101.289)-(127.300, 101.300)",
+        "size": 0.04924428900898133
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 127.261,
+        "y": 198.853,
+        "detail": "2 duplicate segments stacked on (127.261, 198.853)-(127.300, 198.900)",
+        "size": 0.06107372593840855
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 128.8,
+        "y": 98.2,
+        "detail": "2 duplicate segments stacked on (128.800, 98.200)-(128.850, 98.250)",
+        "size": 0.07071067811864068
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 130.392,
+        "y": 196.53,
+        "detail": "2 duplicate segments stacked on (130.392, 196.530)-(130.400, 196.500)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 130.4,
+        "y": 103.5,
+        "detail": "2 duplicate segments stacked on (130.400, 103.500)-(130.425, 103.467)",
+        "size": 0.04140048308897333
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 147.9,
+        "y": 203.3,
+        "detail": "2 duplicate segments stacked on (147.900, 203.300)-(147.928, 203.290)",
+        "size": 0.029732137494635588
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 149.9,
+        "y": 200.6,
+        "detail": "2 duplicate segments stacked on (149.900, 200.600)-(149.930, 200.648)",
+        "size": 0.05660388679234177
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 150.07,
+        "y": 99.352,
+        "detail": "2 duplicate segments stacked on (150.070, 99.352)-(150.100, 99.400)",
+        "size": 0.05660388679234177
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 152.072,
+        "y": 96.71,
+        "detail": "2 duplicate segments stacked on (152.072, 96.710)-(152.100, 96.700)",
+        "size": 0.02973213749462603
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 159.75,
+        "y": 154.3,
+        "detail": "2 duplicate segments stacked on (159.750, 154.300)-(159.800, 154.300)",
+        "size": 0.05000000000001137
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 169.575,
+        "y": 196.533,
+        "detail": "2 duplicate segments stacked on (169.575, 196.533)-(169.600, 196.500)",
+        "size": 0.041400483088962006
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 169.6,
+        "y": 103.5,
+        "detail": "2 duplicate segments stacked on (169.600, 103.500)-(169.608, 103.470)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 172.7,
+        "y": 101.1,
+        "detail": "2 duplicate segments stacked on (172.700, 101.100)-(172.739, 101.147)",
+        "size": 0.06107372593842856
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 188.5,
+        "y": 114.7,
+        "detail": "2 duplicate segments stacked on (188.500, 114.700)-(188.548, 114.683)",
+        "size": 0.05092150822589641
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 196.5,
+        "y": 130.4,
+        "detail": "2 duplicate segments stacked on (196.500, 130.400)-(196.533, 130.425)",
+        "size": 0.041400483088962006
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 196.5,
+        "y": 169.6,
+        "detail": "2 duplicate segments stacked on (196.500, 169.600)-(196.530, 169.608)",
+        "size": 0.031048349392523666
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 198.7,
+        "y": 127.3,
+        "detail": "2 duplicate segments stacked on (198.700, 127.300)-(198.711, 127.252)",
+        "size": 0.04924428900898768
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 198.853,
+        "y": 172.739,
+        "detail": "2 duplicate segments stacked on (198.853, 172.739)-(198.900, 172.700)",
+        "size": 0.061073725938417624
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 200.6,
+        "y": 150.1,
+        "detail": "2 duplicate segments stacked on (200.600, 150.100)-(200.648, 150.070)",
+        "size": 0.05660388679234177
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 201.75,
+        "y": 128.85,
+        "detail": "2 duplicate segments stacked on (201.750, 128.850)-(201.800, 128.800)",
+        "size": 0.07071067811865073
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 201.9,
+        "y": 152.3,
+        "detail": "2 duplicate segments stacked on (201.900, 152.300)-(201.943, 152.270)",
+        "size": 0.05243090691567919
+       },
+       {
+        "category": "stacked-copper",
+        "net": "GND",
+        "layer": "F.Cu",
+        "x": 205.792,
+        "y": 149.93,
+        "detail": "2 duplicate segments stacked on (205.792, 149.930)-(205.800, 149.900)",
+        "size": 0.031048349392523666
+       }
+      ],
+      "oracle_check": "skipped",
+      "blockers": [
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y4",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y1",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B3",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "+3V3_CLK",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_D6",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y3",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y7",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B1",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y3",
+          "preexisting": true
+         },
+         {
+          "net": "MIC_DOUT_2",
+          "preexisting": true
+         },
+         {
+          "net": "MIC_VDD_2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_D1",
+          "preexisting": true
+         },
+         {
+          "net": "+3V3_CLK",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "preexisting": true
+         },
+         {
+          "net": "+3V3A",
+          "preexisting": true
+         },
+         {
+          "net": "MIC_VDD_9",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_D4",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y4",
+          "preexisting": true
+         }
+        ]
+       }
+      ],
+      "boxed_in": [
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 5964,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y3"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 2159,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y1"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 6593,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_B1"
+       }
+      ],
+      "pad_pairs_connected": 2,
+      "pad_pairs_total": 7,
+      "pad_pairs_open": [
+       {
+        "net": "PDM_CLK_B1",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y6",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "partial"
+       }
+      ],
+      "scope": "reconciliation-subset",
+      "board_scoped_keys": [
+       "stacked_copper",
+       "min_clearance_used"
+      ],
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY_MIN",
+     "summary": {
+      "failed": 5,
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_Y1",
+       "PDM_CLK_B1",
+       "PDM_CLK_B4"
+      ],
+      "finalize_excluded_nets": [
+       "GND"
+      ],
+      "main_loop_time_s": 3.3099999999999996,
+      "min_clearance_used": 0.1875,
+      "multipoint_deficit": 1,
+      "open_single": [],
+      "pad_pairs_open": {
+       "count": 5,
+       "nets": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B4",
+        "PDM_CLK_Y1",
+        "PDM_CLK_Y3",
+        "PDM_CLK_Y6"
+       ]
+      },
+      "routed": 0,
+      "scope": "merged",
+      "terminal_restores_broken": [],
+      "vias": 0
+     }
+    }
+   ],
+   "min_clearance_used_mm": 0.1875,
+   "output_sha256": "f94b200e77eafa94073afbd0c1687c92580ff5029d66b6f5c0ca2d20b78cf6fb",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "54e0a5b247edd76d0e91550234c36700b73253f9310f8eb583cef6e01647f1e7",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "rerun_endstate",
+   "board_sha256": "4c34722fcd2f4df41db4ac1f0131442c306f1eb44cd2db63b7a87d8c0a70f6ef",
+   "measured_refilled_sha256": "4c34722fcd2f4df41db4ac1f0131442c306f1eb44cd2db63b7a87d8c0a70f6ef",
+   "groups": {
+    "clock": {
+     "complete": 15,
+     "total": 20
+    },
+    "mic-data": {
+     "complete": 24,
+     "total": 24
+    },
+    "host": {
+     "complete": 16,
+     "total": 16
+    },
+    "power": {
+     "complete": 23,
+     "total": 23
+    }
+   },
+   "complete": 78,
+   "total": 83,
+   "nets_not_complete": [
+    "PDM_CLK_B1",
+    "PDM_CLK_B4",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y6"
+   ],
+   "vias": 214
+  },
+  {
+   "stage": "repeat_clock",
+   "router_stage": "clock",
+   "input_board_sha256": "f4c1cdeeb3528372a166f3715fde5e46ee19dac462dc92882e53a571ca87b6dc",
+   "configuration": [
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\krt_bench\\results\\seed34\\krt0213-a\\repeat_clock\\routed.kicad_pcb",
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+    "--no-bga-zones",
+    "--grid-step",
+    "0.05",
+    "--layers",
+    "F.Cu",
+    "--nets",
+    "MCLK_OSC",
+    "AUDIO_MCLK",
+    "PDM_CLK_IN",
+    "PDM_CLK_FPGA",
+    "PDM_CLK_Y0",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y2",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y4",
+    "PDM_CLK_Y5",
+    "PDM_CLK_Y6",
+    "PDM_CLK_Y7",
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7"
+   ],
+   "timeout_s": 1800,
+   "status": "completed",
+   "output_path": "repeat_clock\\routed.kicad_pcb",
+   "seconds": 262.7,
+   "returncode": 0,
+   "json_summaries": [
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [
+       "PDM_CLK_Y2",
+       "MCLK_OSC",
+       "PDM_CLK_Y4",
+       "PDM_CLK_Y6",
+       "PDM_CLK_B7",
+       "AUDIO_MCLK",
+       "PDM_CLK_B2",
+       "PDM_CLK_Y5",
+       "PDM_CLK_FPGA",
+       "PDM_CLK_B0",
+       "PDM_CLK_Y0",
+       "PDM_CLK_Y1",
+       "PDM_CLK_IN"
+      ],
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_Y7"
+      ],
+      "open_single": [],
+      "failed_multipoint": [
+       {
+        "net_name": "PDM_CLK_B5",
+        "failed_pads": [
+         {
+          "component_ref": "RC6",
+          "pad_number": "?",
+          "x": 167.880846,
+          "y": 166.171686
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_B4",
+        "failed_pads": [
+         {
+          "component_ref": "RC5",
+          "pad_number": "?",
+          "x": 177.162217,
+          "y": 168.927703
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_B6",
+        "failed_pads": [
+         {
+          "component_ref": "RC7",
+          "pad_number": "?",
+          "x": 170.56643,
+          "y": 165.122132
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_B1",
+        "failed_pads": [
+         {
+          "component_ref": "RC2",
+          "pad_number": "?",
+          "x": 170.74154,
+          "y": 166.310188
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_B3",
+        "failed_pads": [
+         {
+          "component_ref": "RC4",
+          "pad_number": "?",
+          "x": 172.901354,
+          "y": 165.322579
+         }
+        ]
+       }
+      ],
+      "multipoint_nets": 9,
+      "multipoint_pads_connected": 28,
+      "multipoint_pads_total": 33,
+      "multipoint_edges_routed": 18,
+      "multipoint_edges_failed": 5,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 13,
+      "failed": 7,
+      "total_time": 2.65,
+      "total_iterations": 1586740,
+      "total_vias": 0,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.1781,
+      "rescue": {
+       "attempted": 7,
+       "recovered": [],
+       "improved": [],
+       "unchanged": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B3",
+        "PDM_CLK_B4",
+        "PDM_CLK_B5",
+        "PDM_CLK_B6",
+        "PDM_CLK_Y3",
+        "PDM_CLK_Y7"
+       ],
+       "pads_reconnected": 0,
+       "widths": {},
+       "time": 17.97
+      },
+      "casualty_reconcile": {
+       "attempted": 1,
+       "restored": [],
+       "rerouted": [],
+       "partial": [
+        "PDM_CLK_Y7"
+       ],
+       "unrecovered": []
+      },
+      "oracle_check": "disabled",
+      "blockers": [
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y1",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y6",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_Y7",
+        "stage": "reroute",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_IN",
+          "blocked_count": 6,
+          "unique_cells": 6,
+          "track_cells": 6,
+          "via_cells": 0,
+          "near_target_cells": 6,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B5",
+        "stage": "phase3",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y6",
+          "blocked_count": 294,
+          "unique_cells": 294,
+          "track_cells": 294,
+          "via_cells": 0,
+          "near_target_cells": 232,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_B6",
+          "blocked_count": 73,
+          "unique_cells": 73,
+          "track_cells": 73,
+          "via_cells": 0,
+          "near_target_cells": 34,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "blocked_count": 43,
+          "unique_cells": 43,
+          "track_cells": 43,
+          "via_cells": 0,
+          "near_target_cells": 43,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y5",
+          "blocked_count": 13,
+          "unique_cells": 12,
+          "track_cells": 13,
+          "via_cells": 0,
+          "near_target_cells": 5,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_B1",
+          "blocked_count": 17,
+          "unique_cells": 16,
+          "track_cells": 17,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "stage": "phase3",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B7",
+          "blocked_count": 32,
+          "unique_cells": 32,
+          "track_cells": 32,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_FPGA",
+          "blocked_count": 10,
+          "unique_cells": 10,
+          "track_cells": 10,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "AUDIO_MCLK",
+          "blocked_count": 626,
+          "unique_cells": 623,
+          "track_cells": 626,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "blocked_count": 547,
+          "unique_cells": 453,
+          "track_cells": 547,
+          "via_cells": 0,
+          "near_target_cells": 97,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y1",
+          "blocked_count": 588,
+          "unique_cells": 498,
+          "track_cells": 588,
+          "via_cells": 0,
+          "near_target_cells": 3,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y2",
+          "blocked_count": 40,
+          "unique_cells": 39,
+          "track_cells": 40,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "+3V3_CLK",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B6",
+        "stage": "phase3",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y1",
+          "blocked_count": 926,
+          "unique_cells": 926,
+          "track_cells": 926,
+          "via_cells": 0,
+          "near_target_cells": 193,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_B2",
+          "blocked_count": 111,
+          "unique_cells": 111,
+          "track_cells": 111,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y2",
+          "blocked_count": 40,
+          "unique_cells": 40,
+          "track_cells": 40,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y5",
+          "blocked_count": 8,
+          "unique_cells": 8,
+          "track_cells": 8,
+          "via_cells": 0,
+          "near_target_cells": 8,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y0",
+          "blocked_count": 6,
+          "unique_cells": 6,
+          "track_cells": 6,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B6",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B3",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B0",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B7",
+          "preexisting": true
+         },
+         {
+          "net": "+3V3_CLK",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y7",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "stage": "phase3",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B2",
+          "blocked_count": 1063,
+          "unique_cells": 1063,
+          "track_cells": 1063,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_B0",
+          "blocked_count": 240,
+          "unique_cells": 240,
+          "track_cells": 240,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y1",
+          "blocked_count": 74,
+          "unique_cells": 74,
+          "track_cells": 74,
+          "via_cells": 0,
+          "near_target_cells": 13,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_IN",
+          "blocked_count": 177,
+          "unique_cells": 176,
+          "track_cells": 177,
+          "via_cells": 0,
+          "near_target_cells": 87,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y6",
+          "blocked_count": 141,
+          "unique_cells": 140,
+          "track_cells": 141,
+          "via_cells": 0,
+          "near_target_cells": 116,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_B5",
+          "blocked_count": 24,
+          "unique_cells": 23,
+          "track_cells": 24,
+          "via_cells": 0,
+          "near_target_cells": 22,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y2",
+          "blocked_count": 40,
+          "unique_cells": 39,
+          "track_cells": 40,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y7",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B3",
+        "stage": "phase3",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y1",
+          "blocked_count": 357,
+          "unique_cells": 355,
+          "track_cells": 357,
+          "via_cells": 0,
+          "near_target_cells": 197,
+          "near_source_cells": 0
+         },
+         {
+          "net": "PDM_CLK_Y6",
+          "blocked_count": 192,
+          "unique_cells": 190,
+          "track_cells": 192,
+          "via_cells": 0,
+          "near_target_cells": 67,
+          "near_source_cells": 0
+         }
+        ]
+       }
+      ],
+      "boxed_in": [
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 5363,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y3"
+       }
+      ],
+      "pad_pairs_connected": 28,
+      "pad_pairs_total": 35,
+      "pad_pairs_open": [
+       {
+        "net": "PDM_CLK_B1",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_B3",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_B5",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_B6",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y7",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "collision_refused"
+       }
+      ],
+      "scope": "run",
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [
+       "PDM_CLK_Y7",
+       "PDM_CLK_B5",
+       "PDM_CLK_B3"
+      ],
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_B1",
+       "PDM_CLK_B6",
+       "PDM_CLK_B4"
+      ],
+      "open_single": [],
+      "failed_multipoint": [
+       {
+        "net_name": "+3V3_CLK",
+        "failed_pads": [
+         {
+          "component_ref": "C8",
+          "pad_number": "?",
+          "x": 129.440899,
+          "y": 158.372998
+         },
+         {
+          "component_ref": "C9",
+          "pad_number": "?",
+          "x": 162.0,
+          "y": 135.775
+         },
+         {
+          "component_ref": "C6",
+          "pad_number": "?",
+          "x": 173.978391,
+          "y": 174.859419
+         },
+         {
+          "component_ref": "C7",
+          "pad_number": "?",
+          "x": 166.711565,
+          "y": 171.748752
+         },
+         {
+          "component_ref": "FB1",
+          "pad_number": "?",
+          "x": 154.0,
+          "y": 131.3625
+         },
+         {
+          "component_ref": "TP3",
+          "pad_number": "?",
+          "x": 166.7,
+          "y": 152.0
+         },
+         {
+          "component_ref": "X1",
+          "pad_number": "?",
+          "x": 130.85,
+          "y": 155.75
+         },
+         {
+          "component_ref": "X1",
+          "pad_number": "?",
+          "x": 132.75,
+          "y": 155.75
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_Y1",
+        "failed_pads": [
+         {
+          "component_ref": "RC2",
+          "pad_number": "?",
+          "x": 171.76154,
+          "y": 166.310188
+         }
+        ]
+       }
+      ],
+      "multipoint_nets": 0,
+      "multipoint_pads_connected": 0,
+      "multipoint_pads_total": 0,
+      "multipoint_edges_routed": 0,
+      "multipoint_edges_failed": 0,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 3,
+      "failed": 4,
+      "total_time": 1.89,
+      "total_iterations": 736331,
+      "total_vias": 0,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.1625,
+      "rescue": {
+       "attempted": 6,
+       "recovered": [
+        "PDM_CLK_B5",
+        "PDM_CLK_Y7"
+       ],
+       "improved": [],
+       "unchanged": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B4",
+        "PDM_CLK_B6",
+        "PDM_CLK_Y3"
+       ],
+       "pads_reconnected": 0,
+       "widths": {
+        "PDM_CLK_B5": {
+         "requested_mm": 0.15,
+         "delivered_mm": 0.15,
+         "rescue_min_mm": 0.15,
+         "rescue_max_mm": 0.15,
+         "rescue_segments_emitted": 69,
+         "rescue_by_width": {
+          "0.15": 69
+         },
+         "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+        },
+        "PDM_CLK_Y7": {
+         "requested_mm": 0.15,
+         "delivered_mm": 0.15,
+         "rescue_min_mm": 0.15,
+         "rescue_max_mm": 0.15,
+         "rescue_segments_emitted": 40,
+         "rescue_by_width": {
+          "0.15": 40
+         },
+         "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+        }
+       },
+       "time": 15.22
+      },
+      "preexisting_rips": {
+       "PDM_CLK_Y6": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_B7": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_IN": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_Y1": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "+3V3_CLK": "original copper restored [was blocking 'PDM_CLK_Y7']",
+       "PDM_CLK_B0": "original copper restored [was blocking 'PDM_CLK_Y7']"
+      },
+      "oracle_check": "skipped",
+      "ripped_open": [
+       "+3V3_CLK",
+       "PDM_CLK_Y1"
+      ],
+      "ripped_open_uncounted": [
+       "+3V3_CLK",
+       "PDM_CLK_Y1"
+      ],
+      "ripped_open_note": "ripped_open nets are OUTSIDE this run's --nets scope, so they move neither failed_single nor open_single. Those listed in ripped_open_uncounted are additionally not in either scoped term: if they are also outside the multipoint pad deficit, the run's open-net verdict is understated by that many.",
+      "blockers": [
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "single_ended",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B7",
+          "blocked_count": 167,
+          "unique_cells": 167,
+          "track_cells": 167,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         },
+         {
+          "net": "+3V3_CLK",
+          "blocked_count": 73,
+          "unique_cells": 73,
+          "track_cells": 73,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 0
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y3",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B6",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B1",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y5",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y4",
+          "preexisting": true
+         }
+        ]
+       }
+      ],
+      "boxed_in": [
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 1020,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y3"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 6981,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_B1"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 6656,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_B6"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 6126,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y1"
+       }
+      ],
+      "pad_pairs_connected": 21,
+      "pad_pairs_total": 34,
+      "pad_pairs_open": [
+       {
+        "net": "+3V3_CLK",
+        "pairs_connected": 0,
+        "pairs_total": 8,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_B6",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "collision_refused"
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       }
+      ],
+      "scope": "reconciliation-subset",
+      "board_scoped_keys": [
+       "min_clearance_used"
+      ],
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [
+       "PDM_CLK_B6"
+      ],
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_B1",
+       "PDM_CLK_B4"
+      ],
+      "open_single": [],
+      "failed_multipoint": [
+       {
+        "net_name": "PDM_CLK_Y1",
+        "failed_pads": [
+         {
+          "component_ref": "RC2",
+          "pad_number": "?",
+          "x": 171.76154,
+          "y": 166.310188
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_B3",
+        "failed_pads": [
+         {
+          "component_ref": "RC4",
+          "pad_number": "?",
+          "x": 172.901354,
+          "y": 165.322579
+         }
+        ]
+       },
+       {
+        "net_name": "PDM_CLK_Y6",
+        "failed_pads": [
+         {
+          "component_ref": "U2",
+          "pad_number": "?",
+          "x": 168.840832,
+          "y": 168.411932
+         }
+        ]
+       }
+      ],
+      "multipoint_nets": 0,
+      "multipoint_pads_connected": 0,
+      "multipoint_pads_total": 0,
+      "multipoint_edges_routed": 0,
+      "multipoint_edges_failed": 0,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 1,
+      "failed": 3,
+      "total_time": 1.36,
+      "total_iterations": 264149,
+      "total_vias": 0,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.1625,
+      "rescue": {
+       "attempted": 3,
+       "recovered": [],
+       "improved": [],
+       "unchanged": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B4",
+        "PDM_CLK_Y3"
+       ],
+       "pads_reconnected": 0,
+       "widths": {},
+       "time": 8.45
+      },
+      "preexisting_rips": {
+       "PDM_CLK_Y6": "NOT RECOVERED (still open; see terminal_restores/reconciliation) [was blocking 'PDM_CLK_B6']",
+       "PDM_CLK_IN": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_Y1": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_B3": "original copper restored [was blocking 'PDM_CLK_Y3']"
+      },
+      "casualty_reconcile": {
+       "attempted": 1,
+       "restored": [],
+       "rerouted": [],
+       "partial": [
+        "PDM_CLK_Y6"
+       ],
+       "unrecovered": []
+      },
+      "coverage_gate_nets": [
+       "PDM_CLK_Y6"
+      ],
+      "oracle_check": "skipped",
+      "ripped_open": [
+       "PDM_CLK_B3",
+       "PDM_CLK_Y1",
+       "PDM_CLK_Y6"
+      ],
+      "ripped_open_uncounted": [
+       "PDM_CLK_B3",
+       "PDM_CLK_Y1",
+       "PDM_CLK_Y6"
+      ],
+      "ripped_open_note": "ripped_open nets are OUTSIDE this run's --nets scope, so they move neither failed_single nor open_single. Those listed in ripped_open_uncounted are additionally not in either scoped term: if they are also outside the multipoint pad deficit, the run's open-net verdict is understated by that many.",
+      "blockers": [
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "single_ended",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y1",
+          "blocked_count": 24,
+          "unique_cells": 24,
+          "track_cells": 24,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 24
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y3",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y4",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B3",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B5",
+          "preexisting": true
+         }
+        ]
+       }
+      ],
+      "boxed_in": [
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 5649,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y3"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 6270,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_B1"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 898,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_B3"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 1657,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y6"
+       }
+      ],
+      "pad_pairs_connected": 15,
+      "pad_pairs_total": 21,
+      "pad_pairs_open": [
+       {
+        "net": "PDM_CLK_B1",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_B3",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "collision_refused"
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y6",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "collision_refused"
+       }
+      ],
+      "scope": "reconciliation-subset",
+      "board_scoped_keys": [
+       "min_clearance_used"
+      ],
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY",
+     "summary": {
+      "routed_single": [
+       "PDM_CLK_B3"
+      ],
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_B1",
+       "PDM_CLK_B4"
+      ],
+      "open_single": [],
+      "failed_multipoint": [
+       {
+        "net_name": "PDM_CLK_Y1",
+        "failed_pads": [
+         {
+          "component_ref": "RC2",
+          "pad_number": "?",
+          "x": 171.76154,
+          "y": 166.310188
+         }
+        ]
+       }
+      ],
+      "multipoint_nets": 1,
+      "multipoint_pads_connected": 3,
+      "multipoint_pads_total": 3,
+      "multipoint_edges_routed": 1,
+      "multipoint_edges_failed": 0,
+      "ripup_success_pairs": [],
+      "rerouted_pairs": [],
+      "single_ended_target_swaps": [],
+      "layer_swaps": 0,
+      "successful": 1,
+      "failed": 3,
+      "total_time": 0.87,
+      "total_iterations": 492488,
+      "total_vias": 0,
+      "cleanup_disconnected": [],
+      "min_clearance_used": 0.1625,
+      "rescue": {
+       "attempted": 3,
+       "recovered": [],
+       "improved": [],
+       "unchanged": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B4",
+        "PDM_CLK_Y3"
+       ],
+       "pads_reconnected": 0,
+       "widths": {},
+       "time": 6.93
+      },
+      "preexisting_rips": {
+       "PDM_CLK_IN": "original copper restored [was blocking 'PDM_CLK_Y3']",
+       "PDM_CLK_Y1": "original copper restored [was blocking 'PDM_CLK_Y3']"
+      },
+      "oracle_check": "skipped",
+      "ripped_open": [
+       "PDM_CLK_Y1"
+      ],
+      "ripped_open_uncounted": [
+       "PDM_CLK_Y1"
+      ],
+      "ripped_open_note": "ripped_open nets are OUTSIDE this run's --nets scope, so they move neither failed_single nor open_single. Those listed in ripped_open_uncounted are additionally not in either scoped term: if they are also outside the multipoint pad deficit, the run's open-net verdict is understated by that many.",
+      "blockers": [
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "single_ended",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y1",
+          "blocked_count": 24,
+          "unique_cells": 24,
+          "track_cells": 24,
+          "via_cells": 0,
+          "near_target_cells": 0,
+          "near_source_cells": 24
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_Y5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_B5",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y3",
+          "preexisting": true
+         }
+        ]
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "stage": "preexisting",
+        "blocked_by": [
+         {
+          "net": "PDM_CLK_B2",
+          "preexisting": true
+         },
+         {
+          "net": "PDM_CLK_Y4",
+          "preexisting": true
+         }
+        ]
+       }
+      ],
+      "boxed_in": [
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 5649,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_Y3"
+       },
+       {
+        "verdict": "boxed_in_static",
+        "iterations": 6270,
+        "geometry": {
+         "grid_step": 0.05,
+         "clearance": 0.2,
+         "track_width": 0.2,
+         "via_diameter": null
+        },
+        "net": "PDM_CLK_B1"
+       }
+      ],
+      "pad_pairs_connected": 14,
+      "pad_pairs_total": 18,
+      "pad_pairs_open": [
+       {
+        "net": "PDM_CLK_B1",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_B4",
+        "pairs_connected": 1,
+        "pairs_total": 2,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "partial"
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "pairs_connected": 0,
+        "pairs_total": 1,
+        "outcome": "open",
+        "open_subtype": "unrouted"
+       }
+      ],
+      "scope": "reconciliation-subset",
+      "board_scoped_keys": [
+       "min_clearance_used"
+      ],
+      "env_knobs": {}
+     }
+    },
+    {
+     "prefix": "JSON_SUMMARY_MIN",
+     "summary": {
+      "failed": 3,
+      "failed_single": [
+       "PDM_CLK_Y3",
+       "PDM_CLK_B1",
+       "PDM_CLK_B4"
+      ],
+      "finalize_excluded_nets": [
+       "GND"
+      ],
+      "main_loop_time_s": 6.7700000000000005,
+      "min_clearance_used": 0.1625,
+      "multipoint_deficit": 0,
+      "open_single": [],
+      "pad_pairs_open": {
+       "count": 4,
+       "nets": [
+        "PDM_CLK_B1",
+        "PDM_CLK_B4",
+        "PDM_CLK_Y1",
+        "PDM_CLK_Y3"
+       ]
+      },
+      "routed": 1,
+      "scope": "merged",
+      "terminal_restores_broken": [],
+      "vias": 0
+     }
+    }
+   ],
+   "min_clearance_used_mm": 0.1625,
+   "output_sha256": "fd560504f460c9ba86196d365b96c7ae7525c74fd3970cc0f6c13e6b48e4f6a5",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "fd9206f3b034aaa8e55d648d3aabba62c72ff72eb11206b07aaacb4d28d0926a",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "determinism_check",
+   "stage_repeated": "clock",
+   "first_output_sha256": "23dd1c81b00e715686be25442a3524e3b2d9ddc898f3f1675b371361abc83c21",
+   "repeat_output_sha256": "fd560504f460c9ba86196d365b96c7ae7525c74fd3970cc0f6c13e6b48e4f6a5",
+   "identical": false,
+   "meaning": "byte-identical output on identical input proves determinism for THIS stage only; inequality disproves it"
+  },
+  {
+   "stage": "done",
+   "total_seconds": 672.7
+  },
+  {
+   "stage": "determinism_semantic_comparison",
+   "meaning": "byte determinism is DISPROVEN by the sha mismatch above; this record compares the two outputs semantically, as the toolkit requires where a router is not bit-reproducible",
+   "first_missing_clock_nets": [
+    "PDM_CLK_B1",
+    "PDM_CLK_B4",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y6"
+   ],
+   "repeat_missing_clock_nets": [
+    "PDM_CLK_B1",
+    "PDM_CLK_B4",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y6"
+   ],
+   "same_missing_set": true
+  }
+ ]
+}

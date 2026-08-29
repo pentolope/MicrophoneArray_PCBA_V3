@@ -139,6 +139,7 @@
   "parity_failures_missing_candidate_artifacts": [
    "CPL.NATIVE_PARITY",
    "CPL.ORIENTATION",
+   "ERC.AUTHORITATIVE",
    "FAB.LAYER_IDENTITY",
    "PROV.REPORT_FRESHNESS",
    "STACK.GERBER_PARITY"
@@ -173,9 +174,9 @@
    "candidate_board": "4943c57ee28addecdd69732ecb1436e3f5b10e790170cc4262720ff0eed56930",
    "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
    "derivation": "4258ca1ff79201d16c03989581faec77422184652142349ab8ce3c531319cea6",
-   "gates_artifact": "c78228efd458faa8110f0421563c24a23b15104cdef424f1fa20b48656b3843f",
-   "generate_candidate.py": "46c72c873cd08633f99d640a5f3648c78daccd16f5a7c4033a099aa46f6690e6",
-   "metrics_artifact": "7223ae8f1786aea271648971ad8c04fd38f47b6dab7a0488cd9fe81ab35beacf",
+   "gates_artifact": "fd23df05ab4efd3bd0df1a4b7be3df2328bfbbe0951fea6d757e95e4986020c4",
+   "generate_candidate.py": "792a95cfa09388cff912e721fbdb961c8e8dffd81a8f0077c20b5515e977c5b8",
+   "metrics_artifact": "ccd4779fc50f7d1d522ffc72498430134ed7450a1e91adbe4229bc61d251dd04",
    "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
    "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
    "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
@@ -185,6 +186,6 @@
    "validate_candidate.py": "11c8933f3d87d2eac060d370b25243943b99092b7ef8a4c2b3dc49645e8fb93d",
    "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
   },
-  "digest": "f0d1f0e20dc32f9073dbedf3f7ebfcd625a9444e55e8b173fdb8a2c94ce1a142"
+  "digest": "650ef7bcad21d1af8146b7716a56f32dc4f54ffe0ee820e2960ae5cc2c2e86d4"
  }
 }

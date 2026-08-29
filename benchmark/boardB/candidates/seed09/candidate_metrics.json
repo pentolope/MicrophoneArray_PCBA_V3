@@ -3,7 +3,7 @@
   "kind": "ab-benchmark-report",
   "binding": {
    "board_file_sha256": "e9b7f17c8061883f2d9610ad4bf95d8c4dc8283cde128d2a7a90a16c968a44aa",
-   "toolkit_commit": "8251f658b268aa7b3b2c62d3c14662f9b63bdcf1",
+   "toolkit_commit": "4e14f5b0e2c6277469f5b08030f6cf16fc0114ca",
    "physical_evidence": {
     "kind": "resolved-physical-construction",
     "digest": "6ff4225cf2a7f1c505ff8a7c48aac5671dc5a5f487153782a75ece9eeb0400ef",
@@ -1825,17 +1825,25 @@
  "producer_closure": {
   "kind": "producer-closure",
   "components": {
+   "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
+   "baseline_net_inventory": "1f16019e917538d5f4534c274bc4e87370e814bd68c9026fcd3ab0479afd2c9f",
    "candidate_5v_result": "5ad38304b535c2987dbd24657c1a11b884984ff600d9f389deb0d4e634fee792",
-   "candidate_board": "e9b7f17c8061883f2d9610ad4bf95d8c4dc8283cde128d2a7a90a16c968a44aa",
-   "constraints": "512e0ac1c1ab6625a20f136d12ce2107b993c04323e511de0a403a14d9ee20b9",
+   "candidate_board": "feb2b634e7fdabf756303fd3491b9c81808fffb7a39a9895528752ad88159d3b",
+   "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
+   "derivation": "710452f4c6822cace550fd775e8d0d9416a62aa7ae9fce1aa35af18152505f46",
+   "extraction_semantics": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+   "generate_candidate.py": "792a95cfa09388cff912e721fbdb961c8e8dffd81a8f0077c20b5515e977c5b8",
+   "geometry_profile": "eb9cc7209106c00b4a25f30caae05930fad02e0f7dbb6f394c02d19da273550e",
+   "physical_construction": "6ff4225cf2a7f1c505ff8a7c48aac5671dc5a5f487153782a75ece9eeb0400ef",
    "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
    "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
    "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
-   "toolkit.extract": "8961e30ace6f9a13c0f20c0c912a6d270e5c6386a99cf876efa894dbada1adf0",
-   "toolkit.progression": "71bd7acfb79eaddd7e27db0d3010c2578a843dc9ec12b697e1a4165111b2f6bd",
-   "validate_candidate.py": "81f098910cb6bfc5547efd2ab0c8dda31a1e597d21b3cc6b6e967337c7a862f0",
-   "zone_policy": "878201e317cb631553f760d5253ef5ecc842f3dddb73dd1e1ab78f37f090cdff"
+   "toolkit.extract": "3c294c28327bbc6745547f654d75763a096b9100fd3d2409f70ecf499a87bd13",
+   "toolkit.netlist_contract": "d8e4000fad095d998157e0554ac67a6dbc8de516f9eb06ecb7ae2bc4a7b96708",
+   "toolkit.progression": "f4e982b585d800b44ee7e5b70fb4dc3cf9608bed31b09504f7f6a08c3bf66706",
+   "validate_candidate.py": "11c8933f3d87d2eac060d370b25243943b99092b7ef8a4c2b3dc49645e8fb93d",
+   "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
   },
-  "digest": "9d538f0e29922a6c05df12c71607ecf11bcc2941751d2f35a1f023b299360a98"
+  "digest": "5d456f79ffda2d3b60817861f6344df9e06d678061a0be8dbbd072acfae9cd77"
  }
 }

@@ -1,0 +1,85 @@
+{
+ "kind": "candidate-derivation",
+ "candidate": "seed37",
+ "parent_candidate_sha256": null,
+ "seed": 37,
+ "inputs": {
+  "board_a_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+  "placement_semantics_sha256": "6127564353e888787fb689f251fbb0899b0fa03c4cce08fbfe226b332ea4145e",
+  "constraints_sha256": "512e0ac1c1ab6625a20f136d12ce2107b993c04323e511de0a403a14d9ee20b9",
+  "zone_policy_sha256": "878201e317cb631553f760d5253ef5ecc842f3dddb73dd1e1ab78f37f090cdff",
+  "generator_semantics_version": "5",
+  "generator_sha256": "594cc5e3ee90926c3cbf09c402f3238ea99fa10579696857d5e109ef5d52dc39",
+  "optimizer_sha256": "aec7710ccf75a8f45451765130b295261b820bcdcc8f5fd522fa6de33a75dc78",
+  "router_sha256": "b67db22acbf1264137b150c65d42a042b7b6abe922d168a6da65a9075c1b20c8",
+  "krt_identity_sha256": "f8d6e639863feea0de61f5b5cd5572025c4b0993c54d73b86239ac3d1a4a56f9"
+ },
+ "records": [
+  {
+   "stage": "krt_resolved",
+   "krt_identity_sha256": "f8d6e639863feea0de61f5b5cd5572025c4b0993c54d73b86239ac3d1a4a56f9",
+   "previous_identity_sha256": null,
+   "provenance": {
+    "kind": "krt-provenance",
+    "source_path": "C:\\Users\\pentolope\\Documents\\GitHub\\KiCadRoutingTools",
+    "version": "0.21.3",
+    "git": {
+     "sha": "2c84c012e0185a789775726c5b3dc9e8fe120fde",
+     "dirty": false,
+     "upstream_base": "2c84c012e0185a789775726c5b3dc9e8fe120fde"
+    },
+    "grid_router": {
+     "path": "C:\\Users\\pentolope\\Documents\\GitHub\\KiCadRoutingTools\\rust_router\\grid_router.pyd",
+     "sha256": "bc71d2605f7ad70f4db55e9abbfd7516701e9887ed64436b37cbcb0e8218a031",
+     "version": "0.21.1"
+    },
+    "python": {
+     "executable": "C:/Program Files/KiCad/10.0/bin/python.exe",
+     "version": "3.11.5"
+    },
+    "kicad_version": "10.0.5",
+    "meaning": "the routing implementation identity for this run; a different sha, dirty state or native hash is a different router, and downstream routing-derived artifacts must go stale with it"
+   }
+  },
+  {
+   "stage": "ingest_placed",
+   "source": "benchmark\\krt_bench\\portfolio\\seed34\\run-a\\cand_01.kicad_pcb",
+   "source_sha256": "39e206d3544ef3a4b4c84e57a9e4d5418d35b7b97f82698a6211ec43a083c89e",
+   "placed_sha256": "39e206d3544ef3a4b4c84e57a9e4d5418d35b7b97f82698a6211ec43a083c89e",
+   "note": "externally produced placement adopted as lineage; it earns nothing by its origin and is judged like any generated one"
+  },
+  {
+   "stage": "reuse_revalidation",
+   "placed_sha256": "39e206d3544ef3a4b4c84e57a9e4d5418d35b7b97f82698a6211ec43a083c89e",
+   "policy_ok": false,
+   "violated": [
+    4
+   ],
+   "overlapping_pairs": []
+  }
+ ],
+ "krt": {
+  "identity_sha256": "f8d6e639863feea0de61f5b5cd5572025c4b0993c54d73b86239ac3d1a4a56f9",
+  "provenance": {
+   "kind": "krt-provenance",
+   "source_path": "C:\\Users\\pentolope\\Documents\\GitHub\\KiCadRoutingTools",
+   "version": "0.21.3",
+   "git": {
+    "sha": "2c84c012e0185a789775726c5b3dc9e8fe120fde",
+    "dirty": false,
+    "upstream_base": "2c84c012e0185a789775726c5b3dc9e8fe120fde"
+   },
+   "grid_router": {
+    "path": "C:\\Users\\pentolope\\Documents\\GitHub\\KiCadRoutingTools\\rust_router\\grid_router.pyd",
+    "sha256": "bc71d2605f7ad70f4db55e9abbfd7516701e9887ed64436b37cbcb0e8218a031",
+    "version": "0.21.1"
+   },
+   "python": {
+    "executable": "C:/Program Files/KiCad/10.0/bin/python.exe",
+    "version": "3.11.5"
+   },
+   "kicad_version": "10.0.5",
+   "meaning": "the routing implementation identity for this run; a different sha, dirty state or native hash is a different router, and downstream routing-derived artifacts must go stale with it"
+  }
+ }
+}

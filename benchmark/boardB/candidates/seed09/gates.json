@@ -5,17 +5,20 @@
  "producer_closure": {
   "kind": "producer-closure",
   "components": {
-   "candidate_board": "e9b7f17c8061883f2d9610ad4bf95d8c4dc8283cde128d2a7a90a16c968a44aa",
-   "constraints": "512e0ac1c1ab6625a20f136d12ce2107b993c04323e511de0a403a14d9ee20b9",
+   "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
+   "candidate_board": "feb2b634e7fdabf756303fd3491b9c81808fffb7a39a9895528752ad88159d3b",
+   "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
+   "generate_candidate.py": "792a95cfa09388cff912e721fbdb961c8e8dffd81a8f0077c20b5515e977c5b8",
    "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
    "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
    "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
-   "toolkit.extract": "8961e30ace6f9a13c0f20c0c912a6d270e5c6386a99cf876efa894dbada1adf0",
-   "toolkit.progression": "71bd7acfb79eaddd7e27db0d3010c2578a843dc9ec12b697e1a4165111b2f6bd",
-   "validate_candidate.py": "f0304bb2b1d9d8f4ee792bd95b161f71480d964cab59fba669c29cb7eac1cc6a",
-   "zone_policy": "878201e317cb631553f760d5253ef5ecc842f3dddb73dd1e1ab78f37f090cdff"
+   "toolkit.extract": "3c294c28327bbc6745547f654d75763a096b9100fd3d2409f70ecf499a87bd13",
+   "toolkit.netlist_contract": "d8e4000fad095d998157e0554ac67a6dbc8de516f9eb06ecb7ae2bc4a7b96708",
+   "toolkit.progression": "f4e982b585d800b44ee7e5b70fb4dc3cf9608bed31b09504f7f6a08c3bf66706",
+   "validate_candidate.py": "11c8933f3d87d2eac060d370b25243943b99092b7ef8a4c2b3dc49645e8fb93d",
+   "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
   },
-  "digest": "6d2ff51b061fbf75fb1024677221d420d5dbb18f21ce87d135155e66592896ee"
+  "digest": "c4f8d2e870db1555c2d72fc3733112d467b334dc9b26be4e6fa893d3992b5c2b"
  },
  "statuses": {
   "placement_policy_satisfied": true,
@@ -114,30 +117,29 @@
    }
   },
   "critical_clock_nets_connected": false,
+  "netlist_parity": {
+   "kind": "netlist-parity",
+   "ok": true,
+   "missing_footprints": [],
+   "added_footprints": [],
+   "missing_pads": [],
+   "added_pads": [],
+   "changed_assignments": {},
+   "missing_nets": [],
+   "unexpected_nets": [],
+   "detail": "candidate pad-to-net assignments judged against the authoritative product intent; the candidate never defines its own denominator"
+  },
   "fabrication_geometry": {
    "ok": true,
-   "detail": "{}"
+   "detail": "direct kicad-cli DRC at the declared rules on this exact candidate; raw sha e9b7f17c8061, judged refilled-copy sha e9b7f17c8061; violations: {}"
   },
-  "candidate_derived_artifacts": {
-   "gerbers": 0,
-   "drill": 0,
-   "files": [
-    "candidate_routed-B_Cu.gbl",
-    "candidate_routed-B_Mask.gbs",
-    "candidate_routed-B_Paste.gbp",
-    "candidate_routed-B_Silkscreen.gbo",
-    "candidate_routed-Edge_Cuts.gm1",
-    "candidate_routed-F_Cu.gtl",
-    "candidate_routed-F_Mask.gts",
-    "candidate_routed-F_Paste.gtp",
-    "candidate_routed-F_Silkscreen.gto",
-    "candidate_routed-GND1.g1",
-    "candidate_routed-GND2.g2",
-    "candidate_routed-NPTH.drl",
-    "candidate_routed-PTH.drl",
-    "candidate_routed-job.gbrjob"
-   ]
+  "fabrication_identity": {
+   "raw_board_sha256": "e9b7f17c8061883f2d9610ad4bf95d8c4dc8283cde128d2a7a90a16c968a44aa",
+   "judged_board_sha256": "e9b7f17c8061883f2d9610ad4bf95d8c4dc8283cde128d2a7a90a16c968a44aa",
+   "verdict_ok": true,
+   "meaning": "raw is the candidate file as decided on; judged is the canonical zone-refilled working copy the DRC measured - two declared identities, never conflated"
   },
+  "candidate_derived_artifacts": null,
   "failing_gate_classes": {
    "CPL.NATIVE_PARITY": "board-a-release-parity (missing candidate-derived artifacts)",
    "CPL.ORIENTATION": "board-a-release-parity (missing candidate-derived artifacts)",
@@ -153,6 +155,17 @@
    "VIA.MASK_CLEARANCE_TARGET": "candidate-design"
   },
   "validation": {
+   "validation_artifact": {
+    "attempt_path": "out\\boardB-seed09-candidate\\attempts\\20260829T074631Z-170a25a0\\validation.json",
+    "canonical_sha256": "9fe9198b4c08ea13c19a19a6c586f8cf5085a1374cd6c5865e6279cdd377101d",
+    "implementation": {
+     "toolkit_root": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\tooling\\PCB_AutoDesignAndTest",
+     "commit": "4e14f5b0e2c6277469f5b08030f6cf16fc0114ca",
+     "working_tree_dirty": false,
+     "detail": "git HEAD of the toolkit checkout that executed this validation"
+    },
+    "meaning": "the exact validation artifact these gate truths were lifted from, by canonical content identity, with the implementation that produced it"
+   },
    "verdict": "REJECTED",
    "counts": {
     "PASS": 19,
@@ -242,8 +255,8 @@
    },
    "runner": {
     "returncode": 1,
-    "seconds": 23.6,
-    "log_tail": "09-candidate\\attempts\\20260828T121903Z-140cd161\\validation.json\nMarkdown: C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\boardB-seed09-candidate\\attempts\\20260828T121903Z-140cd161\\validation.md\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\n"
+    "seconds": 47.1,
+    "log_tail": "09-candidate\\attempts\\20260829T074631Z-170a25a0\\validation.json\nMarkdown: C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\boardB-seed09-candidate\\attempts\\20260829T074631Z-170a25a0\\validation.md\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\n"
    }
   },
   "extraction_available": true,

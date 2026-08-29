@@ -1,0 +1,848 @@
+{
+ "kind": "clock-probe",
+ "name": "seed34-repaired",
+ "input_board": "benchmark\\krt_bench\\repair\\seed34\\repaired.kicad_pcb",
+ "input_board_sha256": "6b113f7269a1f9b90d9fb36d2054121bbffb4257c3b85ff136712e3f5fd33380",
+ "krt_identity_sha256": "f8d6e639863feea0de61f5b5cd5572025c4b0993c54d73b86239ac3d1a4a56f9",
+ "clock_nets": [
+  "MCLK_OSC",
+  "AUDIO_MCLK",
+  "PDM_CLK_IN",
+  "PDM_CLK_FPGA",
+  "PDM_CLK_Y0",
+  "PDM_CLK_Y1",
+  "PDM_CLK_Y2",
+  "PDM_CLK_Y3",
+  "PDM_CLK_Y4",
+  "PDM_CLK_Y5",
+  "PDM_CLK_Y6",
+  "PDM_CLK_Y7",
+  "PDM_CLK_B0",
+  "PDM_CLK_B1",
+  "PDM_CLK_B2",
+  "PDM_CLK_B3",
+  "PDM_CLK_B4",
+  "PDM_CLK_B5",
+  "PDM_CLK_B6",
+  "PDM_CLK_B7"
+ ],
+ "configuration": [
+  "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\krt_bench\\results\\probes\\seed34-repaired-work\\probe_routed.kicad_pcb",
+  "--via-proximity-cost",
+  "25",
+  "--no-fix-drc-settings",
+  "--fab-overrides",
+  "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+  "--no-bga-zones",
+  "--grid-step",
+  "0.05",
+  "--layers",
+  "F.Cu",
+  "--nets",
+  "MCLK_OSC",
+  "AUDIO_MCLK",
+  "PDM_CLK_IN",
+  "PDM_CLK_FPGA",
+  "PDM_CLK_Y0",
+  "PDM_CLK_Y1",
+  "PDM_CLK_Y2",
+  "PDM_CLK_Y3",
+  "PDM_CLK_Y4",
+  "PDM_CLK_Y5",
+  "PDM_CLK_Y6",
+  "PDM_CLK_Y7",
+  "PDM_CLK_B0",
+  "PDM_CLK_B1",
+  "PDM_CLK_B2",
+  "PDM_CLK_B3",
+  "PDM_CLK_B4",
+  "PDM_CLK_B5",
+  "PDM_CLK_B6",
+  "PDM_CLK_B7"
+ ],
+ "timeout_s": 600,
+ "seconds": 81.2,
+ "returncode": 0,
+ "json_summaries": [
+  {
+   "prefix": "JSON_SUMMARY",
+   "summary": {
+    "routed_single": [
+     "PDM_CLK_B5",
+     "PDM_CLK_B1",
+     "PDM_CLK_Y6",
+     "PDM_CLK_Y4",
+     "MCLK_OSC",
+     "PDM_CLK_Y2",
+     "PDM_CLK_Y7",
+     "PDM_CLK_Y0",
+     "PDM_CLK_Y3",
+     "AUDIO_MCLK",
+     "PDM_CLK_IN",
+     "PDM_CLK_FPGA",
+     "PDM_CLK_Y1"
+    ],
+    "failed_single": [
+     "PDM_CLK_Y5"
+    ],
+    "open_single": [
+     "PDM_CLK_B7",
+     "PDM_CLK_B6",
+     "PDM_CLK_B0",
+     "PDM_CLK_B2",
+     "PDM_CLK_B3",
+     "PDM_CLK_B4"
+    ],
+    "failed_multipoint": [
+     {
+      "net_name": "PDM_CLK_B0",
+      "failed_pads": [
+       {
+        "component_ref": "RC1",
+        "pad_number": "?",
+        "x": 173.11,
+        "y": 177.1
+       }
+      ]
+     },
+     {
+      "net_name": "PDM_CLK_B2",
+      "failed_pads": [
+       {
+        "component_ref": "RC3",
+        "pad_number": "?",
+        "x": 179.61,
+        "y": 170.0
+       }
+      ]
+     },
+     {
+      "net_name": "PDM_CLK_B3",
+      "failed_pads": [
+       {
+        "component_ref": "RC4",
+        "pad_number": "?",
+        "x": 170.89,
+        "y": 164.3
+       }
+      ]
+     },
+     {
+      "net_name": "PDM_CLK_B4",
+      "failed_pads": [
+       {
+        "component_ref": "RC5",
+        "pad_number": "?",
+        "x": 177.2,
+        "y": 165.89
+       }
+      ]
+     },
+     {
+      "net_name": "PDM_CLK_B6",
+      "failed_pads": [
+       {
+        "component_ref": "RC7",
+        "pad_number": "?",
+        "x": 172.61,
+        "y": 166.1
+       }
+      ]
+     },
+     {
+      "net_name": "PDM_CLK_B7",
+      "failed_pads": [
+       {
+        "component_ref": "RC8",
+        "pad_number": "?",
+        "x": 172.71,
+        "y": 175.8
+       }
+      ]
+     }
+    ],
+    "multipoint_nets": 1,
+    "multipoint_pads_connected": 9,
+    "multipoint_pads_total": 9,
+    "multipoint_edges_routed": 8,
+    "multipoint_edges_failed": 0,
+    "ripup_success_pairs": [],
+    "rerouted_pairs": [],
+    "single_ended_target_swaps": [],
+    "layer_swaps": 0,
+    "successful": 13,
+    "failed": 7,
+    "total_time": 2.7,
+    "total_iterations": 705065,
+    "total_vias": 8,
+    "cleanup_disconnected": [],
+    "min_clearance_used": 0.1625,
+    "rescue": {
+     "attempted": 9,
+     "recovered": [
+      "PDM_CLK_B1",
+      "PDM_CLK_B5"
+     ],
+     "improved": [
+      "PDM_CLK_B0",
+      "PDM_CLK_B2",
+      "PDM_CLK_B3",
+      "PDM_CLK_B4",
+      "PDM_CLK_B6",
+      "PDM_CLK_B7"
+     ],
+     "unchanged": [
+      "PDM_CLK_Y5"
+     ],
+     "pads_reconnected": 0,
+     "widths": {
+      "PDM_CLK_B0": {
+       "requested_mm": 0.15,
+       "delivered_mm": 0.15,
+       "rescue_min_mm": 0.15,
+       "rescue_max_mm": 0.15,
+       "rescue_segments_emitted": 23,
+       "rescue_by_width": {
+        "0.15": 23
+       },
+       "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+      },
+      "PDM_CLK_B1": {
+       "requested_mm": 0.15,
+       "delivered_mm": 0.15,
+       "rescue_min_mm": 0.15,
+       "rescue_max_mm": 0.15,
+       "rescue_segments_emitted": 61,
+       "rescue_by_width": {
+        "0.15": 61
+       },
+       "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+      },
+      "PDM_CLK_B2": {
+       "requested_mm": 0.15,
+       "delivered_mm": 0.15,
+       "rescue_min_mm": 0.15,
+       "rescue_max_mm": 0.15,
+       "rescue_segments_emitted": 15,
+       "rescue_by_width": {
+        "0.15": 15
+       },
+       "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+      },
+      "PDM_CLK_B3": {
+       "requested_mm": 0.15,
+       "delivered_mm": 0.15,
+       "rescue_min_mm": 0.15,
+       "rescue_max_mm": 0.15,
+       "rescue_segments_emitted": 26,
+       "rescue_by_width": {
+        "0.15": 26
+       },
+       "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+      },
+      "PDM_CLK_B4": {
+       "requested_mm": 0.15,
+       "delivered_mm": 0.15,
+       "rescue_min_mm": 0.15,
+       "rescue_max_mm": 0.15,
+       "rescue_segments_emitted": 15,
+       "rescue_by_width": {
+        "0.15": 15
+       },
+       "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+      },
+      "PDM_CLK_B5": {
+       "requested_mm": 0.15,
+       "delivered_mm": 0.15,
+       "rescue_min_mm": 0.15,
+       "rescue_max_mm": 0.15,
+       "rescue_segments_emitted": 101,
+       "rescue_by_width": {
+        "0.15": 101
+       },
+       "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+      },
+      "PDM_CLK_B6": {
+       "requested_mm": 0.15,
+       "delivered_mm": 0.15,
+       "rescue_min_mm": 0.15,
+       "rescue_max_mm": 0.15,
+       "rescue_segments_emitted": 15,
+       "rescue_by_width": {
+        "0.15": 15
+       },
+       "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+      },
+      "PDM_CLK_B7": {
+       "requested_mm": 0.15,
+       "delivered_mm": 0.15,
+       "rescue_min_mm": 0.15,
+       "rescue_max_mm": 0.15,
+       "rescue_segments_emitted": 26,
+       "rescue_by_width": {
+        "0.15": 26
+       },
+       "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+      }
+     },
+     "time": 37.23
+    },
+    "casualty_reconcile": {
+     "attempted": 1,
+     "restored": [],
+     "rerouted": [],
+     "partial": [
+      "PDM_CLK_Y5"
+     ],
+     "unrecovered": []
+    },
+    "terminal_restores": {
+     "PDM_CLK_Y5": "stub"
+    },
+    "oracle_check": "disabled",
+    "blockers": [
+     {
+      "net": "PDM_CLK_Y5",
+      "stage": "reroute",
+      "blocked_by": [
+       {
+        "net": "PDM_CLK_Y2",
+        "blocked_count": 187,
+        "unique_cells": 187,
+        "track_cells": 187,
+        "via_cells": 0,
+        "near_target_cells": 0,
+        "near_source_cells": 0
+       },
+       {
+        "net": "PDM_CLK_Y6",
+        "blocked_count": 53,
+        "unique_cells": 53,
+        "track_cells": 53,
+        "via_cells": 0,
+        "near_target_cells": 0,
+        "near_source_cells": 2
+       }
+      ]
+     }
+    ],
+    "boxed_in": [
+     {
+      "verdict": "boxed_in_static",
+      "iterations": 1110,
+      "geometry": {
+       "grid_step": 0.05,
+       "clearance": 0.2,
+       "track_width": 0.2,
+       "via_diameter": null
+      },
+      "net": "PDM_CLK_B0"
+     },
+     {
+      "verdict": "boxed_in_static",
+      "iterations": 1126,
+      "geometry": {
+       "grid_step": 0.05,
+       "clearance": 0.2,
+       "track_width": 0.2,
+       "via_diameter": null
+      },
+      "net": "PDM_CLK_B2"
+     },
+     {
+      "verdict": "boxed_in_static",
+      "iterations": 1124,
+      "geometry": {
+       "grid_step": 0.05,
+       "clearance": 0.2,
+       "track_width": 0.2,
+       "via_diameter": null
+      },
+      "net": "PDM_CLK_B3"
+     },
+     {
+      "verdict": "boxed_in_static",
+      "iterations": 1057,
+      "geometry": {
+       "grid_step": 0.05,
+       "clearance": 0.2,
+       "track_width": 0.2,
+       "via_diameter": null
+      },
+      "net": "PDM_CLK_B4"
+     },
+     {
+      "verdict": "boxed_in_static",
+      "iterations": 1079,
+      "geometry": {
+       "grid_step": 0.05,
+       "clearance": 0.2,
+       "track_width": 0.2,
+       "via_diameter": null
+      },
+      "net": "PDM_CLK_B6"
+     },
+     {
+      "verdict": "boxed_in_static",
+      "iterations": 5581,
+      "geometry": {
+       "grid_step": 0.05,
+       "clearance": 0.2,
+       "track_width": 0.2,
+       "via_diameter": null
+      },
+      "net": "PDM_CLK_B7"
+     }
+    ],
+    "pad_pairs_connected": 28,
+    "pad_pairs_total": 35,
+    "pad_pairs_open": [
+     {
+      "net": "PDM_CLK_B0",
+      "pairs_connected": 1,
+      "pairs_total": 2,
+      "outcome": "open",
+      "open_subtype": "partial"
+     },
+     {
+      "net": "PDM_CLK_B2",
+      "pairs_connected": 1,
+      "pairs_total": 2,
+      "outcome": "open",
+      "open_subtype": "partial"
+     },
+     {
+      "net": "PDM_CLK_B3",
+      "pairs_connected": 1,
+      "pairs_total": 2,
+      "outcome": "open",
+      "open_subtype": "partial"
+     },
+     {
+      "net": "PDM_CLK_B4",
+      "pairs_connected": 1,
+      "pairs_total": 2,
+      "outcome": "open",
+      "open_subtype": "partial"
+     },
+     {
+      "net": "PDM_CLK_B6",
+      "pairs_connected": 1,
+      "pairs_total": 2,
+      "outcome": "open",
+      "open_subtype": "partial"
+     },
+     {
+      "net": "PDM_CLK_B7",
+      "pairs_connected": 1,
+      "pairs_total": 2,
+      "outcome": "open",
+      "open_subtype": "partial"
+     },
+     {
+      "net": "PDM_CLK_Y5",
+      "pairs_connected": 0,
+      "pairs_total": 1,
+      "outcome": "open",
+      "open_subtype": "collision_refused"
+     }
+    ],
+    "scope": "run",
+    "env_knobs": {}
+   }
+  },
+  {
+   "prefix": "JSON_SUMMARY",
+   "summary": {
+    "routed_single": [],
+    "failed_single": [
+     "PDM_CLK_Y5",
+     "PDM_CLK_B7",
+     "PDM_CLK_B3",
+     "PDM_CLK_B4",
+     "PDM_CLK_B2",
+     "PDM_CLK_B6",
+     "PDM_CLK_B0"
+    ],
+    "open_single": [],
+    "failed_multipoint": [
+     {
+      "net_name": "PDM_CLK_Y5",
+      "failed_pads": [
+       {
+        "component_ref": "U2",
+        "pad_number": "?",
+        "x": 174.565832,
+        "y": 168.411932
+       }
+      ]
+     }
+    ],
+    "multipoint_nets": 0,
+    "multipoint_pads_connected": 0,
+    "multipoint_pads_total": 0,
+    "multipoint_edges_routed": 0,
+    "multipoint_edges_failed": 0,
+    "ripup_success_pairs": [],
+    "rerouted_pairs": [],
+    "single_ended_target_swaps": [],
+    "layer_swaps": 0,
+    "successful": 0,
+    "failed": 7,
+    "total_time": 0.94,
+    "total_iterations": 1559209,
+    "total_vias": 2,
+    "cleanup_disconnected": [],
+    "min_clearance_used": 0.1625,
+    "rescue": {
+     "attempted": 7,
+     "recovered": [],
+     "improved": [
+      "PDM_CLK_Y5"
+     ],
+     "unchanged": [
+      "PDM_CLK_B0",
+      "PDM_CLK_B2",
+      "PDM_CLK_B3",
+      "PDM_CLK_B4",
+      "PDM_CLK_B6",
+      "PDM_CLK_B7"
+     ],
+     "pads_reconnected": 0,
+     "widths": {
+      "PDM_CLK_Y5": {
+       "requested_mm": 0.15,
+       "delivered_mm": 0.2,
+       "rescue_min_mm": 0.2,
+       "rescue_max_mm": 0.2,
+       "rescue_segments_emitted": 18,
+       "rescue_by_width": {
+        "0.2": 18
+       },
+       "scope": "THIS RESCUE ONLY -- not the net. Counts are as EMITTED, before cycle-prune drops redundant loop segments, so the board can carry fewer. For the net's whole width profile, measure the board."
+      }
+     },
+     "time": 21.01
+    },
+    "oracle_check": "skipped",
+    "blockers": [
+     {
+      "net": "PDM_CLK_Y5",
+      "stage": "preexisting",
+      "blocked_by": [
+       {
+        "net": "PDM_CLK_IN",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y4",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_B5",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "preexisting": true
+       }
+      ]
+     },
+     {
+      "net": "PDM_CLK_B7",
+      "stage": "preexisting",
+      "blocked_by": [
+       {
+        "net": "PDM_CLK_Y7",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y0",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_IN",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y2",
+        "preexisting": true
+       }
+      ]
+     },
+     {
+      "net": "PDM_CLK_B3",
+      "stage": "preexisting",
+      "blocked_by": [
+       {
+        "net": "PDM_CLK_Y1",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_FPGA",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "preexisting": true
+       }
+      ]
+     },
+     {
+      "net": "PDM_CLK_B4",
+      "stage": "preexisting",
+      "blocked_by": [
+       {
+        "net": "PDM_CLK_Y3",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y4",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_B5",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_IN",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y6",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "preexisting": true
+       }
+      ]
+     },
+     {
+      "net": "PDM_CLK_B2",
+      "stage": "preexisting",
+      "blocked_by": [
+       {
+        "net": "PDM_CLK_Y1",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y2",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_IN",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y7",
+        "preexisting": true
+       }
+      ]
+     },
+     {
+      "net": "PDM_CLK_B6",
+      "stage": "preexisting",
+      "blocked_by": [
+       {
+        "net": "PDM_CLK_B1",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y6",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y1",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_IN",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_B5",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y3",
+        "preexisting": true
+       }
+      ]
+     },
+     {
+      "net": "PDM_CLK_B0",
+      "stage": "preexisting",
+      "blocked_by": [
+       {
+        "net": "PDM_CLK_Y1",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y0",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_IN",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y7",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_Y2",
+        "preexisting": true
+       },
+       {
+        "net": "PDM_CLK_B1",
+        "preexisting": true
+       }
+      ]
+     }
+    ],
+    "boxed_in": [
+     {
+      "verdict": "boxed_in_static",
+      "iterations": 5297,
+      "geometry": {
+       "grid_step": 0.05,
+       "clearance": 0.2,
+       "track_width": 0.2,
+       "via_diameter": null
+      },
+      "net": "PDM_CLK_B3"
+     }
+    ],
+    "pad_pairs_connected": 6,
+    "pad_pairs_total": 13,
+    "pad_pairs_open": [
+     {
+      "net": "PDM_CLK_B0",
+      "pairs_connected": 1,
+      "pairs_total": 2,
+      "outcome": "open",
+      "open_subtype": "unrouted"
+     },
+     {
+      "net": "PDM_CLK_B2",
+      "pairs_connected": 1,
+      "pairs_total": 2,
+      "outcome": "open",
+      "open_subtype": "unrouted"
+     },
+     {
+      "net": "PDM_CLK_B3",
+      "pairs_connected": 1,
+      "pairs_total": 2,
+      "outcome": "open",
+      "open_subtype": "unrouted"
+     },
+     {
+      "net": "PDM_CLK_B4",
+      "pairs_connected": 1,
+      "pairs_total": 2,
+      "outcome": "open",
+      "open_subtype": "unrouted"
+     },
+     {
+      "net": "PDM_CLK_B6",
+      "pairs_connected": 1,
+      "pairs_total": 2,
+      "outcome": "open",
+      "open_subtype": "unrouted"
+     },
+     {
+      "net": "PDM_CLK_B7",
+      "pairs_connected": 1,
+      "pairs_total": 2,
+      "outcome": "open",
+      "open_subtype": "unrouted"
+     },
+     {
+      "net": "PDM_CLK_Y5",
+      "pairs_connected": 0,
+      "pairs_total": 1,
+      "outcome": "open",
+      "open_subtype": "unrouted"
+     }
+    ],
+    "scope": "reconciliation-subset",
+    "board_scoped_keys": [
+     "min_clearance_used"
+    ],
+    "env_knobs": {}
+   }
+  },
+  {
+   "prefix": "JSON_SUMMARY_MIN",
+   "summary": {
+    "failed": 7,
+    "failed_single": [
+     "PDM_CLK_Y5",
+     "PDM_CLK_B7",
+     "PDM_CLK_B3",
+     "PDM_CLK_B4",
+     "PDM_CLK_B2",
+     "PDM_CLK_B6",
+     "PDM_CLK_B0"
+    ],
+    "finalize_excluded_nets": [
+     "GND"
+    ],
+    "main_loop_time_s": 3.64,
+    "min_clearance_used": 0.1625,
+    "multipoint_deficit": 0,
+    "open_single": [],
+    "pad_pairs_open": {
+     "count": 7,
+     "nets": [
+      "PDM_CLK_B0",
+      "PDM_CLK_B2",
+      "PDM_CLK_B3",
+      "PDM_CLK_B4",
+      "PDM_CLK_B6",
+      "PDM_CLK_B7",
+      "PDM_CLK_Y5"
+     ]
+    },
+    "routed": 0,
+    "scope": "merged",
+    "terminal_restores_broken": [],
+    "vias": 10
+   }
+  }
+ ],
+ "clock_complete": 13,
+ "clock_total": 20,
+ "clock_missing": [
+  "PDM_CLK_B0",
+  "PDM_CLK_B2",
+  "PDM_CLK_B3",
+  "PDM_CLK_B4",
+  "PDM_CLK_B6",
+  "PDM_CLK_B7",
+  "PDM_CLK_Y5"
+ ],
+ "class": "clock-partial"
+}

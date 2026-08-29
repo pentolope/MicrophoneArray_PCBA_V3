@@ -33,6 +33,7 @@
   "basis": [
    "The ordered service is 4 copper layers at 1.6 mm nominal with impedance_control=false; the catalog's stackup records mark JLC-4L-no-requirement as the documented default construction for exactly that order.",
    "Every thickness is the construction's own stated layer figure; every epsilon_r is the frozen materials entry for the construction's own named material; nothing is a typical-FR4 assumption.",
+   "Copper layers carry TWO figures on purpose: thickness_mm is the construction's stated layer height (base foil - the vertical-geometry quantity), and finished_thickness_mm is the catalog's finished-conductor figure, plating included (the conductor-model quantity: trace resistance and thickness-corrected transmission-line models). External 1 oz plates from 35 um foil to 1.6 mil = 40.64 um finished (record finished_copper_external_1oz_mil); internal 0.5 oz does not plate and stays 0.6 mil = 15.24 um (record finished_copper_internal_0.5oz_mil). The two numbers are never interchangeable, and every derived geometry records which one it used.",
    "Loss tangents remain null: the frozen evidence does not state them, and an unevidenced figure would be exactly the guessed-Dk failure this file's description warns about, one field over."
   ]
  },
@@ -46,8 +47,9 @@
    "kind": "copper",
    "type": "copper",
    "thickness_mm": 0.035,
+   "finished_thickness_mm": 0.04064,
    "role": "signal",
-   "source": "construction layer 'Top Layer' (1.0 oz outer at the stated 35 um/oz)"
+   "source": "construction layer 'Top Layer' (1.0 oz outer at the stated 35 um/oz); finished conductor from catalog record finished_copper_external_1oz_mil (1.6 mil external 1 oz, plating included)"
   },
   {
    "name": "dielectric 1",
@@ -65,9 +67,10 @@
    "kind": "copper",
    "type": "copper",
    "thickness_mm": 0.0152,
+   "finished_thickness_mm": 0.01524,
    "role": "plane",
    "plane_net": "GND",
-   "source": "construction layer 'Inner Layer L2' (0.5 oz, 0.0152 mm)"
+   "source": "construction layer 'Inner Layer L2' (0.5 oz, 0.0152 mm); finished conductor from catalog record finished_copper_internal_0.5oz_mil (0.6 mil internal 0.5 oz - inner layers do not plate, so the figures agree to rounding)"
   },
   {
    "name": "dielectric 2",
@@ -85,9 +88,10 @@
    "kind": "copper",
    "type": "copper",
    "thickness_mm": 0.0152,
+   "finished_thickness_mm": 0.01524,
    "role": "plane",
    "plane_net": "GND",
-   "source": "construction layer 'Inner Layer L3' (0.5 oz)"
+   "source": "construction layer 'Inner Layer L3' (0.5 oz); finished conductor from catalog record finished_copper_internal_0.5oz_mil (0.6 mil internal 0.5 oz)"
   },
   {
    "name": "dielectric 3",
@@ -105,8 +109,9 @@
    "kind": "copper",
    "type": "copper",
    "thickness_mm": 0.035,
+   "finished_thickness_mm": 0.04064,
    "role": "signal",
-   "source": "construction layer 'Bottom Layer' (1.0 oz outer)"
+   "source": "construction layer 'Bottom Layer' (1.0 oz outer); finished conductor from catalog record finished_copper_external_1oz_mil (1.6 mil external 1 oz, plating included)"
   }
  ]
 }

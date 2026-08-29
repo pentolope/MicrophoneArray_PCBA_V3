@@ -1,0 +1,23 @@
+# Scratch working copies. Every committed *.json evidence artifact
+# binds the sha256 of what it measured; the bytes a pool derivation
+# references (run-a/cand_01, repair/seed34/repaired) ARE committed.
+results/*/*/route_*/
+results/*/*/cleanup_*/
+results/*/*/repeat_*/
+results/*/*/measure-*/
+results/*/*/historical_bytes.kicad_pcb
+results/*/*/routed.kicad_pro
+results/*/*/routed.kicad_prl
+results/probes/*-work/
+portfolio/*/input/
+portfolio/*/run-*/boards/
+portfolio/*/run-*/*.kicad_pcb
+portfolio/*/run-*/*.kicad_pro
+portfolio/*/run-*/*.png
+!portfolio/*/run-a/cand_01.kicad_pcb
+repair/*/work/
+repair/*/input.kicad_pcb
+repair/*/input.kicad_pro
+repair/*/repaired.kicad_pro
+repair/*/repaired.kicad_prl
+portfolio/*/boards/

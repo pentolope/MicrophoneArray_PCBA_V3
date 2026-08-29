@@ -1,0 +1,64 @@
+{
+ "kind": "krt-repair-experiment",
+ "candidate": "seed34",
+ "tool": "place_route_loop.py (unmodified KRT 0.21.3)",
+ "input_board_sha256": "6a649c5703b214080f067922cb782fbb16943961c4073981767e55a53bc37387",
+ "repaired_board_sha256": "6b113f7269a1f9b90d9fb36d2054121bbffb4257c3b85ff136712e3f5fd33380",
+ "authority": "accept_policy.py: placement policy + courtyard overlaps + pad-accurate board-edge findings REJECT regardless of routing outcome; score = incomplete nets with clock counted double",
+ "loop_summary": {
+  "rounds_run": 5,
+  "rounds_accepted": 1,
+  "rejected_rounds_reason": "placement policy violations: constraints [2] clock-oscillator block spread, [3] clock-buffer block spread, [4] C6-U2 proximity, [5] C7-U2 proximity - routability gained by scattering the clock tree was refused and reverted",
+  "failures_before": 6,
+  "failures_after": 5,
+  "failed_nets_before": [
+   "PDM_CLK_B0",
+   "PDM_CLK_B1",
+   "PDM_CLK_B4",
+   "PDM_CLK_B5",
+   "PDM_CLK_B6",
+   "PDM_CLK_B7"
+  ],
+  "failed_nets_after": [
+   "PDM_CLK_B1",
+   "PDM_CLK_B3",
+   "PDM_CLK_B5",
+   "PDM_CLK_B6",
+   "PDM_CLK_Y1"
+  ],
+  "iterations_before": 847385,
+  "iterations_after": 1236360,
+  "vias_before": 8,
+  "vias_after": 10,
+  "source": "place_route_loop JSON_SUMMARY (the loop's own route runs)"
+ },
+ "independent_probe": {
+  "before": {
+   "clock_complete": 14,
+   "missing": [
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7"
+   ],
+   "seconds": 95.0
+  },
+  "after": {
+   "clock_complete": 13,
+   "missing": [
+    "PDM_CLK_B0",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7",
+    "PDM_CLK_Y5"
+   ],
+   "seconds": 81.2
+  },
+  "verdict": "the probe measures 13/20 on the repaired board vs 14/20 on the input - the loop's internal one-net improvement is NOT confirmed by an independent route of the same nets; the board-file connectivity arbiter and router run-to-run variance both matter, and the full pipeline remains the judge"
+ },
+ "semantic_constraint_test": "4 of 5 rounds violated declared placement constraints and were rejected by the external gate, each reverted by the loop - the repair machinery cannot trade product intent for connectivity"
+}

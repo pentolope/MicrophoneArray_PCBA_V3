@@ -1,0 +1,369 @@
+{
+ "kind": "probe-agreement",
+ "clock_nets": [
+  "MCLK_OSC",
+  "AUDIO_MCLK",
+  "PDM_CLK_IN",
+  "PDM_CLK_FPGA",
+  "PDM_CLK_Y0",
+  "PDM_CLK_Y1",
+  "PDM_CLK_Y2",
+  "PDM_CLK_Y3",
+  "PDM_CLK_Y4",
+  "PDM_CLK_Y5",
+  "PDM_CLK_Y6",
+  "PDM_CLK_Y7",
+  "PDM_CLK_B0",
+  "PDM_CLK_B1",
+  "PDM_CLK_B2",
+  "PDM_CLK_B3",
+  "PDM_CLK_B4",
+  "PDM_CLK_B5",
+  "PDM_CLK_B6",
+  "PDM_CLK_B7"
+ ],
+ "inputs": [
+  {
+   "path": "benchmark/krt_bench/results/probes/portfolio-cand01.json",
+   "sha256": "61a50705ffa6fb425f2e1548dc8d2af2e8e1894b7343412d2422838b9c0cdf5b"
+  },
+  {
+   "path": "benchmark/krt_bench/results/probes/seed13.json",
+   "sha256": "a0b54587b7e3f1af8de1e93d2464688c018ceaf4b7d926ce529320777fc60f93"
+  },
+  {
+   "path": "benchmark/krt_bench/results/probes/seed17.json",
+   "sha256": "ee62a0a48d8a1b26c1e33db311e1058498bfd69a7c0dc891692942f6c2d0b4c3"
+  },
+  {
+   "path": "benchmark/krt_bench/results/probes/seed18.json",
+   "sha256": "7c7ba26790f67f1422bac6ee6ba258924ad5dca1e50391ee1a9ee39425ff608d"
+  },
+  {
+   "path": "benchmark/krt_bench/results/probes/seed21.json",
+   "sha256": "9a8a9fbf1ae3218d7211ebdc9fc3c0cc2d00d739b47c4e217fd0072607843e5f"
+  },
+  {
+   "path": "benchmark/krt_bench/results/probes/seed25.json",
+   "sha256": "88130fc85ea2e27f762467eb6279ebfe00fb3456dd62f81a0543dd859afd57c0"
+  },
+  {
+   "path": "benchmark/krt_bench/results/probes/seed26.json",
+   "sha256": "d4693dfe0f61f4f5e7e24b10cbb607b1de101451a93353992d4eed4637e3d849"
+  },
+  {
+   "path": "benchmark/krt_bench/results/probes/seed30.json",
+   "sha256": "dea72043529b69b004e58c09fa19d220c574f41a38fdabf8aa291cb2a6675286"
+  },
+  {
+   "path": "benchmark/krt_bench/results/probes/seed34-repaired.json",
+   "sha256": "72bfb3183dd6d4cc07436e7f07f2d1c5811ca989c72f53a30c24d141ae563368"
+  },
+  {
+   "path": "benchmark/krt_bench/results/probes/seed34.json",
+   "sha256": "811ad1730a9004189d07aabc113bbcb0b445a9203f141e76480aa84125959542"
+  }
+ ],
+ "comparable_candidates": 7,
+ "rows": [
+  {
+   "candidate": "portfolio-cand01",
+   "probe_class": "clock-partial",
+   "probe_clock_complete": 14,
+   "probe_clock_missing": [
+    "PDM_CLK_B1",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B6",
+    "PDM_CLK_IN",
+    "PDM_CLK_Y5"
+   ],
+   "probe_seconds": 72.8,
+   "probe_input_sha256": "39e206d3544ef3a4b4c84e57a9e4d5418d35b7b97f82698a6211ec43a083c89e",
+   "historical_route_seconds": null,
+   "full_clock_complete": null,
+   "note": "no committed final routed board - the candidate never reached routing"
+  },
+  {
+   "candidate": "seed13",
+   "probe_class": "clock-partial",
+   "probe_clock_complete": 11,
+   "probe_clock_missing": [
+    "PDM_CLK_B0",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y2",
+    "PDM_CLK_Y4"
+   ],
+   "probe_seconds": 67.4,
+   "probe_input_sha256": "3b373a0ab257f62bda89a71e83c3681f1e5739af0c2c1569e8b0be9fda26d99c",
+   "historical_route_seconds": 1982.3,
+   "full_clock_complete": null,
+   "note": "no committed final routed board - the candidate never reached routing"
+  },
+  {
+   "candidate": "seed17",
+   "probe_class": "clock-partial",
+   "probe_clock_complete": 12,
+   "probe_clock_missing": [
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y6"
+   ],
+   "probe_seconds": 74.3,
+   "probe_input_sha256": "04dabfba63f0bd7fbee3dabd05cd5ecb57e9efdfcffa532a1691f3db0e32e806",
+   "historical_route_seconds": 2088.6,
+   "full_clock_complete": 13,
+   "full_clock_missing": [
+    "PDM_CLK_B0",
+    "PDM_CLK_B3",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7",
+    "PDM_CLK_Y0",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y2"
+   ],
+   "full_board_sha256": "b1440c1a8b222fcf0dc8525120bc6a299ae81842963b0b3fb9d70a3119decc20",
+   "missing_set_jaccard": 0.364
+  },
+  {
+   "candidate": "seed18",
+   "probe_class": "clock-partial",
+   "probe_clock_complete": 12,
+   "probe_clock_missing": [
+    "PDM_CLK_B0",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7",
+    "PDM_CLK_Y6"
+   ],
+   "probe_seconds": 75.5,
+   "probe_input_sha256": "e86d5ad25f5dcff8fcc5c466f86e9b44b00043b2804dfb205698bb1b24b42096",
+   "historical_route_seconds": 3981.4,
+   "full_clock_complete": 1,
+   "full_clock_missing": [
+    "AUDIO_MCLK",
+    "MCLK_OSC",
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7",
+    "PDM_CLK_FPGA",
+    "PDM_CLK_IN",
+    "PDM_CLK_Y0",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y4",
+    "PDM_CLK_Y5",
+    "PDM_CLK_Y6",
+    "PDM_CLK_Y7"
+   ],
+   "full_board_sha256": "71da09df958f54a685c7bbc74ac9b951a3a2a8ba5d0faefadfe5ba5ebe38a81b",
+   "missing_set_jaccard": 0.421
+  },
+  {
+   "candidate": "seed21",
+   "probe_class": "clock-partial",
+   "probe_clock_complete": 12,
+   "probe_clock_missing": [
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_IN",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y4",
+    "PDM_CLK_Y5"
+   ],
+   "probe_seconds": 117.0,
+   "probe_input_sha256": "b7f7392a50a85cd272e455ae1cb34dd4c2856a56b687ca17188955cbea3938c5",
+   "historical_route_seconds": 4153.2,
+   "full_clock_complete": 1,
+   "full_clock_missing": [
+    "AUDIO_MCLK",
+    "MCLK_OSC",
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7",
+    "PDM_CLK_FPGA",
+    "PDM_CLK_IN",
+    "PDM_CLK_Y0",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y2",
+    "PDM_CLK_Y4",
+    "PDM_CLK_Y5",
+    "PDM_CLK_Y6",
+    "PDM_CLK_Y7"
+   ],
+   "full_board_sha256": "db4306bc60892fe810d5ef95263a418fb6261c02b47a6d4c6ac85f1921253afa",
+   "missing_set_jaccard": 0.421
+  },
+  {
+   "candidate": "seed25",
+   "probe_class": "clock-partial",
+   "probe_clock_complete": 13,
+   "probe_clock_missing": [
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7"
+   ],
+   "probe_seconds": 101.7,
+   "probe_input_sha256": "05d3a2513f042d9e01d38050e3f1f39bc21a70e68ff9baa86aa1c105026de2e3",
+   "historical_route_seconds": 3981.9,
+   "full_clock_complete": 5,
+   "full_clock_missing": [
+    "AUDIO_MCLK",
+    "MCLK_OSC",
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7",
+    "PDM_CLK_FPGA",
+    "PDM_CLK_IN",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y5",
+    "PDM_CLK_Y7"
+   ],
+   "full_board_sha256": "2e137feaa639522dc27a8b3dafe489e4a3887030ff3b473a1ca205743dfae150",
+   "missing_set_jaccard": 0.467
+  },
+  {
+   "candidate": "seed26",
+   "probe_class": "clock-partial",
+   "probe_clock_complete": 13,
+   "probe_clock_missing": [
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B7",
+    "PDM_CLK_Y1"
+   ],
+   "probe_seconds": 70.1,
+   "probe_input_sha256": "dddaf87dba316985cbf0eaeb9e3dbfb08b746e6f9ff89f186bed27bb56e33fb0",
+   "historical_route_seconds": 3617.3,
+   "full_clock_complete": 13,
+   "full_clock_missing": [
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_Y0",
+    "PDM_CLK_Y1"
+   ],
+   "full_board_sha256": "2ce50d7d594c336ddbeea9c3e20b063972ba21992043ae33b0361ba5db693dd0",
+   "missing_set_jaccard": 0.556
+  },
+  {
+   "candidate": "seed30",
+   "probe_class": "clock-partial",
+   "probe_clock_complete": 14,
+   "probe_clock_missing": [
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7"
+   ],
+   "probe_seconds": 88.6,
+   "probe_input_sha256": "6a649c5703b214080f067922cb782fbb16943961c4073981767e55a53bc37387",
+   "historical_route_seconds": 3440.2,
+   "full_clock_complete": 14,
+   "full_clock_missing": [
+    "PDM_CLK_B1",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y7"
+   ],
+   "full_board_sha256": "773b0ffdbb6c45f1a0a1ff81beb81814b4421156ab6e53c98477aebd42d684da",
+   "missing_set_jaccard": 0.5
+  },
+  {
+   "candidate": "seed34-repaired",
+   "probe_class": "clock-partial",
+   "probe_clock_complete": 13,
+   "probe_clock_missing": [
+    "PDM_CLK_B0",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7",
+    "PDM_CLK_Y5"
+   ],
+   "probe_seconds": 81.2,
+   "probe_input_sha256": "6b113f7269a1f9b90d9fb36d2054121bbffb4257c3b85ff136712e3f5fd33380",
+   "historical_route_seconds": null,
+   "full_clock_complete": null,
+   "note": "no committed final routed board - the candidate never reached routing"
+  },
+  {
+   "candidate": "seed34",
+   "probe_class": "clock-partial",
+   "probe_clock_complete": 14,
+   "probe_clock_missing": [
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7"
+   ],
+   "probe_seconds": 95.0,
+   "probe_input_sha256": "6a649c5703b214080f067922cb782fbb16943961c4073981767e55a53bc37387",
+   "historical_route_seconds": 1039.2,
+   "full_clock_complete": 13,
+   "full_clock_missing": [
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y7"
+   ],
+   "full_board_sha256": "644b410dcaff34921e972abca1afc217d22c311e2f90b08d0643f927875ed1bb",
+   "missing_set_jaccard": 0.444
+  }
+ ],
+ "pairwise_rank": {
+  "concordant": 12,
+  "discordant": 1,
+  "ties": 8
+ },
+ "meaning": "probe completion versus the committed full-pipeline completion, both recomputed from bytes; pairwise rank agreement over the comparable candidates (rows without a committed final board are listed but not ranked). The probe never replaces the legality and fabrication gates in front of it."
+}

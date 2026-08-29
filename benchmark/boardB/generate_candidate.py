@@ -61,9 +61,9 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 BOARD_A = os.path.join(REPO, "microphone_array_v2.kicad_pcb")
-PLUGIN = os.path.expanduser(
-    "~/Documents/KiCad/10.0/3rdparty/plugins/"
-    "com_github_drandyhaas_kicadroutingtools")
+TOOLCHAIN = json.load(open(os.path.join(REPO, "board",
+                                        "toolchain.json"),
+                           encoding="utf-8"))
 
 sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
@@ -74,6 +74,39 @@ headless.suppress_blocking_ui()
 from pcbqa import placement as placement_module    # noqa: E402
 from pcbqa import zone_inheritance                 # noqa: E402
 from pcbqa import critical_topology                # noqa: E402
+from pcbqa import krt                              # noqa: E402
+
+#: Resolved once per process: WHICH KiCadRoutingTools, from the
+#: toolchain configuration through the toolkit's deterministic
+#: discovery (override -> configured checkout -> single active
+#: plugin installation; disabled installations refuse). The
+#: interpreter that runs KRT tools is the configured KiCad Python,
+#: verified to import pcbnew - never the ambient one.
+_KRT_RESOLVED = krt.resolve(
+    configured=TOOLCHAIN["router"].get("development_checkout"),
+    plugin_dirs=TOOLCHAIN["router"].get("plugin_dirs"))
+KRT_ROOT = _KRT_RESOLVED["path"]
+#: Which discovery channel actually produced KRT_ROOT ("override",
+#: the environment variable, "configured checkout", or a plugin
+#: scan). Recorded in the derivation: a run steered by an ambient
+#: PCB_KRT_PATH must be distinguishable from one using the
+#: configured checkout, or the ambience becomes invisible.
+KRT_ORIGIN = _KRT_RESOLVED["origin"]
+KRT_PYTHON = TOOLCHAIN["kicad"]["python"]
+
+
+def krt_tool(name):
+    """The path of a KRT command-line tool inside the resolved
+    source. The checkout lays tools out under py_placer/ and
+    py_router/; older flat installations kept them at the root. A
+    tool that is not there is an error, never a guess."""
+    for subdir in ("py_placer", "py_router", "."):
+        candidate = os.path.normpath(
+            os.path.join(KRT_ROOT, subdir, name))
+        if os.path.isfile(candidate):
+            return candidate
+    raise CandidateError(
+        "KRT tool {} not found under {}".format(name, KRT_ROOT))
 
 #: DRC violation types that are FABRICATION GEOMETRY: a routing
 #: stage whose output carries any of these under the board's own
@@ -1098,6 +1131,18 @@ def main():
                              "failed - diagnostics only; the "
                              "default skips provably doomed "
                              "routing")
+    parser.add_argument("--ingest-placed", default=None,
+                        help="adopt an externally produced PLACED "
+                             "board (a portfolio candidate, a "
+                             "repair-loop output) as this seed's "
+                             "placement and continue through the "
+                             "normal pipeline. The board earns "
+                             "nothing by its origin: placement "
+                             "policy, collisions, critical "
+                             "planning and every gate judge it "
+                             "exactly like a generated one, and "
+                             "the derivation records the source "
+                             "path and sha as lineage.")
     parser.add_argument("--descend-from", type=int, default=None,
                         help="start from this parent seed's placed "
                              "board and consume its feedback.json "
@@ -1137,10 +1182,19 @@ def main():
         digest = hashlib_module.sha256()
         for piece in pieces:
             digest.update(piece.encode("utf-8"))
-        with open(os.path.join(PLUGIN, "place_optimize.py"),
+        with open(krt_tool("place_optimize.py"),
                   "rb") as handle:
             digest.update(handle.read())
         return digest.hexdigest()
+
+    # The routing implementation identity is evidence: which KRT
+    # source, at which commit, dirty or not, with which native
+    # grid_router, under which interpreter. It is recorded in the
+    # derivation and stamped on every routing attempt; a different
+    # identity is a different router and downstream routing-derived
+    # artifacts must go stale with it.
+    krt_provenance = krt.provenance(KRT_ROOT, KRT_PYTHON)
+    krt_identity = krt.identity_digest(krt_provenance)
 
     current_inputs = {
         "board_a_sha256": _sha256_file(BOARD_A),
@@ -1151,9 +1205,9 @@ def main():
         "generator_semantics_version": GENERATOR_SEMANTICS_VERSION,
         "generator_sha256": _sha256_file(os.path.abspath(__file__)),
         "optimizer_sha256": _sha256_file(
-            os.path.join(PLUGIN, "place_optimize.py")),
-        "router_sha256": _sha256_file(
-            os.path.join(PLUGIN, "route.py")),
+            krt_tool("place_optimize.py")),
+        "router_sha256": _sha256_file(krt_tool("route.py")),
+        "krt_identity_sha256": krt_identity,
     }
 
     out_dir = os.path.join(HERE, "candidates",
@@ -1180,6 +1234,28 @@ def main():
             json.dump(derivation, handle, indent=1)
             handle.write("\n")
 
+    # Bind the resolved router identity into the derivation. When
+    # the identity differs from the last recorded one (a new KRT
+    # commit, a dirty tree, a rebuilt native router), that change
+    # is itself a recorded event: attempts before and after it were
+    # made by DIFFERENT routers.
+    if derivation.get("krt", {}).get("identity_sha256") \
+            != krt_identity:
+        record({"stage": "krt_resolved",
+                "krt_identity_sha256": krt_identity,
+                "resolution_origin": KRT_ORIGIN,
+                "previous_identity_sha256":
+                    derivation.get("krt", {}).get(
+                        "identity_sha256"),
+                "provenance": krt_provenance})
+        derivation["krt"] = {"identity_sha256": krt_identity,
+                             "resolution_origin": KRT_ORIGIN,
+                             "provenance": krt_provenance}
+        with open(derivation_path, "w", encoding="utf-8",
+                  newline="\n") as handle:
+            json.dump(derivation, handle, indent=1)
+            handle.write("\n")
+
     def run_attempt(stage_name, input_path, command_tail, timeout,
                     tool, extra=None):
         """One tool invocation with a full attempt identity. The
@@ -1195,7 +1271,7 @@ def main():
             raise CandidateError(
                 "attempt output {} already exists; attempt "
                 "identities never collide".format(output_path))
-        command = [sys.executable, os.path.join(PLUGIN, tool),
+        command = [KRT_PYTHON, krt_tool(tool),
                    input_path, "--output", output_path] \
             + command_tail
         entry = {"stage": stage_name, "attempt_id": attempt_id,
@@ -1204,6 +1280,7 @@ def main():
                  "tool_sha256": current_inputs[
                      "router_sha256" if tool == "route.py"
                      else "optimizer_sha256"],
+                 "krt_identity_sha256": krt_identity,
                  "configuration": command_tail,
                  "timeout_s": timeout, "status": "started",
                  "output_path": os.path.relpath(output_path,
@@ -1259,8 +1336,8 @@ def main():
                 attempt_id, input_sha[:8]))
         if os.path.exists(output_path):
             raise CandidateError("attempt output collision")
-        command = [sys.executable,
-                   os.path.join(PLUGIN, "place_optimize.py"),
+        command = [KRT_PYTHON,
+                   krt_tool("place_optimize.py"),
                    input_path, output_path,
                    "--max-displacement", "200", "--step", "3.0",
                    "--max-passes", "1", "--lock"] + locked
@@ -1269,6 +1346,7 @@ def main():
                  "input_board_sha256": input_sha,
                  "tool": "place_optimize.py",
                  "tool_sha256": current_inputs["optimizer_sha256"],
+                 "krt_identity_sha256": krt_identity,
                  "configuration": command[4:],
                  "locked_references": len(locked),
                  "lock_meaning": "fixed parts and satellites of "
@@ -1354,6 +1432,39 @@ def main():
     placed_path = os.path.join(out_dir,
                                "candidate_placed.kicad_pcb")
     circle = _board_circle(pcbnew.LoadBoard(BOARD_A))
+
+    if arguments.ingest_placed:
+        # Adopt an external placement as this seed's placed
+        # artifact, then flow through the ordinary reuse path so
+        # every judgement (policy, collisions, critical planning,
+        # gates) is the same one a generated placement gets. Never
+        # silently overwrite an existing placement: an ingest into
+        # an occupied candidate is a different candidate.
+        source = os.path.abspath(arguments.ingest_placed)
+        if not os.path.isfile(source):
+            raise CandidateError(
+                "ingest source {} does not exist".format(source))
+        if os.path.isfile(placed_path):
+            raise CandidateError(
+                "candidate already has a placed artifact; ingest "
+                "into a fresh seed instead of overwriting")
+        with open(source, "rb") as handle:
+            data = handle.read()
+        with open(placed_path, "wb") as handle:
+            handle.write(data)
+        # The declared rules travel with every adopted artifact,
+        # exactly as with a generated one - the validator's
+        # sibling-project guard refuses a board they did not.
+        _place_pro_sibling(placed_path)
+        record({"stage": "ingest_placed",
+                "source": os.path.relpath(source, REPO)
+                if source.startswith(REPO) else source,
+                "source_sha256": _sha256_file(source),
+                "placed_sha256": _sha256_file(placed_path),
+                "note": "externally produced placement adopted as "
+                        "lineage; it earns nothing by its origin "
+                        "and is judged like any generated one"})
+        arguments.reuse_placed = True
 
     if arguments.reuse_placed:
         if not os.path.isfile(placed_path):

@@ -1,0 +1,118 @@
+{
+ "kind": "portfolio-byte-determinism",
+ "input_board_sha256": "6a649c5703b214080f067922cb782fbb16943961c4073981767e55a53bc37387",
+ "seed": 0,
+ "boards_compared": 27,
+ "all_byte_identical": true,
+ "per_board": {
+  "baseline_quenched.kicad_pcb": {
+   "run_a_sha256": "0fb0a6787f500ff5713e72c446b76fcc3a78edf020221af37b156dca8c039c9c",
+   "run_b_sha256": "0fb0a6787f500ff5713e72c446b76fcc3a78edf020221af37b156dca8c039c9c"
+  },
+  "cand_01.kicad_pcb": {
+   "run_a_sha256": "39e206d3544ef3a4b4c84e57a9e4d5418d35b7b97f82698a6211ec43a083c89e",
+   "run_b_sha256": "39e206d3544ef3a4b4c84e57a9e4d5418d35b7b97f82698a6211ec43a083c89e"
+  },
+  "cand_01.seed.kicad_pcb": {
+   "run_a_sha256": "2a037f65ea2c351abbb588821e6377699b30d146a60c0de6a43c72734e042592",
+   "run_b_sha256": "2a037f65ea2c351abbb588821e6377699b30d146a60c0de6a43c72734e042592"
+  },
+  "cand_02.kicad_pcb": {
+   "run_a_sha256": "0fb0a6787f500ff5713e72c446b76fcc3a78edf020221af37b156dca8c039c9c",
+   "run_b_sha256": "0fb0a6787f500ff5713e72c446b76fcc3a78edf020221af37b156dca8c039c9c"
+  },
+  "cand_02.seed.kicad_pcb": {
+   "run_a_sha256": "f322870c89d01a78e2be0c52848efe2d13aafe2c0b66b58235dfccf35050fd67",
+   "run_b_sha256": "f322870c89d01a78e2be0c52848efe2d13aafe2c0b66b58235dfccf35050fd67"
+  },
+  "cand_04.kicad_pcb": {
+   "run_a_sha256": "b872a095c15d7b7fa5ec13c29ef8d0002fe4b6832fb35552a71fda94dae034aa",
+   "run_b_sha256": "b872a095c15d7b7fa5ec13c29ef8d0002fe4b6832fb35552a71fda94dae034aa"
+  },
+  "cand_04.seed.kicad_pcb": {
+   "run_a_sha256": "8eb40630e5d02179f4ab92ad4e00ec5602ccd95de9862642e8694328433e327d",
+   "run_b_sha256": "8eb40630e5d02179f4ab92ad4e00ec5602ccd95de9862642e8694328433e327d"
+  },
+  "cand_05.kicad_pcb": {
+   "run_a_sha256": "0fb0a6787f500ff5713e72c446b76fcc3a78edf020221af37b156dca8c039c9c",
+   "run_b_sha256": "0fb0a6787f500ff5713e72c446b76fcc3a78edf020221af37b156dca8c039c9c"
+  },
+  "cand_05.seed.kicad_pcb": {
+   "run_a_sha256": "62a3c6da3c211b7f2100fd4b243e91e82648ef3eaad72c0ee561282b2ffb42e3",
+   "run_b_sha256": "62a3c6da3c211b7f2100fd4b243e91e82648ef3eaad72c0ee561282b2ffb42e3"
+  },
+  "cand_07.kicad_pcb": {
+   "run_a_sha256": "b402002f0074e6215410388c6d8791b7cb789e9713470bb72b981b005345576d",
+   "run_b_sha256": "b402002f0074e6215410388c6d8791b7cb789e9713470bb72b981b005345576d"
+  },
+  "cand_07.seed.kicad_pcb": {
+   "run_a_sha256": "bd142d4501a760a02072236dce5f415b88fa0950b2f77553248cc3347062f225",
+   "run_b_sha256": "bd142d4501a760a02072236dce5f415b88fa0950b2f77553248cc3347062f225"
+  },
+  "cand_08.kicad_pcb": {
+   "run_a_sha256": "0fb0a6787f500ff5713e72c446b76fcc3a78edf020221af37b156dca8c039c9c",
+   "run_b_sha256": "0fb0a6787f500ff5713e72c446b76fcc3a78edf020221af37b156dca8c039c9c"
+  },
+  "cand_08.seed.kicad_pcb": {
+   "run_a_sha256": "1b01e998d120bb943d175fcc3aaaf4a53a48808fae801a1814cb53b4512c9e17",
+   "run_b_sha256": "1b01e998d120bb943d175fcc3aaaf4a53a48808fae801a1814cb53b4512c9e17"
+  },
+  "cand_10.kicad_pcb": {
+   "run_a_sha256": "0b7e0250a5532a6baae8be65f392481ae0ef477ec74726528a1e4fe9f757f1c5",
+   "run_b_sha256": "0b7e0250a5532a6baae8be65f392481ae0ef477ec74726528a1e4fe9f757f1c5"
+  },
+  "cand_10.seed.kicad_pcb": {
+   "run_a_sha256": "6c8316710ff1024c67024cc09d646426caa597e580a683153b2a6dede1663f32",
+   "run_b_sha256": "6c8316710ff1024c67024cc09d646426caa597e580a683153b2a6dede1663f32"
+  },
+  "cand_11.kicad_pcb": {
+   "run_a_sha256": "0fb0a6787f500ff5713e72c446b76fcc3a78edf020221af37b156dca8c039c9c",
+   "run_b_sha256": "0fb0a6787f500ff5713e72c446b76fcc3a78edf020221af37b156dca8c039c9c"
+  },
+  "cand_11.seed.kicad_pcb": {
+   "run_a_sha256": "9ed6b5c06e745577e0b4977f193cd1ea69dd303270751904906df51d1231cfde",
+   "run_b_sha256": "9ed6b5c06e745577e0b4977f193cd1ea69dd303270751904906df51d1231cfde"
+  },
+  "cand_13.kicad_pcb": {
+   "run_a_sha256": "a427c5e06720851565a864488350bdd0ffdb4bd902f0bdef0d648d75a4ff7dd6",
+   "run_b_sha256": "a427c5e06720851565a864488350bdd0ffdb4bd902f0bdef0d648d75a4ff7dd6"
+  },
+  "cand_13.seed.kicad_pcb": {
+   "run_a_sha256": "937ddd1656379021eaa7dcb2d531818c310ce5c7b077c32b82ebbccf19d8e734",
+   "run_b_sha256": "937ddd1656379021eaa7dcb2d531818c310ce5c7b077c32b82ebbccf19d8e734"
+  },
+  "cand_14.kicad_pcb": {
+   "run_a_sha256": "0fb0a6787f500ff5713e72c446b76fcc3a78edf020221af37b156dca8c039c9c",
+   "run_b_sha256": "0fb0a6787f500ff5713e72c446b76fcc3a78edf020221af37b156dca8c039c9c"
+  },
+  "cand_14.seed.kicad_pcb": {
+   "run_a_sha256": "98186a350195fe138c6fcc7d02ae656e27da18974f6b59090886fcb6f4f4fb93",
+   "run_b_sha256": "98186a350195fe138c6fcc7d02ae656e27da18974f6b59090886fcb6f4f4fb93"
+  },
+  "cand_16.kicad_pcb": {
+   "run_a_sha256": "63b4f8d6cf271dae909255c591416ffa9ea92e43d6564ce9846929dd3b7aab2e",
+   "run_b_sha256": "63b4f8d6cf271dae909255c591416ffa9ea92e43d6564ce9846929dd3b7aab2e"
+  },
+  "cand_16.seed.kicad_pcb": {
+   "run_a_sha256": "9378f6bafed09aac9fc14ccea01816abbca3c9446f45d7985a966ab703c4dddf",
+   "run_b_sha256": "9378f6bafed09aac9fc14ccea01816abbca3c9446f45d7985a966ab703c4dddf"
+  },
+  "cand_19.kicad_pcb": {
+   "run_a_sha256": "d12323d1b5369055836542ddece0dbac3d927137a976aab21dfbd7dbf630f0e3",
+   "run_b_sha256": "d12323d1b5369055836542ddece0dbac3d927137a976aab21dfbd7dbf630f0e3"
+  },
+  "cand_19.seed.kicad_pcb": {
+   "run_a_sha256": "3f99277f6b27cbb15dd400d2f1cc1b0777c778c2a8f23e8605ada8354980f1b4",
+   "run_b_sha256": "3f99277f6b27cbb15dd400d2f1cc1b0777c778c2a8f23e8605ada8354980f1b4"
+  },
+  "cand_22.kicad_pcb": {
+   "run_a_sha256": "66666a9dbc0eeeeffa3862e94ca9749a82bda55fc04a2ea02dd5e52880701ee6",
+   "run_b_sha256": "66666a9dbc0eeeeffa3862e94ca9749a82bda55fc04a2ea02dd5e52880701ee6"
+  },
+  "cand_22.seed.kicad_pcb": {
+   "run_a_sha256": "e14f012c6781d4dcabe897f0c92fbd39f32a88dba82f75954ebad148fa03c02c",
+   "run_b_sha256": "e14f012c6781d4dcabe897f0c92fbd39f32a88dba82f75954ebad148fa03c02c"
+  }
+ },
+ "meaning": "the same --seed and input produced these candidate boards in two independent runs; equal sha256 per row is the byte-determinism evidence for the portfolio's generation and quench (the probe phase re-runs the router and is judged separately)"
+}
