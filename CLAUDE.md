@@ -133,16 +133,20 @@ setup beyond checking out submodules.
 
 ## Running
 
-Use KiCad's own Python.
+Ubuntu, and the system Python 3. KiCad is the distribution package, so
+`pcbnew` imports from `/usr/lib/python3/dist-packages` and `kicad-cli`
+is on PATH - there is no separate bundled interpreter to find. See
+[docs/environment.md](docs/environment.md) for the exact packages and
+versions this board is verified against.
 
 ```bash
 git submodule update --init --recursive
 ```
 
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" tooling/PCB_AutoDesignAndTest/run.py validate board/manifest.live.json
+python3 tooling/PCB_AutoDesignAndTest/run.py validate board/manifest.live.json
 ```
 
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" tooling/PCB_AutoDesignAndTest/run.py release board/manifest.live.json
+python3 tooling/PCB_AutoDesignAndTest/run.py release board/manifest.live.json
 ```

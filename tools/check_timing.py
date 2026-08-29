@@ -17,7 +17,7 @@ Passive PCB interconnect only. Not clock arrival time, not clock skew: the
 buffer's own output-to-output skew, both packages, the microphones' threshold
 behaviour and PVT are all outside anything a board file can answer.
 
-    "C:/Program Files/KiCad/10.0/bin/python.exe" tools/check_timing.py
+    python3 tools/check_timing.py
 
 Honours PCB_TOOLKIT_PATH, so the board can be measured against a local toolkit
 checkout before its submodule pointer moves.

@@ -171,7 +171,9 @@ it unset.
 git submodule update --init --recursive
 ```
 
-## Windows path length
+## Windows path length (historical)
+
+The canonical environment is Linux; this section records a constraint the V2 to V3 migration hit on Windows and is kept because it explains the migration's own failures, not because it still binds. Linux has no 260-character path limit, so a recursive clone anywhere works.
 
 The deepest path inside the toolkit submodule is 146 characters
 (`tooling/PCB_AutoDesignAndTest/tests/fixtures/negative/microphone_array_reva/project/generated/release/gerbers/…`).

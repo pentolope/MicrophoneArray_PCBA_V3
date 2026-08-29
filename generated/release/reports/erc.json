@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.kicad.org/erc.v1.json",
   "coordinate_units": "mm",
-  "date": "2026-08-29T02:16:53",
+  "date": "2026-08-29T12:16:40",
   "ignored_checks": [],
   "included_severities": [
     "error",
@@ -18,5 +18,5 @@
   ],
   "source": "microphone_array_v2.kicad_sch",
   "source_sha256": "e8283a2ba391bad6a3ba8fbffd78923cd710db048a5e3bca0a171b9ec23b6660",
-  "source_closure_sha256": "74f15bbfcbd5be066c4a0b90ab3f32f81f6ad60f9271ce57b0d2c8657f21e1b7"
+  "source_closure_sha256": "f57c561ed2e703fba1ba9770aac8f8eef4b9dfb2574903c6cc92c9b143c1ed9d"
 }

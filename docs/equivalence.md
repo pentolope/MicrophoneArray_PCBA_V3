@@ -185,18 +185,29 @@ not a content difference.
 
 It is recorded here because it is the same defect §"Line endings" describes,
 observed from the other side: under `eol=lf` the reviewed CRLF bytes cannot
-survive a checkout. V3 pins `eol=crlf` and does not have the problem. Comparing
-a digest against V2's *working tree* is therefore no longer meaningful; compare
-against the blob, or against the waiver.
+survive a checkout. At the time of this report V3 pinned `eol=crlf` and did not
+have the problem. Comparing a digest against V2's *working tree* is therefore
+no longer meaningful; compare against the blob, or against the waiver.
+
+> **Superseded by the Linux migration.** V3 no longer pins `eol=crlf`; the
+> KiCad design files are `eol=lf` like everything else. The CRLF pin existed
+> only to keep the two waivers' raw digests valid, and on Linux it broke the
+> clean-room release outright: `kicad-cli pcb drc --refill-zones --save-board`
+> re-saves the board, KiCad on Linux writes LF, and a CRLF working tree could
+> never carry the digest of the board the release actually validates. Both
+> waivers were re-approved against the LF bytes. Nothing in the numbers above
+> changes: the two forms are byte-identical after LF normalisation, and every
+> digest in this report other than those two waiver bindings is the canonical
+> LF digest, which never moved. See `.gitattributes` for the full argument.
 
 ## 9. Reproducing this report
 
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" tooling/PCB_AutoDesignAndTest/run.py validate board/manifest.live.json
+python3 tooling/PCB_AutoDesignAndTest/run.py validate board/manifest.live.json
 ```
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" tooling/PCB_AutoDesignAndTest/run.py release board/manifest.live.json
+python3 tooling/PCB_AutoDesignAndTest/run.py release board/manifest.live.json
 ```
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" tools/test_imports.py
+python3 tools/test_imports.py
 ```

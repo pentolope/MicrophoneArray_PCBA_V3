@@ -15,8 +15,9 @@
   "tool": {
     "name": "KiCad Routing Tools",
     "package": "com_github_drandyhaas_kicadroutingtools",
-    "entry": "route.py",
-    "root": "C:/Users/pentolope/Documents/KiCad/10.0/3rdparty/plugins/com_github_drandyhaas_kicadroutingtools"
+    "entry": "py_router/route.py",
+    "root": "/home/pentolope/github/KiCadRoutingTools",
+    "note": "root is the source checkout, so the entry carries its package directory. The old root was an installed PCM plugin, whose installer flattens py_router/ to the plugin's top level - which is why the entry used to be a bare route.py. Same script either way; only the layout around it differs."
   },
   "policy": {
     "layers": ["F.Cu", "B.Cu"],
@@ -65,7 +66,7 @@
     {
       "id": "signals",
       "purpose": "the nets gen_pcb.py leaves open: host SPI and control, the ESD taps, the clock buffer outputs, the analogue and clock supplies",
-      "entry": "route.py",
+      "entry": "py_router/route.py",
       "nets": ["*", "!GND",
                "!PDM_CLK_B*", "!PDM_CLK_IN", "!PDM_CLK_FPGA",
                "!AUDIO_MCLK", "!MCLK_OSC",

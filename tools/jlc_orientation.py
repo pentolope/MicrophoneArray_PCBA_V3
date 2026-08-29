@@ -45,6 +45,9 @@ import os
 import sys
 import urllib.request
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import _toolkit                                      # noqa: E402
+
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FIXTURES = os.path.join(HERE, "fabrication", "jlc_orientation")
 BOARD = os.path.join(HERE, "microphone_array_v2.kicad_pcb")
@@ -441,17 +444,18 @@ def cmd_report(args):
     return 1 if bad else 0
 
 
-def _shared_registry(spec, registry_path):
+def _shared_registry(spec, _registry_path=None):
     """The validator's own Registry, not a second opinion about it.
 
     Whether an entry may be used is one decision, and this command must not
     make it differently from the code that generates and validates a release.
-    The registry document lives inside the validator's board directory, so the
-    validator is right there to import.
+    The toolkit is reached the way every other tool here reaches it - through
+    the pinned submodule - rather than by deriving a path from wherever the
+    registry document happens to sit. It used to be the latter, which stopped
+    resolving when the validator moved out of the project and into a
+    submodule.
     """
-    root = os.path.dirname(os.path.dirname(os.path.abspath(registry_path)))
-    if root not in sys.path:
-        sys.path.insert(0, root)
+    _toolkit.install()
     from pcbqa.orientation import Registry
     return Registry(spec)
 
@@ -568,7 +572,7 @@ def main(argv=None):
 
     check = sub.add_parser("check", help="registry against frozen evidence")
     check.add_argument("--registry", default=os.path.join(
-        HERE, "verification", "boards", "live.json"))
+        HERE, "board", "manifest.live.json"))
     check.set_defaults(func=cmd_check)
 
     live = sub.add_parser("check-live",

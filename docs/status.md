@@ -134,7 +134,7 @@ Nothing that fails a gate. Worth knowing:
 
 ## Open: the host connector
 
-`verification/boards/live.json` carries a `HOST_DIRECT_STACK` contract that
+`board/manifest.live.json` carries a `HOST_DIRECT_STACK` contract that
 requires `J1` to be a female 2x13 socket the array plugs straight onto the Pi
 with. The board has a male pin header and a cable. The contract is the better
 link electrically, and it is not a footprint swap:

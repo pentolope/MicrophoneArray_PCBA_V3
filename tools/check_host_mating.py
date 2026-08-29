@@ -16,7 +16,7 @@ A mirrored connector can be made to "work" by moving nets to different pins,
 which produces a board that mates mechanically and is wired to the wrong GPIOs;
 this compares the board's nets against design.PI_HEADER pin by pin.
 
-    "C:/Program Files/KiCad/10.0/bin/python.exe" tools/check_host_mating.py [BOARD]
+    python3 tools/check_host_mating.py [BOARD]
 """
 
 from __future__ import annotations

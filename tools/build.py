@@ -1,6 +1,6 @@
 """One command that rebuilds the microphone-array board from source.
 
-    "C:/Program Files/KiCad/10.0/bin/python.exe" tools/build.py
+    python3 tools/build.py
 
 Starts from an empty build directory every time and runs the whole pipeline:
 

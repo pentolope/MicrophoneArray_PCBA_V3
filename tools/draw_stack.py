@@ -6,7 +6,7 @@ This draws it: the array outline and its underside parts from the board itself,
 the Pi outline and its tall connectors from constraints.json, both placed by the
 one thing that fixes them together, which is P1 mating with J1.
 
-    "C:/Program Files/KiCad/10.0/bin/python.exe" tools/draw_stack.py [OUT.svg]
+    python3 tools/draw_stack.py [OUT.svg]
 """
 
 from __future__ import annotations

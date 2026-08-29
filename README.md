@@ -49,6 +49,9 @@ cannot be assembled by JLCPCB. This is discussed in
   which physical-stackup figures are still missing
 - [docs/sources.md](docs/sources.md) - every datasheet and manufacturer rule the
   design relies on, with the facts taken from each.
+- [docs/environment.md](docs/environment.md) - the Ubuntu development
+  environment: which package supplies each tool, the exact versions this board
+  is verified against, and why KiCad is pinned to 10.0.5.
 
 ## Repository layout
 
@@ -92,7 +95,7 @@ Regeneration commands are in [docs/manufacturing.md](docs/manufacturing.md).
 One command, from an empty directory, start to finish:
 
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" tools/build.py --install
+python3 tools/build.py --install
 ```
 
 It runs [tools/gen_pcb.py](tools/gen_pcb.py) to produce the pre-route board -

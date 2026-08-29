@@ -8,7 +8,7 @@ copper.
 Report what was measured with:
 
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" tools/check_timing.py
+python3 tools/check_timing.py
 ```
 
 ## What this is not
