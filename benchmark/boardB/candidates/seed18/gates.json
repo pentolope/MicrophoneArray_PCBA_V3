@@ -8,17 +8,17 @@
    "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
    "candidate_board": "6e1771851d64565aded31a0f645c86ed6703ad1c1b787c50d468492f5bf3ce2e",
    "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
-   "generate_candidate.py": "f8babac2d93c301e8de6a9367655780d09ced15d8f4f9ad778926ce296af7f5a",
+   "generate_candidate.py": "c455d130797ac8f574dfe678e93a72ee1936cbca39801f48df6079d3039ed098",
    "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
    "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
    "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
    "toolkit.extract": "3c294c28327bbc6745547f654d75763a096b9100fd3d2409f70ecf499a87bd13",
    "toolkit.netlist_contract": "d8e4000fad095d998157e0554ac67a6dbc8de516f9eb06ecb7ae2bc4a7b96708",
-   "toolkit.progression": "19e1fe73f67cd1b1190a9134e5dc3bf3fc1c1bcd534adf3eb1956b97e2682758",
-   "validate_candidate.py": "4470a1dae63ad94ae9b181be26a2ec3534aa9b1d7e09b1b9a9c3fa33f4e254df",
+   "toolkit.progression": "f4e982b585d800b44ee7e5b70fb4dc3cf9608bed31b09504f7f6a08c3bf66706",
+   "validate_candidate.py": "11c8933f3d87d2eac060d370b25243943b99092b7ef8a4c2b3dc49645e8fb93d",
    "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
   },
-  "digest": "db96ba0b93c09838233f72832c6cb4e966edf6188c370f622d35178b4e72694e"
+  "digest": "e3e99b33c5cbdce598fdcd1250afb03064e9640e34704c3c5452819ea12130e9"
  },
  "statuses": {
   "placement_policy_satisfied": true,
@@ -159,6 +159,17 @@
    "VIA.MASK_CLEARANCE_TARGET": "candidate-design"
   },
   "validation": {
+   "validation_artifact": {
+    "attempt_path": "out\\boardB-seed18-candidate\\attempts\\20260829T012637Z-8ae3e505\\validation.json",
+    "canonical_sha256": "e4f9600d655fe02eac4d054b31840a89a3f2c4f7272b8158f8323d647997cd6c",
+    "implementation": {
+     "toolkit_root": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\tooling\\PCB_AutoDesignAndTest",
+     "commit": "da53b30805afb35add4588e5e8b9419b76035b3f",
+     "working_tree_dirty": false,
+     "detail": "git HEAD of the toolkit checkout that executed this validation"
+    },
+    "meaning": "the exact validation artifact these gate truths were lifted from, by canonical content identity, with the implementation that produced it"
+   },
    "verdict": "REJECTED",
    "counts": {
     "PASS": 17,
@@ -252,8 +263,8 @@
    },
    "runner": {
     "returncode": 1,
-    "seconds": 112.4,
-    "log_tail": "18-candidate\\attempts\\20260828T200356Z-7151818e\\validation.json\nMarkdown: C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\boardB-seed18-candidate\\attempts\\20260828T200356Z-7151818e\\validation.md\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\n"
+    "seconds": 162.0,
+    "log_tail": "18-candidate\\attempts\\20260829T012637Z-8ae3e505\\validation.json\nMarkdown: C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\boardB-seed18-candidate\\attempts\\20260829T012637Z-8ae3e505\\validation.md\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\n"
    }
   },
   "extraction_available": true,

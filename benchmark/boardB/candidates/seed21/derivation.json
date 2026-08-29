@@ -1,0 +1,927 @@
+{
+ "kind": "candidate-derivation",
+ "candidate": "seed21",
+ "parent_candidate_sha256": null,
+ "seed": 21,
+ "inputs": {
+  "board_a_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+  "placement_semantics_sha256": "49643081f8c07a4b0805197e50d78e4690564a627ed9fcabe17ed223ef472cc7",
+  "constraints_sha256": "512e0ac1c1ab6625a20f136d12ce2107b993c04323e511de0a403a14d9ee20b9",
+  "zone_policy_sha256": "878201e317cb631553f760d5253ef5ecc842f3dddb73dd1e1ab78f37f090cdff",
+  "generator_semantics_version": "5",
+  "generator_sha256": "e7b51872b80ccb811f0c0dc3a4a87c75f25a6c0795afdb30f0b6c586b00db39c",
+  "optimizer_sha256": "0061cb41071498e6d0d9e0e7eb4f7fe0a8fe5d05e9aca76a5552a370e59afa42",
+  "router_sha256": "27b98db8b9851bb1c0bc4f956050b3e5ea05a059be719d5789c107a1faa5c194"
+ },
+ "records": [
+  {
+   "stage": "prepare",
+   "circular_outlines_converted": 1,
+   "removed_tracks_and_vias": 1338,
+   "zone_policy_outcome": {
+    "policy_version": "1",
+    "kept": 169,
+    "deleted": 119,
+    "per_rule": [
+     {
+      "decision": "inherited-architecture",
+      "matched": 2,
+      "kept": 2,
+      "deleted": 0
+     },
+     {
+      "decision": "derived-from-placement",
+      "matched": 286,
+      "kept": 167,
+      "deleted": 119
+     }
+    ]
+   }
+  },
+  {
+   "stage": "seed_placement_attempt",
+   "attempt": 0,
+   "outcome": "evaluated",
+   "policy_ok": true,
+   "violated": [],
+   "collision_checked_overlaps_moved": []
+  },
+  {
+   "stage": "seed_placement",
+   "outcome": "ok",
+   "moved_footprints": 104,
+   "output_sha256": "a7128d1202ac47c5c5e0c5ecd4e8ebf8232d3b7c660ec94a81d34d1e10be1571"
+  },
+  {
+   "stage": "place_optimize",
+   "attempt_id": "a003",
+   "input_board_sha256": "a7128d1202ac47c5c5e0c5ecd4e8ebf8232d3b7c660ec94a81d34d1e10be1571",
+   "tool": "place_optimize.py",
+   "tool_sha256": "0061cb41071498e6d0d9e0e7eb4f7fe0a8fe5d05e9aca76a5552a370e59afa42",
+   "configuration": [
+    "--max-displacement",
+    "200",
+    "--step",
+    "3.0",
+    "--max-passes",
+    "1",
+    "--lock",
+    "CM1",
+    "CM10",
+    "CM11",
+    "CM12",
+    "CM13",
+    "CM14",
+    "CM15",
+    "CM16",
+    "CM2",
+    "CM3",
+    "CM4",
+    "CM5",
+    "CM6",
+    "CM7",
+    "CM8",
+    "CM9",
+    "J1",
+    "J2",
+    "J3",
+    "MK1",
+    "MK10",
+    "MK11",
+    "MK12",
+    "MK13",
+    "MK14",
+    "MK15",
+    "MK16",
+    "MK2",
+    "MK3",
+    "MK4",
+    "MK5",
+    "MK6",
+    "MK7",
+    "MK8",
+    "MK9",
+    "RD1",
+    "RD10",
+    "RD11",
+    "RD12",
+    "RD13",
+    "RD14",
+    "RD15",
+    "RD16",
+    "RD2",
+    "RD3",
+    "RD4",
+    "RD5",
+    "RD6",
+    "RD7",
+    "RD8",
+    "RD9",
+    "U3",
+    "U4"
+   ],
+   "locked_references": 53,
+   "lock_meaning": "fixed parts and satellites of fixed anchors only; blocks stay free, repair and the evaluator own their constraints",
+   "timeout_s": 1500,
+   "status": "completed",
+   "output_path": "stages\\a003-quench-a7128d12.kicad_pcb",
+   "seconds": 867.8,
+   "returncode": 0,
+   "log_tail": "Loading C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\candidates\\seed21\\candidate_seeded.kicad_pcb...\nLocked via --lock: CM1, CM10, CM11, CM12, CM13, CM14, CM15, CM16, CM2, CM3, CM4, CM5, CM6, CM7, CM8, CM9, J1, J2, J3, MK1, MK10, MK11, MK12, MK13, MK14, MK15, MK16, MK2, MK3, MK4, MK5, MK6, MK7, MK8, MK9, RD1, RD10, RD11, RD12, RD13, RD14, RD15, RD16, RD2, RD3, RD4, RD5, RD6, RD7, RD8, RD9, U3, U4\nInitial: length=3727.8mm crossings=648 halo=552.4 edge=0.0 total=10760.2\nPass 1: 67 moves, gain 5473.9 -> length=2999.7mm crossings=203 halo=256.5 edge=0.0 total=5286.3\nQuench complete: length 3727.8 -> 2999.7mm, crossings 648 -> 203, total 10760.2 -> 5286.3\n65 parts moved\nModified 65 footprint positions\nSuccessfully wrote C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\candidates\\seed21\\stages\\a003-quench-a7128d12.kicad_pcb\n",
+   "output_sha256": "cecd3c56dca1847c6f4fba8b3905c36fc23115bdaf7f5e81ebe4d1a4751f527b"
+  },
+  {
+   "stage": "post_quench_policy",
+   "repair_rounds": [
+    {
+     "round": 0,
+     "moved": [
+      "FB1",
+      "TP3",
+      "C1",
+      "C3",
+      "C8",
+      "R1",
+      "R2",
+      "C6",
+      "C7",
+      "RC1",
+      "RC2",
+      "RC3",
+      "RC4",
+      "RC5",
+      "RC6",
+      "RC7",
+      "C6",
+      "C7",
+      "C8",
+      "TP9"
+     ],
+     "edge_findings": 1,
+     "edge_moved": [
+      "TP9"
+     ],
+     "deferred": [
+      "no collision-free position for 'C2' within 7.0 mm of its anchor"
+     ]
+    },
+    {
+     "round": 1,
+     "moved": [
+      "C2"
+     ],
+     "edge_findings": 0,
+     "edge_moved": [],
+     "deferred": []
+    }
+   ],
+   "policy_ok": true,
+   "violated": [],
+   "overlapping_pairs": [],
+   "edge_findings_remaining_movable": [],
+   "edge_findings_on_fixed": [],
+   "placed_sha256": "b7f7392a50a85cd272e455ae1cb34dd4c2856a56b687ca17188955cbea3938c5"
+  },
+  {
+   "stage": "critical_topology",
+   "planner": "pcbqa.critical_topology",
+   "seconds": 157.0,
+   "feedback_records": 0,
+   "net_clearances": {
+    "nets": 123,
+    "histogram": {
+     "0.150": 61,
+     "0.200": 56,
+     "0.250": 6
+    },
+    "sha256": "804b8dca78412647b0ae420d290b9fcc49bb5bd447c16e88c6ce38e299a8a973"
+   },
+   "intent_sha256": "e5a03e0bc44b4c8c30a10524b4097d5a03fc1cb38951d6d8565cbce8012aa0bd",
+   "outcome": {
+    "escapes": {
+     "placed": 84,
+     "refused": [],
+     "fallback_endpoints": 14
+    },
+    "stitches": {
+     "placed": 64,
+     "refused": []
+    }
+   },
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "ad1d9921ff290a8b70da2520ad099f94c937b0298421c52a967d32e863bcf127",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   },
+   "output_sha256": "1dc4e5d0f10e510413287f1810bd2ddeee3244c0e1e96a1103421de8e8057256"
+  },
+  {
+   "stage": "route_clock",
+   "attempt_id": "a006",
+   "input_board_sha256": "1dc4e5d0f10e510413287f1810bd2ddeee3244c0e1e96a1103421de8e8057256",
+   "tool": "route.py",
+   "tool_sha256": "27b98db8b9851bb1c0bc4f956050b3e5ea05a059be719d5789c107a1faa5c194",
+   "configuration": [
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+    "--no-bga-zones",
+    "--grid-step",
+    "0.05",
+    "--layers",
+    "F.Cu",
+    "--nets",
+    "MCLK_OSC",
+    "AUDIO_MCLK",
+    "PDM_CLK_IN",
+    "PDM_CLK_FPGA",
+    "PDM_CLK_Y0",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y2",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y4",
+    "PDM_CLK_Y5",
+    "PDM_CLK_Y6",
+    "PDM_CLK_Y7",
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7"
+   ],
+   "timeout_s": 1800,
+   "status": "timed-out",
+   "output_path": "stages\\a006-route_clock-1dc4e5d0.kicad_pcb",
+   "seconds": 1800.1,
+   "output_sha256": null
+  },
+  {
+   "stage": "route_clock_connectivity",
+   "note": "attempt a006 did not complete; the previous checkpoint stands and no stale file advances it"
+  },
+  {
+   "stage": "route_mic-data",
+   "attempt_id": "a008",
+   "input_board_sha256": "1dc4e5d0f10e510413287f1810bd2ddeee3244c0e1e96a1103421de8e8057256",
+   "tool": "route.py",
+   "tool_sha256": "27b98db8b9851bb1c0bc4f956050b3e5ea05a059be719d5789c107a1faa5c194",
+   "configuration": [
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+    "--nets",
+    "PDM_D0",
+    "PDM_D1",
+    "PDM_D2",
+    "PDM_D3",
+    "PDM_D4",
+    "PDM_D5",
+    "PDM_D6",
+    "PDM_D7",
+    "MIC_DOUT_0",
+    "MIC_DOUT_1",
+    "MIC_DOUT_2",
+    "MIC_DOUT_3",
+    "MIC_DOUT_4",
+    "MIC_DOUT_5",
+    "MIC_DOUT_6",
+    "MIC_DOUT_7",
+    "MIC_DOUT_8",
+    "MIC_DOUT_9",
+    "MIC_DOUT_10",
+    "MIC_DOUT_11",
+    "MIC_DOUT_12",
+    "MIC_DOUT_13",
+    "MIC_DOUT_14",
+    "MIC_DOUT_15"
+   ],
+   "timeout_s": 1200,
+   "status": "completed",
+   "output_path": "stages\\a008-route_mic-data-1dc4e5d0.kicad_pcb",
+   "seconds": 47.5,
+   "returncode": 0,
+   "log_tail": "e-net soft joint(s) with a tiny connector\n\n============================================================\nRouting complete\n============================================================\n  Single-ended:  24/24 routed\n  Multi-point:   32/32 pads connected (8 nets)\n  Total vias:    2\n  Total time:    6.98s\n  Iterations:    34,229\nJSON_SUMMARY: {\"routed_single\": [\"MIC_DOUT_0\", \"MIC_DOUT_8\", \"MIC_DOUT_12\", \"MIC_DOUT_14\", \"MIC_DOUT_4\", \"MIC_DOUT_1\", \"MIC_DOUT_2\", \"MIC_DOUT_15\", \"MIC_DOUT_3\", \"MIC_DOUT_7\", \"MIC_DOUT_11\", \"MIC_DOUT_13\", \"MIC_DOUT_9\", \"MIC_DOUT_6\", \"MIC_DOUT_10\", \"MIC_DOUT_5\", \"PDM_D4\", \"PDM_D0\", \"PDM_D2\", \"PDM_D3\", \"PDM_D5\", \"PDM_D7\", \"PDM_D1\", \"PDM_D6\"], \"failed_single\": [], \"failed_multipoint\": [], \"multipoint_nets\": 8, \"multipoint_pads_connected\": 32, \"multipoint_pads_total\": 32, \"multipoint_edges_routed\": 24, \"multipoint_edges_failed\": 0, \"ripup_success_pairs\": [], \"rerouted_pairs\": [], \"single_ended_target_swaps\": [], \"layer_swaps\": 0, \"successful\": 24, \"failed\": 0, \"total_time\": 6.98, \"total_iterations\": 34229, \"total_vias\": 2, \"cleanup_disconnected\": [], \"min_clearance_used\": 0.2}\n\nWriting output to C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\candidates\\seed21\\stages\\a008-route_mic-data-1dc4e5d0.kicad_pcb...\nRemoved 36 dead-end input segment(s) from the output\nSuccessfully wrote C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\candidates\\seed21\\stages\\a008-route_mic-data-1dc4e5d0.kicad_pcb\n",
+   "min_clearance_used_mm": 0.2,
+   "output_sha256": "e4e497e0afa4fe0a084961c75cf73f070a83ae5cdd1845792147493d15848058",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "7bee949e9d70abc3219dac055c8961e46e161f195494d8901223ee3f6633bada",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "route_mic-data_connectivity",
+   "board_file_is_arbiter": true,
+   "complete": 24,
+   "total": 24,
+   "not_complete": {}
+  },
+  {
+   "stage": "route_host",
+   "attempt_id": "a010",
+   "input_board_sha256": "e4e497e0afa4fe0a084961c75cf73f070a83ae5cdd1845792147493d15848058",
+   "tool": "route.py",
+   "tool_sha256": "27b98db8b9851bb1c0bc4f956050b3e5ea05a059be719d5789c107a1faa5c194",
+   "configuration": [
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+    "--nets",
+    "SPI_SCLK",
+    "SPI_CS_N",
+    "SPI_MISO",
+    "SPI_MOSI",
+    "PI_SCLK",
+    "PI_CS_N",
+    "PI_MISO",
+    "PI_MOSI",
+    "PI_IRQ",
+    "PI_RESET_N",
+    "PI_STATUS",
+    "PI_SYNC",
+    "HOST_IRQ",
+    "HOST_RESET_N",
+    "HOST_STATUS",
+    "HOST_SYNC"
+   ],
+   "timeout_s": 1200,
+   "status": "completed",
+   "output_path": "stages\\a010-route_host-e4e497e0.kicad_pcb",
+   "seconds": 52.1,
+   "returncode": 0,
+   "log_tail": "copper\nCycle prune: removed 29 redundant loop segment(s) across 16 net(s)\nStrict collapse: removed 1 redundant segment(s) (superseded parallel/buried copper)\nBridged 1 same-net soft joint(s) with a tiny connector\n\n============================================================\nRouting complete\n============================================================\n  Single-ended:  16/16 routed\n  Multi-point:   27/27 pads connected (9 nets)\n  Total vias:    19\n  Total time:    5.97s\n  Iterations:    111,616\nJSON_SUMMARY: {\"routed_single\": [\"HOST_STATUS\", \"SPI_MISO\", \"SPI_SCLK\", \"HOST_IRQ\", \"PI_MOSI\", \"SPI_MOSI\", \"PI_RESET_N\", \"SPI_CS_N\", \"PI_SCLK\", \"HOST_SYNC\", \"PI_SYNC\", \"HOST_RESET_N\", \"PI_STATUS\", \"PI_CS_N\", \"PI_MISO\", \"PI_IRQ\"], \"failed_single\": [], \"failed_multipoint\": [], \"multipoint_nets\": 9, \"multipoint_pads_connected\": 27, \"multipoint_pads_total\": 27, \"multipoint_edges_routed\": 18, \"multipoint_edges_failed\": 0, \"ripup_success_pairs\": [], \"rerouted_pairs\": [], \"single_ended_target_swaps\": [], \"layer_swaps\": 0, \"successful\": 16, \"failed\": 0, \"total_time\": 5.97, \"total_iterations\": 111616, \"total_vias\": 19, \"cleanup_disconnected\": [], \"min_clearance_used\": 0.2}\n\nWriting output to C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\candidates\\seed21\\stages\\a010-route_host-e4e497e0.kicad_pcb...\nSuccessfully wrote C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\candidates\\seed21\\stages\\a010-route_host-e4e497e0.kicad_pcb\n",
+   "min_clearance_used_mm": 0.2,
+   "output_sha256": "6ff7f7a5a89458f56bc2163a6373c38345e3cddd3dc33e964979bc547ec49468",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "4446181e348bd2127dd30d3cb29a903565725235ee71174a3de2c0417e14c36a",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "route_host_connectivity",
+   "board_file_is_arbiter": true,
+   "complete": 16,
+   "total": 16,
+   "not_complete": {}
+  },
+  {
+   "stage": "route_power",
+   "attempt_id": "a012",
+   "input_board_sha256": "6ff7f7a5a89458f56bc2163a6373c38345e3cddd3dc33e964979bc547ec49468",
+   "tool": "route.py",
+   "tool_sha256": "27b98db8b9851bb1c0bc4f956050b3e5ea05a059be719d5789c107a1faa5c194",
+   "configuration": [
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+    "--via-size",
+    "0.6",
+    "--via-drill",
+    "0.35",
+    "--nets",
+    "5V_FUSED",
+    "+5V",
+    "PI_5V",
+    "+3V3A",
+    "+3V3_CLK",
+    "TANG_3V3",
+    "MIC_VDD_0",
+    "MIC_VDD_1",
+    "MIC_VDD_2",
+    "MIC_VDD_3",
+    "MIC_VDD_4",
+    "MIC_VDD_5",
+    "MIC_VDD_6",
+    "MIC_VDD_7",
+    "MIC_VDD_8",
+    "MIC_VDD_9",
+    "MIC_VDD_10",
+    "MIC_VDD_11",
+    "MIC_VDD_12",
+    "MIC_VDD_13",
+    "MIC_VDD_14",
+    "MIC_VDD_15",
+    "GND"
+   ],
+   "timeout_s": 1800,
+   "status": "fabrication-invalid",
+   "output_path": "stages\\a012-route_power-6ff7f7a5.kicad_pcb",
+   "seconds": 287.4,
+   "returncode": 0,
+   "log_tail": "th=36.37mm (stubs=34.83mm) (0.44s)\n\nSync pcb_data: 4484 -> 4474 (kept stubs) -> 4484 (after adding 10)\nCycle prune: removed 2 redundant loop segment(s) across 2 net(s)\nStrict collapse: removed 2 redundant segment(s) (superseded parallel/buried copper)\n\n============================================================\nRouting complete\n============================================================\n  Single-ended:  2/2 routed\n  Total vias:    0\n  Total time:    0.86s\n  Iterations:    80\nJSON_SUMMARY: {\"routed_single\": [\"MIC_VDD_5\", \"MIC_VDD_13\"], \"failed_single\": [], \"failed_multipoint\": [], \"multipoint_nets\": 0, \"multipoint_pads_connected\": 0, \"multipoint_pads_total\": 0, \"multipoint_edges_routed\": 0, \"multipoint_edges_failed\": 0, \"ripup_success_pairs\": [], \"rerouted_pairs\": [], \"single_ended_target_swaps\": [], \"layer_swaps\": 0, \"successful\": 2, \"failed\": 0, \"total_time\": 0.86, \"total_iterations\": 80, \"total_vias\": 0, \"cleanup_disconnected\": [], \"min_clearance_used\": 0.2}\n\nWriting output to C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\candidates\\seed21\\stages\\a012-route_power-6ff7f7a5.kicad_pcb...\nRemoved 4 dead-end input segment(s) from the output\nSuccessfully wrote C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\candidates\\seed21\\stages\\a012-route_power-6ff7f7a5.kicad_pcb\nNote: the JSON_SUMMARY above covers only the reconciliation subset; the run's full tally is the earlier JSON_SUMMARY plus these recoveries.\n",
+   "min_clearance_used_mm": 0.2,
+   "output_sha256": "244721e68e25cadbbb552beb3a408afa62fc566b1323bd8eefd2371c411e7fe2",
+   "fabrication_geometry": {
+    "ok": false,
+    "violations_by_type": {
+     "connection_width": 1
+    },
+    "judged_board_sha256": "a288b14615ccaf7c3a3ae518e73744465002d1e7dd433ece219b5b9ff71320c8",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "sliver_strip",
+   "from_attempt": "a012",
+   "removed_sub_floor_segments": 0,
+   "fabrication_geometry": {
+    "ok": false,
+    "violations_by_type": {
+     "connection_width": 1
+    },
+    "judged_board_sha256": "45194fae51a13d56408e22a286bd3ba1877ef628920bbf618aadef64fdbcc7ab",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   },
+   "output_sha256": "f35bfa718cddfa89a8440bc34bb1bb42fd9132611e29923f0fcc583095933c95",
+   "output_path": "stages\\a012-slivstrip.kicad_pcb"
+  },
+  {
+   "stage": "route_power_connectivity",
+   "note": "attempt a012 did not complete; the previous checkpoint stands and no stale file advances it"
+  },
+  {
+   "stage": "route_cleanup_clock",
+   "attempt_id": "a015",
+   "input_board_sha256": "74014cd803234a50d39c290d1f5b4fbf90e91693577ce58b307d04de6bd489c8",
+   "tool": "route.py",
+   "tool_sha256": "27b98db8b9851bb1c0bc4f956050b3e5ea05a059be719d5789c107a1faa5c194",
+   "configuration": [
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+    "--no-bga-zones",
+    "--grid-step",
+    "0.05",
+    "--layers",
+    "F.Cu",
+    "--nets",
+    "MCLK_OSC",
+    "AUDIO_MCLK",
+    "PDM_CLK_IN",
+    "PDM_CLK_FPGA",
+    "PDM_CLK_Y0",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y2",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y4",
+    "PDM_CLK_Y5",
+    "PDM_CLK_Y6",
+    "PDM_CLK_Y7",
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7"
+   ],
+   "timeout_s": 1800,
+   "status": "timed-out",
+   "output_path": "stages\\a015-route_cleanup_clock-74014cd8.kicad_pcb",
+   "reattempted_nets": [
+    "MCLK_OSC",
+    "AUDIO_MCLK",
+    "PDM_CLK_IN",
+    "PDM_CLK_FPGA",
+    "PDM_CLK_Y0",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y2",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y4",
+    "PDM_CLK_Y5",
+    "PDM_CLK_Y6",
+    "PDM_CLK_Y7",
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7"
+   ],
+   "seconds": 1800.1,
+   "output_sha256": null
+  },
+  {
+   "stage": "route_cleanup_power",
+   "attempt_id": "a016",
+   "input_board_sha256": "74014cd803234a50d39c290d1f5b4fbf90e91693577ce58b307d04de6bd489c8",
+   "tool": "route.py",
+   "tool_sha256": "27b98db8b9851bb1c0bc4f956050b3e5ea05a059be719d5789c107a1faa5c194",
+   "configuration": [
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\fab_floors.txt",
+    "--via-size",
+    "0.6",
+    "--via-drill",
+    "0.35",
+    "--nets",
+    "5V_FUSED",
+    "+5V",
+    "PI_5V",
+    "+3V3A",
+    "+3V3_CLK",
+    "TANG_3V3",
+    "MIC_VDD_0",
+    "MIC_VDD_1",
+    "MIC_VDD_2",
+    "MIC_VDD_3",
+    "MIC_VDD_4",
+    "MIC_VDD_5",
+    "MIC_VDD_6",
+    "MIC_VDD_7",
+    "MIC_VDD_8",
+    "MIC_VDD_9",
+    "MIC_VDD_10",
+    "MIC_VDD_11",
+    "MIC_VDD_12",
+    "MIC_VDD_13",
+    "MIC_VDD_14",
+    "MIC_VDD_15",
+    "GND"
+   ],
+   "timeout_s": 1800,
+   "status": "fabrication-invalid",
+   "output_path": "stages\\a016-route_cleanup_power-74014cd8.kicad_pcb",
+   "reattempted_nets": [
+    "5V_FUSED",
+    "+5V",
+    "PI_5V",
+    "+3V3A",
+    "+3V3_CLK",
+    "TANG_3V3",
+    "MIC_VDD_0",
+    "MIC_VDD_1",
+    "MIC_VDD_2",
+    "MIC_VDD_3",
+    "MIC_VDD_4",
+    "MIC_VDD_5",
+    "MIC_VDD_6",
+    "MIC_VDD_7",
+    "MIC_VDD_8",
+    "MIC_VDD_9",
+    "MIC_VDD_10",
+    "MIC_VDD_11",
+    "MIC_VDD_12",
+    "MIC_VDD_13",
+    "MIC_VDD_14",
+    "MIC_VDD_15",
+    "GND"
+   ],
+   "seconds": 166.0,
+   "returncode": 0,
+   "log_tail": "s=34.83mm) (0.13s)\n\nSync pcb_data: 4484 -> 4474 (kept stubs) -> 4484 (after adding 10)\nCycle prune: removed 2 redundant loop segment(s) across 2 net(s)\nStrict collapse: removed 2 redundant segment(s) (superseded parallel/buried copper)\n\n============================================================\nRouting complete\n============================================================\n  Single-ended:  2/2 routed\n  Total vias:    0\n  Total time:    0.31s\n  Iterations:    80\nJSON_SUMMARY: {\"routed_single\": [\"MIC_VDD_5\", \"MIC_VDD_13\"], \"failed_single\": [], \"failed_multipoint\": [], \"multipoint_nets\": 0, \"multipoint_pads_connected\": 0, \"multipoint_pads_total\": 0, \"multipoint_edges_routed\": 0, \"multipoint_edges_failed\": 0, \"ripup_success_pairs\": [], \"rerouted_pairs\": [], \"single_ended_target_swaps\": [], \"layer_swaps\": 0, \"successful\": 2, \"failed\": 0, \"total_time\": 0.31, \"total_iterations\": 80, \"total_vias\": 0, \"cleanup_disconnected\": [], \"min_clearance_used\": 0.2}\n\nWriting output to C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\candidates\\seed21\\stages\\a016-route_cleanup_power-74014cd8.kicad_pcb...\nRemoved 4 dead-end input segment(s) from the output\nSuccessfully wrote C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\benchmark\\boardB\\candidates\\seed21\\stages\\a016-route_cleanup_power-74014cd8.kicad_pcb\nNote: the JSON_SUMMARY above covers only the reconciliation subset; the run's full tally is the earlier JSON_SUMMARY plus these recoveries.\n",
+   "min_clearance_used_mm": 0.2,
+   "output_sha256": "38039c6c6dcb1173b9a8633bead34046e086725da6db6dc9110f814cb328b478",
+   "fabrication_geometry": {
+    "ok": false,
+    "violations_by_type": {
+     "connection_width": 1
+    },
+    "judged_board_sha256": "5cfd54a0f35fe35a773a2df9fd7221adae858d255556846404e674f8731aaeb1",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "sliver_strip",
+   "from_attempt": "a016",
+   "removed_sub_floor_segments": 0,
+   "fabrication_geometry": {
+    "ok": false,
+    "violations_by_type": {
+     "connection_width": 1
+    },
+    "judged_board_sha256": "c483950c5533eeb72f06b799455a79e64eacc9a96c424cf2eb068ed05439b493",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   },
+   "output_sha256": "f5f28e7a7b77773aa8ba515d78e119e8473d6c9383ea784ddc7093b5e651a85b",
+   "output_path": "stages\\a016-slivstrip.kicad_pcb"
+  },
+  {
+   "stage": "last_mile_repair",
+   "round": 0,
+   "outcome": {
+    "+3V3_CLK": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "GND": {
+     "joined": [
+      "C1.2",
+      "J3.23"
+     ],
+     "distance_mm": 26.39
+    },
+    "MIC_VDD_0": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_1": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_10": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_11": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_12": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_13": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_14": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_15": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_2": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_3": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_4": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_5": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_6": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_7": {
+     "joined": [
+      "CM8.1",
+      "RV8.2"
+     ],
+     "distance_mm": 3.839
+    },
+    "MIC_VDD_8": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_9": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B0": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B1": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B2": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B3": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B4": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B5": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B6": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B7": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_IN": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y0": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y1": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y2": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y3": {
+     "joined": [
+      "RC4.1",
+      "U2.5"
+     ],
+     "distance_mm": 6.764
+    },
+    "PDM_CLK_Y4": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: no escape path exists at the declared values within the search window)"
+    },
+    "PDM_CLK_Y5": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y6": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y7": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    }
+   },
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "702afd5aebdc434ce07096115f1d04d2b586122e2443865325e6ab600f4850c2",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   },
+   "output_sha256": "f118158dfd8e16e9f4012fd665dfadb302afdf499373c60ed621ddd8bcb4d6c6"
+  },
+  {
+   "stage": "last_mile_repair",
+   "round": 1,
+   "outcome": {
+    "+3V3_CLK": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "GND": {
+     "joined": [
+      "C2.2",
+      "C1.2"
+     ],
+     "distance_mm": 4.4
+    },
+    "MIC_VDD_0": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_1": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_10": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_11": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_12": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_13": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_14": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_15": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_2": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_3": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_4": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_5": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_6": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_7": {
+     "joined": [
+      "MK8.1",
+      "CM8.1"
+     ],
+     "distance_mm": 2.898
+    },
+    "MIC_VDD_8": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "MIC_VDD_9": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B0": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B1": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B2": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B3": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B4": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B5": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B6": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B7": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_IN": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y0": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y1": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y2": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y4": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: no escape path exists at the declared values within the search window)"
+    },
+    "PDM_CLK_Y5": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y6": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y7": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    }
+   },
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "44249e7f9b2bea16faa5ce9a97a87eb20e54f7f1b8c0628da3196bcd0112ce08",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   },
+   "output_sha256": "db4306bc60892fe810d5ef95263a418fb6261c02b47a6d4c6ac85f1921253afa"
+  },
+  {
+   "stage": "final_candidate",
+   "from_attempt_output": "stages\\a010-route_host-e4e497e0.kicad_pcb",
+   "zones_refilled": true,
+   "output_sha256": "db4306bc60892fe810d5ef95263a418fb6261c02b47a6d4c6ac85f1921253afa",
+   "connectivity_complete": 42,
+   "net_total": 83,
+   "not_complete": {
+    "+3V3A": "no-copper",
+    "+3V3_CLK": "partial-copper",
+    "+5V": "no-copper",
+    "5V_FUSED": "no-copper",
+    "AUDIO_MCLK": "no-copper",
+    "GND": "partial-copper",
+    "MCLK_OSC": "no-copper",
+    "MIC_VDD_0": "partial-copper",
+    "MIC_VDD_1": "partial-copper",
+    "MIC_VDD_10": "partial-copper",
+    "MIC_VDD_11": "partial-copper",
+    "MIC_VDD_12": "partial-copper",
+    "MIC_VDD_13": "partial-copper",
+    "MIC_VDD_14": "partial-copper",
+    "MIC_VDD_15": "partial-copper",
+    "MIC_VDD_2": "partial-copper",
+    "MIC_VDD_3": "partial-copper",
+    "MIC_VDD_4": "partial-copper",
+    "MIC_VDD_5": "partial-copper",
+    "MIC_VDD_6": "partial-copper",
+    "MIC_VDD_8": "partial-copper",
+    "MIC_VDD_9": "partial-copper",
+    "PDM_CLK_B0": "partial-copper",
+    "PDM_CLK_B1": "partial-copper",
+    "PDM_CLK_B2": "partial-copper",
+    "PDM_CLK_B3": "partial-copper",
+    "PDM_CLK_B4": "partial-copper",
+    "PDM_CLK_B5": "partial-copper",
+    "PDM_CLK_B6": "partial-copper",
+    "PDM_CLK_B7": "partial-copper",
+    "PDM_CLK_FPGA": "no-copper",
+    "PDM_CLK_IN": "partial-copper",
+    "PDM_CLK_Y0": "partial-copper",
+    "PDM_CLK_Y1": "partial-copper",
+    "PDM_CLK_Y2": "partial-copper",
+    "PDM_CLK_Y4": "partial-copper",
+    "PDM_CLK_Y5": "partial-copper",
+    "PDM_CLK_Y6": "partial-copper",
+    "PDM_CLK_Y7": "partial-copper",
+    "PI_5V": "no-copper",
+    "TANG_3V3": "no-copper"
+   }
+  }
+ ]
+}

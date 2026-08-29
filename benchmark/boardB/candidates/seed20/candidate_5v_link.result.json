@@ -305,6 +305,7 @@
        "value": 4.999
       },
       "value_bound": null,
+      "bound_establishment": null,
       "passed": true,
       "verdict": "exact-PASS"
      }
@@ -318,7 +319,7 @@
      "assumptions_accepted_for_design_decision": true,
      "usable_for_design_decision": true,
      "usable_for_release": false,
-     "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those. assertions_claimable is the actionable assertion truth: True only when every declared assertion's VERDICT is a PASS class - numerical_assertions_passed is the raw numeric fact and must never be acted on alone, because a bounded value can pass numerically while its claim is unresolved"
+     "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those. assertions_claimable is the actionable assertion truth: True only when every declared assertion's VERDICT is a PASS class, None when nothing was asserted (absence of assertions is never a claim) - numerical_assertions_passed is the raw numeric fact and must never be acted on alone, because a bounded value can pass numerically while its claim is unresolved"
     }
    }
   },
@@ -502,7 +503,8 @@
       },
       "value_bound": {
        "direction": "upper",
-       "reason": "the link resistance omits 2 via barrel(s) and is a lower bound; the load voltage is therefore an upper bound"
+       "reason": "mechanically derived: series-divider template - the load voltage is monotonically decreasing in the series resistance, whose declared bound is 'lower'",
+       "established_by": "derived"
       }
      }
     ],
@@ -613,7 +615,7 @@
      "release_grade": false,
      "meaning": "a numerical result under exactly the stated model coverage and condition coverage; convergence and assertion verdicts never imply stronger evidence than those blocks record, and a simulator-applied operating condition is not model condition coverage"
     },
-    "raw_log_sha256": "7049f87e9c87ce91afea84d188ded46481ef5ca83456738ee4826ce38eb3de7f",
+    "raw_log_sha256": "5f0b48684ef025cac00f2d8cc47b9cb112023d0ec94b70b5512e92cc3a1cd01e",
     "execution": {
      "mode": "shared-library",
      "commands": [
@@ -635,8 +637,10 @@
       },
       "value_bound": {
        "direction": "upper",
-       "reason": "the link resistance omits 2 via barrel(s) and is a lower bound; the load voltage is therefore an upper bound"
+       "reason": "mechanically derived: series-divider template - the load voltage is monotonically decreasing in the series resistance, whose declared bound is 'lower'",
+       "established_by": "derived"
       },
+      "bound_establishment": "derived",
       "passed": true,
       "verdict": "unresolved"
      }
@@ -650,7 +654,7 @@
      "assumptions_accepted_for_design_decision": true,
      "usable_for_design_decision": true,
      "usable_for_release": false,
-     "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those. assertions_claimable is the actionable assertion truth: True only when every declared assertion's VERDICT is a PASS class - numerical_assertions_passed is the raw numeric fact and must never be acted on alone, because a bounded value can pass numerically while its claim is unresolved"
+     "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those. assertions_claimable is the actionable assertion truth: True only when every declared assertion's VERDICT is a PASS class, None when nothing was asserted (absence of assertions is never a claim) - numerical_assertions_passed is the raw numeric fact and must never be acted on alone, because a bounded value can pass numerically while its claim is unresolved"
     }
    }
   }
@@ -756,7 +760,7 @@
    "release_grade": false,
    "meaning": "a numerical result under exactly the stated model coverage and condition coverage; convergence and assertion verdicts never imply stronger evidence than those blocks record, and a simulator-applied operating condition is not model condition coverage"
   },
-  "raw_log_sha256": "7049f87e9c87ce91afea84d188ded46481ef5ca83456738ee4826ce38eb3de7f",
+  "raw_log_sha256": "5f0b48684ef025cac00f2d8cc47b9cb112023d0ec94b70b5512e92cc3a1cd01e",
   "execution": {
    "mode": "shared-library",
    "commands": [
@@ -778,8 +782,10 @@
     },
     "value_bound": {
      "direction": "upper",
-     "reason": "the link resistance omits 2 via barrel(s) and is a lower bound; the load voltage is therefore an upper bound"
+     "reason": "mechanically derived: series-divider template - the load voltage is monotonically decreasing in the series resistance, whose declared bound is 'lower'",
+     "established_by": "derived"
     },
+    "bound_establishment": "derived",
     "passed": true,
     "verdict": "unresolved"
    }
@@ -793,7 +799,7 @@
    "assumptions_accepted_for_design_decision": true,
    "usable_for_design_decision": true,
    "usable_for_release": false,
-   "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those. assertions_claimable is the actionable assertion truth: True only when every declared assertion's VERDICT is a PASS class - numerical_assertions_passed is the raw numeric fact and must never be acted on alone, because a bounded value can pass numerically while its claim is unresolved"
+   "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those. assertions_claimable is the actionable assertion truth: True only when every declared assertion's VERDICT is a PASS class, None when nothing was asserted (absence of assertions is never a claim) - numerical_assertions_passed is the raw numeric fact and must never be acted on alone, because a bounded value can pass numerically while its claim is unresolved"
   }
  },
  "comparison": {

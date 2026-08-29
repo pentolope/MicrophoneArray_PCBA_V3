@@ -121,6 +121,7 @@
      "value_ohm_m": 1.7241e-08,
      "source": "IEC 60028 international annealed copper standard, 20 C"
     },
+    "resistance_bound": "exact",
     "two_terminal_assertion": "scenario author; verified on this board: 5V_FUSED carries exactly pads F1.2 and D1.2",
     "assumptions": [
      "the series sum of per-segment DC resistances: equal to the two-terminal DC resistance only for an unbranched net; for a branched net it is a copper inventory metric, and no two-terminal claim is made"

@@ -44,42 +44,6 @@
    ]
   },
   {
-   "candidate": "seed11",
-   "decision": "missing",
-   "progress_class": null,
-   "board_required_net_completion": null,
-   "benchmark_net_completion": null,
-   "critical": [
-    null,
-    null,
-    null
-   ],
-   "fabrication_geometry_ok": null,
-   "candidate_ready_for_next_stage": null,
-   "search_winner_eligible": null,
-   "reasons": [
-    "no decision.json; the candidate pipeline did not complete"
-   ]
-  },
-  {
-   "candidate": "seed12",
-   "decision": "missing",
-   "progress_class": null,
-   "board_required_net_completion": null,
-   "benchmark_net_completion": null,
-   "critical": [
-    null,
-    null,
-    null
-   ],
-   "fabrication_geometry_ok": null,
-   "candidate_ready_for_next_stage": null,
-   "search_winner_eligible": null,
-   "reasons": [
-    "no decision.json; the candidate pipeline did not complete"
-   ]
-  },
-  {
    "candidate": "seed13",
    "decision": "reject",
    "progress_class": "critical-structures",
@@ -270,6 +234,342 @@
    "reasons": [
     "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
    ]
+  },
+  {
+   "candidate": "seed21",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 42,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 19,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed23",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 45,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 22,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed24",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 44,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 22,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed25",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 68,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 31,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed26",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 76,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 39,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed27",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 1,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 1,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed28",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 44,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 22,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed29",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 45,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 22,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed30",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 56,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 32,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed31",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 41,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 19,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed32",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 56,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 32,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed33",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 55,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 31,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed34",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 76,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 39,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
+  },
+  {
+   "candidate": "seed35",
+   "decision": "reject",
+   "progress_class": "critical-structures",
+   "board_required_net_completion": {
+    "complete": 74,
+    "total": 83
+   },
+   "benchmark_net_completion": {
+    "complete": 37,
+    "total": 46
+   },
+   "critical": [
+    false,
+    false,
+    false
+   ],
+   "fabrication_geometry_ok": true,
+   "candidate_ready_for_next_stage": false,
+   "search_winner_eligible": false,
+   "reasons": [
+    "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+   ]
   }
  ],
  "best": null,
@@ -279,19 +579,33 @@
   "kind": "producer-closure",
   "components": {
    "decision.seed09": "2bf9f9e1ae500f4932a9790ef0a26eacc7f179e843a9e8f8c1e1c400d9c5b93c",
-   "decision.seed10": "561d68a5b7c92e0c36f2f3fed1437a6202fcecff66902c7356bd329906283ac3",
-   "decision.seed13": "e93e11ae59973c70d89ebfe84b1448cb7015bf694e410325ce574527bedf2042",
-   "decision.seed14": "04e4bc083619e32755c36eb38d352947830189ad816ce66f53b92fc9465683ea",
-   "decision.seed15": "128d419898c01024ab85ede9436e4ee08ed208cb41bd3eea79e965db444133de",
-   "decision.seed16": "3d181a498cab8d2f7f57be694ea8c16db3f4b656d5d9b3a361dc0d49ee2238f3",
-   "decision.seed17": "a28cd9450d0241612a7fa8ea778441f650af9b86a5df96de916e1e933e1721bc",
-   "decision.seed18": "4b720f01632f4230214ab5534485cd208524edbf59008e2ccd3b29031f4d8229",
-   "decision.seed19": "d54993ce97f90abb45e147266623ef8953b65cb4ce3f746601e597160aedd848",
-   "decision.seed20": "7654bcff5b235176c81c659d443fa6591d074c6f6b3e6e8751792be811c421e3",
+   "decision.seed10": "4adb876cdb94eea29ba375a03b8041bb9aa5c4c8672cac18580f5798cdfe3c8d",
+   "decision.seed13": "81b70350844c4ccc1d6879cd65922e91d7f4be53ae651857f9c4bb67ad5235a2",
+   "decision.seed14": "8c9f01d7b516fbfd945125da12a2b2bf84cc7d97fd88e56dba98b164413228b3",
+   "decision.seed15": "1e19eb31209d1fc698f52f2a4889220a2740c9d81d93683d65c1bdceb85be9c5",
+   "decision.seed16": "ad03ea291cee6ba9cc14f462bb72181b837ba4405540939950aefe5c8cbac1a8",
+   "decision.seed17": "a3501148962dd6db2091e412089dc34932fd23f5664b884d5b3cd27a69414e37",
+   "decision.seed18": "f8ee0cee7e8f8860a796bc0a7ccb8d11965d1297b694a510cf24d2d56dd52071",
+   "decision.seed19": "96a035578251d89390636f7b18fa7c46691e544ed8c94dac6249955138f2ab52",
+   "decision.seed20": "c67ccfbbe25a67ba559590f908e9b6d1462cbe03418e9e26efa926531f261e3e",
+   "decision.seed21": "69b02d88836cd9e93817ad594eae77b5d03c8e049b5f86373f25c02a0e9536e6",
+   "decision.seed23": "34097c8d1557d66ee30ab0a872f3fd8a360110b76cf75820ed95e8da6847fd61",
+   "decision.seed24": "60fb0600dc08dca57fe29526cfe7dcd2977c9b5da46ec68a5846bb7f22328c80",
+   "decision.seed25": "da2cc2d73243262bc0d07d6d4b74b1900966810fe5ce06f8ab21c8ebddcd9a8e",
+   "decision.seed26": "347058c142caf4a60f5e076bca39325d6bae2af6903c9f1a0e0b8aa52452726d",
+   "decision.seed27": "96e3cdc5ba9d3f8d2ca88ab77a04f29234c5aba9e06bfcc7cd049e990485f4b0",
+   "decision.seed28": "d799012ca7a362fc20ecb017c795cf453adb78ec43aaa3a13918cbccb683d14c",
+   "decision.seed29": "ff94c709257bff9ab0b67f92ee43fc454b7ef01b0eef47bec1e54fa9a8ca47e0",
+   "decision.seed30": "c51671f149e9876b2109bef09154f7b432a4f2b736d001d17dd792470b4258eb",
+   "decision.seed31": "cb49df73e2b994298ca0d3b813103a3864e66ffa3677085286a7455c0ae8c740",
+   "decision.seed32": "0b5d0707fce153d719eb2d1f5709ade597b19b351445fbb9e876e557d7705dd5",
+   "decision.seed33": "0bbc9ed695461fb28f30acb5e966666ff6c5d3fd6128074cc12e02fe9cab4eea",
+   "decision.seed34": "6c3a94c7e072e942ee1843dfeb5a23627e28a9bd2ae885c5842affb6c71d119d",
+   "decision.seed35": "56b970a011800057c7547a0fcabc54fc9eaf1c17e9b6e1e37e2839d119ec88e2",
    "search.py": "8c0dd6acabdf0e0fa8e8ee08e556614e6b981d27bf1bb753348acf68350112af",
    "toolkit.freshness": "313ce08ce6a06d3be759aed90f7ea54f2405cf7149f3f97bb3f154cb9c4dedb7",
-   "toolkit.progression": "19e1fe73f67cd1b1190a9134e5dc3bf3fc1c1bcd534adf3eb1956b97e2682758"
+   "toolkit.progression": "f4e982b585d800b44ee7e5b70fb4dc3cf9608bed31b09504f7f6a08c3bf66706"
   },
-  "digest": "3d3e311943657daba65a3434cc37547231ff8f69f288d55f7986ffcca85d0a4d"
+  "digest": "43913a37d5a3e919bdf09927dce7bb5e086d7fd35448abaad886578e8fc85737"
  }
 }

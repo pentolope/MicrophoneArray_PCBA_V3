@@ -1,0 +1,127 @@
+{
+ "kind": "candidate-feedback",
+ "candidate": "seed26",
+ "records": [
+  {
+   "kind": "escape-refused",
+   "references": [
+    "RC7"
+   ],
+   "pads": [
+    "RC7.2"
+   ],
+   "nets": [
+    "PDM_CLK_B6"
+   ],
+   "location_mm": [
+    158.15781,
+    130.819156
+   ],
+   "required_margin_mm": 0.15,
+   "observed_margin_mm": null,
+   "no_route_reason": "no escape path exists at the declared values within the search window",
+   "suggested_movable_references": [
+    "RC7"
+   ],
+   "movement_domain": {
+    "kind": "local-declutter",
+    "detail": "open a corridor at the declared clearance near the refused pad; movement is bounded by the consumer's own placement constraints"
+   },
+   "source_artifact": {
+    "kind": "planner-outcome",
+    "identity": "derivation:critical_topology:seed26"
+   }
+  },
+  {
+   "kind": "escape-refused",
+   "references": [
+    "U2"
+   ],
+   "pads": [
+    "U2.7"
+   ],
+   "nets": [
+    "PDM_CLK_Y4"
+   ],
+   "location_mm": [
+    151.325,
+    129.6375
+   ],
+   "required_margin_mm": 0.15,
+   "observed_margin_mm": null,
+   "no_route_reason": "a generated segment failed exact re-verification against the 0.15 mm clearance group; refusing rather than emitting it",
+   "suggested_movable_references": [
+    "U2"
+   ],
+   "movement_domain": {
+    "kind": "local-declutter",
+    "detail": "open a corridor at the declared clearance near the refused pad; movement is bounded by the consumer's own placement constraints"
+   },
+   "source_artifact": {
+    "kind": "planner-outcome",
+    "identity": "derivation:critical_topology:seed26"
+   }
+  },
+  {
+   "kind": "escape-refused",
+   "references": [
+    "RC3"
+   ],
+   "pads": [
+    "RC3.2"
+   ],
+   "nets": [
+    "PDM_CLK_B2"
+   ],
+   "location_mm": [
+    151.243998,
+    127.722785
+   ],
+   "required_margin_mm": 0.15,
+   "observed_margin_mm": null,
+   "no_route_reason": "no escape path exists at the declared values within the search window",
+   "suggested_movable_references": [
+    "RC3"
+   ],
+   "movement_domain": {
+    "kind": "local-declutter",
+    "detail": "open a corridor at the declared clearance near the refused pad; movement is bounded by the consumer's own placement constraints"
+   },
+   "source_artifact": {
+    "kind": "planner-outcome",
+    "identity": "derivation:critical_topology:seed26"
+   }
+  },
+  {
+   "kind": "escape-refused",
+   "references": [
+    "RC5"
+   ],
+   "pads": [
+    "RC5.1"
+   ],
+   "nets": [
+    "PDM_CLK_Y4"
+   ],
+   "location_mm": [
+    150.104056,
+    127.458511
+   ],
+   "required_margin_mm": 0.15,
+   "observed_margin_mm": null,
+   "no_route_reason": "no escape path exists at the declared values within the search window",
+   "suggested_movable_references": [
+    "RC5"
+   ],
+   "movement_domain": {
+    "kind": "local-declutter",
+    "detail": "open a corridor at the declared clearance near the refused pad; movement is bounded by the consumer's own placement constraints"
+   },
+   "source_artifact": {
+    "kind": "planner-outcome",
+    "identity": "derivation:critical_topology:seed26"
+   }
+  }
+ ],
+ "meaning": "structured failure attribution for the NEXT iteration: a descendant applies these within its own constraints and the ordinary progression judges the result"
+}

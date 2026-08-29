@@ -21,12 +21,14 @@
     },
     "via_count_in_path": 0,
     "resistance_ohm": 0.002377496,
+    "resistance_bound": "exact",
+    "resistance_uncertainty_ohm": 0.0,
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
     "omissions": [
      "via barrel resistance (no supported model; 0 via(s) traversed contribute zero)"
     ],
-    "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely"
+    "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely; resistance_bound is 'lower' when omitted positive contributions (via barrels) are the only deviation, 'exact' when there is none, and 'uncertain' when the junction-span ambiguity is nonzero - a symmetric uncertainty is never passed off as a one-sided bound"
    },
    "model": {
     "identity": "path:5V_FUSED:F1.2->D1.2@9ddb432333d3+phys:49c4fed5a90f",
@@ -85,11 +87,12 @@
       "to_pad": "D1.2",
       "length_mm": 3.3625,
       "length_uncertainty_mm": 0.0,
-      "via_count": 0
+      "via_count": 0,
+      "resistance_bound": "exact"
      },
      "two_terminal_assertion": "established by construction: path-scoped traversal between F1.2 and D1.2 with stubs excluded and alternate copper paths refused during extraction",
      "assumptions": [
-      "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely"
+      "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely; resistance_bound is 'lower' when omitted positive contributions (via barrels) are the only deviation, 'exact' when there is none, and 'uncertain' when the junction-span ambiguity is nonzero - a symmetric uncertainty is never passed off as a one-sided bound"
      ]
     },
     "omissions": [
@@ -101,7 +104,7 @@
      "temperature dependence beyond the stated resistivity reference"
     ],
     "notes": [
-     "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely"
+     "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely; resistance_bound is 'lower' when omitted positive contributions (via barrels) are the only deviation, 'exact' when there is none, and 'uncertain' when the junction-span ambiguity is nonzero - a symmetric uncertainty is never passed off as a one-sided bound"
     ],
     "spice": ".subckt path:5V_FUSED:F1.2->D1.2@9ddb432333d3+phys:49c4fed5a90f a b\nR1 a b 0.002377496\n.ends",
     "conditions": {
@@ -301,18 +304,22 @@
        "op": ">=",
        "value": 4.999
       },
-      "passed": true
+      "value_bound": null,
+      "bound_establishment": null,
+      "passed": true,
+      "verdict": "exact-PASS"
      }
     },
     "unsupported": [],
     "result_policy": {
      "numerical_assertions_passed": true,
+     "assertions_claimable": true,
      "result_applicable_to_requested_conditions": true,
      "assumption_dependent": true,
      "assumptions_accepted_for_design_decision": true,
      "usable_for_design_decision": true,
      "usable_for_release": false,
-     "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those"
+     "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those. assertions_claimable is the actionable assertion truth: True only when every declared assertion's VERDICT is a PASS class, None when nothing was asserted (absence of assertions is never a claim) - numerical_assertions_passed is the raw numeric fact and must never be acted on alone, because a bounded value can pass numerically while its claim is unresolved"
     }
    }
   },
@@ -331,12 +338,14 @@
     },
     "via_count_in_path": 2,
     "resistance_ohm": 0.013905553,
+    "resistance_bound": "lower",
+    "resistance_uncertainty_ohm": 0.0,
     "resistivity_ohm_m": 1.7241e-08,
     "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
     "omissions": [
      "via barrel resistance (no supported model; 2 via(s) traversed contribute zero)"
     ],
-    "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely"
+    "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely; resistance_bound is 'lower' when omitted positive contributions (via barrels) are the only deviation, 'exact' when there is none, and 'uncertain' when the junction-span ambiguity is nonzero - a symmetric uncertainty is never passed off as a one-sided bound"
    },
    "model": {
     "identity": "path:5V_FUSED:F1.2->D1.2@f42e096b5e60+phys:84f33ba35fa3",
@@ -404,11 +413,12 @@
       "to_pad": "D1.2",
       "length_mm": 16.0,
       "length_uncertainty_mm": 0.0,
-      "via_count": 2
+      "via_count": 2,
+      "resistance_bound": "lower"
      },
      "two_terminal_assertion": "established by construction: path-scoped traversal between F1.2 and D1.2 with stubs excluded and alternate copper paths refused during extraction",
      "assumptions": [
-      "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely"
+      "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely; resistance_bound is 'lower' when omitted positive contributions (via barrels) are the only deviation, 'exact' when there is none, and 'uncertain' when the junction-span ambiguity is nonzero - a symmetric uncertainty is never passed off as a one-sided bound"
      ]
     },
     "omissions": [
@@ -420,7 +430,7 @@
      "temperature dependence beyond the stated resistivity reference"
     ],
     "notes": [
-     "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely"
+     "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely; resistance_bound is 'lower' when omitted positive contributions (via barrels) are the only deviation, 'exact' when there is none, and 'uncertain' when the junction-span ambiguity is nonzero - a symmetric uncertainty is never passed off as a one-sided bound"
     ],
     "spice": ".subckt path:5V_FUSED:F1.2->D1.2@f42e096b5e60+phys:84f33ba35fa3 a b\nR1 a b 0.013905553\n.ends",
     "conditions": {
@@ -490,6 +500,11 @@
       "assertion": {
        "op": ">=",
        "value": 4.999
+      },
+      "value_bound": {
+       "direction": "upper",
+       "reason": "mechanically derived: series-divider template - the load voltage is monotonically decreasing in the series resistance, whose declared bound is 'lower'",
+       "established_by": "derived"
       }
      }
     ],
@@ -620,18 +635,26 @@
        "op": ">=",
        "value": 4.999
       },
-      "passed": false
+      "value_bound": {
+       "direction": "upper",
+       "reason": "mechanically derived: series-divider template - the load voltage is monotonically decreasing in the series resistance, whose declared bound is 'lower'",
+       "established_by": "derived"
+      },
+      "bound_establishment": "derived",
+      "passed": false,
+      "verdict": "conservative-FAIL"
      }
     },
     "unsupported": [],
     "result_policy": {
      "numerical_assertions_passed": false,
+     "assertions_claimable": false,
      "result_applicable_to_requested_conditions": true,
      "assumption_dependent": true,
      "assumptions_accepted_for_design_decision": true,
      "usable_for_design_decision": true,
      "usable_for_release": false,
-     "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those"
+     "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those. assertions_claimable is the actionable assertion truth: True only when every declared assertion's VERDICT is a PASS class, None when nothing was asserted (absence of assertions is never a claim) - numerical_assertions_passed is the raw numeric fact and must never be acted on alone, because a bounded value can pass numerically while its claim is unresolved"
     }
    }
   }
@@ -757,24 +780,40 @@
      "op": ">=",
      "value": 4.999
     },
-    "passed": false
+    "value_bound": {
+     "direction": "upper",
+     "reason": "mechanically derived: series-divider template - the load voltage is monotonically decreasing in the series resistance, whose declared bound is 'lower'",
+     "established_by": "derived"
+    },
+    "bound_establishment": "derived",
+    "passed": false,
+    "verdict": "conservative-FAIL"
    }
   },
   "unsupported": [],
   "result_policy": {
    "numerical_assertions_passed": false,
+   "assertions_claimable": false,
    "result_applicable_to_requested_conditions": true,
    "assumption_dependent": true,
    "assumptions_accepted_for_design_decision": true,
    "usable_for_design_decision": true,
    "usable_for_release": false,
-   "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those"
+   "meaning": "usable_for_design_decision requires a run under a declared and satisfied coverage requirement, models representing the requested operating conditions, and every contributing ideal primitive declared and accepted as an assumption; a numerical pass never overrides any of those. assertions_claimable is the actionable assertion truth: True only when every declared assertion's VERDICT is a PASS class, None when nothing was asserted (absence of assertions is never a claim) - numerical_assertions_passed is the raw numeric fact and must never be acted on alone, because a bounded value can pass numerically while its claim is unresolved"
   }
  },
  "comparison": {
   "path_resistance_ohm": {
    "board_a": 0.002377496,
    "board_b": 0.013905553
+  },
+  "resistance_bound": {
+   "board_a": "exact",
+   "board_b": "lower"
+  },
+  "assertion_verdicts": {
+   "board_a": "exact-PASS",
+   "board_b": "conservative-FAIL"
   },
   "vout_v": {
    "board_a": 4.999762261704436,

@@ -756,6 +756,59 @@ def strip_slivers(source_path, target_path,
     return removed
 
 
+EDGE_CLEARANCE_MM = 0.30
+EDGE_REPAIR_MARGIN_MM = 0.20
+
+
+def repair_edge_clearance(board, placer, circle, fixed):
+    """Cheap hard geometry, enforced where it is cheap: a pad whose
+    copper reaches inside the board-edge clearance is found by the
+    toolkit's pad-accurate check and its footprint (when movable)
+    is walked radially inward past the requirement plus a margin.
+    The fabrication DRC remains the authority; this stops full
+    routing runs dying to one testpoint the quench parked on the
+    rim. Findings on requirement-fixed references are returned
+    unrepaired - a fixed part's geometry is a design fact."""
+    import math as math_module
+    import pcbnew
+    from pcbqa import feedback as feedback_module
+    from pcbqa import geom as geom_module
+    findings = feedback_module.edge_clearance_findings(
+        board,
+        {"kind": "circle", "center_mm": [circle[0], circle[1]],
+         "radius_mm": circle[2]},
+        EDGE_CLEARANCE_MM, geom_module.pad_copper_polygon)
+    moved = []
+    remaining = []
+    by_reference = {}
+    for finding in findings:
+        reference = finding["references"][0]
+        if reference in fixed:
+            remaining.append(finding)
+            continue
+        deficit = (EDGE_CLEARANCE_MM
+                   - finding["observed_margin_mm"]
+                   + EDGE_REPAIR_MARGIN_MM)
+        previous = by_reference.get(reference, 0.0)
+        by_reference[reference] = max(previous, deficit)
+    for reference, deficit in sorted(by_reference.items()):
+        footprint = next(
+            fp for fp in board.GetFootprints()
+            if fp.GetReference() == reference)
+        position = footprint.GetPosition()
+        dx = position.x / 1e6 - circle[0]
+        dy = position.y / 1e6 - circle[1]
+        norm = math_module.hypot(dx, dy) or 1.0
+        footprint.SetPosition(pcbnew.VECTOR2I(
+            int(round((position.x / 1e6 - dx / norm * deficit)
+                      * 1e6)),
+            int(round((position.y / 1e6 - dy / norm * deficit)
+                      * 1e6))))
+        placer.boxes[reference] = _bbox_mm(footprint)
+        moved.append(reference)
+    return findings, moved, remaining
+
+
 def net_clearance_map(board, project_path):
     """Per-net clearance exactly as the DRC will judge it: each
     net's class clearance, resolved from the authoritative
@@ -828,6 +881,181 @@ def clearance_map_fingerprint(mapping):
     }
 
 
+def descend_from_parent(parent_seed, out_dir,
+                        constraints_doc, record, circle,
+                        apply_moves=True):
+    """A targeted descendant: the parent's PLACED board plus moves
+    derived from the parent's own feedback artifact. Every move
+    names its cause; the ordinary repair loop, policy evaluation
+    and progression then judge the result - descent is a search
+    move, not a shortcut past any gate."""
+    import math as math_module
+    import pcbnew
+    from pcbqa import freshness as freshness_module
+    parent_name = "seed{:02d}".format(parent_seed)
+    parent_dir = os.path.join(HERE, "candidates", parent_name)
+    parent_board_path = os.path.join(parent_dir,
+                                     "candidate_placed.kicad_pcb")
+    feedback_path = os.path.join(parent_dir, "feedback.json")
+    for needed in (parent_board_path, feedback_path):
+        if not os.path.isfile(needed):
+            raise CandidateError(
+                "descent needs {}, which does not exist; a "
+                "descendant without its parent's evidence is just "
+                "a random seed wearing a label".format(needed))
+    with open(feedback_path, encoding="utf-8") as handle:
+        feedback_doc = json.load(handle)
+    board = pcbnew.LoadBoard(parent_board_path)
+    fixed = set(constraints_doc["requirement_fixed_references"])
+    footprints = {fp.GetReference(): fp
+                  for fp in board.GetFootprints()}
+    displacements = {}
+    causes = {}
+    for index, rec in enumerate(
+            feedback_doc["records"] if apply_moves else []):
+        for reference in rec["suggested_movable_references"]:
+            if reference in fixed or reference not in footprints:
+                continue
+            fp = footprints[reference]
+            position = fp.GetPosition()
+            if rec["kind"] == "board-edge-clearance":
+                # Radially inward, toward the OUTLINE CENTER,
+                # past the requirement.
+                dx = circle[0] - position.x / 1e6
+                dy = circle[1] - position.y / 1e6
+                magnitude = (rec["required_margin_mm"]
+                             - rec["observed_margin_mm"]
+                             + EDGE_REPAIR_MARGIN_MM)
+            else:
+                # Away from the refused pad: open the corridor.
+                # A heuristic displacement, recorded as one - the
+                # validation decides if it helped.
+                dx = position.x / 1e6 - rec["location_mm"][0]
+                dy = position.y / 1e6 - rec["location_mm"][1]
+                magnitude = 0.4
+            norm = math_module.hypot(dx, dy) or 1.0
+            move = displacements.setdefault(reference,
+                                            [0.0, 0.0])
+            move[0] += dx / norm * magnitude
+            move[1] += dy / norm * magnitude
+            causes.setdefault(reference, []).append(
+                {"record_index": index, "kind": rec["kind"],
+                 "pads": rec["pads"]})
+    moves = []
+    boxes = {fp.GetReference(): _bbox_mm(fp)
+             for fp in board.GetFootprints()}
+    for reference, (dx, dy) in sorted(displacements.items()):
+        # Several refusals may pull one reference at once; the
+        # aggregate is CLAMPED to one step so a popular movable is
+        # nudged, not launched across the board - and a move whose
+        # courtyard lands on a neighbour is REVERTED and recorded,
+        # because a descent that trades a refusal for a collision
+        # learned nothing.
+        total = math_module.hypot(dx, dy)
+        if total > 0.4:
+            dx *= 0.4 / total
+            dy *= 0.4 / total
+        fp = footprints[reference]
+        position = fp.GetPosition()
+        fp.SetPosition(pcbnew.VECTOR2I(
+            int(round(position.x + dx * 1e6)),
+            int(round(position.y + dy * 1e6))))
+        boxes[reference] = _bbox_mm(fp)
+        collisions = [pair for pair in
+                      placement_module.overlapping_pairs(boxes)
+                      if reference in pair]
+        if collisions:
+            fp.SetPosition(position)
+            boxes[reference] = _bbox_mm(fp)
+            moves.append({"reference": reference,
+                          "dx_mm": round(dx, 4),
+                          "dy_mm": round(dy, 4),
+                          "applied": False,
+                          "reverted_reason":
+                              "courtyard collision with "
+                              + json.dumps(collisions),
+                          "causes": causes[reference]})
+            continue
+        moves.append({"reference": reference,
+                      "dx_mm": round(dx, 4),
+                      "dy_mm": round(dy, 4),
+                      "applied": True,
+                      "causes": causes[reference]})
+    descended_path = os.path.join(out_dir,
+                                  "descended_placement.kicad_pcb")
+    pcbnew.SaveBoard(descended_path, board)
+    _place_pro_sibling(descended_path)
+    entry = {
+        "stage": "descend",
+        "status": "completed",
+        "parent_candidate": parent_name,
+        "parent_placed_sha256": _sha256_file(parent_board_path),
+        "feedback_artifact": {
+            "path": os.path.relpath(feedback_path, REPO),
+            "canonical_sha256":
+                freshness_module.canonical_json_digest(
+                    feedback_doc)},
+        "moves": moves,
+        "feedback_moves_applied": apply_moves,
+        "output_sha256": _sha256_file(descended_path),
+    }
+    record(entry)
+    return entry, descended_path
+
+
+def strip_named_grazes(source_path, target_path, report_path):
+    """Delete tracks matched to a DRC report's connection_width
+    violations by reported length (within 0.01 mm) and one
+    endpoint (within 0.05 mm Manhattan) - not by UUID, so the
+    match is approximate and can in principle remove more than
+    one candidate track per violation (hardening to the report's
+    own UUIDs is a recorded follow-up). The safety does not rest
+    on the match: connectivity is re-measured from the
+    post-deletion board file, the affected net honestly degrades
+    to partial for the cleanup stage to retry, and the check that
+    found the graze re-judges the result. No via is ever touched.
+    """
+    import pcbnew
+    import re as re_module
+    with open(report_path, encoding="utf-8") as handle:
+        report = json.load(handle)
+    targets = []
+    for violation in report.get("violations", []):
+        if violation.get("type") != "connection_width":
+            continue
+        for item in violation.get("items", []):
+            description = item.get("description", "")
+            if not description.startswith("Track"):
+                continue
+            match = re_module.search(
+                r"length ([0-9.]+) mm", description)
+            position = item.get("pos") or {}
+            if match and "x" in position:
+                targets.append((float(match.group(1)),
+                                position["x"], position["y"]))
+    board = pcbnew.LoadBoard(source_path)
+    removed = 0
+    for track in list(board.GetTracks()):
+        if track.GetClass() in ("PCB_VIA", "VIA"):
+            continue
+        start = track.GetStart()
+        end = track.GetEnd()
+        length = (((end.x - start.x) ** 2
+                   + (end.y - start.y) ** 2) ** 0.5) / 1e6
+        for want_length, x, y in targets:
+            if abs(length - want_length) > 0.01:
+                continue
+            near = min(
+                abs(start.x / 1e6 - x) + abs(start.y / 1e6 - y),
+                abs(end.x / 1e6 - x) + abs(end.y / 1e6 - y))
+            if near < 0.05:
+                board.Delete(track)
+                removed += 1
+                break
+    pcbnew.SaveBoard(target_path, board)
+    return removed
+
+
 def refill_zones(board_file):
     import pcbnew
     board = pcbnew.LoadBoard(board_file)
@@ -856,6 +1084,26 @@ def main():
     parser.add_argument("--cleanup-only", action="store_true",
                         help="append one recorded cleanup attempt "
                              "to the existing final candidate")
+    parser.add_argument("--no-feedback-moves",
+                        action="store_true",
+                        help="descend from the parent's placement "
+                             "WITHOUT applying feedback moves - "
+                             "pure placement reuse, for when the "
+                             "downstream machinery (not the "
+                             "placement) was what changed")
+    parser.add_argument("--route-anyway", action="store_true",
+                        help="run general routing even when "
+                             "mandatory critical escapes refused "
+                             "or the critical-stage geometry "
+                             "failed - diagnostics only; the "
+                             "default skips provably doomed "
+                             "routing")
+    parser.add_argument("--descend-from", type=int, default=None,
+                        help="start from this parent seed's placed "
+                             "board and consume its feedback.json "
+                             "instead of seeding and quenching "
+                             "fresh; lineage is recorded in the "
+                             "derivation")
     parser.add_argument("--quench-timeout", type=int, default=1500)
     parser.add_argument("--stage-timeout", type=int, default=1200)
     arguments = parser.parse_args()
@@ -1194,7 +1442,14 @@ def main():
                 "output_sha256": _sha256_file(seeded_path)})
 
         locked = locked_references(constraints_doc)
-        quench_entry, quench_path = run_quench(seeded_path, locked)
+        if arguments.descend_from is not None:
+            quench_entry, quench_path = descend_from_parent(
+                arguments.descend_from, out_dir, constraints_doc,
+                record, circle,
+                apply_moves=not arguments.no_feedback_moves)
+        else:
+            quench_entry, quench_path = run_quench(seeded_path,
+                                                   locked)
         placement_ok = quench_entry["status"] == "completed"
         if placement_ok:
             board = pcbnew.LoadBoard(quench_path)
@@ -1217,8 +1472,16 @@ def main():
                     repair_rounds.append({"round": round_index,
                                           "failed": str(error)})
                     break
+                edge_findings, edge_moved, _edge_fixed = \
+                    repair_edge_clearance(
+                        board, placer, circle,
+                        set(constraints_doc[
+                            "requirement_fixed_references"]))
+                repaired += edge_moved
                 repair_rounds.append({
                     "round": round_index, "moved": repaired,
+                    "edge_findings": len(edge_findings),
+                    "edge_moved": edge_moved,
                     "deferred": list(getattr(
                         placer, "repair_failures", []))})
                 if not repaired:
@@ -1228,7 +1491,20 @@ def main():
             boxes = {fp.GetReference(): _bbox_mm(fp)
                      for fp in board.GetFootprints()}
             overlaps = placement_module.overlapping_pairs(boxes)
-            placement_ok = policy["summary"]["ok"] and not overlaps
+            final_edge, _moved, edge_on_fixed = \
+                repair_edge_clearance(
+                    board, placer, circle,
+                    set(constraints_doc[
+                        "requirement_fixed_references"]))
+            movable_edge = [finding for finding in final_edge
+                            if finding not in edge_on_fixed]
+            # Placement is only OK when the cheap hard rules hold
+            # too: a movable pad still inside the edge clearance
+            # after repair is a placement failure HERE, not a
+            # routing-stage surprise three stages later.
+            placement_ok = (policy["summary"]["ok"]
+                            and not overlaps
+                            and not movable_edge)
             if placement_ok:
                 pcbnew.SaveBoard(placed_path, board)
             record({"stage": "post_quench_policy",
@@ -1236,6 +1512,12 @@ def main():
                     "policy_ok": policy["summary"]["ok"],
                     "violated": policy["summary"]["violated"],
                     "overlapping_pairs": overlaps,
+                    "edge_findings_remaining_movable": [
+                        finding["pads"][0]
+                        for finding in movable_edge],
+                    "edge_findings_on_fixed": [
+                        finding["pads"][0]
+                        for finding in edge_on_fixed],
                     "placed_sha256": _sha256_file(placed_path)
                     if placement_ok else None})
 
@@ -1247,6 +1529,7 @@ def main():
         # microphone guard ring for every mic clock pad, and GND
         # stitches from the guard bars to the internal planes - all
         # at the DECLARED values, before any general routing.
+        critical_started = time.time()
         intent = json.load(open(os.path.join(
             HERE, "critical_structures.json"), encoding="utf-8"))
         import re as re_module
@@ -1256,6 +1539,36 @@ def main():
         refill_board.Fill(board.Zones())
         escape_regex = re_module.compile(
             intent["escapes"]["pad_regex"])
+        mandatory_net_regex = re_module.compile(
+            intent.get("mandatory_escape_nets", "$^"))
+
+        def _escape_alternatives(pad_xy, direction, length,
+                                 net=None):
+            """Candidate endpoints on an arc sweep around the
+            preferred heading, nearest headings first, longer
+            reach first: the endpoint is scaffolding, and every
+            candidate is planned and re-verified under the same
+            rules - search freedom, never acceptance freedom."""
+            endpoints = []
+            for step in (15, -15, 30, -30, 45, -45, 60, -60,
+                         90, -90, 120, -120, 150, -150, 180):
+                heading = direction + math.radians(step)
+                for reach in (length, 0.75 * length,
+                              0.55 * length):
+                    endpoints.append((
+                        pad_xy[0] + reach * math.cos(heading),
+                        pad_xy[1] + reach * math.sin(heading)))
+            # The straight heading at shorter reaches, before the
+            # sweep widens.
+            endpoints.insert(0, (
+                pad_xy[0] + 0.75 * length * math.cos(direction),
+                pad_xy[1] + 0.75 * length * math.sin(direction)))
+            # Counterpart-aimed ordering was TRIED and did not
+            # beat the plain nearest-heading sweep on the same
+            # placement (74/83 vs 76/83, seed35 vs seed34); the
+            # experiment is recorded here and the simpler
+            # ordering kept.
+            return endpoints
         stitch_regex = re_module.compile(
             intent["stitches"]["pad_regex"])
         planner_outcome = {"escapes": {"placed": 0, "refused": []},
@@ -1287,15 +1600,28 @@ def main():
                                                    circle[1]],
                                      "radius_mm": circle[2],
                                      "clearance_mm": 0.3},
-                            net_clearances=clearance_by_net)
+                            net_clearances=clearance_by_net,
+                            alternatives=_escape_alternatives(
+                                pad_xy, direction,
+                                intent["escapes"]["length_mm"],
+                                net=pad.GetNetname()))
                         critical_topology.apply_proposal(board,
                                                          proposal)
                         planner_outcome["escapes"]["placed"] += 1
+                        planner_outcome["escapes"].setdefault(
+                            "fallback_endpoints", 0)
+                        if proposal["endpoint_index"]:
+                            planner_outcome["escapes"][
+                                "fallback_endpoints"] += 1
                     except critical_topology.TopologyPlanError \
                             as error:
                         planner_outcome["escapes"][
                             "refused"].append(
-                            {"pad": label, "reason": str(error)})
+                            {"pad": label,
+                             "net": pad.GetNetname(),
+                             "location_mm": [pad_xy[0],
+                                             pad_xy[1]],
+                             "reason": str(error)})
                 elif stitch_regex.match(label) and \
                         pad.GetNetname() == intent["stitches"][
                             "net"]:
@@ -1331,8 +1657,46 @@ def main():
         verdict = stage_fabrication_check(
             critical_path, os.path.join(out_dir, "stages",
                                         "fabcheck-critical"))
+        # Downstream refusals become a structured feedback
+        # artifact a descendant candidate can consume: each record
+        # names the pad, the net, the location, why it refused and
+        # which references the design intent permits to move.
+        from pcbqa import feedback as feedback_module
+        fixed_references = set(
+            constraints_doc["requirement_fixed_references"])
+        feedback_records = []
+        for refusal in planner_outcome["escapes"]["refused"]:
+            owner = refusal["pad"].split(".")[0]
+            feedback_records.append(
+                feedback_module.escape_refusal_record(
+                    refusal["pad"], refusal.get("net", ""),
+                    refusal.get("location_mm", [0.0, 0.0]),
+                    refusal["reason"],
+                    [] if owner in fixed_references else [owner],
+                    {"kind": "planner-outcome",
+                     "identity": "derivation:critical_topology:"
+                                 "seed{:02d}".format(
+                                     arguments.seed)},
+                    intent["rules"]["escape"]["clearance_mm"]))
+        feedback_path = os.path.join(out_dir, "feedback.json")
+        with open(feedback_path, "w", encoding="utf-8",
+                  newline="\n") as handle:
+            json.dump({
+                "kind": "candidate-feedback",
+                "candidate": "seed{:02d}".format(arguments.seed),
+                "records": feedback_records,
+                "meaning": "structured failure attribution for the "
+                           "NEXT iteration: a descendant applies "
+                           "these within its own constraints and "
+                           "the ordinary progression judges the "
+                           "result",
+            }, handle, indent=1)
+            handle.write("\n")
         record({"stage": "critical_topology",
                 "planner": "pcbqa.critical_topology",
+                "seconds": round(time.time() - critical_started,
+                                 1),
+                "feedback_records": len(feedback_records),
                 "net_clearances": clearance_map_fingerprint(
                     clearance_by_net),
                 "intent_sha256": _sha256_file(os.path.join(
@@ -1342,6 +1706,63 @@ def main():
                 "output_sha256": _sha256_file(critical_path)})
         if verdict["ok"] is True:
             checkpoint = critical_path
+        # A candidate that cannot produce its MANDATORY critical
+        # structures, or whose critical-stage geometry already
+        # violates the declared floors, is provably going to
+        # reject: the general router cannot legalise a refused
+        # clock escape or un-violate fabrication geometry. Routing
+        # such a candidate is diagnostics, not search - opt in
+        # with --route-anyway.
+        refused_mandatory = [
+            refusal["pad"] for refusal
+            in planner_outcome["escapes"]["refused"]
+            if mandatory_net_regex.match(refusal.get("net", ""))]
+        if (refused_mandatory or verdict["ok"] is not True) \
+                and not arguments.route_anyway:
+            record({"stage": "routing_skipped",
+                    "reason": "mandatory critical escapes "
+                              "refused: {}".format(
+                                  refused_mandatory)
+                    if refused_mandatory else
+                    "critical-stage fabrication geometry "
+                    "failed",
+                    "refused_mandatory": refused_mandatory,
+                    "critical_fab_ok": verdict.get("ok"),
+                    "meaning": "the reject is provable now; the "
+                              "candidate publishes its placed/"
+                              "critical state for validation and "
+                              "no router time is spent on it"})
+            all_nets = [net for _name, nets in _routing_stages()
+                        for net in nets]
+            final_path = os.path.join(
+                out_dir, "candidate_routed.kicad_pcb")
+            with open(checkpoint, "rb") as source:
+                held = source.read()
+            with open(final_path, "wb") as target:
+                target.write(held)
+            refilled_sha = refill_zones(final_path)
+            classes = connectivity_by_net(final_path, all_nets)
+            complete = sum(1 for c in classes.values()
+                           if c == "connectivity-complete")
+            record({"stage": "final_candidate",
+                    "from_attempt_output": os.path.relpath(
+                        checkpoint, out_dir),
+                    "zones_refilled": True,
+                    "routing_skipped": True,
+                    "output_sha256": refilled_sha,
+                    "connectivity_complete": complete,
+                    "net_total": len(all_nets),
+                    "not_complete": {net: c for net, c in sorted(
+                        classes.items())
+                        if c != "connectivity-complete"}})
+            print("candidate seed {} -> {}".format(
+                arguments.seed, out_dir))
+            for entry in derivation["records"][-6:]:
+                print("  {}: {}".format(
+                    entry["stage"],
+                    entry.get("status") or entry.get(
+                        "reason", "")))
+            return 0
         for stage_name, nets in _routing_stages():
             entry = run_attempt(
                 "route_{}".format(stage_name), checkpoint,
@@ -1353,9 +1774,10 @@ def main():
                         .get("violations_by_type") or {}) <= {
                             "track_width", "connection_width"}:
                 # Sliver-only invalidity is recoverable: delete the
-                # sub-floor tapers and re-judge. The net that loses
-                # its slivers degrades to partial - honestly - and
-                # the group cleanup retries it.
+                # sub-floor tapers AND the exact tracks the DRC
+                # names in connection-width grazes, then re-judge.
+                # The net that loses copper degrades to partial -
+                # honestly - and the group cleanup retries it.
                 stripped_path = os.path.join(
                     out_dir, "stages",
                     "{}-slivstrip.kicad_pcb".format(
@@ -1363,6 +1785,14 @@ def main():
                 removed = strip_slivers(
                     os.path.join(out_dir, entry["output_path"]),
                     stripped_path)
+                graze_report = os.path.join(
+                    out_dir, "stages",
+                    "fabcheck-{}".format(entry["attempt_id"]),
+                    "fabcheck_drc.json")
+                if os.path.isfile(graze_report):
+                    removed += strip_named_grazes(
+                        stripped_path, stripped_path,
+                        graze_report)
                 _place_pro_sibling(stripped_path)
                 verdict = stage_fabrication_check(
                     stripped_path,

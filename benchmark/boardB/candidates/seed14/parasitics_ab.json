@@ -1,0 +1,1185 @@
+{
+ "kind": "parasitics-ab",
+ "candidate": "seed14",
+ "board_a": {
+  "metrics": [
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "interconnect_dc",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:F1.2->D1.2"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 0.002377496,
+     "bound": null,
+     "interval": null,
+     "units": "ohm"
+    },
+    "model": {
+     "name": "traversal-series-dc",
+     "fidelity": "geometry-derived"
+    },
+    "provenance": {
+     "source": "candidate_5v_link.result.json path record",
+     "board_file_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
+     "path_length_mm": 3.3625,
+     "via_count": 0
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "two-terminal traversal with alternate copper refused by bridge analysis"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no declared requirement consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.16->MK1.3"
+    },
+    "quantity": {
+     "semantics": "bound",
+     "value": null,
+     "bound": {
+      "direction": "lower",
+      "value": 457.097289
+     },
+     "interval": null,
+     "units": "ps"
+    },
+    "model": {
+     "name": "hammerstad-analytic",
+     "fidelity": "unmodelled-contribution"
+    },
+    "provenance": {
+     "source": "TIMING.INTERCONNECT_DELAY path record",
+     "copper_length_mm": 77.255074,
+     "nominal_delay_ps": 460.510632,
+     "length_uncertainty_mm": 0.571123
+    },
+    "assumptions": [],
+    "omitted_contributions": [
+     "RC1: no delay model is declared for RC1.1, so nothing is attributed to it and any total containing this path is a lower bound"
+    ],
+    "applicability": {
+     "applicable": true,
+     "detail": "copper modelled from the evidenced stackup; the upper side is open while any traversal is unmodelled"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no requirement is expressed in picoseconds"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.16->MK2.3"
+    },
+    "quantity": {
+     "semantics": "bound",
+     "value": null,
+     "bound": {
+      "direction": "lower",
+      "value": 460.025175
+     },
+     "interval": null,
+     "units": "ps"
+    },
+    "model": {
+     "name": "hammerstad-analytic",
+     "fidelity": "unmodelled-contribution"
+    },
+    "provenance": {
+     "source": "TIMING.INTERCONNECT_DELAY path record",
+     "copper_length_mm": 77.748532,
+     "nominal_delay_ps": 463.459807,
+     "length_uncertainty_mm": 0.574685
+    },
+    "assumptions": [],
+    "omitted_contributions": [
+     "RC1: no delay model is declared for RC1.1, so nothing is attributed to it and any total containing this path is a lower bound"
+    ],
+    "applicability": {
+     "applicable": true,
+     "detail": "copper modelled from the evidenced stackup; the upper side is open while any traversal is unmodelled"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no requirement is expressed in picoseconds"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.18->MK3.3"
+    },
+    "quantity": {
+     "semantics": "bound",
+     "value": null,
+     "bound": {
+      "direction": "lower",
+      "value": 501.023134
+     },
+     "interval": null,
+     "units": "ps"
+    },
+    "model": {
+     "name": "hammerstad-analytic",
+     "fidelity": "unmodelled-contribution"
+    },
+    "provenance": {
+     "source": "TIMING.INTERCONNECT_DELAY path record",
+     "copper_length_mm": 84.095894,
+     "nominal_delay_ps": 501.023134,
+     "length_uncertainty_mm": 0.0
+    },
+    "assumptions": [],
+    "omitted_contributions": [
+     "RC2: no delay model is declared for RC2.1, so nothing is attributed to it and any total containing this path is a lower bound"
+    ],
+    "applicability": {
+     "applicable": true,
+     "detail": "copper modelled from the evidenced stackup; the upper side is open while any traversal is unmodelled"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no requirement is expressed in picoseconds"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.18->MK4.3"
+    },
+    "quantity": {
+     "semantics": "bound",
+     "value": null,
+     "bound": {
+      "direction": "lower",
+      "value": 502.32439
+     },
+     "interval": null,
+     "units": "ps"
+    },
+    "model": {
+     "name": "hammerstad-analytic",
+     "fidelity": "unmodelled-contribution"
+    },
+    "provenance": {
+     "source": "TIMING.INTERCONNECT_DELAY path record",
+     "copper_length_mm": 84.313621,
+     "nominal_delay_ps": 502.32439,
+     "length_uncertainty_mm": 0.0
+    },
+    "assumptions": [],
+    "omitted_contributions": [
+     "RC2: no delay model is declared for RC2.1, so nothing is attributed to it and any total containing this path is a lower bound"
+    ],
+    "applicability": {
+     "applicable": true,
+     "detail": "copper modelled from the evidenced stackup; the upper side is open while any traversal is unmodelled"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no requirement is expressed in picoseconds"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.7->MK10.3"
+    },
+    "quantity": {
+     "semantics": "bound",
+     "value": null,
+     "bound": {
+      "direction": "lower",
+      "value": 491.046555
+     },
+     "interval": null,
+     "units": "ps"
+    },
+    "model": {
+     "name": "hammerstad-analytic",
+     "fidelity": "unmodelled-contribution"
+    },
+    "provenance": {
+     "source": "TIMING.INTERCONNECT_DELAY path record",
+     "copper_length_mm": 85.036117,
+     "nominal_delay_ps": 506.658975,
+     "length_uncertainty_mm": 2.612281
+    },
+    "assumptions": [],
+    "omitted_contributions": [
+     "RC5: no delay model is declared for RC5.1, so nothing is attributed to it and any total containing this path is a lower bound"
+    ],
+    "applicability": {
+     "applicable": true,
+     "detail": "copper modelled from the evidenced stackup; the upper side is open while any traversal is unmodelled"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no requirement is expressed in picoseconds"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.7->MK9.3"
+    },
+    "quantity": {
+     "semantics": "bound",
+     "value": null,
+     "bound": {
+      "direction": "lower",
+      "value": 421.062785
+     },
+     "interval": null,
+     "units": "ps"
+    },
+    "model": {
+     "name": "hammerstad-analytic",
+     "fidelity": "unmodelled-contribution"
+    },
+    "provenance": {
+     "source": "TIMING.INTERCONNECT_DELAY path record",
+     "copper_length_mm": 70.829029,
+     "nominal_delay_ps": 421.749646,
+     "length_uncertainty_mm": 0.114926
+    },
+    "assumptions": [],
+    "omitted_contributions": [
+     "RC5: no delay model is declared for RC5.1, so nothing is attributed to it and any total containing this path is a lower bound"
+    ],
+    "applicability": {
+     "applicable": true,
+     "detail": "copper modelled from the evidenced stackup; the upper side is open while any traversal is unmodelled"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no requirement is expressed in picoseconds"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.9->MK11.3"
+    },
+    "quantity": {
+     "semantics": "bound",
+     "value": null,
+     "bound": {
+      "direction": "lower",
+      "value": 439.467471
+     },
+     "interval": null,
+     "units": "ps"
+    },
+    "model": {
+     "name": "hammerstad-analytic",
+     "fidelity": "unmodelled-contribution"
+    },
+    "provenance": {
+     "source": "TIMING.INTERCONNECT_DELAY path record",
+     "copper_length_mm": 74.035573,
+     "nominal_delay_ps": 440.86361,
+     "length_uncertainty_mm": 0.233603
+    },
+    "assumptions": [],
+    "omitted_contributions": [
+     "RC6: no delay model is declared for RC6.1, so nothing is attributed to it and any total containing this path is a lower bound"
+    ],
+    "applicability": {
+     "applicable": true,
+     "detail": "copper modelled from the evidenced stackup; the upper side is open while any traversal is unmodelled"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no requirement is expressed in picoseconds"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.9->MK12.3"
+    },
+    "quantity": {
+     "semantics": "bound",
+     "value": null,
+     "bound": {
+      "direction": "lower",
+      "value": 497.744739
+     },
+     "interval": null,
+     "units": "ps"
+    },
+    "model": {
+     "name": "hammerstad-analytic",
+     "fidelity": "unmodelled-contribution"
+    },
+    "provenance": {
+     "source": "TIMING.INTERCONNECT_DELAY path record",
+     "copper_length_mm": 84.047032,
+     "nominal_delay_ps": 500.697566,
+     "length_uncertainty_mm": 0.494069
+    },
+    "assumptions": [],
+    "omitted_contributions": [
+     "RC6: no delay model is declared for RC6.1, so nothing is attributed to it and any total containing this path is a lower bound"
+    ],
+    "applicability": {
+     "applicable": true,
+     "detail": "copper modelled from the evidenced stackup; the upper side is open while any traversal is unmodelled"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no requirement is expressed in picoseconds"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.12->MK13.3"
+    },
+    "quantity": {
+     "semantics": "bound",
+     "value": null,
+     "bound": {
+      "direction": "lower",
+      "value": 473.766137
+     },
+     "interval": null,
+     "units": "ps"
+    },
+    "model": {
+     "name": "hammerstad-analytic",
+     "fidelity": "unmodelled-contribution"
+    },
+    "provenance": {
+     "source": "TIMING.INTERCONNECT_DELAY path record",
+     "copper_length_mm": 79.459715,
+     "nominal_delay_ps": 473.766137,
+     "length_uncertainty_mm": 0.0
+    },
+    "assumptions": [],
+    "omitted_contributions": [
+     "RC7: no delay model is declared for RC7.1, so nothing is attributed to it and any total containing this path is a lower bound"
+    ],
+    "applicability": {
+     "applicable": true,
+     "detail": "copper modelled from the evidenced stackup; the upper side is open while any traversal is unmodelled"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no requirement is expressed in picoseconds"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.12->MK14.3"
+    },
+    "quantity": {
+     "semantics": "bound",
+     "value": null,
+     "bound": {
+      "direction": "lower",
+      "value": 474.197865
+     },
+     "interval": null,
+     "units": "ps"
+    },
+    "model": {
+     "name": "hammerstad-analytic",
+     "fidelity": "unmodelled-contribution"
+    },
+    "provenance": {
+     "source": "TIMING.INTERCONNECT_DELAY path record",
+     "copper_length_mm": 79.531952,
+     "nominal_delay_ps": 474.197865,
+     "length_uncertainty_mm": 0.0
+    },
+    "assumptions": [],
+    "omitted_contributions": [
+     "RC7: no delay model is declared for RC7.1, so nothing is attributed to it and any total containing this path is a lower bound"
+    ],
+    "applicability": {
+     "applicable": true,
+     "detail": "copper modelled from the evidenced stackup; the upper side is open while any traversal is unmodelled"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no requirement is expressed in picoseconds"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.14->MK15.3"
+    },
+    "quantity": {
+     "semantics": "bound",
+     "value": null,
+     "bound": {
+      "direction": "lower",
+      "value": 471.413154
+     },
+     "interval": null,
+     "units": "ps"
+    },
+    "model": {
+     "name": "hammerstad-analytic",
+     "fidelity": "unmodelled-contribution"
+    },
+    "provenance": {
+     "source": "TIMING.INTERCONNECT_DELAY path record",
+     "copper_length_mm": 79.067568,
+     "nominal_delay_ps": 471.413154,
+     "length_uncertainty_mm": 0.0
+    },
+    "assumptions": [],
+    "omitted_contributions": [
+     "RC8: no delay model is declared for RC8.1, so nothing is attributed to it and any total containing this path is a lower bound"
+    ],
+    "applicability": {
+     "applicable": true,
+     "detail": "copper modelled from the evidenced stackup; the upper side is open while any traversal is unmodelled"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no requirement is expressed in picoseconds"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.14->MK16.3"
+    },
+    "quantity": {
+     "semantics": "bound",
+     "value": null,
+     "bound": {
+      "direction": "lower",
+      "value": 475.027411
+     },
+     "interval": null,
+     "units": "ps"
+    },
+    "model": {
+     "name": "hammerstad-analytic",
+     "fidelity": "unmodelled-contribution"
+    },
+    "provenance": {
+     "source": "TIMING.INTERCONNECT_DELAY path record",
+     "copper_length_mm": 79.672308,
+     "nominal_delay_ps": 475.027411,
+     "length_uncertainty_mm": 0.0
+    },
+    "assumptions": [],
+    "omitted_contributions": [
+     "RC8: no delay model is declared for RC8.1, so nothing is attributed to it and any total containing this path is a lower bound"
+    ],
+    "applicability": {
+     "applicable": true,
+     "detail": "copper modelled from the evidenced stackup; the upper side is open while any traversal is unmodelled"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no requirement is expressed in picoseconds"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_a:PDM_CLK_B3||PDM_CLK_B4@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 0.0756,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.2733
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   }
+  ],
+  "blocked": [
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.3->MK5.3"
+    },
+    "reason": "no derivable delay: [{\"portion\": \"conductor\", \"layer\": \"B.Cu\", \"width_mm\": 0.15, \"length_mm\": 5.367704, \"reference_layers_used\": [\"In2.Cu\"], \"unreferenced_mm\": 0.811, \"unreferenced_by_plane_mm\": {\"In2.Cu\": 0.811}, \"issue\": \"the required transmission-line geometry is incomplete over 0.811 mm of this run: plane(s) In2.Cu",
+    "needed_next": "an established stackup figure or a resolved path"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.3->MK6.3"
+    },
+    "reason": "no derivable delay: [{\"portion\": \"conductor\", \"layer\": \"B.Cu\", \"width_mm\": 0.15, \"length_mm\": 5.367704, \"reference_layers_used\": [\"In2.Cu\"], \"unreferenced_mm\": 0.811, \"unreferenced_by_plane_mm\": {\"In2.Cu\": 0.811}, \"issue\": \"the required transmission-line geometry is incomplete over 0.811 mm of this run: plane(s) In2.Cu",
+    "needed_next": "an established stackup figure or a resolved path"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.5->MK7.3"
+    },
+    "reason": "no derivable delay: [{\"portion\": \"conductor\", \"layer\": \"B.Cu\", \"width_mm\": 0.15, \"length_mm\": 3.9, \"reference_layers_used\": [\"In2.Cu\"], \"unreferenced_mm\": 1.0368, \"unreferenced_by_plane_mm\": {\"In2.Cu\": 1.0368}, \"issue\": \"the required transmission-line geometry is incomplete over 1.0368 mm of this run: plane(s) In2.Cu h",
+    "needed_next": "an established stackup figure or a resolved path"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_a:U2.5->MK8.3"
+    },
+    "reason": "no derivable delay: [{\"portion\": \"conductor\", \"layer\": \"B.Cu\", \"width_mm\": 0.15, \"length_mm\": 3.9, \"reference_layers_used\": [\"In2.Cu\"], \"unreferenced_mm\": 1.0368, \"unreferenced_by_plane_mm\": {\"In2.Cu\": 1.0368}, \"issue\": \"the required transmission-line geometry is incomplete over 1.0368 mm of this run: plane(s) In2.Cu h",
+    "needed_next": "an established stackup figure or a resolved path"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "characteristic_impedance",
+    "scope": {
+     "level": "board",
+     "identity": "board_a"
+    },
+    "reason": "no declared impedance target consumes it, and descriptive solving of routed geometry is not yet wired to candidates",
+    "needed_next": "a declared target with tolerance, or descriptive solve wiring"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "loop_inductance",
+    "scope": {
+     "level": "board",
+     "identity": "board_a"
+    },
+    "reason": "no source-supported loop inductance model exists in the toolkit",
+    "needed_next": "a quasi-static extractor with a stated domain"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "power_integrity",
+    "scope": {
+     "level": "board",
+     "identity": "board_a"
+    },
+    "reason": "no PDN impedance model exists; DC path resistance is covered under interconnect_dc",
+    "needed_next": "a source-supported PDN model"
+   }
+  ]
+ },
+ "board_b": {
+  "metrics": [
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "interconnect_dc",
+    "scope": {
+     "level": "path",
+     "identity": "board_b:F1.2->D1.2"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 0.00648157,
+     "bound": null,
+     "interval": null,
+     "units": "ohm"
+    },
+    "model": {
+     "name": "traversal-series-dc",
+     "fidelity": "geometry-derived"
+    },
+    "provenance": {
+     "source": "candidate_5v_link.result.json path record",
+     "board_file_sha256": "63dc3b912e957a2c0c241808ad1fbd085dbc417b8f9eb83c48bf302d44636487",
+     "path_length_mm": 9.166905,
+     "via_count": 0
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "two-terminal traversal with alternate copper refused by bridge analysis"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "descriptive A/B evidence; no declared requirement consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_b:PDM_CLK_IN||PDM_CLK_Y2@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 0.1322,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.2308
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_b:PDM_CLK_IN||PDM_CLK_Y3@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 1.5281,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.2308
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_b:PDM_CLK_IN||PDM_CLK_Y4@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 1.6585,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.2389
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_b:PDM_CLK_IN||PDM_CLK_Y5@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 5.7147,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.2389
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_b:PDM_CLK_B2||PDM_CLK_IN@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 4.2396,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.2139
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_b:PDM_CLK_B2||PDM_CLK_Y4@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 0.075,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.225
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_b:PDM_CLK_B4||PDM_CLK_Y4@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 3.1985,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.2389
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_b:PDM_CLK_Y5||PDM_CLK_Y6@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 3.1252,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.2389
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_b:PDM_CLK_B3||PDM_CLK_Y5@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 0.7581,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.2389
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_b:PDM_CLK_B6||PDM_CLK_Y6@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 2.7485,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.2389
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_b:PDM_CLK_B0||PDM_D7@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 2.7149,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.2389
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   },
+   {
+    "kind": "parasitic-metric",
+    "phenomenon": "coupling",
+    "scope": {
+     "level": "pair",
+     "identity": "board_b:PDM_CLK_B5||PDM_D6@F.Cu<= 0.3 mm"
+    },
+    "quantity": {
+     "semantics": "exact",
+     "value": 2.7036,
+     "bound": null,
+     "interval": null,
+     "units": "mm"
+    },
+    "model": {
+     "name": "parallelism-inventory",
+     "fidelity": "geometry-only"
+    },
+    "provenance": {
+     "source": "pcbqa.coupling_geometry over the board's own track centerlines",
+     "layer": "F.Cu",
+     "threshold_mm": 0.3,
+     "minimum_edge_separation_mm": 0.2743
+    },
+    "assumptions": [],
+    "omitted_contributions": [],
+    "applicability": {
+     "applicable": true,
+     "detail": "straight track segments on one copper layer; pads and zone fills are outside this inventory"
+    },
+    "requirement_linkage": null,
+    "decision_significance": "geometric proximity for risk RANKING only; this is coupled run length in mm, not a crosstalk voltage, and no electrical claim follows until a source-supported coupling model consumes it"
+   }
+  ],
+  "blocked": [
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_b:U2.16->MK1.3"
+    },
+    "reason": "no derivable delay: [{\"portion\": \"conductor\", \"layer\": \"F.Cu\", \"width_mm\": 0.15, \"length_mm\": 55.244426, \"reference_layers_used\": [\"In1.Cu\"], \"unreferenced_mm\": 1.7417, \"unreferenced_by_plane_mm\": {\"In1.Cu\": 1.7417}, \"issue\": \"the required transmission-line geometry is incomplete over 1.7417 mm of this run: plane(s) In",
+    "needed_next": "an established stackup figure or a resolved path"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_b:U2.16->MK2.3"
+    },
+    "reason": "no derivable delay: [{\"portion\": \"conductor\", \"layer\": \"F.Cu\", \"width_mm\": 0.15, \"length_mm\": 81.200756, \"reference_layers_used\": [\"In1.Cu\"], \"unreferenced_mm\": 2.3903, \"unreferenced_by_plane_mm\": {\"In1.Cu\": 2.3903}, \"issue\": \"the required transmission-line geometry is incomplete over 2.3903 mm of this run: plane(s) In",
+    "needed_next": "an established stackup figure or a resolved path"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_b:U2.3->MK5.3"
+    },
+    "reason": "no derivable delay: [{\"portion\": \"conductor\", \"layer\": \"F.Cu\", \"width_mm\": 0.2, \"length_mm\": 97.725451, \"reference_layers_used\": [\"In1.Cu\"], \"unreferenced_mm\": 11.9376, \"unreferenced_by_plane_mm\": {\"In1.Cu\": 11.9376}, \"issue\": \"the required transmission-line geometry is incomplete over 11.9376 mm of this run: plane(s) ",
+    "needed_next": "an established stackup figure or a resolved path"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_b:U2.3->MK6.3"
+    },
+    "reason": "no derivable delay: [{\"portion\": \"conductor\", \"layer\": \"F.Cu\", \"width_mm\": 0.2, \"length_mm\": 97.725451, \"reference_layers_used\": [\"In1.Cu\"], \"unreferenced_mm\": 11.9376, \"unreferenced_by_plane_mm\": {\"In1.Cu\": 11.9376}, \"issue\": \"the required transmission-line geometry is incomplete over 11.9376 mm of this run: plane(s) ",
+    "needed_next": "an established stackup figure or a resolved path"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_b:U2.9->MK11.3"
+    },
+    "reason": "no derivable delay: [{\"portion\": \"conductor\", \"layer\": \"F.Cu\", \"width_mm\": 0.15, \"length_mm\": 89.125971, \"reference_layers_used\": [\"In1.Cu\"], \"unreferenced_mm\": 9.8024, \"unreferenced_by_plane_mm\": {\"In1.Cu\": 9.8024}, \"issue\": \"the required transmission-line geometry is incomplete over 9.8024 mm of this run: plane(s) In",
+    "needed_next": "an established stackup figure or a resolved path"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "propagation_delay",
+    "scope": {
+     "level": "path",
+     "identity": "board_b:U2.9->MK12.3"
+    },
+    "reason": "no derivable delay: [{\"portion\": \"conductor\", \"layer\": \"F.Cu\", \"width_mm\": 0.15, \"length_mm\": 65.36617, \"reference_layers_used\": [\"In1.Cu\"], \"unreferenced_mm\": 9.8024, \"unreferenced_by_plane_mm\": {\"In1.Cu\": 9.8024}, \"issue\": \"the required transmission-line geometry is incomplete over 9.8024 mm of this run: plane(s) In1",
+    "needed_next": "an established stackup figure or a resolved path"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "characteristic_impedance",
+    "scope": {
+     "level": "board",
+     "identity": "board_b"
+    },
+    "reason": "no declared impedance target consumes it, and descriptive solving of routed geometry is not yet wired to candidates",
+    "needed_next": "a declared target with tolerance, or descriptive solve wiring"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "loop_inductance",
+    "scope": {
+     "level": "board",
+     "identity": "board_b"
+    },
+    "reason": "no source-supported loop inductance model exists in the toolkit",
+    "needed_next": "a quasi-static extractor with a stated domain"
+   },
+   {
+    "kind": "parasitic-blocked",
+    "phenomenon": "power_integrity",
+    "scope": {
+     "level": "board",
+     "identity": "board_b"
+    },
+    "reason": "no PDN impedance model exists; DC path resistance is covered under interconnect_dc",
+    "needed_next": "a source-supported PDN model"
+   }
+  ]
+ },
+ "comparison": {
+  "compared": [
+   {
+    "identity": "F1.2->D1.2",
+    "phenomenon": "interconnect_dc",
+    "semantics": "exact",
+    "units": "ohm",
+    "a": 0.002377496,
+    "b": 0.00648157,
+    "delta_b_minus_a": 0.004104
+   }
+  ],
+  "incomparable": [],
+  "a_only": [
+   "PDM_CLK_B3||PDM_CLK_B4@F.Cu<= 0.3 mm",
+   "U2.12->MK13.3",
+   "U2.12->MK14.3",
+   "U2.14->MK15.3",
+   "U2.14->MK16.3",
+   "U2.16->MK1.3",
+   "U2.16->MK2.3",
+   "U2.18->MK3.3",
+   "U2.18->MK4.3",
+   "U2.7->MK10.3",
+   "U2.7->MK9.3",
+   "U2.9->MK11.3",
+   "U2.9->MK12.3"
+  ],
+  "b_only": [
+   "PDM_CLK_B0||PDM_D7@F.Cu<= 0.3 mm",
+   "PDM_CLK_B2||PDM_CLK_IN@F.Cu<= 0.3 mm",
+   "PDM_CLK_B2||PDM_CLK_Y4@F.Cu<= 0.3 mm",
+   "PDM_CLK_B3||PDM_CLK_Y5@F.Cu<= 0.3 mm",
+   "PDM_CLK_B4||PDM_CLK_Y4@F.Cu<= 0.3 mm",
+   "PDM_CLK_B5||PDM_D6@F.Cu<= 0.3 mm",
+   "PDM_CLK_B6||PDM_CLK_Y6@F.Cu<= 0.3 mm",
+   "PDM_CLK_IN||PDM_CLK_Y2@F.Cu<= 0.3 mm",
+   "PDM_CLK_IN||PDM_CLK_Y3@F.Cu<= 0.3 mm",
+   "PDM_CLK_IN||PDM_CLK_Y4@F.Cu<= 0.3 mm",
+   "PDM_CLK_IN||PDM_CLK_Y5@F.Cu<= 0.3 mm",
+   "PDM_CLK_Y5||PDM_CLK_Y6@F.Cu<= 0.3 mm"
+  ],
+  "meaning": "pairs compare only under require_comparable (same phenomenon, scope level, units, semantics, model and fidelity); everything else is named, never averaged in"
+ },
+ "producer_closure": {
+  "kind": "producer-closure",
+  "components": {
+   "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
+   "board_a_release_validation": "ec9b65dec1df9f399fefe261f62d82210051d36a8097aea9137dbf3950c8f586",
+   "candidate_5v_result": "7b246685d733c192cb43eeb40a36443cc6025eedd775a6eeec013fe1666e848d",
+   "candidate_board": "a41e8782ecfc59be187a0224981531de27b8c174850d6ede77d3998a9f4c1eb8",
+   "gates_artifact": "49718bb6da76aac94fa2a49672ac281cbe330ccb758c12afbf5f18aa95499365",
+   "parasitics_report.py": "453d1b617004c4f8ba622858f171708ad6c3a66831cf1e2f5ad3c78756c9c93e",
+   "toolkit.coupling_geometry": "b75c4553fa8a4a7cfadb9e2c6b7ba8c5d974caeb62cea1fb2d5bc39c8a136e61",
+   "toolkit.parasitics": "cf513698113614885f2410327f11f7878ffc2cb71682fcc96fe2108565f6c468"
+  },
+  "digest": "47f2635ba2c2c2e4e81709b72b798150401c30db7acc3a96695ba429f6c6c261"
+ }
+}

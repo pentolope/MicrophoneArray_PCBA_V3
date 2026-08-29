@@ -56,26 +56,9 @@ def run_board(board_file, copper, thickness, workdir):
         {"copper_thickness_mm": copper,
          "board_thickness_mm": thickness})
     registry = fidelity.ModelRegistry([link])
-    # The bound direction comes from the path record itself: a
-    # lower-bound resistance (omitted via barrels) makes the load
-    # voltage an UPPER bound, so a numeric pass of "vout >= x" is
-    # unresolvable while a numeric fail is conclusively FAIL. No
-    # omitted positive physics may create an exact PASS.
     vout_measurement = {"name": "vout", "kind": "op_voltage",
                         "node": "vout",
                         "assertion": {"op": ">=", "value": 4.999}}
-    if path_record["resistance_bound"] == "lower":
-        vout_measurement["value_bound"] = {
-            "direction": "upper",
-            "reason": "the link resistance omits {} via "
-                      "barrel(s) and is a lower bound; the load "
-                      "voltage is therefore an upper bound".format(
-                          path_record["via_count_in_path"])}
-    elif path_record["resistance_bound"] != "exact":
-        # 'uncertain': symmetric junction ambiguity has no sound
-        # one-sided direction, so no assertion is made at all -
-        # the value is still reported, unclassified.
-        del vout_measurement["assertion"]
     scenario = {
         "name": "5v-fused-link-drop-path-scoped",
         "description": "DC drop over the traced F1.2 -> D1.2 copper "
@@ -106,6 +89,19 @@ def run_board(board_file, copper, thickness, workdir):
             "interconnect_dc": ["geometry-derived"],
         },
     }
+    # The bound direction is DERIVED mechanically from the
+    # series-divider template and the model's own declared
+    # resistance bound - never trusted from prose. Outside the
+    # template (an 'uncertain' bound), no sound classification
+    # exists and the assertion is dropped: the value is still
+    # reported, unclassified.
+    from pcbqa.sim import scenario as scenario_module
+    derived = scenario_module.derive_value_bound(
+        scenario, vout_measurement, registry)
+    if derived is not None and derived["direction"] != "exact":
+        vout_measurement["value_bound"] = derived
+    elif derived is None:
+        vout_measurement.pop("assertion", None)
     result = ngspice.run_scenario(registry, scenario, workdir)
     return {"board_file_sha256": board_sha,
             "path": path_record, "model": link,

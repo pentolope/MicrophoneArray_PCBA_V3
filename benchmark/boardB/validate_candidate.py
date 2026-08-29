@@ -476,8 +476,10 @@ def run_validation(manifest_path, board_id, timeout):
         REPO, "out", board_id, "attempts", "*",
         "validation.json")))
     if not attempts:
-        return outcome, None
-    return outcome, json.load(open(attempts[-1], encoding="utf-8"))
+        return outcome, None, None
+    with open(attempts[-1], encoding="utf-8") as handle:
+        return outcome, json.load(handle), os.path.relpath(
+            attempts[-1], REPO)
 
 
 def main():
@@ -607,10 +609,21 @@ def main():
         {"board_file_sha256": sha, "toolkit_commit": toolkit_commit,
          "physical_evidence": evidence,
          "schema_version": benchmark.SCHEMA_VERSION}, metrics)
+    metrics_inputs = freshness.closure(dict(
+        closure_components(board_file, seed_dir), **{
+            "baseline_net_inventory": {"json_path": os.path.join(
+                REPO, "benchmark", "board_a_baseline.json")},
+            "physical_construction": {
+                "digest": evidence["digest"]},
+            "extraction_semantics": {
+                "text": extract.EXTRACT_VERSION},
+            "geometry_profile": {"json_path": os.path.join(
+                REPO, "board", "manifest.live.json")},
+        }))
     with open(os.path.join(seed_dir, "candidate_metrics.json"),
               "w", encoding="utf-8", newline="\n") as handle:
         json.dump({"report": report,
-                   "producer_closure": closure_record}, handle,
+                   "producer_closure": metrics_inputs}, handle,
                   indent=1)
         handle.write("\n")
 
@@ -670,15 +683,29 @@ def main():
         manifest_path, board_id = derive_manifest(
             seed_dir, arguments.seed,
             os.path.basename(board_file))
-        outcome, validation = run_validation(
-            manifest_path, board_id, arguments.validate_timeout)
+        outcome, validation, validation_attempt_path = \
+            run_validation(manifest_path, board_id,
+                           arguments.validate_timeout)
         if validation is not None:
+            validation_identity = {
+                "attempt_path": validation_attempt_path,
+                "canonical_sha256":
+                    freshness.canonical_json_digest(validation),
+                "implementation": (validation.get("tooling", {})
+                                   .get(
+                    "validation_implementation")),
+                "meaning": "the exact validation artifact these "
+                           "gate truths were lifted from, by "
+                           "canonical content identity, with the "
+                           "implementation that produced it",
+            }
             gates = validation.get("gates", [])
             failing = sorted(
                 gate["gate"] for gate in gates
                 if gate.get("status") not in
                 ("PASS", "NOT_APPLICABLE", "ADVISORY"))
             validation_summary = {
+                "validation_artifact": validation_identity,
                 "verdict": validation["summary"]["verdict"],
                 "counts": validation["summary"]["counts"],
                 "blocking": validation["summary"].get("blocking",
@@ -773,14 +800,31 @@ def main():
         gate for gate in failing
         if GATE_FAILURE_CLASSES.get(gate, "unclassified")
         != "candidate-design")
+    # Evidence AVAILABILITY ("can I trust this run?") and
+    # requirement OUTCOME ("did the design satisfy something?")
+    # are separate truths. This board declares NO electrical
+    # requirement in time or volts (constraints.json expresses its
+    # clock intent geometrically), so the 5V assertion is
+    # DESCRIPTIVE: its verdict is recorded and compared, and
+    # electrical_requirements stays at zero applicable - a
+    # requirement is never invented to have something to score.
     usable_results = 0
+    five_v_verdict = None
+    five_v_claimable = None
     five_v_path = os.path.join(seed_dir,
                                "candidate_5v_link.result.json")
     if os.path.isfile(five_v_path):
-        five_v = json.load(open(five_v_path, encoding="utf-8"))
-        if (five_v.get("result", {}).get("result_policy", {})
-                .get("usable_for_design_decision")):
+        with open(five_v_path, encoding="utf-8") as handle:
+            five_v = json.load(handle)
+        policy = five_v.get("result", {}).get("result_policy", {})
+        if policy.get("usable_for_design_decision"):
             usable_results = 1
+        five_v_claimable = policy.get("assertions_claimable")
+        five_v_verdict = (five_v.get("result", {})
+                          .get("measurements", {})
+                          .get("vout", {}).get("verdict"))
+    electrical_requirements = {"applicable": 0, "passed": 0,
+                               "failed": 0, "unresolved": 0}
     parity_counts = {
         key: len(parity[key]) for key in (
             "missing_footprints", "added_footprints",
@@ -812,6 +856,7 @@ def main():
                            "failing": blocking_failing},
         "quality_gates": {"evaluated": evaluated,
                           "failing": quality_failing},
+        "electrical_requirements": electrical_requirements,
         "electrical_evidence": {"usable_results": usable_results},
         "optimization": {
             "measured_copper_total_mm": copper_total},
@@ -862,6 +907,19 @@ def main():
             "parity_failures_missing_candidate_artifacts":
                 parity_failing,
             "measured_copper_total_mm": copper_total,
+            "five_v_assertion": {
+                "verdict": five_v_verdict,
+                "assertions_claimable": five_v_claimable,
+                "requirement_linked": False,
+                "meaning": "descriptive evidence: no declared "
+                           "board requirement consumes this "
+                           "assertion, so its verdict ranks "
+                           "nothing and blocks nothing - it is "
+                           "recorded for A/B comparison and "
+                           "honesty, never laundered into "
+                           "usability",
+            },
+            "electrical_requirements": electrical_requirements,
             "measured_net_set_sha256": hashlib.sha256(
                 json.dumps(measured_nets).encode(
                     "utf-8")).hexdigest(),

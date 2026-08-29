@@ -1,0 +1,210 @@
+{
+ "kind": "candidate-decision",
+ "candidate": "seed32",
+ "board_file_sha256": "19674dc29e30990fc049b2a334196a0f4c2e603fb359cf6d1c0e77706efece8d",
+ "assessment": {
+  "classes": {
+   "netlist-parity": {
+    "status": "pass",
+    "detail": "authoritative Board A netlist contract vs candidate pad-net map; differences: {\"added_footprints\": 0, \"added_pads\": 0, \"changed_assignments\": 0, \"missing_footprints\": 0, \"missing_nets\": 0, \"missing_pads\": 0, \"unexpected_nets\": 0}"
+   },
+   "placement-policy": {
+    "status": "pass",
+    "detail": "toolkit placement-policy evaluation on actual positions"
+   },
+   "critical-structures": {
+    "status": "fail",
+    "states": {
+     "nets_connected": false,
+     "paths_resolved": false,
+     "topology_valid": false
+    },
+    "detail": "net connectivity is necessary but never sufficient: paths and topology are policy-owned gate truths, and unknown is not credited"
+   },
+   "board-connectivity": {
+    "status": "fail",
+    "board_required": {
+     "complete": 56,
+     "total": 83
+    },
+    "benchmark": {
+     "complete": 32,
+     "total": 46
+    },
+    "detail": "judged over the board-required net set; the benchmark set is reported beside it and never stands in for it"
+   },
+   "fabrication-geometry": {
+    "status": "pass",
+    "detail": "direct kicad-cli DRC at the declared rules on this exact candidate; raw sha 19674dc29e30, judged refilled-copy sha 3feee2c6a51d; violations: {}"
+   },
+   "blocking-gates": {
+    "status": "fail",
+    "failing": [
+     "DRC.AUTHORITATIVE",
+     "TIMING.PATH_INTEGRITY",
+     "VIA.ANNULUS_MASK_OVERLAP",
+     "VIA.IN_PAD_CONTACT",
+     "VIA.MASK_CLEARANCE_PROCESS",
+     "VIA.MASK_CLEARANCE_TARGET"
+    ]
+   },
+   "quality-gates": {
+    "status": "fail",
+    "failing": [
+     "NET.TOPOLOGY",
+     "ROUTE.GEOMETRY_HYGIENE"
+    ]
+   },
+   "electrical-requirements": {
+    "status": "pass",
+    "counts": {
+     "applicable": 0,
+     "passed": 0,
+     "failed": 0,
+     "unresolved": 0
+    },
+    "detail": "verdict-based: any requirement-linked assertion that FAILED (exactly or conservatively) is a design failure however trustworthy the run; an unresolved assertion is unknown, never credited; zero applicable requirements pass vacuously because absence of a requirement is not a failure - and never a license to invent one"
+   },
+   "electrical-evidence": {
+    "status": "fail",
+    "usable_results": 0,
+    "detail": "availability only - results usable for a design decision under the simulation result policy; their VERDICTS live in electrical-requirements and are never rewarded by count"
+   },
+   "optimization": {
+    "status": "recorded",
+    "metrics": {
+     "measured_copper_total_mm": 1235.982
+    },
+    "detail": "never judged here and never in the rank key"
+   }
+  },
+  "progress_class": "critical-structures",
+  "fully_connected": false,
+  "rank_key": [
+   true,
+   true,
+   false,
+   false,
+   false,
+   0.6746987951807228,
+   true,
+   -6,
+   -2,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "components": {
+  "netlist_parity_ok": true,
+  "netlist_parity_differences": {
+   "missing_footprints": 0,
+   "added_footprints": 0,
+   "missing_pads": 0,
+   "added_pads": 0,
+   "missing_nets": 0,
+   "unexpected_nets": 0,
+   "changed_assignments": 0
+  },
+  "fabrication_identity": {
+   "raw_board_sha256": "19674dc29e30990fc049b2a334196a0f4c2e603fb359cf6d1c0e77706efece8d",
+   "judged_board_sha256": "3feee2c6a51dfd6b2a417ffa933a29aae0adb189bfd44243d17ea4addf18ec1f",
+   "verdict_ok": true,
+   "meaning": "raw is the candidate file as decided on; judged is the canonical zone-refilled working copy the DRC measured - two declared identities, never conflated"
+  },
+  "benchmark_net_completion": {
+   "complete": 32,
+   "total": 46
+  },
+  "board_required_net_completion": {
+   "complete": 56,
+   "total": 83
+  },
+  "critical_clock_nets_connected": false,
+  "critical_paths_resolved": false,
+  "critical_topology_valid": false,
+  "fabrication_geometry_ok": true,
+  "board_not_complete": {
+   "+3V3A": "no-copper",
+   "+3V3_CLK": "partial-copper",
+   "+5V": "no-copper",
+   "5V_FUSED": "no-copper",
+   "GND": "partial-copper",
+   "MIC_VDD_0": "partial-copper",
+   "MIC_VDD_1": "partial-copper",
+   "MIC_VDD_11": "partial-copper",
+   "MIC_VDD_12": "partial-copper",
+   "MIC_VDD_13": "partial-copper",
+   "MIC_VDD_15": "partial-copper",
+   "MIC_VDD_2": "partial-copper",
+   "MIC_VDD_3": "partial-copper",
+   "MIC_VDD_4": "partial-copper",
+   "MIC_VDD_5": "partial-copper",
+   "MIC_VDD_6": "partial-copper",
+   "MIC_VDD_7": "partial-copper",
+   "MIC_VDD_8": "partial-copper",
+   "MIC_VDD_9": "partial-copper",
+   "PDM_CLK_B1": "partial-copper",
+   "PDM_CLK_B4": "partial-copper",
+   "PDM_CLK_B5": "partial-copper",
+   "PDM_CLK_B6": "partial-copper",
+   "PDM_CLK_Y3": "partial-copper",
+   "PDM_CLK_Y7": "partial-copper",
+   "PI_5V": "no-copper",
+   "TANG_3V3": "no-copper"
+  },
+  "placement_policy_ok": true,
+  "validation_verdict": "REJECTED",
+  "parity_failures_missing_candidate_artifacts": [
+   "CPL.NATIVE_PARITY",
+   "CPL.ORIENTATION",
+   "FAB.LAYER_IDENTITY",
+   "PROV.REPORT_FRESHNESS",
+   "STACK.GERBER_PARITY"
+  ],
+  "measured_copper_total_mm": 1235.982,
+  "five_v_assertion": {
+   "verdict": null,
+   "assertions_claimable": null,
+   "requirement_linked": false,
+   "meaning": "descriptive evidence: no declared board requirement consumes this assertion, so its verdict ranks nothing and blocks nothing - it is recorded for A/B comparison and honesty, never laundered into usability"
+  },
+  "electrical_requirements": {
+   "applicable": 0,
+   "passed": 0,
+   "failed": 0,
+   "unresolved": 0
+  },
+  "measured_net_set_sha256": "ccf73e9e6bf64231b7a6b72e4421da6487a8d9050ab10ae6369046146d72f68f"
+ },
+ "decision": "reject",
+ "search_winner_eligible": false,
+ "candidate_ready_for_next_stage": false,
+ "reasons": [
+  "progression stops at critical-structures: {\"status\": \"fail\", \"states\": {\"nets_connected\": false, \"paths_resolved\": false, \"topology_valid\": false}}"
+ ],
+ "next_design_action": "the progress class names the failing correctness class; its detail names the design variable",
+ "producer_closure": {
+  "kind": "producer-closure",
+  "components": {
+   "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
+   "candidate_5v_result": "ce196e7a166725e6815440da6c5d626b89143e351704ba0bfc69baba5b462bb4",
+   "candidate_board": "d01b2329852c544a0c6b4b088416afcec17355e92e53ddb6494b281ef6878da0",
+   "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
+   "derivation": "d0388cda99ca449d2b77c3858682553b4154203e794430c0561f16221db81e20",
+   "gates_artifact": "3dd1f37df91e1acadab408d0bfea759c3e505485d42bc9996fcb175a6649bb10",
+   "generate_candidate.py": "c455d130797ac8f574dfe678e93a72ee1936cbca39801f48df6079d3039ed098",
+   "metrics_artifact": "6ac7196e00ded99b6ec46c05a841180b562e48e348594cfeb223f427f3ab0e65",
+   "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
+   "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
+   "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
+   "toolkit.extract": "3c294c28327bbc6745547f654d75763a096b9100fd3d2409f70ecf499a87bd13",
+   "toolkit.netlist_contract": "d8e4000fad095d998157e0554ac67a6dbc8de516f9eb06ecb7ae2bc4a7b96708",
+   "toolkit.progression": "f4e982b585d800b44ee7e5b70fb4dc3cf9608bed31b09504f7f6a08c3bf66706",
+   "validate_candidate.py": "11c8933f3d87d2eac060d370b25243943b99092b7ef8a4c2b3dc49645e8fb93d",
+   "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
+  },
+  "digest": "a43ddbb585640a98e72f96b5df581814fb7fc59d513ffcd1523c1411e8f08716"
+ }
+}

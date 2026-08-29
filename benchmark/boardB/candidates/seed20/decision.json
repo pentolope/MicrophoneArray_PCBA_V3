@@ -55,10 +55,20 @@
      "ROUTE.GEOMETRY_HYGIENE"
     ]
    },
+   "electrical-requirements": {
+    "status": "pass",
+    "counts": {
+     "applicable": 0,
+     "passed": 0,
+     "failed": 0,
+     "unresolved": 0
+    },
+    "detail": "verdict-based: any requirement-linked assertion that FAILED (exactly or conservatively) is a design failure however trustworthy the run; an unresolved assertion is unknown, never credited; zero applicable requirements pass vacuously because absence of a requirement is not a failure - and never a license to invent one"
+   },
    "electrical-evidence": {
     "status": "pass",
     "usable_results": 1,
-    "detail": "results usable for a design decision under the simulation result policy"
+    "detail": "availability only - results usable for a design decision under the simulation result policy; their VERDICTS live in electrical-requirements and are never rewarded by count"
    },
    "optimization": {
     "status": "recorded",
@@ -80,6 +90,9 @@
    true,
    -6,
    -2,
+   0,
+   0,
+   0,
    1
   ]
  },
@@ -146,6 +159,18 @@
    "TIMING.INTERCONNECT_SKEW"
   ],
   "measured_copper_total_mm": 1164.609,
+  "five_v_assertion": {
+   "verdict": "unresolved",
+   "assertions_claimable": false,
+   "requirement_linked": false,
+   "meaning": "descriptive evidence: no declared board requirement consumes this assertion, so its verdict ranks nothing and blocks nothing - it is recorded for A/B comparison and honesty, never laundered into usability"
+  },
+  "electrical_requirements": {
+   "applicable": 0,
+   "passed": 0,
+   "failed": 0,
+   "unresolved": 0
+  },
   "measured_net_set_sha256": "6b4e41dd49f7ea45681a51ebf56e040fbe8f3e59fef84c38f316cf5a2301c1b3"
  },
  "decision": "reject",
@@ -159,22 +184,22 @@
   "kind": "producer-closure",
   "components": {
    "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
-   "candidate_5v_result": "63b44d04f0ac52d22b01228dd518f80f6d78a3e1263b613eef7e1f602ec3bf59",
+   "candidate_5v_result": "2cd19e788fe2f666417cdd402dfa5076f1cc08ac3f3d60f0b7b9e0a3592503a8",
    "candidate_board": "c39787ec02ff09bcd82815fb2ab3ea8ade06734d39a324d18274205803811482",
    "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
    "derivation": "60d3f4ee840292ad223dea56bc6a846b46bbc50738e62e84d9a05d1727bf30e5",
-   "gates_artifact": "941bfea14fd0d3ca8ccbd647e395ae62701185c833d9b549b5ea4934840c878a",
-   "generate_candidate.py": "f8babac2d93c301e8de6a9367655780d09ced15d8f4f9ad778926ce296af7f5a",
-   "metrics_artifact": "ac61233514aa62725e9c28a5c7216bdffa73ded950b8bb1e2f6309ec3a12b6ab",
+   "gates_artifact": "7caffc8acdea718c54b1d723a845813379e9ce3a2df484d9834e0d2403c065f7",
+   "generate_candidate.py": "c455d130797ac8f574dfe678e93a72ee1936cbca39801f48df6079d3039ed098",
+   "metrics_artifact": "44a35cf1a8bd2e4bee12ab1aac2d5f8e6a35363e3784b2b4024da434113e5107",
    "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
    "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
    "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
    "toolkit.extract": "3c294c28327bbc6745547f654d75763a096b9100fd3d2409f70ecf499a87bd13",
    "toolkit.netlist_contract": "d8e4000fad095d998157e0554ac67a6dbc8de516f9eb06ecb7ae2bc4a7b96708",
-   "toolkit.progression": "19e1fe73f67cd1b1190a9134e5dc3bf3fc1c1bcd534adf3eb1956b97e2682758",
-   "validate_candidate.py": "4470a1dae63ad94ae9b181be26a2ec3534aa9b1d7e09b1b9a9c3fa33f4e254df",
+   "toolkit.progression": "f4e982b585d800b44ee7e5b70fb4dc3cf9608bed31b09504f7f6a08c3bf66706",
+   "validate_candidate.py": "11c8933f3d87d2eac060d370b25243943b99092b7ef8a4c2b3dc49645e8fb93d",
    "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
   },
-  "digest": "ac00d2ae1f8f339b3b9097442f29dee7c508149c4a80a56c1cf0ea9f13d493bb"
+  "digest": "80841e8e6d235d7f806cd5ba5db5d5442c615a62764bf49ae6e2b7ffd8d50715"
  }
 }

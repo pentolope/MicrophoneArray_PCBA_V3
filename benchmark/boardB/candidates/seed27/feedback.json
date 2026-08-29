@@ -1,0 +1,37 @@
+{
+ "kind": "candidate-feedback",
+ "candidate": "seed27",
+ "records": [
+  {
+   "kind": "escape-refused",
+   "references": [
+    "RC5"
+   ],
+   "pads": [
+    "RC5.2"
+   ],
+   "nets": [
+    "PDM_CLK_B4"
+   ],
+   "location_mm": [
+    177.162217,
+    168.927703
+   ],
+   "required_margin_mm": 0.15,
+   "observed_margin_mm": null,
+   "no_route_reason": "no endpoint of 47 candidate(s) is reachable at the declared values within the search window (last: no escape path exists at the declared values within the search window)",
+   "suggested_movable_references": [
+    "RC5"
+   ],
+   "movement_domain": {
+    "kind": "local-declutter",
+    "detail": "open a corridor at the declared clearance near the refused pad; movement is bounded by the consumer's own placement constraints"
+   },
+   "source_artifact": {
+    "kind": "planner-outcome",
+    "identity": "derivation:critical_topology:seed27"
+   }
+  }
+ ],
+ "meaning": "structured failure attribution for the NEXT iteration: a descendant applies these within its own constraints and the ordinary progression judges the result"
+}

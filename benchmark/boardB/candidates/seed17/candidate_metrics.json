@@ -3,7 +3,7 @@
   "kind": "ab-benchmark-report",
   "binding": {
    "board_file_sha256": "b1440c1a8b222fcf0dc8525120bc6a299ae81842963b0b3fb9d70a3119decc20",
-   "toolkit_commit": "d2c722b333bdeba3a67cac1a73d4e39fee26ad9c",
+   "toolkit_commit": "da53b30805afb35add4588e5e8b9419b76035b3f",
    "physical_evidence": {
     "kind": "resolved-physical-construction",
     "digest": "6ff4225cf2a7f1c505ff8a7c48aac5671dc5a5f487153782a75ece9eeb0400ef",
@@ -2178,20 +2178,24 @@
   "kind": "producer-closure",
   "components": {
    "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
-   "candidate_5v_result": "449b2e41a4577e16376faf6188c1f3b4fa4cf2ad8b6894626f117c8fc8463d7f",
+   "baseline_net_inventory": "1f16019e917538d5f4534c274bc4e87370e814bd68c9026fcd3ab0479afd2c9f",
+   "candidate_5v_result": "0d834a139de2baf9219c92d4f4bdc8bf7484237d909cca4b751d898e554cb2ee",
    "candidate_board": "4943c57ee28addecdd69732ecb1436e3f5b10e790170cc4262720ff0eed56930",
    "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
    "derivation": "4258ca1ff79201d16c03989581faec77422184652142349ab8ce3c531319cea6",
-   "generate_candidate.py": "f8babac2d93c301e8de6a9367655780d09ced15d8f4f9ad778926ce296af7f5a",
+   "extraction_semantics": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+   "generate_candidate.py": "c455d130797ac8f574dfe678e93a72ee1936cbca39801f48df6079d3039ed098",
+   "geometry_profile": "eb9cc7209106c00b4a25f30caae05930fad02e0f7dbb6f394c02d19da273550e",
+   "physical_construction": "6ff4225cf2a7f1c505ff8a7c48aac5671dc5a5f487153782a75ece9eeb0400ef",
    "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
    "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
    "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
    "toolkit.extract": "3c294c28327bbc6745547f654d75763a096b9100fd3d2409f70ecf499a87bd13",
    "toolkit.netlist_contract": "d8e4000fad095d998157e0554ac67a6dbc8de516f9eb06ecb7ae2bc4a7b96708",
-   "toolkit.progression": "19e1fe73f67cd1b1190a9134e5dc3bf3fc1c1bcd534adf3eb1956b97e2682758",
-   "validate_candidate.py": "4470a1dae63ad94ae9b181be26a2ec3534aa9b1d7e09b1b9a9c3fa33f4e254df",
+   "toolkit.progression": "f4e982b585d800b44ee7e5b70fb4dc3cf9608bed31b09504f7f6a08c3bf66706",
+   "validate_candidate.py": "11c8933f3d87d2eac060d370b25243943b99092b7ef8a4c2b3dc49645e8fb93d",
    "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
   },
-  "digest": "e993be14af396d3dd8771d3ace14ed5b118e0bb7cb59232553d882e85e09bdf9"
+  "digest": "7ca0a30c686edc708a07c2106442b45fd59d031df43080a22985b20487da7be0"
  }
 }

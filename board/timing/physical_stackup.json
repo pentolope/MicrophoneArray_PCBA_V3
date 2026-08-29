@@ -1,119 +1,112 @@
 {
-  "schema_version": 1,
-  "title": "Physical (electromagnetic) stackup of microphone_array_v2",
-  "description": [
-    "The structure of the four-layer stack, and nothing about its materials.",
-    "",
-    "This file exists because `microphone_array_v2.kicad_pcb` carries no",
-    "`(setup (stackup ...))` block at all. KiCad only stores a physical",
-    "stackup when a designer fills one in, and this board's was never filled",
-    "in, so the board file states the overall thickness (1.6 mm) and the",
-    "copper layer order and says nothing about dielectric thickness, material,",
-    "relative permittivity or loss tangent.",
-    "",
-    "What is declared here is only what the authoritative board already",
-    "establishes: that there are four copper layers in the order F.Cu, In1.Cu,",
-    "In2.Cu, B.Cu, and that three dielectrics separate them. That is the",
-    "structure. Every material figure is explicitly null.",
-    "",
-    "The nulls are the point. They are not placeholders waiting to be filled",
-    "with something plausible - they are the record that this board does not",
-    "yet know these values, so that STACK.PHYSICAL can name them one by one",
-    "instead of reporting the useless 'no physical stackup at all', and so",
-    "that TIMING.INTERCONNECT_DELAY refuses to produce a picosecond figure",
-    "rather than producing one derived from an assumed FR-4.",
-    "",
-    "A delay estimate whose Dk was guessed is not a weaker result than one",
-    "whose Dk was measured. It is a different kind of thing wearing the same",
-    "units, and nothing downstream could tell them apart."
-  ],
-  "how_to_complete_this_file": [
-    "Every missing figure comes from one place: the fabricator's stackup",
-    "drawing for the ordered service and thickness. For a JLCPCB four-layer",
-    "1.6 mm order that is the impedance/stackup document shown at order time",
-    "and available afterwards from the order page; it names the prepreg and",
-    "core construction, each dielectric thickness, each copper weight, and the",
-    "laminate's Dk at a stated frequency.",
-    "",
-    "Record the figures with the same discipline the JLCPCB process profile",
-    "requires of a process limit: the source, a URL or document identifier, a",
-    "retrieval date, the service and thickness it applies to, and the",
-    "frequency the Dk is quoted at. Put those in `provenance` below.",
-    "",
-    "Dk is frequency dependent. The PDM clock is 3.072 MHz with edges an order",
-    "or two faster, so a figure quoted at 1 GHz is the appropriate one to use",
-    "and the one to record.",
-    "",
-    "Until then this stays as it is. Do not fill these in from a textbook, a",
-    "typical value, or another board."
-  ],
-  "provenance": null,
-  "notes": [
-    "Structure declared by the board; materials not yet known.",
-    "Overall board thickness comes from the board file's (general (thickness))",
-    "and is not restated here."
-  ],
-  "layers": [
-    {
-      "name": "F.Cu",
-      "kind": "copper",
-      "type": "copper",
-      "thickness_mm": null,
-      "role": "signal",
-      "why_absent": "outer copper weight is a fabrication option; the board file records no stackup"
-    },
-    {
-      "name": "dielectric 1",
-      "kind": "dielectric",
-      "type": "prepreg",
-      "thickness_mm": null,
-      "material": null,
-      "epsilon_r": null,
-      "loss_tangent": null,
-      "why_absent": "F.Cu to In1.Cu prepreg: this is the height every PDM clock microstrip is referenced over, and the single most important missing figure"
-    },
-    {
-      "name": "In1.Cu",
-      "kind": "copper",
-      "type": "copper",
-      "thickness_mm": null,
-      "role": "plane",
-      "plane_net": "GND"
-    },
-    {
-      "name": "dielectric 2",
-      "kind": "dielectric",
-      "type": "core",
-      "thickness_mm": null,
-      "material": null,
-      "epsilon_r": null,
-      "loss_tangent": null,
-      "why_absent": "In1.Cu to In2.Cu core; both faces are GND planes, so this affects via vertical transit rather than any trace"
-    },
-    {
-      "name": "In2.Cu",
-      "kind": "copper",
-      "type": "copper",
-      "thickness_mm": null,
-      "role": "plane",
-      "plane_net": "GND"
-    },
-    {
-      "name": "dielectric 3",
-      "kind": "dielectric",
-      "type": "prepreg",
-      "thickness_mm": null,
-      "material": null,
-      "epsilon_r": null,
-      "loss_tangent": null,
-      "why_absent": "In2.Cu to B.Cu prepreg: the reference height for the B.Cu portions of the PDM_CLK_Y2 and PDM_CLK_Y3 branches"
-    },
-    {
-      "name": "B.Cu",
-      "kind": "copper",
-      "type": "copper",
-      "thickness_mm": null,
-      "role": "signal"
-    }
+ "schema_version": 1,
+ "title": "Physical (electromagnetic) stackup of microphone_array_v2",
+ "description": [
+  "The structure of the four-layer stack, with materials completed from",
+  "frozen fabricator evidence on 2026-08-28 (see provenance).",
+  "",
+  "This file exists because `microphone_array_v2.kicad_pcb` carries no",
+  "`(setup (stackup ...))` block at all; the board file states the overall",
+  "thickness (1.6 mm) and the copper layer order and nothing else.",
+  "",
+  "The material figures below are NOT typical-FR4 assumptions. The ordered",
+  "service (4 layers, 1.6 mm, no impedance control) selects JLCPCB's",
+  "documented default construction, and every thickness and epsilon_r is",
+  "that construction's own stated figure from the frozen impedance-",
+  "calculator evidence, bound by hash in the provenance block. Loss",
+  "tangents remain null because the evidence does not state them: an",
+  "unevidenced figure would be a guess wearing units, and nothing",
+  "downstream could tell it apart from a measured one."
+ ],
+ "how_to_complete_this_file": [
+  "Completed 2026-08-28 from the frozen JLCPCB catalog evidence (see",
+  "provenance). To revise: only from fabricator stackup documentation",
+  "frozen into the approved catalog - never from a datasheet the order",
+  "does not establish. Loss tangent still awaits stated evidence."
+ ],
+ "provenance": {
+  "completed_utc": "2026-08-28",
+  "evidence": "JLCPCB approved catalog (normalized_sha256 f7cd05e75e1f9d6d): construction 'JLC-4L-no-requirement' (excerpt_sha256 822b9999100bea59), the documented DEFAULT for 4-layer boards ordered without impedance control - exactly this board's ordered service (4 layers, 1.6 mm, impedance_control=false in board/jlcpcb_requirements.json). Structurally identical to JLC04161H-7628.",
+  "construction": "JLC-4L-no-requirement",
+  "construction_excerpt_sha256": "822b9999100bea59974157d0f8032072d6e82312f6d04dc58257e8b814b21fbc",
+  "catalog_normalized_sha256": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+  "basis": [
+   "The ordered service is 4 copper layers at 1.6 mm nominal with impedance_control=false; the catalog's stackup records mark JLC-4L-no-requirement as the documented default construction for exactly that order.",
+   "Every thickness is the construction's own stated layer figure; every epsilon_r is the frozen materials entry for the construction's own named material; nothing is a typical-FR4 assumption.",
+   "Loss tangents remain null: the frozen evidence does not state them, and an unevidenced figure would be exactly the guessed-Dk failure this file's description warns about, one field over."
   ]
+ },
+ "notes": [
+  "Structure declared by the board; materials completed from the frozen JLCPCB catalog evidence (see provenance).",
+  "Overall board thickness comes from the board file's (general (thickness)) and is not restated here."
+ ],
+ "layers": [
+  {
+   "name": "F.Cu",
+   "kind": "copper",
+   "type": "copper",
+   "thickness_mm": 0.035,
+   "role": "signal",
+   "source": "construction layer 'Top Layer' (1.0 oz outer at the stated 35 um/oz)"
+  },
+  {
+   "name": "dielectric 1",
+   "kind": "dielectric",
+   "type": "prepreg",
+   "thickness_mm": 0.2104,
+   "material": "7628 (NP-155F family)",
+   "epsilon_r": 4.4,
+   "loss_tangent": null,
+   "epsilon_r_source": "materials entry 'prepreg 7628' (impedance-calculator excerpt '7628 -> 4.4')",
+   "loss_tangent_note": "the frozen evidence states no loss tangent; it stays null rather than borrowing a datasheet figure the order does not establish"
+  },
+  {
+   "name": "In1.Cu",
+   "kind": "copper",
+   "type": "copper",
+   "thickness_mm": 0.0152,
+   "role": "plane",
+   "plane_net": "GND",
+   "source": "construction layer 'Inner Layer L2' (0.5 oz, 0.0152 mm)"
+  },
+  {
+   "name": "dielectric 2",
+   "kind": "dielectric",
+   "type": "core",
+   "thickness_mm": 1.065,
+   "material": "core, 1.1 mm H/HOZ with copper",
+   "epsilon_r": 4.6,
+   "loss_tangent": null,
+   "epsilon_r_source": "materials entry 'core' (impedance-calculator excerpt 'Core dielectric constant 4.6')",
+   "loss_tangent_note": "not stated by the frozen evidence"
+  },
+  {
+   "name": "In2.Cu",
+   "kind": "copper",
+   "type": "copper",
+   "thickness_mm": 0.0152,
+   "role": "plane",
+   "plane_net": "GND",
+   "source": "construction layer 'Inner Layer L3' (0.5 oz)"
+  },
+  {
+   "name": "dielectric 3",
+   "kind": "dielectric",
+   "type": "prepreg",
+   "thickness_mm": 0.2104,
+   "material": "7628 (NP-155F family)",
+   "epsilon_r": 4.4,
+   "loss_tangent": null,
+   "epsilon_r_source": "materials entry 'prepreg 7628'",
+   "loss_tangent_note": "not stated by the frozen evidence"
+  },
+  {
+   "name": "B.Cu",
+   "kind": "copper",
+   "type": "copper",
+   "thickness_mm": 0.035,
+   "role": "signal",
+   "source": "construction layer 'Bottom Layer' (1.0 oz outer)"
+  }
+ ]
 }

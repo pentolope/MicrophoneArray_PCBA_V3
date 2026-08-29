@@ -8,17 +8,17 @@
    "authoritative_board": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
    "candidate_board": "a41e8782ecfc59be187a0224981531de27b8c174850d6ede77d3998a9f4c1eb8",
    "constraints": "cd5649c4f0d7925a0171e98666c57251671a8f767fa2489ac04c89c9aae6b4a8",
-   "generate_candidate.py": "f8babac2d93c301e8de6a9367655780d09ced15d8f4f9ad778926ce296af7f5a",
+   "generate_candidate.py": "c455d130797ac8f574dfe678e93a72ee1936cbca39801f48df6079d3039ed098",
    "schema": "b17c7d630665db5a968d678da222c843f4f3d201bde4f294be94b9a30507e0f3",
    "toolkit.benchmark": "5bc7916d51670cc41556d83058e5165be159e4c60454255b4f6359314dbe07cc",
    "toolkit.connectivity": "5b570dd79d16c5580d059a994f8f6ba5e41788ea59184a0d85b8e5e4c3b27afe",
    "toolkit.extract": "3c294c28327bbc6745547f654d75763a096b9100fd3d2409f70ecf499a87bd13",
    "toolkit.netlist_contract": "d8e4000fad095d998157e0554ac67a6dbc8de516f9eb06ecb7ae2bc4a7b96708",
-   "toolkit.progression": "19e1fe73f67cd1b1190a9134e5dc3bf3fc1c1bcd534adf3eb1956b97e2682758",
-   "validate_candidate.py": "4470a1dae63ad94ae9b181be26a2ec3534aa9b1d7e09b1b9a9c3fa33f4e254df",
+   "toolkit.progression": "f4e982b585d800b44ee7e5b70fb4dc3cf9608bed31b09504f7f6a08c3bf66706",
+   "validate_candidate.py": "11c8933f3d87d2eac060d370b25243943b99092b7ef8a4c2b3dc49645e8fb93d",
    "zone_policy": "2b3e99ab7d91d6c92248a7d31e9559a0a94e04b18678c9ab059fcbed281a6856"
   },
-  "digest": "7edc8007b6fd0664bf66633f39eb0513f8ae65352d62217d96e6a1d6ab7b4e17"
+  "digest": "93eebbce62a8ff766f3509b1fc3a19cc95d321975a10e096b99e6350f94e7825"
  },
  "statuses": {
   "placement_policy_satisfied": true,
@@ -146,11 +146,22 @@
    "VIA.MASK_CLEARANCE_TARGET": "candidate-design"
   },
   "validation": {
+   "validation_artifact": {
+    "attempt_path": "out\\boardB-seed14-candidate\\attempts\\20260829T012637Z-7a390f9e\\validation.json",
+    "canonical_sha256": "f2c872d7ee03688769a416082333fe1777450c603cf1d5e77ea8b7481bc3a405",
+    "implementation": {
+     "toolkit_root": "C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\tooling\\PCB_AutoDesignAndTest",
+     "commit": "da53b30805afb35add4588e5e8b9419b76035b3f",
+     "working_tree_dirty": false,
+     "detail": "git HEAD of the toolkit checkout that executed this validation"
+    },
+    "meaning": "the exact validation artifact these gate truths were lifted from, by canonical content identity, with the implementation that produced it"
+   },
    "verdict": "REJECTED",
    "counts": {
-    "PASS": 16,
+    "PASS": 17,
     "FAIL": 13,
-    "NOT_APPLICABLE": 5,
+    "NOT_APPLICABLE": 4,
     "ADVISORY": 2
    },
    "blocking": [
@@ -212,7 +223,7 @@
     "VIA.MASK_CLEARANCE_PROCESS": "FAIL",
     "VIA.MASK_CLEARANCE_TARGET": "FAIL",
     "VIA.NATIVE_GERBER_AGREEMENT": "PASS",
-    "STACK.PHYSICAL": "NOT_APPLICABLE",
+    "STACK.PHYSICAL": "PASS",
     "TIMING.PATH_INTEGRITY": "FAIL",
     "TIMING.INTERCONNECT_DELAY": "NOT_APPLICABLE",
     "TIMING.INTERCONNECT_SKEW": "NOT_APPLICABLE",
@@ -267,7 +278,14 @@
         "layer": "F.Cu",
         "width_mm": 0.15,
         "length_mm": 55.244426,
-        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+        "reference_layers_used": [
+         "In1.Cu"
+        ],
+        "unreferenced_mm": 1.7417,
+        "unreferenced_by_plane_mm": {
+         "In1.Cu": 1.7417
+        },
+        "issue": "the required transmission-line geometry is incomplete over 1.7417 mm of this run: plane(s) In1.Cu have gaps beneath it that no declared reference_discontinuity assumption covers. An assumption names the plane, the size and the reason; nothing here matched"
        }
       ]
      },
@@ -310,7 +328,14 @@
         "layer": "F.Cu",
         "width_mm": 0.15,
         "length_mm": 81.200756,
-        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+        "reference_layers_used": [
+         "In1.Cu"
+        ],
+        "unreferenced_mm": 2.3903,
+        "unreferenced_by_plane_mm": {
+         "In1.Cu": 2.3903
+        },
+        "issue": "the required transmission-line geometry is incomplete over 2.3903 mm of this run: plane(s) In1.Cu have gaps beneath it that no declared reference_discontinuity assumption covers. An assumption names the plane, the size and the reason; nothing here matched"
        }
       ]
      },
@@ -351,16 +376,16 @@
        {
         "portion": "conductor",
         "layer": "F.Cu",
-        "width_mm": 0.15,
-        "length_mm": 4.673881,
-        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
-       },
-       {
-        "portion": "conductor",
-        "layer": "F.Cu",
         "width_mm": 0.2,
         "length_mm": 97.725451,
-        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+        "reference_layers_used": [
+         "In1.Cu"
+        ],
+        "unreferenced_mm": 11.9376,
+        "unreferenced_by_plane_mm": {
+         "In1.Cu": 11.9376
+        },
+        "issue": "the required transmission-line geometry is incomplete over 11.9376 mm of this run: plane(s) In1.Cu have gaps beneath it that no declared reference_discontinuity assumption covers. An assumption names the plane, the size and the reason; nothing here matched"
        }
       ]
      },
@@ -401,16 +426,16 @@
        {
         "portion": "conductor",
         "layer": "F.Cu",
-        "width_mm": 0.15,
-        "length_mm": 23.395773,
-        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
-       },
-       {
-        "portion": "conductor",
-        "layer": "F.Cu",
         "width_mm": 0.2,
         "length_mm": 97.725451,
-        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+        "reference_layers_used": [
+         "In1.Cu"
+        ],
+        "unreferenced_mm": 11.9376,
+        "unreferenced_by_plane_mm": {
+         "In1.Cu": 11.9376
+        },
+        "issue": "the required transmission-line geometry is incomplete over 11.9376 mm of this run: plane(s) In1.Cu have gaps beneath it that no declared reference_discontinuity assumption covers. An assumption names the plane, the size and the reason; nothing here matched"
        }
       ]
      },
@@ -453,7 +478,14 @@
         "layer": "F.Cu",
         "width_mm": 0.15,
         "length_mm": 89.125971,
-        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+        "reference_layers_used": [
+         "In1.Cu"
+        ],
+        "unreferenced_mm": 9.8024,
+        "unreferenced_by_plane_mm": {
+         "In1.Cu": 9.8024
+        },
+        "issue": "the required transmission-line geometry is incomplete over 9.8024 mm of this run: plane(s) In1.Cu have gaps beneath it that no declared reference_discontinuity assumption covers. An assumption names the plane, the size and the reason; nothing here matched"
        }
       ]
      },
@@ -496,7 +528,14 @@
         "layer": "F.Cu",
         "width_mm": 0.15,
         "length_mm": 65.36617,
-        "issue": "layer 'F.Cu' is microstrip but the stackup is insufficient: the dielectric around this layer states no relative permittivity; the dielectric between this layer and its reference plane states no thickness"
+        "reference_layers_used": [
+         "In1.Cu"
+        ],
+        "unreferenced_mm": 9.8024,
+        "unreferenced_by_plane_mm": {
+         "In1.Cu": 9.8024
+        },
+        "issue": "the required transmission-line geometry is incomplete over 9.8024 mm of this run: plane(s) In1.Cu have gaps beneath it that no declared reference_discontinuity assumption covers. An assumption names the plane, the size and the reason; nothing here matched"
        }
       ]
      }
@@ -512,8 +551,8 @@
    },
    "runner": {
     "returncode": 1,
-    "seconds": 119.5,
-    "log_tail": "14-candidate\\attempts\\20260828T200357Z-3c150e51\\validation.json\nMarkdown: C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\boardB-seed14-candidate\\attempts\\20260828T200357Z-3c150e51\\validation.md\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\n"
+    "seconds": 175.0,
+    "log_tail": "14-candidate\\attempts\\20260829T012637Z-7a390f9e\\validation.json\nMarkdown: C:\\Users\\pentolope\\Documents\\GitHub\\MicrophoneArray_PCB_V3_Improve\\out\\boardB-seed14-candidate\\attempts\\20260829T012637Z-7a390f9e\\validation.md\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\nAdding duplicate image handler for 'PNG file'\nAdding duplicate image handler for 'JPEG file'\nAdding duplicate image handler for 'TIFF file'\nAdding duplicate image handler for 'GIF file'\nAdding duplicate image handler for 'PNM file'\nAdding duplicate image handler for 'PCX file'\nAdding duplicate image handler for 'IFF file'\nAdding duplicate image handler for 'Windows icon file'\nAdding duplicate image handler for 'Windows cursor file'\nAdding duplicate image handler for 'Windows animated cursor file'\nAdding duplicate image handler for 'TGA file'\nAdding duplicate image handler for 'XPM file'\nAdding duplicate image handler for 'WebP file'\n"
    }
   },
   "extraction_available": true,
