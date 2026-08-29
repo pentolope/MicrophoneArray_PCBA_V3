@@ -116,8 +116,14 @@ artifact recomputed on the spot, never to the process that produced
 it), then `/pre-push-review` (a fresh-context adversarial subagent
 attacks the diff and drafts against the standing invariants).
 Genuine findings are fixed before the push; dismissals are recorded
-with evidence. The claim table and the review's disposition belong
-in the cycle report.
+with evidence.
+
+That review runs up to twice, because a fix is the least-reviewed
+text in a cycle. The skill states when a second pass is owed and what
+may still reach the push after the last one; it is not restated here,
+so the two cannot drift apart. The cycle report carries the claim
+table, each pass's finding count and disposition, and any fix that
+outran its review.
 
 ## Toolkit consumption
 
