@@ -113,17 +113,22 @@ project's closure. Its reusable core already lives in the toolkit as
 Before any push of cycle work, run `/claim-audit` on the drafted
 commit message and report (every claim-bearing word binds to an
 artifact recomputed on the spot, never to the process that produced
-it), then `/pre-push-review` (a fresh-context adversarial subagent
-attacks the diff and drafts against the standing invariants).
-Genuine findings are fixed before the push; dismissals are recorded
-with evidence.
+it), then `/accountability-review`.
 
-That review runs up to twice, because a fix is the least-reviewed
-text in a cycle. The skill states when a second pass is owed and what
-may still reach the push after the last one; it is not restated here,
-so the two cannot drift apart. The cycle report carries the claim
-table, each pass's finding count and disposition, and any fix that
-outran its review.
+That review asks one question — **did this do what the user asked
+for** — and a fresh-context subagent answers it against the request
+rather than against the session's account of the request. The claim
+audit serves it: a reviewer can only see the work through what the
+author says about it, so an inflated claim is an opaque pane over the
+place where the work may have drifted from what was asked. A finding
+is fixed when fixing it changes whether the request was met; a
+finding that is correct but immaterial is recorded, not obeyed.
+
+It runs up to twice. When and what may still reach the push are
+stated in the skill and deliberately not restated here, so the two
+cannot drift apart. The cycle report carries the claim table, each
+pass's findings and disposition against the request, and anything
+that went out after the last review.
 
 ## Toolkit consumption
 
