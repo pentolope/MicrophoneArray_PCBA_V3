@@ -21,22 +21,29 @@ import sys
 
 import pcbnew
 
+import _toolkit
 import design as d
 import netlist as nl
 
+# The stock KiCad footprint libraries this board draws from. The install
+# prefix is declared once in board/toolchain.json - on a Linux KiCad it is
+# the distribution's /usr/share/kicad/footprints - so no path is spelled
+# out twice and moving the install is a one-line change there.
+STOCK_FOOTPRINTS = _toolkit.toolchain()["kicad"]["stock_footprint_libraries"]
+
 FOOTPRINT_LIBS = {
-    "Resistor_SMD": r"C:\Program Files\KiCad\10.0\share\kicad\footprints\Resistor_SMD.pretty",
-    "Capacitor_SMD": r"C:\Program Files\KiCad\10.0\share\kicad\footprints\Capacitor_SMD.pretty",
-    "Inductor_SMD": r"C:\Program Files\KiCad\10.0\share\kicad\footprints\Inductor_SMD.pretty",
-    "Package_TO_SOT_SMD": r"C:\Program Files\KiCad\10.0\share\kicad\footprints\Package_TO_SOT_SMD.pretty",
-    "Package_SO": r"C:\Program Files\KiCad\10.0\share\kicad\footprints\Package_SO.pretty",
-    "Diode_SMD": r"C:\Program Files\KiCad\10.0\share\kicad\footprints\Diode_SMD.pretty",
-    "Fuse": r"C:\Program Files\KiCad\10.0\share\kicad\footprints\Fuse.pretty",
-    "Connector_PinHeader_2.54mm": r"C:\Program Files\KiCad\10.0\share\kicad\footprints\Connector_PinHeader_2.54mm.pretty",
-    "Connector_PinSocket_2.54mm": r"C:\Program Files\KiCad\10.0\share\kicad\footprints\Connector_PinSocket_2.54mm.pretty",
-    "Connector_IDC": r"C:\Program Files\KiCad\10.0\share\kicad\footprints\Connector_IDC.pretty",
-    "MountingHole": r"C:\Program Files\KiCad\10.0\share\kicad\footprints\MountingHole.pretty",
-    "TestPoint": r"C:\Program Files\KiCad\10.0\share\kicad\footprints\TestPoint.pretty",
+    "Resistor_SMD": os.path.join(STOCK_FOOTPRINTS, "Resistor_SMD.pretty"),
+    "Capacitor_SMD": os.path.join(STOCK_FOOTPRINTS, "Capacitor_SMD.pretty"),
+    "Inductor_SMD": os.path.join(STOCK_FOOTPRINTS, "Inductor_SMD.pretty"),
+    "Package_TO_SOT_SMD": os.path.join(STOCK_FOOTPRINTS, "Package_TO_SOT_SMD.pretty"),
+    "Package_SO": os.path.join(STOCK_FOOTPRINTS, "Package_SO.pretty"),
+    "Diode_SMD": os.path.join(STOCK_FOOTPRINTS, "Diode_SMD.pretty"),
+    "Fuse": os.path.join(STOCK_FOOTPRINTS, "Fuse.pretty"),
+    "Connector_PinHeader_2.54mm": os.path.join(STOCK_FOOTPRINTS, "Connector_PinHeader_2.54mm.pretty"),
+    "Connector_PinSocket_2.54mm": os.path.join(STOCK_FOOTPRINTS, "Connector_PinSocket_2.54mm.pretty"),
+    "Connector_IDC": os.path.join(STOCK_FOOTPRINTS, "Connector_IDC.pretty"),
+    "MountingHole": os.path.join(STOCK_FOOTPRINTS, "MountingHole.pretty"),
+    "TestPoint": os.path.join(STOCK_FOOTPRINTS, "TestPoint.pretty"),
 }
 
 VIA_DIAMETER = 0.45

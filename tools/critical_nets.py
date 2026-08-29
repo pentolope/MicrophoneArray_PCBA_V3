@@ -12,7 +12,7 @@ the routed candidate, and it checks that the manifest's limits still agree with
 constraints.json, so the design's statement of the requirement and the number
 being enforced cannot drift apart.
 
-    "C:/Program Files/KiCad/10.0/bin/python.exe" tools/critical_nets.py BOARD
+    python3 tools/critical_nets.py BOARD
 """
 
 from __future__ import annotations

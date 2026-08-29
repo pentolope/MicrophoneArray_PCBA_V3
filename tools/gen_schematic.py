@@ -9,7 +9,7 @@ exactly the one in netlist.py, which the PCB generator also consumes. KiCad's
 import hashlib
 import os
 
-import _toolkit                                      # noqa: F401
+import _toolkit
 import design as d
 import netlist as nl
 from pcbqa import sexpr
@@ -18,11 +18,16 @@ GRID = 2.54
 STUB = 2.54
 PAGE_W, PAGE_H = 1180.0, 900.0
 
+# The stock KiCad symbol libraries this schematic draws from. The install
+# prefix is declared once in board/toolchain.json - on a Linux KiCad it is
+# the distribution's /usr/share/kicad/symbols.
+STOCK_SYMBOLS = _toolkit.toolchain()["kicad"]["stock_symbol_libraries"]
+
 SYMBOL_LIBS = {
-    "Device": r"C:\Program Files\KiCad\10.0\share\kicad\symbols\Device.kicad_sym",
-    "Connector": r"C:\Program Files\KiCad\10.0\share\kicad\symbols\Connector.kicad_sym",
-    "Mechanical": r"C:\Program Files\KiCad\10.0\share\kicad\symbols\Mechanical.kicad_sym",
-    "power": r"C:\Program Files\KiCad\10.0\share\kicad\symbols\power.kicad_sym",
+    "Device": os.path.join(STOCK_SYMBOLS, "Device.kicad_sym"),
+    "Connector": os.path.join(STOCK_SYMBOLS, "Connector.kicad_sym"),
+    "Mechanical": os.path.join(STOCK_SYMBOLS, "Mechanical.kicad_sym"),
+    "power": os.path.join(STOCK_SYMBOLS, "power.kicad_sym"),
 }
 
 # Nets whose only sources are passive pins need an explicit power flag so ERC

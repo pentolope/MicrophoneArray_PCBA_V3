@@ -6,24 +6,32 @@
     "path to kicad-cli - alongside configuration for a router this project no",
     "longer uses.",
     "",
+    "Linux-native. KiCad is the distribution package, so kicad-cli and the",
+    "stock libraries sit on the system prefix and `pcbnew` imports from the",
+    "system interpreter's dist-packages - there is no separate bundled Python",
+    "to find. `cli` and `python` are bare command names on purpose: they",
+    "resolve through PATH, which keeps a fresh clone working on any machine",
+    "that has the packages, and the resolved absolute path is recorded in the",
+    "run's own provenance rather than frozen here.",
+    "",
     "Design rules, net classes, via sizes and clearances are deliberately NOT",
     "restated here. They live in the .kicad_pro net classes, which is the same",
     "source the generator, the router and the validator all read."
   ],
   "kicad": {
-    "cli": "C:/Program Files/KiCad/10.0/bin/kicad-cli.exe",
-    "python": "C:/Program Files/KiCad/10.0/bin/python.exe",
+    "cli": "kicad-cli",
+    "python": "python3",
     "required_major": 10,
-    "stock_footprint_libraries": "C:/Program Files/KiCad/10.0/share/kicad/footprints",
-    "stock_symbol_libraries": "C:/Program Files/KiCad/10.0/share/kicad/symbols"
+    "stock_footprint_libraries": "/usr/share/kicad/footprints",
+    "stock_symbol_libraries": "/usr/share/kicad/symbols"
   },
   "router": {
     "name": "KiCad Routing Tools",
-    "development_checkout": "C:/Users/pentolope/Documents/GitHub/KiCadRoutingTools",
+    "development_checkout": "/home/pentolope/github/KiCadRoutingTools",
     "plugin_dirs": [
-      "C:/Users/pentolope/Documents/KiCad/10.0/3rdparty/plugins"
+      "/home/pentolope/.local/share/kicad/10.0/3rdparty/plugins"
     ],
-    "note": "Resolved through pcbqa.krt: explicit override, then this development checkout, then a single active plugin installation; a path under disabled_pcm_plugins always refuses. The old PCM-rooted 'root' key is retired - that installation is disabled on purpose."
+    "note": "Resolved through pcbqa.krt: explicit override, then this development checkout, then a single active plugin installation; a path under disabled_pcm_plugins always refuses. The old PCM-rooted 'root' key is retired - that installation is disabled on purpose. On Linux the KiCad user base is ~/.local/share/kicad, so the plugin directory is versioned beneath it. That directory need not exist: nothing has been installed there, the scan skips a directory that is absent, and on this machine it is development_checkout that resolves. It is listed so that an installed plugin WOULD be found, and so that the disabled_pcm_plugins refusal has somewhere to apply."
   },
   "toolkit": {
     "path": "tooling/PCB_AutoDesignAndTest",

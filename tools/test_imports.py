@@ -10,7 +10,7 @@ board; importing the module does not. The point here is that the regeneration
 chain is present and wired up, which is what the migration promised, not that
 it produces the same copper - that is a separate exercise with its own review.
 
-    "C:/Program Files/KiCad/10.0/bin/python.exe" tools/test_imports.py
+    python3 tools/test_imports.py
 """
 
 from __future__ import annotations

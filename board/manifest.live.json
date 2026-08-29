@@ -5,7 +5,7 @@
   "description": "The live microphone-array design at the repository root - the one that gets edited. boards/reva.json points at the frozen byte-for-byte copy under fixtures/reva and must keep failing; this manifest points at the working design and is the one to drive improvements from. The two share every threshold, so a gate that passes here is passing the same test the frozen copy fails.",
   "project_root": "..",
   "tools": {
-    "kicad_cli": "C:\\Program Files\\KiCad\\10.0\\bin\\kicad-cli.exe"
+    "kicad_cli": "/usr/bin/kicad-cli"
   },
   "sources": {
     "pcb": "microphone_array_v2.kicad_pcb",
@@ -646,12 +646,12 @@
           ]
         }
       ],
-      "reason": "The track ends one step of the router's own grid - 0.1 mm - from the via centre it connects to: a 0.2 mm track well inside a 0.45 mm annulus, overlapping it by more than the track's full width, connected and clear. What fails is the style rule that an entry be centred, not the connection. Every ordinary net on this board is routed by KiCad Routing Tools, which offers no setting to centre a terminal, and the only other correction is to move routed copper by hand, which this board's process forbids. Bound to this exact track and via on this exact revision: if either moves, or the board, rules, command or findings change, the waiver stops matching and the finding blocks again.",
+      "reason": "The track ends one step of the router's own grid - 0.1 mm - from the via centre it connects to: a 0.2 mm track well inside a 0.45 mm annulus, overlapping it by more than the track's full width, connected and clear. What fails is the style rule that an entry be centred, not the connection. Every ordinary net on this board is routed by KiCad Routing Tools, which offers no setting to centre a terminal, and the only other correction is to move routed copper by hand, which this board's process forbids. Bound to this exact track and via on this exact revision: if either moves, or the board, rules, command or findings change, the waiver stops matching and the finding blocks again. Re-approved on 2026-08-29T17:17:15Z for the move to a Linux toolchain, having originally been approved on 2026-08-07T01:19:46Z against a Windows one. The finding itself was not re-opened and no copper was touched. Two different KiCad builds are involved and the claim is not that they are the same build: both call themselves 10.0.5, but the one that approved this waiver reported itself as '10.0.5' and this distribution build reports '10.0.5-10.0.5~ubuntu24.04.1'. What is asserted is that they AGREE - the two builds read the same board and produce the same findings, which digest to 591ac156..4072025 under both, exactly as before. Three bindings moved, every one of them for an environmental reason. The command lost its platform suffix when kicad-cli.exe in a Windows installation became kicad-cli in a distribution package (43c9102d..56236b to f0dfc144..da1182). The board and project raw digests moved because .gitattributes stopped pinning these files to CRLF (9ddb4323..c26f4f to 0ffd377c..91c763, and c9b52fae..828b027 to 87b8006a..330291): KiCad on Linux writes LF, so a CRLF working tree could never carry the digest of the board that the clean-room release re-saves and then validates, and no release could pass. The two forms were proven byte-identical after LF normalisation - the entire difference was one carriage return on each of 51,958 lines - and the canonical digests, which are what the committed reports and the source closure bind, are computed over LF and did not change at all. The waiver still blocks the moment any of the four bindings moves again.",
       "reviewed_by": "pentolope",
-      "reviewed_utc": "2026-08-07T01:19:46Z",
-      "approved_source_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
-      "approved_rules_sha256": "c9b52fae0142d6900d0f81a0b722bc85aa0698a0935c5c5b036dc7989828b027",
-      "approved_command_sha256": "43c9102d9070ee5dbd74ea47655436ded2fd2b0db4dd53931bad3d4f0556236b",
+      "reviewed_utc": "2026-08-29T17:17:15Z",
+      "approved_source_sha256": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
+      "approved_rules_sha256": "87b8006a75169874bf4838c597f964e5001b6e2ab0dcfb67ccb261be52330291",
+      "approved_command_sha256": "f0dfc1442b7e6c8194c75216db2ca6db6543359013dad9e6d662609801da1182",
       "approved_report_sha256": "591ac156dccb6b11881891a0ec4ca90c49051282632143b8521016bba4072025"
     },
     {
@@ -677,12 +677,12 @@
           ]
         }
       ],
-      "reason": "The track ends one step of the router's own grid - 0.1 mm - from the via centre it connects to: a 0.2 mm track well inside a 0.45 mm annulus, overlapping it by more than the track's full width, connected and clear. What fails is the style rule that an entry be centred, not the connection. Every ordinary net on this board is routed by KiCad Routing Tools, which offers no setting to centre a terminal, and the only other correction is to move routed copper by hand, which this board's process forbids. Bound to this exact track and via on this exact revision: if either moves, or the board, rules, command or findings change, the waiver stops matching and the finding blocks again.",
+      "reason": "The track ends one step of the router's own grid - 0.1 mm - from the via centre it connects to: a 0.2 mm track well inside a 0.45 mm annulus, overlapping it by more than the track's full width, connected and clear. What fails is the style rule that an entry be centred, not the connection. Every ordinary net on this board is routed by KiCad Routing Tools, which offers no setting to centre a terminal, and the only other correction is to move routed copper by hand, which this board's process forbids. Bound to this exact track and via on this exact revision: if either moves, or the board, rules, command or findings change, the waiver stops matching and the finding blocks again. Re-approved on 2026-08-29T17:17:15Z for the move to a Linux toolchain, having originally been approved on 2026-08-07T01:19:46Z against a Windows one. The finding itself was not re-opened and no copper was touched. Two different KiCad builds are involved and the claim is not that they are the same build: both call themselves 10.0.5, but the one that approved this waiver reported itself as '10.0.5' and this distribution build reports '10.0.5-10.0.5~ubuntu24.04.1'. What is asserted is that they AGREE - the two builds read the same board and produce the same findings, which digest to 591ac156..4072025 under both, exactly as before. Three bindings moved, every one of them for an environmental reason. The command lost its platform suffix when kicad-cli.exe in a Windows installation became kicad-cli in a distribution package (43c9102d..56236b to f0dfc144..da1182). The board and project raw digests moved because .gitattributes stopped pinning these files to CRLF (9ddb4323..c26f4f to 0ffd377c..91c763, and c9b52fae..828b027 to 87b8006a..330291): KiCad on Linux writes LF, so a CRLF working tree could never carry the digest of the board that the clean-room release re-saves and then validates, and no release could pass. The two forms were proven byte-identical after LF normalisation - the entire difference was one carriage return on each of 51,958 lines - and the canonical digests, which are what the committed reports and the source closure bind, are computed over LF and did not change at all. The waiver still blocks the moment any of the four bindings moves again.",
       "reviewed_by": "pentolope",
-      "reviewed_utc": "2026-08-07T01:19:46Z",
-      "approved_source_sha256": "9ddb432333d39293ecb6979d842bef17efb9f38816494ef6f0fb7cf6e8c26f4f",
-      "approved_rules_sha256": "c9b52fae0142d6900d0f81a0b722bc85aa0698a0935c5c5b036dc7989828b027",
-      "approved_command_sha256": "43c9102d9070ee5dbd74ea47655436ded2fd2b0db4dd53931bad3d4f0556236b",
+      "reviewed_utc": "2026-08-29T17:17:15Z",
+      "approved_source_sha256": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
+      "approved_rules_sha256": "87b8006a75169874bf4838c597f964e5001b6e2ab0dcfb67ccb261be52330291",
+      "approved_command_sha256": "f0dfc1442b7e6c8194c75216db2ca6db6543359013dad9e6d662609801da1182",
       "approved_report_sha256": "591ac156dccb6b11881891a0ec4ca90c49051282632143b8521016bba4072025"
     }
   ],

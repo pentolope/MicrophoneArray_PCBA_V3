@@ -6,7 +6,7 @@
 board revision:
 
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" verification/run.py release verification/boards/live.json
+python3 tooling/PCB_AutoDesignAndTest/run.py release board/manifest.live.json
 ```
 
 It copies the project into an empty directory, purges every pre-existing
@@ -31,7 +31,7 @@ Everything in that directory comes from one clean-room run, and
 `PROV.RELEASE_COHERENCE` enforces it rather than asserting it:
 
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" verification/run.py coherence verification/boards/live.json
+python3 tooling/PCB_AutoDesignAndTest/run.py coherence board/manifest.live.json
 ```
 
 The check fails if the release manifest describes an archive that is not there,
@@ -66,7 +66,7 @@ Protel extensions, and carries no job file: there is exactly one statement of
 the stackup and it is the one the fabricator actually reads.
 
 The mapping lives in `fabrication_naming` in
-[verification/boards/live.json](../verification/boards/live.json). The release
+[board/manifest.live.json](../board/manifest.live.json). The release
 renames by it, the archive gate admits by it, and `FAB.LAYER_IDENTITY` proves
 after every release that the four copper files are present, distinguishable by
 name, carrying real geometry, free of X2 attributes - and that `.G2L` and
@@ -101,7 +101,7 @@ in JLCPCB's library differs from the footprint's zero in KiCad.
 
 Every populated part carries an explicit reviewed entry in the registry at
 `release_generation.cpl_orientation.registry` in
-[verification/boards/live.json](../verification/boards/live.json) - all fifteen
+[board/manifest.live.json](../board/manifest.live.json) - all fifteen
 part numbers, **including the twelve whose offset is zero**. "Nobody has looked
 at this one" and "looked at, needs nothing" are different statements and only
 the second may ship, so there is no default: generation refuses a part with no
@@ -140,7 +140,7 @@ disagree with the body, and editing the registry makes it disagree with the
 score.
 
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" tools/jlc_orientation.py check
+python3 tools/jlc_orientation.py check
 ```
 
 That is offline, as is `report`. Neither the test suite nor a clean release
@@ -151,7 +151,7 @@ changed their library since it was frozen, which is a prompt to re-freeze and
 re-review rather than a release failure:
 
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" tools/jlc_orientation.py check-live
+python3 tools/jlc_orientation.py check-live
 ```
 
 `CPL.ORIENTATION` re-scores that frozen evidence on every release and requires

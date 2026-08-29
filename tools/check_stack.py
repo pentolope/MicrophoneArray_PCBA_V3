@@ -14,7 +14,7 @@ The Pi's dimensions come from constraints.json's `mechanical_stack` block,
 which is published data, not a drawing held in this project. It says so, and so
 does this check.
 
-    "C:/Program Files/KiCad/10.0/bin/python.exe" tools/check_stack.py [BOARD]
+    python3 tools/check_stack.py [BOARD]
 """
 
 from __future__ import annotations

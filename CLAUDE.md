@@ -113,11 +113,22 @@ project's closure. Its reusable core already lives in the toolkit as
 Before any push of cycle work, run `/claim-audit` on the drafted
 commit message and report (every claim-bearing word binds to an
 artifact recomputed on the spot, never to the process that produced
-it), then `/pre-push-review` (a fresh-context adversarial subagent
-attacks the diff and drafts against the standing invariants).
-Genuine findings are fixed before the push; dismissals are recorded
-with evidence. The claim table and the review's disposition belong
-in the cycle report.
+it), then `/accountability-review`.
+
+That review asks one question — **did this do what the user asked
+for** — and a fresh-context subagent answers it against the request
+rather than against the session's account of the request. The claim
+audit serves it: a reviewer can only see the work through what the
+author says about it, so an inflated claim is an opaque pane over the
+place where the work may have drifted from what was asked. A finding
+is fixed when fixing it changes whether the request was met; a
+finding that is correct but immaterial is recorded, not obeyed.
+
+It runs up to twice. When and what may still reach the push are
+stated in the skill and deliberately not restated here, so the two
+cannot drift apart. The cycle report carries the claim table, each
+pass's findings and disposition against the request, and anything
+that went out after the last review.
 
 ## Toolkit consumption
 
@@ -133,16 +144,20 @@ setup beyond checking out submodules.
 
 ## Running
 
-Use KiCad's own Python.
+Ubuntu, and the system Python 3. KiCad is the distribution package, so
+`pcbnew` imports from `/usr/lib/python3/dist-packages` and `kicad-cli`
+is on PATH - there is no separate bundled interpreter to find. See
+[docs/environment.md](docs/environment.md) for the exact packages and
+versions this board is verified against.
 
 ```bash
 git submodule update --init --recursive
 ```
 
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" tooling/PCB_AutoDesignAndTest/run.py validate board/manifest.live.json
+python3 tooling/PCB_AutoDesignAndTest/run.py validate board/manifest.live.json
 ```
 
 ```bash
-"C:/Program Files/KiCad/10.0/bin/python.exe" tooling/PCB_AutoDesignAndTest/run.py release board/manifest.live.json
+python3 tooling/PCB_AutoDesignAndTest/run.py release board/manifest.live.json
 ```
