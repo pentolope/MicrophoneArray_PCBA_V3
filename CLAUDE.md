@@ -1,4 +1,4 @@
-# MicrophoneArray_PCB_V3 — 16-channel PDM microphone array carrier
+# MicrophoneArray_PCBA_V3 — 16-channel PDM microphone array carrier
 
 ## Mission
 
