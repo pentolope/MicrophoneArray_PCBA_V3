@@ -23,9 +23,9 @@ same work, from the same bytes, under the same stage arguments?
 Nothing here touches Board A or any committed candidate artifact:
 all outputs land under benchmark/krt_bench/results/.
 
-Run with KiCad's python:
+Run from the repository root:
 
-    ".../kicad/python.exe" benchmark/krt_bench/replay.py \
+    python3 benchmark/krt_bench/replay.py \
         --candidate seed34 [--repeat-first] [--label NAME]
 """
 

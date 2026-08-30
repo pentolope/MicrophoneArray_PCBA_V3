@@ -14,9 +14,9 @@ Router return codes appear nowhere in the acceptance logic: routed
 completeness is read from the board file, correctness from the
 gates, semantics from the recorded placement policy.
 
-Run with KiCad's python:
+Run from the repository root:
 
-    ".../kicad/python.exe" benchmark/boardB/validate_candidate.py \
+    python3 benchmark/boardB/validate_candidate.py \
         --seed 2 [--skip-validate]
 """
 
@@ -403,7 +403,11 @@ def make_candidate_gerbers(seed_dir, seed, board_basename):
     os.makedirs(gerber_dir, exist_ok=True)
     for stale in os.listdir(gerber_dir):
         os.remove(os.path.join(gerber_dir, stale))
-    kicad_cli = "C:/Program Files/KiCad/10.0/bin/kicad-cli.exe"
+    # Same resolution as everywhere else; this was an inline absolute
+    # Windows path that the Linux migration did not reach.
+    from pcbqa import preflight
+    kicad_cli = preflight.resolve_tool(json.load(open(os.path.join(
+        REPO, "board", "toolchain.json")))["kicad"]["cli"])
     outcomes = {}
     completed = subprocess.run(
         [kicad_cli, "pcb", "export", "gerbers", "-o",

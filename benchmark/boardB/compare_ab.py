@@ -14,9 +14,9 @@ Nothing here calls a shorter total "better": comparable copper is
 reported next to the count of unmeasured nets, and the reviewer -
 or the search loop - weighs completeness first.
 
-Run with KiCad's python from the repository root:
+Run from the repository root:
 
-    ".../kicad/python.exe" benchmark/boardB/compare_ab.py --seed 2
+    python3 benchmark/boardB/compare_ab.py --seed 2
 """
 
 from __future__ import annotations

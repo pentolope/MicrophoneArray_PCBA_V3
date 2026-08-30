@@ -13,7 +13,7 @@ decision; nothing here changes what the released board is.
 
 ## Reproducing the Board A baseline
 
-    "C:/Program Files/KiCad/10.0/bin/python.exe" \
+    python3 \
         tooling/PCB_AutoDesignAndTest/run.py extract \
         board/manifest.live.json \
         --out benchmark/board_a_baseline.json \

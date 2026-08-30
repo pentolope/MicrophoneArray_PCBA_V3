@@ -4,9 +4,9 @@ committed derivation record, their locations from the candidate's
 own placed board. The source identity says 'backfilled' - this is a
 reconstruction from committed evidence, not a planner run.
 
-Run with KiCad's python from the repository root:
+Run from the repository root:
 
-    ".../kicad/python.exe" benchmark/boardB/backfill_feedback.py \
+    python3 benchmark/boardB/backfill_feedback.py \
         --seed 14
 """
 

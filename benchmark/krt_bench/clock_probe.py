@@ -18,7 +18,7 @@ compares probe classes against known full-pipeline outcomes.
 Outputs one JSON per probe under results/probes/, carrying the
 input board's sha256 and the resolved KRT identity.
 
-    ".../kicad/python.exe" benchmark/krt_bench/clock_probe.py \
+    python3 benchmark/krt_bench/clock_probe.py \
         --board <placed.kicad_pcb> --name seed34 [--timeout 600]
 """
 

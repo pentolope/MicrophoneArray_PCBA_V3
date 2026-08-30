@@ -4,9 +4,9 @@ committed artifacts alone. Derivations are append-only across
 generator runs, so each stage is read from its LAST occurrence -
 the pass that produced the committed board.
 
-Run with KiCad's python from the repository root:
+Run from the repository root:
 
-    ".../kicad/python.exe" benchmark/boardB/pool_taxonomy.py \
+    python3 benchmark/boardB/pool_taxonomy.py \
         --seeds 9 10 13 14 ...
 """
 

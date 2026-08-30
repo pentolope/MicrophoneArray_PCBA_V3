@@ -16,9 +16,9 @@ Copper remains the last tie-break, only between candidates with
 EQUAL rank keys and identical complete-net sets: a missing route
 never reads as saved copper.
 
-Run with KiCad's python from the repository root:
+Run from the repository root:
 
-    ".../kicad/python.exe" benchmark/boardB/search.py --seeds 9 10
+    python3 benchmark/boardB/search.py --seeds 9 10
 """
 
 from __future__ import annotations

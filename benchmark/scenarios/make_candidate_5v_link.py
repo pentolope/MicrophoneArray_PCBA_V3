@@ -12,9 +12,9 @@ results are genuinely comparable.
 Ideal source and load are DECLARED assumptions, accepted for design
 decisions; the result policy carries that structurally.
 
-Run with KiCad's python from the repository root:
+Run from the repository root:
 
-    ".../kicad/python.exe" \
+    python3 \
         benchmark/scenarios/make_candidate_5v_link.py --seed 9
 """
 

@@ -40,9 +40,9 @@ in GENERATOR_SEMANTICS_VERSION, recorded in every derivation):
     policy, generator semantics), and re-evaluates placement policy
     and collisions on the reused board regardless.
 
-Run with KiCad's python:
+Run from the repository root:
 
-    ".../kicad/python.exe" benchmark/boardB/generate_candidate.py \
+    python3 benchmark/boardB/generate_candidate.py \
         --seed 6 [--skip-route] [--reuse-placed]
 """
 
@@ -74,7 +74,8 @@ headless.suppress_blocking_ui()
 from pcbqa import placement as placement_module    # noqa: E402
 from pcbqa import zone_inheritance                 # noqa: E402
 from pcbqa import critical_topology                # noqa: E402
-from pcbqa import krt                              # noqa: E402
+from pcbqa import krt
+from pcbqa import preflight                              # noqa: E402
 
 #: Resolved once per process: WHICH KiCadRoutingTools, from the
 #: toolchain configuration through the toolkit's deterministic
@@ -97,6 +98,14 @@ KRT_ROOT = _KRT_RESOLVED["path"]
 #: invisible.
 KRT_ORIGIN = _KRT_RESOLVED["origin"]
 KRT_PYTHON = TOOLCHAIN["kicad"]["python"]
+
+#: kicad-cli, resolved the way the rest of this repository resolves
+#: it: the toolchain declares a name and `resolve_tool` turns a bare
+#: one into the absolute binary that actually ran. This was an inline
+#: absolute Windows path, which survived the Linux migration because
+#: that sweep covered tools/, board/ and the toolkit and never looked
+#: in benchmark/.
+KICAD_CLI = preflight.resolve_tool(TOOLCHAIN["kicad"]["cli"])
 
 
 def krt_tool(name):
@@ -170,7 +179,7 @@ def stage_fabrication_check(board_path, workdir):
     _place_pro_sibling(check_pcb)
     report_path = os.path.join(workdir, "fabcheck_drc.json")
     completed = subprocess.run(
-        ["C:/Program Files/KiCad/10.0/bin/kicad-cli.exe", "pcb",
+        [KICAD_CLI, "pcb",
          "drc", "--format", "json", "-o", report_path,
          "--severity-all", "--all-track-errors", "--refill-zones",
          "--save-board", check_pcb],

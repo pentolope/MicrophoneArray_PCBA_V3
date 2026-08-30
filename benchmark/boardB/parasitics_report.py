@@ -26,9 +26,9 @@ electrical requirement in volts, ohms or picoseconds, and a
 requirement is never invented to score against. Every metric here
 is descriptive A/B evidence.
 
-Run with KiCad's python from the repository root:
+Run from the repository root:
 
-    ".../kicad/python.exe" benchmark/boardB/parasitics_report.py \
+    python3 benchmark/boardB/parasitics_report.py \
         --seed 14
 """
 
