@@ -49,7 +49,11 @@ def _forbidden_paths():
     """Places a dependency must not come from."""
     parent = os.path.dirname(ROOT)
     return [
-        # a sibling checkout of the toolkit
+        # a sibling checkout of the toolkit, under either the name it
+        # has now or the one it had before the PCB -> PCBA rename: a
+        # forbidden path list is worth nothing if a stale clone slips
+        # through on an old name.
+        os.path.join(parent, "PCBA_AutoDesignAndTest"),
         os.path.join(parent, "PCB_AutoDesignAndTest"),
         # the repository this board was migrated from
         os.path.join(parent, "PCB_MicrophoneArrayV2"),

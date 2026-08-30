@@ -86,7 +86,7 @@ nothing needed them gone and apt did not pull them. No `rustup`, no
 third-party binary.
 
 The router is a **submodule of the toolkit**, at
-`tooling/PCB_AutoDesignAndTest/tooling/KiCadRoutingTools`, pinned to a commit
+`tooling/PCBA_AutoDesignAndTest/tooling/KiCadRoutingTools`, pinned to a commit
 on its `pcba-autonomy` branch. There is no sibling checkout to find and no
 absolute path to agree on: a recursive clone has it, at one reviewable
 revision. `pcbqa.krt` resolves it, and an explicit override still wins - see
@@ -95,7 +95,7 @@ revision. `pcbqa.krt` resolves it, and an explicit override still wins - see
 A fresh clone has the source but not the compiled extension, so build it once:
 
 ```bash
-cd tooling/PCB_AutoDesignAndTest/tooling/KiCadRoutingTools && python3 build_router.py --from-source
+cd tooling/PCBA_AutoDesignAndTest/tooling/KiCadRoutingTools && python3 build_router.py --from-source
 ```
 
 That writes `rust_router/grid_router.so`, which is `.gitignore`d, so building
@@ -180,5 +180,5 @@ Then install the five pinned KiCad 10.0.5 `.deb` files listed above from
 `apt-mark hold` them, and check the result:
 
 ```bash
-python3 tooling/PCB_AutoDesignAndTest/run.py preflight board/manifest.live.json
+python3 tooling/PCBA_AutoDesignAndTest/run.py preflight board/manifest.live.json
 ```

@@ -24,7 +24,7 @@ RESULTS = os.path.join(HERE, "results")
 
 sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
-                                "PCB_AutoDesignAndTest"))
+                                "PCBA_AutoDesignAndTest"))
 from pcbqa import compute                           # noqa: E402
 
 

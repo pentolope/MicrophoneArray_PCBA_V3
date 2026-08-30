@@ -22,7 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
-                                "PCB_AutoDesignAndTest"))
+                                "PCBA_AutoDesignAndTest"))
 
 from pcbqa import headless                        # noqa: E402
 headless.suppress_blocking_ui()

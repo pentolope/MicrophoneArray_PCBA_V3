@@ -14,7 +14,7 @@ decision; nothing here changes what the released board is.
 ## Reproducing the Board A baseline
 
     python3 \
-        tooling/PCB_AutoDesignAndTest/run.py extract \
+        tooling/PCBA_AutoDesignAndTest/run.py extract \
         board/manifest.live.json \
         --out benchmark/board_a_baseline.json \
         --nets <see baseline file's own net list> \
@@ -95,5 +95,5 @@ repair-based quench freedom, connectivity-first ranking).
 
 The retired planning brief (AUTONOMOUS_PCBA_AGENT_ARCHITECTURE.md)
 is superseded by the maintained architecture document in the
-toolkit: tooling/PCB_AutoDesignAndTest/docs/
+toolkit: tooling/PCBA_AutoDesignAndTest/docs/
 autonomous_pcba_architecture.md.

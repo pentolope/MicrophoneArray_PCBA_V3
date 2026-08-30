@@ -6,7 +6,7 @@
 board revision:
 
 ```bash
-python3 tooling/PCB_AutoDesignAndTest/run.py release board/manifest.live.json
+python3 tooling/PCBA_AutoDesignAndTest/run.py release board/manifest.live.json
 ```
 
 It copies the project into an empty directory, purges every pre-existing
@@ -31,7 +31,7 @@ Everything in that directory comes from one clean-room run, and
 `PROV.RELEASE_COHERENCE` enforces it rather than asserting it:
 
 ```bash
-python3 tooling/PCB_AutoDesignAndTest/run.py coherence board/manifest.live.json
+python3 tooling/PCBA_AutoDesignAndTest/run.py coherence board/manifest.live.json
 ```
 
 The check fails if the release manifest describes an archive that is not there,

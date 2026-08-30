@@ -157,7 +157,7 @@ and it recomputes bit-for-bit to V2's value.
 
 ## Toolkit submodule
 
-`tooling/PCB_AutoDesignAndTest` is pinned to a commit published on the toolkit's
+`tooling/PCBA_AutoDesignAndTest` is pinned to a commit published on the toolkit's
 remote. Board tools reach it only through `tools/_toolkit.py`, which reads the
 path from `board/toolchain.json`; there is no sibling checkout and no absolute
 path in anything committed here.
@@ -175,14 +175,16 @@ git submodule update --init --recursive
 
 The canonical environment is Linux; this section records a constraint the V2 to V3 migration hit on Windows and is kept because it explains the migration's own failures, not because it still binds. Linux has no 260-character path limit, so a recursive clone anywhere works.
 
-The deepest path inside the toolkit submodule is 146 characters
-(`tooling/PCB_AutoDesignAndTest/tests/fixtures/negative/microphone_array_reva/project/generated/release/gerbers/…`).
-A recursive clone therefore needs its root to be under about 110 characters, or
+The deepest path inside the toolkit submodule is 147 characters
+(`tooling/PCBA_AutoDesignAndTest/tests/fixtures/negative/microphone_array_reva/project/generated/release/gerbers/…`)
+- it was 146 before the directory gained a letter in the PCB to PCBA
+rename. A recursive clone therefore needs its root to be under about 109
+characters, or
 `git config --global core.longpaths true`.
 
 This is not theoretical: cloning into a long temporary directory during the
 migration failed with `Filename too long` on 21 files. At a normal location such
-as `C:\Users\<you>\Documents\GitHub\V3_freshclone` the total is 196 characters
+as `C:\Users\<you>\Documents\GitHub\V3_freshclone` the total is 197 characters
 and it works.
 
 ## Where release output goes

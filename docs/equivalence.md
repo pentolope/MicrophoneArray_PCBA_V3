@@ -203,10 +203,10 @@ no longer meaningful; compare against the blob, or against the waiver.
 ## 9. Reproducing this report
 
 ```bash
-python3 tooling/PCB_AutoDesignAndTest/run.py validate board/manifest.live.json
+python3 tooling/PCBA_AutoDesignAndTest/run.py validate board/manifest.live.json
 ```
 ```bash
-python3 tooling/PCB_AutoDesignAndTest/run.py release board/manifest.live.json
+python3 tooling/PCBA_AutoDesignAndTest/run.py release board/manifest.live.json
 ```
 ```bash
 python3 tools/test_imports.py

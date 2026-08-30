@@ -67,7 +67,7 @@ TOOLCHAIN = json.load(open(os.path.join(REPO, "board",
 
 sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
-                                "PCB_AutoDesignAndTest"))
+                                "PCBA_AutoDesignAndTest"))
 
 from pcbqa import headless                        # noqa: E402
 headless.suppress_blocking_ui()

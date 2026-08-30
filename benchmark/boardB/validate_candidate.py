@@ -38,7 +38,7 @@ KICAD_PYTHON = sys.executable
 
 sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
-                                "PCB_AutoDesignAndTest"))
+                                "PCBA_AutoDesignAndTest"))
 
 from pcbqa import headless                        # noqa: E402
 headless.suppress_blocking_ui()
@@ -49,7 +49,7 @@ from pcbqa.fabricators.store import CatalogStore   # noqa: E402
 
 TOOLKIT_ROOT = (os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
-                                "PCB_AutoDesignAndTest"))
+                                "PCBA_AutoDesignAndTest"))
 
 
 def closure_components(candidate_board_path,
@@ -259,7 +259,7 @@ def physical_inputs():
     approved finished copper by the board's declared requirements."""
     toolkit = (os.environ.get("PCB_TOOLKIT_PATH")
                or os.path.join(REPO, "tooling",
-                               "PCB_AutoDesignAndTest"))
+                               "PCBA_AutoDesignAndTest"))
     store = CatalogStore(os.path.join(toolkit, "profiles",
                                       "jlcpcb"), "jlcpcb")
     approved = store.approved()
@@ -460,7 +460,7 @@ def derive_manifest(seed_dir, seed, board_basename):
 
 def run_validation(manifest_path, board_id, timeout):
     toolkit_run = os.path.join(REPO, "tooling",
-                               "PCB_AutoDesignAndTest", "run.py")
+                               "PCBA_AutoDesignAndTest", "run.py")
     environment = dict(os.environ)
     environment.update({"HTTP_PROXY": "http://127.0.0.1:1",
                         "HTTPS_PROXY": "http://127.0.0.1:1"})
@@ -606,7 +606,7 @@ def main():
     closure_record = producer_closure(board_file, seed_dir)
     toolkit_commit = subprocess.run(
         ["git", "-C", os.path.join(REPO, "tooling",
-                                   "PCB_AutoDesignAndTest"),
+                                   "PCBA_AutoDesignAndTest"),
          "rev-parse", "HEAD"], capture_output=True,
         text=True).stdout.strip() or "unknown"
     report = benchmark.report(

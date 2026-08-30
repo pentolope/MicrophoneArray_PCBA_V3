@@ -8,7 +8,7 @@ JLCPCB.
 
 Generic PCB verification, routing and release logic lives in the toolkit, which
 this repository consumes as a pinned Git submodule at
-`tooling/PCB_AutoDesignAndTest`. This repository owns the board: its native
+`tooling/PCBA_AutoDesignAndTest`. This repository owns the board: its native
 KiCad files, its generator, its constraints, its manifests, its waivers and its
 selected JLCPCB options.
 
@@ -135,7 +135,7 @@ that went out after the last review.
 
 ## Toolkit consumption
 
-The toolkit is used **only** from `tooling/PCB_AutoDesignAndTest`, pinned to a
+The toolkit is used **only** from `tooling/PCBA_AutoDesignAndTest`, pinned to a
 commit that exists on its remote. Board tools reach it through
 `tools/_toolkit.py`; no sibling checkout, no absolute path, no PYTHONPATH
 assumption. `PCB_TOOLKIT_PATH` exists to test against a local toolkit checkout
@@ -158,9 +158,9 @@ git submodule update --init --recursive
 ```
 
 ```bash
-python3 tooling/PCB_AutoDesignAndTest/run.py validate board/manifest.live.json
+python3 tooling/PCBA_AutoDesignAndTest/run.py validate board/manifest.live.json
 ```
 
 ```bash
-python3 tooling/PCB_AutoDesignAndTest/run.py release board/manifest.live.json
+python3 tooling/PCBA_AutoDesignAndTest/run.py release board/manifest.live.json
 ```

@@ -47,7 +47,7 @@ import generate_candidate as gc                     # noqa: E402
 
 sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
-                                "PCB_AutoDesignAndTest"))
+                                "PCBA_AutoDesignAndTest"))
 from pcbqa import krt                               # noqa: E402
 
 
