@@ -22,7 +22,7 @@ the author says about it. An inflated claim is not primarily a lie -
 it is an opaque pane over exactly the place where the work may have
 drifted from the request. "Every net is routed" hides which nets are
 not. So the drafts must be accurate in order for anyone to check
-fidelity through them, and that is why the claim audit runs first.
+fidelity through them, and that is what step 3 exists to secure.
 
 ## Procedure
 
@@ -40,10 +40,54 @@ fidelity through them, and that is why the claim audit runs first.
    thing the reviewer audits - it is how a reader who was not here
    can tell whether the request was answered.
 
-3. **Run `/claim-audit`** if it has not run on the current drafts.
-   Its job here is subordinate: every claim-bearing word binds to an
-   artifact recomputed on the spot, so that the fidelity table above
-   can be trusted as evidence rather than as assurance.
+3. **Bind every claim to a recomputed artifact.** Go through the
+   drafts for the words that assert a fact about the work -
+   `complete`, `all`, `every`, `identical`, `unchanged`, `verified`,
+   `passes`, `zero`, `never`, and every number - and for each one
+   name the artifact and the command, then RUN the command now. A
+   binding from memory is not a binding. Recompute from the artifact,
+   never from the process that made it: the board file over the
+   router log, `validation.json` over a runner's tail, the clean
+   clone over the working tree.
+
+   The list is open, not a checklist to clear. It is written long
+   because this project's own inflations were ordinary words: `has
+   tracks` became `routed`, a benchmark fraction became `fully
+   connected`, an inventory spread became `tighter`. So also:
+   `routed`, `connected`, `valid`, `proven`, `fully`, `better`,
+   `tighter`, `reproduces`, `bit-identical`, `deterministic`, `fixed`,
+   `solved`, `works`, `always`. Scope is the commit message, the
+   report, AND any doc prose changed this cycle.
+
+   Two bindings that are easy to fake. "X is unchanged" binds to a
+   DIGEST COMPARISON, never to the absence of an edit you remember not
+   making. And when a cycle pushes both repositories, the binding
+   covers both drafts - a number true of the board and unchecked in
+   the toolkit is unbound.
+
+   A claim that cannot be bound is rewritten one level down to what
+   the evidence owns, or the evidence is produced first. Deleting the
+   sentence is always acceptable; inflating it never is - and a claim
+   removed or downgraded here is said to have been, because what an
+   audit retracted is itself evidence about the work.
+
+   **Sweep the consumers of any word that changed meaning.** If a
+   load-bearing name, default or number changed this cycle, grep every
+   consumer of the old one - scripts, docs, committed JSON, other
+   skills - and list each as fixed or genuinely unaffected. A consumer
+   you did not check is not unaffected, and a grep that cannot see the
+   form the word takes in prose has not checked it.
+
+   **Hunt your own fail-opens.** For every field, default, filename or
+   label introduced this cycle, answer explicitly: what happens on
+   silence, absence, staleness, forgery, reuse? Each answer is a
+   refusal or an explicitly recorded state, never a quiet pass. Step 5
+   asks a reviewer the same question; that is a second look, not the
+   first one.
+
+   This is subordinate to step 2 and exists only to serve it: the
+   fidelity table is read as evidence, and an unbound number in it is
+   an assurance wearing evidence's clothes.
 
 4. **Assemble the review package**, nothing else:
    - the request, as written down in step 1;
@@ -51,9 +95,9 @@ fidelity through them, and that is why the claim audit runs first.
    - the pending diff against each remote tip
      (`git diff origin/<branch>` in each repo being pushed);
    - the drafted commit message(s) and report text;
-   - the claim table from the audit;
+   - the bindings from step 3;
    - the standing invariants, stated verbatim: never modify the
-     authoritative Board A PCB; never touch `main`; no PRs; never
+     authoritative Board A PCB; no PRs; never
      submit an order; fail-closed over fail-open; waivers are bound
      to board bytes; the board file - never a tool log - is the
      arbiter; unmeasured never becomes zero.

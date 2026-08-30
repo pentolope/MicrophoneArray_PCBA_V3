@@ -113,15 +113,13 @@ project's closure. Its reusable core already lives in the toolkit as
 
 ## Publishing discipline
 
-Before any push of cycle work, run `/claim-audit` on the drafted
-commit message and report (every claim-bearing word binds to an
-artifact recomputed on the spot, never to the process that produced
-it), then `/accountability-review`.
+Before any push of cycle work, run `/accountability-review`.
 
 That review asks one question — **did this do what the user asked
 for** — and a fresh-context subagent answers it against the request
-rather than against the session's account of the request. The claim
-audit serves it: a reviewer can only see the work through what the
+rather than against the session's account of the request. Binding
+every claim to a recomputed artifact serves that question rather than
+standing beside it: a reviewer can only see the work through what the
 author says about it, so an inflated claim is an opaque pane over the
 place where the work may have drifted from what was asked. A finding
 is fixed when fixing it changes whether the request was met; a
@@ -129,7 +127,7 @@ finding that is correct but immaterial is recorded, not obeyed.
 
 It runs up to twice. When and what may still reach the push are
 stated in the skill and deliberately not restated here, so the two
-cannot drift apart. The cycle report carries the claim table, each
+cannot drift apart. The cycle report carries those bindings, each
 pass's findings and disposition against the request, and anything
 that went out after the last review.
 
