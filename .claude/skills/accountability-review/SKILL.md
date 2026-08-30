@@ -61,9 +61,9 @@ fidelity through them, and that is what step 3 exists to secure.
 
    Two bindings that are easy to fake. "X is unchanged" binds to a
    DIGEST COMPARISON, never to the absence of an edit you remember not
-   making. And when a cycle pushes both repositories, the binding
-   covers both drafts - a number true of the board and unchecked in
-   the toolkit is unbound.
+   making. And when a cycle pushes more than one repository, the
+   binding covers every draft - a number true of one repository and
+   unchecked in another is unbound.
 
    A claim that cannot be bound is rewritten one level down to what
    the evidence owns, or the evidence is produced first. Deleting the
@@ -96,11 +96,28 @@ fidelity through them, and that is what step 3 exists to secure.
      (`git diff origin/<branch>` in each repo being pushed);
    - the drafted commit message(s) and report text;
    - the bindings from step 3;
-   - the standing invariants, stated verbatim: never modify the
-     authoritative Board A PCB; no PRs; never
-     submit an order; fail-closed over fail-open; waivers are bound
-     to board bytes; the board file - never a tool log - is the
-     arbiter; unmeasured never becomes zero.
+   - the standing invariants **as this repository states them**,
+     quoted verbatim, each with the file and heading it came from.
+     Gather them from the repository's own governing documents -
+     `CLAUDE.md` first, then whatever it points to: `README.md`, a
+     benchmark or protocol document, `docs/` - and from the same
+     documents in any submodule the change touches.
+
+     Import nothing. An invariant that is not written down in the
+     repository under review does not bind the review. One carried
+     in from another repository or a retired workflow is worse than
+     absent: it sends the reviewer hunting for a violation of a rule
+     this project never adopted, and it lends a stale rule the
+     authority of a current one. A hardcoded list also drifts
+     silently - it can harden a rule past what the repository
+     actually says, and nothing catches it, because the list is the
+     only place the rule is written.
+
+     If a rule ought to bind and is not written down anywhere, that
+     is a finding about the repository - say so, and do not review
+     against it as though it were. If the repository states no
+     invariants at all, record that. Silence is a fact about the
+     project, not a licence.
 
 5. **Spawn a general-purpose subagent** with only that package,
    **running on Opus 5** (pass the model override; user-directed
@@ -120,7 +137,10 @@ fidelity through them, and that is what step 3 exists to secure.
      claim is where (a) and (b) hide - abstraction inflation, and
      fail-open defaults whose behaviour on silence, absence,
      staleness, forgery or reuse is a quiet pass.
-   - Also check each standing invariant against the diff directly.
+   - Also check each invariant gathered in step 4 against the diff
+     directly, citing where in the repository it is written. Judge
+     the diff only against those; a rule you believe in but cannot
+     point to in this repository is not one of them.
    - For every finding, name: the exact claim or code, which part of
      the request it bears on, why it is wrong, and the artifact or
      command that would prove or disprove it. Rank by consequence to
@@ -205,7 +225,14 @@ fidelity through them, and that is what step 3 exists to secure.
   the cycle.
 - The cap is two passes for the whole cycle as step 8 defines it -
   not two per repository, not two per commit, not two per round of
-  fixes. A cycle that pushes both repos reviews both in one package.
+  fixes. A cycle that pushes several repositories reviews all of
+  them in one package.
+- The review is bound by two things and no others: the request, and
+  the invariants this repository writes down. Everything else -
+  another project's constraints, a workflow this one has retired, a
+  convention the reviewer brought with it - is out of scope, and
+  applying it produces findings that are correct about some other
+  project and irrelevant to this one.
 - The copy in this repository is the authoritative one; it is
   versioned with the work it governs, so a reader can see which rule
   a given cycle was run under. A convenience copy may sit in
