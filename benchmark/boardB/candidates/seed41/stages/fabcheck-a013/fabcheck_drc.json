@@ -1,0 +1,2690 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-08-29T22:13:51",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.5",
+    "schematic_parity": [],
+    "source": "fabcheck.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 2 [PDM_CLK_B6] of RC7 on F.Cu",
+                    "pos": {
+                        "x": 164.544558,
+                        "y": 131.964754
+                    },
+                    "uuid": "db5f747f-3a21-44b0-84c3-bd066ec5097d"
+                },
+                {
+                    "description": "Track [PDM_CLK_B6] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 171.05,
+                        "y": 199.6
+                    },
+                    "uuid": "1f182295-1033-4463-8dfc-338aadcf519d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_B7] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 155.0,
+                        "y": 130.4
+                    },
+                    "uuid": "f6d52bcd-288d-498a-ad5e-6f2c67618177"
+                },
+                {
+                    "description": "Track [PDM_CLK_B7] on F.Cu, length 0.1000 mm",
+                    "pos": {
+                        "x": 199.95,
+                        "y": 170.2
+                    },
+                    "uuid": "54e1dfd4-641f-494c-bd15-a5b61e7a8446"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 3 [PDM_CLK_B5] of MK11 on F.Cu",
+                    "pos": {
+                        "x": 112.208678,
+                        "y": 188.427717
+                    },
+                    "uuid": "f6ae0d44-042c-4d19-bf3c-9db3d32efd16"
+                },
+                {
+                    "description": "Pad 2 [PDM_CLK_B5] of RC6 on F.Cu",
+                    "pos": {
+                        "x": 157.477595,
+                        "y": 134.085727
+                    },
+                    "uuid": "24c43f47-1606-4904-bbc2-6d87c6b1335c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 2 [PDM_CLK_IN] of R2 on F.Cu",
+                    "pos": {
+                        "x": 155.318864,
+                        "y": 148.022629
+                    },
+                    "uuid": "66e4d3e8-e61f-43bd-922c-8f4e93abd083"
+                },
+                {
+                    "description": "Track [PDM_CLK_IN] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 155.85,
+                        "y": 131.4
+                    },
+                    "uuid": "697a3fce-4855-4b85-8d70-b3bd2aac84c8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_Y2] on F.Cu, length 0.1000 mm",
+                    "pos": {
+                        "x": 157.7,
+                        "y": 128.0
+                    },
+                    "uuid": "58261562-998f-43bf-aa35-916f99f3aa8a"
+                },
+                {
+                    "description": "Track [PDM_CLK_Y2] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 159.75,
+                        "y": 133.85
+                    },
+                    "uuid": "6b629782-801c-4252-90fc-38c0f7c8807e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_Y7] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 162.65,
+                        "y": 130.449999
+                    },
+                    "uuid": "3e959f57-c37b-4a6c-a3c4-b8d315d528a6"
+                },
+                {
+                    "description": "Track [PDM_CLK_Y7] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 155.0,
+                        "y": 131.4
+                    },
+                    "uuid": "164c4217-166c-49b1-bcf5-b7761eea9fb0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_B0] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 199.6,
+                        "y": 128.949999
+                    },
+                    "uuid": "e3acc39e-40a4-4ba1-a616-8fdbec46d520"
+                },
+                {
+                    "description": "Pad 2 [PDM_CLK_B0] of RC1 on F.Cu",
+                    "pos": {
+                        "x": 164.716336,
+                        "y": 130.920843
+                    },
+                    "uuid": "144b00a9-ffb2-4e83-90a7-72aff4fea220"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.1308 mm)",
+            "items": [
+                {
+                    "description": "PCB text 'CH8' on F.Silkscreen",
+                    "pos": {
+                        "x": 92.2,
+                        "y": 150.0
+                    },
+                    "uuid": "240b74f2-27aa-4557-bc84-eb9ce404c4e5"
+                },
+                {
+                    "description": "Segment of CM9 on F.Silkscreen",
+                    "pos": {
+                        "x": 93.371383,
+                        "y": 149.135244
+                    },
+                    "uuid": "566d9756-01fc-4fa1-8163-208a85ec2179"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.0000 mm)",
+            "items": [
+                {
+                    "description": "PCB text 'GND' on F.Silkscreen",
+                    "pos": {
+                        "x": 157.758009,
+                        "y": 125.617685
+                    },
+                    "uuid": "5c945ac0-ea39-4aaf-a3b6-3eb00396c6ae"
+                },
+                {
+                    "description": "Segment of U2 on F.Silkscreen",
+                    "pos": {
+                        "x": 157.49,
+                        "y": 126.115
+                    },
+                    "uuid": "ebad02ae-ca28-40d6-bca1-13bf58a3c1e9"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.0374 mm)",
+            "items": [
+                {
+                    "description": "Segment of RC2 on F.Silkscreen",
+                    "pos": {
+                        "x": 158.999567,
+                        "y": 125.584683
+                    },
+                    "uuid": "562f3140-3db6-40cb-ab2b-158da339ca75"
+                },
+                {
+                    "description": "PCB text 'GND' on F.Silkscreen",
+                    "pos": {
+                        "x": 157.758009,
+                        "y": 125.617685
+                    },
+                    "uuid": "5c945ac0-ea39-4aaf-a3b6-3eb00396c6ae"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.1128 mm)",
+            "items": [
+                {
+                    "description": "Segment of RC2 on F.Silkscreen",
+                    "pos": {
+                        "x": 158.999567,
+                        "y": 124.824683
+                    },
+                    "uuid": "34c7af35-41ec-4f99-97c4-7b9387d14e11"
+                },
+                {
+                    "description": "PCB text 'GND' on F.Silkscreen",
+                    "pos": {
+                        "x": 157.758009,
+                        "y": 125.617685
+                    },
+                    "uuid": "5c945ac0-ea39-4aaf-a3b6-3eb00396c6ae"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.0000 mm)",
+            "items": [
+                {
+                    "description": "PCB text 'CH5' on F.Silkscreen",
+                    "pos": {
+                        "x": 127.880897,
+                        "y": 96.599763
+                    },
+                    "uuid": "0d464097-d5f6-4d66-9b5b-8c7bd6ce8f27"
+                },
+                {
+                    "description": "Segment of RD6 on F.Silkscreen",
+                    "pos": {
+                        "x": 128.35594,
+                        "y": 96.821171
+                    },
+                    "uuid": "362da313-b0e7-4d52-ac8c-2ec7377205a6"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.0000 mm)",
+            "items": [
+                {
+                    "description": "PCB text '+5V' on F.Silkscreen",
+                    "pos": {
+                        "x": 146.961642,
+                        "y": 168.893042
+                    },
+                    "uuid": "180dba8a-0f70-47fa-a379-cd80de16e8ab"
+                },
+                {
+                    "description": "Segment of RH1 on F.Silkscreen",
+                    "pos": {
+                        "x": 147.38,
+                        "y": 168.253641
+                    },
+                    "uuid": "35335cbd-398a-42ad-85c2-091b5848211b"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.0807 mm)",
+            "items": [
+                {
+                    "description": "Segment of CB2 on F.Silkscreen",
+                    "pos": {
+                        "x": 146.665,
+                        "y": 129.161252
+                    },
+                    "uuid": "12b918dc-8c56-4970-b0d5-30e343693810"
+                },
+                {
+                    "description": "PCB text 'CH0..CH15 CCW FROM +X' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 129.5
+                    },
+                    "uuid": "9a16da9e-8063-41c6-b27f-a6808b546dcd"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.1028 mm)",
+            "items": [
+                {
+                    "description": "PCB text '16-CH PDM MIC ARRAY  rev A' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 132.0
+                    },
+                    "uuid": "310910a7-094f-49ed-9606-843ccc7b20db"
+                },
+                {
+                    "description": "Segment of RC8 on F.Silkscreen",
+                    "pos": {
+                        "x": 155.377094,
+                        "y": 131.04364
+                    },
+                    "uuid": "fd44cb47-6f94-4e6b-8c36-f2f3269b6cb7"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.1349 mm)",
+            "items": [
+                {
+                    "description": "PCB text '16-CH PDM MIC ARRAY  rev A' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 132.0
+                    },
+                    "uuid": "310910a7-094f-49ed-9606-843ccc7b20db"
+                },
+                {
+                    "description": "Segment of U2 on F.Silkscreen",
+                    "pos": {
+                        "x": 162.11,
+                        "y": 132.885
+                    },
+                    "uuid": "ba51e311-9197-407c-9f44-42afe031f9a2"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.0433 mm)",
+            "items": [
+                {
+                    "description": "PCB text 'PORTS FACE UP - DO NOT WASH' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 134.5
+                    },
+                    "uuid": "09c79179-de10-4ddb-b127-4340399af5ce"
+                },
+                {
+                    "description": "Segment of RC6 on F.Silkscreen",
+                    "pos": {
+                        "x": 157.097595,
+                        "y": 134.749368
+                    },
+                    "uuid": "dc71af5b-f7fe-42ce-b4f7-59b676d36793"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.0483 mm)",
+            "items": [
+                {
+                    "description": "Segment of RC3 on F.Silkscreen",
+                    "pos": {
+                        "x": 159.409859,
+                        "y": 134.246268
+                    },
+                    "uuid": "09bfb169-a7c5-490f-ba9c-6ceeaf4bcd7e"
+                },
+                {
+                    "description": "PCB text 'PORTS FACE UP - DO NOT WASH' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 134.5
+                    },
+                    "uuid": "09c79179-de10-4ddb-b127-4340399af5ce"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.0000 mm)",
+            "items": [
+                {
+                    "description": "PCB text 'PORTS FACE UP - DO NOT WASH' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 134.5
+                    },
+                    "uuid": "09c79179-de10-4ddb-b127-4340399af5ce"
+                },
+                {
+                    "description": "Segment of C6 on F.Silkscreen",
+                    "pos": {
+                        "x": 160.745761,
+                        "y": 135.053475
+                    },
+                    "uuid": "9fc0840e-9082-4dd6-9266-8b25984c912a"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.1258 mm)",
+            "items": [
+                {
+                    "description": "PCB text 'PORTS FACE UP - DO NOT WASH' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 134.5
+                    },
+                    "uuid": "09c79179-de10-4ddb-b127-4340399af5ce"
+                },
+                {
+                    "description": "Segment of C6 on F.Silkscreen",
+                    "pos": {
+                        "x": 161.465761,
+                        "y": 135.053475
+                    },
+                    "uuid": "3aac8eef-6aa6-4a0c-8960-6b57f53eb343"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.1024 mm)",
+            "items": [
+                {
+                    "description": "Segment of RC7 on F.Silkscreen",
+                    "pos": {
+                        "x": 164.924558,
+                        "y": 132.628395
+                    },
+                    "uuid": "244d3464-346b-4974-aa98-c00213b849ae"
+                },
+                {
+                    "description": "PCB text '16-CH PDM MIC ARRAY  rev A' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 132.0
+                    },
+                    "uuid": "310910a7-094f-49ed-9606-843ccc7b20db"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.1470 mm)",
+            "items": [
+                {
+                    "description": "PCB text '16-CH PDM MIC ARRAY  rev A' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 132.0
+                    },
+                    "uuid": "310910a7-094f-49ed-9606-843ccc7b20db"
+                },
+                {
+                    "description": "Segment of RC8 on F.Silkscreen",
+                    "pos": {
+                        "x": 154.617094,
+                        "y": 131.04364
+                    },
+                    "uuid": "6ee97149-b686-4ede-b47f-d1571b983bc0"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1500 mm; actual 0.0000 mm)",
+            "items": [
+                {
+                    "description": "Segment of CM14 on F.Silkscreen",
+                    "pos": {
+                        "x": 171.598253,
+                        "y": 203.158829
+                    },
+                    "uuid": "2dd4c694-de1d-4e01-a072-287126b4a026"
+                },
+                {
+                    "description": "PCB text 'CH13' on F.Silkscreen",
+                    "pos": {
+                        "x": 172.119102,
+                        "y": 203.400236
+                    },
+                    "uuid": "5027105a-bad8-4a12-a33b-86fd445fb770"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'CH8' on F.Silkscreen",
+                    "pos": {
+                        "x": 92.2,
+                        "y": 150.0
+                    },
+                    "uuid": "240b74f2-27aa-4557-bc84-eb9ce404c4e5"
+                },
+                {
+                    "description": "Pad 1 [MIC_VDD_8] of CM9 on F.Cu",
+                    "pos": {
+                        "x": 93.731383,
+                        "y": 149.507408
+                    },
+                    "uuid": "72f37c26-26b8-4b24-bb5c-0fdf19ab34cb"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'GND' on F.Silkscreen",
+                    "pos": {
+                        "x": 157.758009,
+                        "y": 125.617685
+                    },
+                    "uuid": "5c945ac0-ea39-4aaf-a3b6-3eb00396c6ae"
+                },
+                {
+                    "description": "Pad 2 [PDM_CLK_B1] of RC2 on F.Cu",
+                    "pos": {
+                        "x": 158.335926,
+                        "y": 125.204683
+                    },
+                    "uuid": "5ef6df0a-11ea-4aa0-bc45-97a340e49775"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'GND' on F.Silkscreen",
+                    "pos": {
+                        "x": 157.758009,
+                        "y": 125.617685
+                    },
+                    "uuid": "5c945ac0-ea39-4aaf-a3b6-3eb00396c6ae"
+                },
+                {
+                    "description": "Pad 1 [PDM_CLK_Y1] of RC2 on F.Cu",
+                    "pos": {
+                        "x": 159.355926,
+                        "y": 125.204683
+                    },
+                    "uuid": "577f90b5-63a9-407e-b285-f9b729002ae4"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'CH0..CH15 CCW FROM +X' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 129.5
+                    },
+                    "uuid": "9a16da9e-8063-41c6-b27f-a6808b546dcd"
+                },
+                {
+                    "description": "Pad 5 [PDM_CLK_Y3] of U2 on F.Cu",
+                    "pos": {
+                        "x": 156.9375,
+                        "y": 129.175
+                    },
+                    "uuid": "d6840452-e9e6-45d5-94db-43d5cd7b111c"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'CH0..CH15 CCW FROM +X' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 129.5
+                    },
+                    "uuid": "9a16da9e-8063-41c6-b27f-a6808b546dcd"
+                },
+                {
+                    "description": "Pad 6 [PDM_CLK_IN] of U2 on F.Cu",
+                    "pos": {
+                        "x": 156.9375,
+                        "y": 129.825
+                    },
+                    "uuid": "5c63d661-19f6-4a67-aed1-46b75321d521"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'CH0' on F.Silkscreen",
+                    "pos": {
+                        "x": 207.8,
+                        "y": 150.0
+                    },
+                    "uuid": "1b49668a-710f-4da8-8136-f29ab1fabac2"
+                },
+                {
+                    "description": "Pad 1 [MIC_VDD_0] of CM1 on F.Cu",
+                    "pos": {
+                        "x": 206.268616,
+                        "y": 150.492591
+                    },
+                    "uuid": "601cae12-e1ff-4359-9294-42f03f4cd2bc"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'CH5' on F.Silkscreen",
+                    "pos": {
+                        "x": 127.880897,
+                        "y": 96.599763
+                    },
+                    "uuid": "0d464097-d5f6-4d66-9b5b-8c7bd6ce8f27"
+                },
+                {
+                    "description": "Pad 1 [MIC_DOUT_5] of RD6 on F.Cu",
+                    "pos": {
+                        "x": 127.99958,
+                        "y": 97.20117
+                    },
+                    "uuid": "183cccea-2f8d-4f68-8353-6a9d975072a4"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'CH5' on F.Silkscreen",
+                    "pos": {
+                        "x": 127.880897,
+                        "y": 96.599763
+                    },
+                    "uuid": "0d464097-d5f6-4d66-9b5b-8c7bd6ce8f27"
+                },
+                {
+                    "description": "Pad 2 [PDM_D2] of RD6 on F.Cu",
+                    "pos": {
+                        "x": 129.019582,
+                        "y": 97.20117
+                    },
+                    "uuid": "f128e179-abca-4418-9145-b1713ad87f18"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'CH0..CH15 CCW FROM +X' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 129.5
+                    },
+                    "uuid": "9a16da9e-8063-41c6-b27f-a6808b546dcd"
+                },
+                {
+                    "description": "Pad 1 [+3V3A] of CB2 on F.Cu",
+                    "pos": {
+                        "x": 147.4,
+                        "y": 129.85
+                    },
+                    "uuid": "33b8ccf6-d675-457b-9d13-409a8685a8ff"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text '16-CH PDM MIC ARRAY  rev A' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 132.0
+                    },
+                    "uuid": "310910a7-094f-49ed-9606-843ccc7b20db"
+                },
+                {
+                    "description": "Pad 1 [PDM_CLK_Y7] of RC8 on F.Cu",
+                    "pos": {
+                        "x": 154.997094,
+                        "y": 131.399999
+                    },
+                    "uuid": "bc06e142-db49-4b29-afc2-c9821797f851"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text '16-CH PDM MIC ARRAY  rev A' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 132.0
+                    },
+                    "uuid": "310910a7-094f-49ed-9606-843ccc7b20db"
+                },
+                {
+                    "description": "Pad 8 [PDM_CLK_IN] of U2 on F.Cu",
+                    "pos": {
+                        "x": 156.9375,
+                        "y": 131.125
+                    },
+                    "uuid": "d44ad7b2-1280-46f0-8ec7-7df99afad16c"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text '16-CH PDM MIC ARRAY  rev A' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 132.0
+                    },
+                    "uuid": "310910a7-094f-49ed-9606-843ccc7b20db"
+                },
+                {
+                    "description": "Pad 9 [PDM_CLK_Y5] of U2 on F.Cu",
+                    "pos": {
+                        "x": 156.9375,
+                        "y": 131.775
+                    },
+                    "uuid": "fb716f38-74de-4d35-9009-c2f64de5ae7a"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text '16-CH PDM MIC ARRAY  rev A' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 132.0
+                    },
+                    "uuid": "310910a7-094f-49ed-9606-843ccc7b20db"
+                },
+                {
+                    "description": "Pad 10 [GND] of U2 on F.Cu",
+                    "pos": {
+                        "x": 156.9375,
+                        "y": 132.425
+                    },
+                    "uuid": "51da1ae6-c30a-4b3a-8632-5fcab9861d08"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'PORTS FACE UP - DO NOT WASH' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 134.5
+                    },
+                    "uuid": "09c79179-de10-4ddb-b127-4340399af5ce"
+                },
+                {
+                    "description": "Pad 2 [PDM_CLK_B5] of RC6 on F.Cu",
+                    "pos": {
+                        "x": 157.477595,
+                        "y": 134.085727
+                    },
+                    "uuid": "24c43f47-1606-4904-bbc2-6d87c6b1335c"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'PORTS FACE UP - DO NOT WASH' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 134.5
+                    },
+                    "uuid": "09c79179-de10-4ddb-b127-4340399af5ce"
+                },
+                {
+                    "description": "Pad 2 [PDM_CLK_B2] of RC3 on F.Cu",
+                    "pos": {
+                        "x": 158.746218,
+                        "y": 133.866268
+                    },
+                    "uuid": "36d9e574-bc85-4a2b-9b1d-a4e1d2179cfb"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'PORTS FACE UP - DO NOT WASH' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 134.5
+                    },
+                    "uuid": "09c79179-de10-4ddb-b127-4340399af5ce"
+                },
+                {
+                    "description": "Pad 1 [PDM_CLK_Y5] of RC6 on F.Cu",
+                    "pos": {
+                        "x": 157.477595,
+                        "y": 135.105727
+                    },
+                    "uuid": "82de5961-94e4-4dd0-bb44-d9b3904cce7c"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'PORTS FACE UP - DO NOT WASH' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 134.5
+                    },
+                    "uuid": "09c79179-de10-4ddb-b127-4340399af5ce"
+                },
+                {
+                    "description": "Pad 2 [GND] of C6 on F.Cu",
+                    "pos": {
+                        "x": 161.105761,
+                        "y": 134.465639
+                    },
+                    "uuid": "65d2c4e5-338a-40ac-ba42-316fdceb439f"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text '16-CH PDM MIC ARRAY  rev A' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 132.0
+                    },
+                    "uuid": "310910a7-094f-49ed-9606-843ccc7b20db"
+                },
+                {
+                    "description": "Pad 11 [PDM_CLK_IN] of U2 on F.Cu",
+                    "pos": {
+                        "x": 162.6625,
+                        "y": 132.425
+                    },
+                    "uuid": "cb2ea42a-4e5c-4211-867b-3d091e340bec"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text '16-CH PDM MIC ARRAY  rev A' on F.Silkscreen",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 132.0
+                    },
+                    "uuid": "310910a7-094f-49ed-9606-843ccc7b20db"
+                },
+                {
+                    "description": "Pad 12 [PDM_CLK_Y6] of U2 on F.Cu",
+                    "pos": {
+                        "x": 162.6625,
+                        "y": 131.775
+                    },
+                    "uuid": "8ccd256c-1f96-4de0-a553-b9f3ef9715bc"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text '+5V' on F.Silkscreen",
+                    "pos": {
+                        "x": 146.961642,
+                        "y": 168.893042
+                    },
+                    "uuid": "180dba8a-0f70-47fa-a379-cd80de16e8ab"
+                },
+                {
+                    "description": "Pad 1 [PI_RESET_N] of RH1 on F.Cu",
+                    "pos": {
+                        "x": 147.0,
+                        "y": 168.61
+                    },
+                    "uuid": "f77cde77-8bbc-4672-8753-cd53ea2806fb"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'HOST_STATUS' on F.Silkscreen",
+                    "pos": {
+                        "x": 157.209631,
+                        "y": 174.427399
+                    },
+                    "uuid": "539bd519-0eb8-4c0b-b0e4-559fa41ca854"
+                },
+                {
+                    "description": "Pad 1 [PI_5V] of F1 on F.Cu",
+                    "pos": {
+                        "x": 152.2375,
+                        "y": 172.7
+                    },
+                    "uuid": "d63eaae7-56e5-4b59-b5ea-5705c0eb3f7b"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'PDM_D7' on F.Silkscreen",
+                    "pos": {
+                        "x": 184.858324,
+                        "y": 178.227714
+                    },
+                    "uuid": "ee4aebe1-10cd-4da3-af85-c30741ed1374"
+                },
+                {
+                    "description": "Pad 1 [+3V3A] of TP2 on F.Cu",
+                    "pos": {
+                        "x": 186.0,
+                        "y": 178.2
+                    },
+                    "uuid": "663e49a3-07cb-48d0-bd28-428d8bce1d48"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'CH13' on F.Silkscreen",
+                    "pos": {
+                        "x": 172.119102,
+                        "y": 203.400236
+                    },
+                    "uuid": "5027105a-bad8-4a12-a33b-86fd445fb770"
+                },
+                {
+                    "description": "Pad 2 [GND] of CM14 on F.Cu",
+                    "pos": {
+                        "x": 171.010417,
+                        "y": 202.798828
+                    },
+                    "uuid": "9cf2f744-794c-4364-a6e3-893ebbe9b34f"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "PCB text 'CH13' on F.Silkscreen",
+                    "pos": {
+                        "x": 172.119102,
+                        "y": 203.400236
+                    },
+                    "uuid": "5027105a-bad8-4a12-a33b-86fd445fb770"
+                },
+                {
+                    "description": "Pad 1 [MIC_VDD_13] of CM14 on F.Cu",
+                    "pos": {
+                        "x": 171.970417,
+                        "y": 202.798828
+                    },
+                    "uuid": "1bba91cf-21f1-42d2-9df6-fbf588b3ff12"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK3",
+                    "pos": {
+                        "x": 187.632222,
+                        "y": 112.367777
+                    },
+                    "uuid": "01ffabab-e832-41c5-bf68-ae67d309a7ad"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK6",
+                    "pos": {
+                        "x": 129.633587,
+                        "y": 100.831131
+                    },
+                    "uuid": "044ff5b7-4686-418d-92ab-8e98aba91948"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP14",
+                    "pos": {
+                        "x": 165.8,
+                        "y": 167.5
+                    },
+                    "uuid": "06d7991e-b672-481d-aeaf-605b425aaa54"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP6",
+                    "pos": {
+                        "x": 190.6,
+                        "y": 132.5
+                    },
+                    "uuid": "0b2c45be-6388-40f7-bf1f-0cc54d548100"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK15",
+                    "pos": {
+                        "x": 187.632222,
+                        "y": 187.632222
+                    },
+                    "uuid": "12787ec5-eb24-4f01-b0a4-a72267797a33"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Footprint CB2",
+                    "pos": {
+                        "x": 147.4,
+                        "y": 128.9
+                    },
+                    "uuid": "1955acef-fbd5-491e-a386-75d3cf163a50"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP9",
+                    "pos": {
+                        "x": 110.1,
+                        "y": 128.7
+                    },
+                    "uuid": "20830e1e-164a-40f1-a433-d3ab11974c81"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK16",
+                    "pos": {
+                        "x": 199.168868,
+                        "y": 170.366412
+                    },
+                    "uuid": "208e2b9e-afc5-4f8c-880f-72f71c574ed4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK12",
+                    "pos": {
+                        "x": 129.633587,
+                        "y": 199.168868
+                    },
+                    "uuid": "26f7c8fa-1ccd-4261-bf40-3939054ba5ee"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Footprint CB4",
+                    "pos": {
+                        "x": 129.3,
+                        "y": 149.7
+                    },
+                    "uuid": "284760a8-4930-4e7f-b538-fa063ad2e538"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP8",
+                    "pos": {
+                        "x": 131.9,
+                        "y": 112.4
+                    },
+                    "uuid": "2fd79b10-0407-4eb6-8271-e72042e610bd"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Footprint 'R_0402_1005Metric' does not match copy in library 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "Footprint RV6",
+                    "pos": {
+                        "x": 136.1,
+                        "y": 105.0
+                    },
+                    "uuid": "35e9a3be-587c-43fd-b29a-8d3fc6e62796"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Footprint CB3",
+                    "pos": {
+                        "x": 136.3,
+                        "y": 186.5
+                    },
+                    "uuid": "406cc799-3b0f-4ba3-9493-c09917362281"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK5",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 96.78
+                    },
+                    "uuid": "4e1612fe-e486-4e9e-882a-1ff8cc125e32"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK1",
+                    "pos": {
+                        "x": 203.22,
+                        "y": 150.0
+                    },
+                    "uuid": "62babd70-4736-4381-aa58-f14e0726d0f6"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK10",
+                    "pos": {
+                        "x": 100.831131,
+                        "y": 170.366412
+                    },
+                    "uuid": "675b11ab-3e6b-4e4e-9d1c-e2d8495b1522"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK4",
+                    "pos": {
+                        "x": 170.366412,
+                        "y": 100.831131
+                    },
+                    "uuid": "68dadd46-f68f-40c6-ab76-1d7be810ddfe"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Footprint 'C_0402_1005Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Footprint CM12",
+                    "pos": {
+                        "x": 126.12998,
+                        "y": 197.697561
+                    },
+                    "uuid": "6b85b7dc-3f4f-4be9-8768-0ed72c017f1e"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP4",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 177.2
+                    },
+                    "uuid": "6cf2f4e5-28a4-4fd8-89c2-fd345695099b"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP11",
+                    "pos": {
+                        "x": 125.5,
+                        "y": 187.0
+                    },
+                    "uuid": "7043fcc1-e5c5-4d22-9adf-db2ab24527f8"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP5",
+                    "pos": {
+                        "x": 202.4,
+                        "y": 157.8
+                    },
+                    "uuid": "79c945f6-a09a-4686-9585-5e1fc4969ef4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP12",
+                    "pos": {
+                        "x": 174.4,
+                        "y": 167.6
+                    },
+                    "uuid": "79e8c1ff-e303-43e8-8453-4e9ac3818ae4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK13",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 203.22
+                    },
+                    "uuid": "81099670-dc1e-4a9f-b3f6-92fe656c8eba"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP13",
+                    "pos": {
+                        "x": 190.5,
+                        "y": 175.2
+                    },
+                    "uuid": "887b3b6b-2d41-4172-ab26-64e9a316a05e"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP3",
+                    "pos": {
+                        "x": 162.0,
+                        "y": 166.6
+                    },
+                    "uuid": "8e8d5c33-29d5-4e06-9e11-ac13a59b84fe"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK14",
+                    "pos": {
+                        "x": 170.366412,
+                        "y": 199.168868
+                    },
+                    "uuid": "9016017b-3c93-48d5-a385-8ea71e7c33ab"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP10",
+                    "pos": {
+                        "x": 107.9,
+                        "y": 163.5
+                    },
+                    "uuid": "91eb438e-fa35-4fde-b82d-7838c2ff0da7"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK9",
+                    "pos": {
+                        "x": 96.78,
+                        "y": 150.0
+                    },
+                    "uuid": "9915cb23-0981-457d-b268-03ece2316def"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK2",
+                    "pos": {
+                        "x": 199.168868,
+                        "y": 129.633587
+                    },
+                    "uuid": "a224b180-f4db-42a8-8127-56b279104e0a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP7",
+                    "pos": {
+                        "x": 186.3,
+                        "y": 106.8
+                    },
+                    "uuid": "af6d52c9-8df7-4f06-87c5-2b17528d36e2"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK8",
+                    "pos": {
+                        "x": 100.831131,
+                        "y": 129.633587
+                    },
+                    "uuid": "b6ecdf26-ae82-45b4-8df8-46888a1966e4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Footprint 'C_0402_1005Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Footprint CM16",
+                    "pos": {
+                        "x": 195.493203,
+                        "y": 171.330512
+                    },
+                    "uuid": "c73362c0-9884-4832-88c4-c8e0cd6d1130"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK7",
+                    "pos": {
+                        "x": 112.367777,
+                        "y": 112.367777
+                    },
+                    "uuid": "d5300eca-3079-4a70-a351-4aff1cf745c2"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint MK11",
+                    "pos": {
+                        "x": 112.367777,
+                        "y": 187.632222
+                    },
+                    "uuid": "e1be1347-7363-4262-9241-aba06d696c65"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint X1",
+                    "pos": {
+                        "x": 157.9,
+                        "y": 147.2
+                    },
+                    "uuid": "e3a2d99e-2757-49ac-a547-bb76540065ef"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP1",
+                    "pos": {
+                        "x": 132.7,
+                        "y": 133.3
+                    },
+                    "uuid": "ea6bb170-144e-400e-b8ff-a941ed898f44"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Footprint CB1",
+                    "pos": {
+                        "x": 179.7,
+                        "y": 188.6
+                    },
+                    "uuid": "f4cd1e01-3a40-412a-bd9d-606685b277a6"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "The current configuration does not include the footprint library 'MicArrayV2'",
+            "items": [
+                {
+                    "description": "Footprint TP2",
+                    "pos": {
+                        "x": 186.0,
+                        "y": 178.2
+                    },
+                    "uuid": "f6414ec8-d11e-4ec2-89fb-fbb5fde088bb"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 155.85,
+                        "y": 133.5
+                    },
+                    "uuid": "390ce809-fbdb-413a-9bbe-f5fd49b6afde"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_B6] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 151.3,
+                        "y": 205.2
+                    },
+                    "uuid": "6d000e25-40b5-4f7a-84b4-9a96b50a270f"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_B6] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 165.0,
+                        "y": 130.4
+                    },
+                    "uuid": "d989d867-b13c-4dbd-89cd-a28d568c51c1"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_B7] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 189.95,
+                        "y": 188.05
+                    },
+                    "uuid": "621c7f90-e512-4efd-b76c-21d4f26fa3e2"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_B7] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 155.0,
+                        "y": 128.85
+                    },
+                    "uuid": "8f4a2fa9-d085-40f7-879f-e10b40c82a61"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_B7] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 201.5,
+                        "y": 169.95
+                    },
+                    "uuid": "b9756e84-0180-4d8a-9321-aced56b6256d"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_B5] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 157.5,
+                        "y": 132.949999
+                    },
+                    "uuid": "6aaa1fa3-f30c-4caa-bb7e-35cf960dfe54"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_IN] on F.Cu, length 0.1414 mm",
+                    "pos": {
+                        "x": 163.7,
+                        "y": 133.449999
+                    },
+                    "uuid": "17773e9d-750a-4f37-8559-ded97a949635"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_IN] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 155.8,
+                        "y": 129.9
+                    },
+                    "uuid": "55447a41-63cc-4463-96a3-27ed8d2ff428"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_IN] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 163.8,
+                        "y": 129.9
+                    },
+                    "uuid": "68f2ec57-f50b-4216-9894-f55d28387a81"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_IN] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 155.85,
+                        "y": 131.4
+                    },
+                    "uuid": "697a3fce-4855-4b85-8d70-b3bd2aac84c8"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_IN] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 163.7,
+                        "y": 131.4
+                    },
+                    "uuid": "9f618432-012b-4da5-859c-9b77abea939d"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_IN] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 164.05,
+                        "y": 128.05
+                    },
+                    "uuid": "c4d56a70-a49e-420e-94dc-2a9be1a3bc50"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_IN] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 155.4,
+                        "y": 127.05
+                    },
+                    "uuid": "e78c525c-b1fd-4522-863a-edd1b0407389"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_Y2] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 160.1,
+                        "y": 133.85
+                    },
+                    "uuid": "3bfaefca-ab96-4746-8bde-3a3555d7fc04"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_Y7] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 155.0,
+                        "y": 132.949999
+                    },
+                    "uuid": "a5810a5f-abd7-45c1-934d-607c641e772f"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_B0] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 164.1,
+                        "y": 131.5
+                    },
+                    "uuid": "68362453-02be-4095-b141-5da5e7780c46"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [PDM_CLK_B0] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 200.5,
+                        "y": 127.7
+                    },
+                    "uuid": "92e06b9b-e426-4e32-b7ab-a3d75a8b9100"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [PDM_CLK_IN] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 155.318864,
+                        "y": 148.022629
+                    },
+                    "uuid": "c024f485-5501-4cb2-8056-a075d4f34879"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 127.4,
+                        "y": 198.8
+                    },
+                    "uuid": "0b6b1dec-2309-4927-8fda-4ce19dcf03ac"
+                },
+                {
+                    "description": "Via [GND] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 127.2612,
+                        "y": 198.8532
+                    },
+                    "uuid": "b8e1332b-b1c5-419f-aff5-1bfa7e96fc62"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 127.35,
+                        "y": 198.8
+                    },
+                    "uuid": "0e8ec2e4-ada6-41a9-9f4b-1b1f79a57d67"
+                },
+                {
+                    "description": "Via [GND] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 127.2612,
+                        "y": 198.8532
+                    },
+                    "uuid": "b8e1332b-b1c5-419f-aff5-1bfa7e96fc62"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 127.45,
+                        "y": 198.75
+                    },
+                    "uuid": "5aea26cc-457c-4e45-a35b-777cd4bff9db"
+                },
+                {
+                    "description": "Via [GND] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 127.2612,
+                        "y": 198.8532
+                    },
+                    "uuid": "b8e1332b-b1c5-419f-aff5-1bfa7e96fc62"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 127.5,
+                        "y": 198.75
+                    },
+                    "uuid": "e503b48c-c43b-4a9a-8bec-68a515816019"
+                },
+                {
+                    "description": "Via [GND] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 127.2612,
+                        "y": 198.8532
+                    },
+                    "uuid": "b8e1332b-b1c5-419f-aff5-1bfa7e96fc62"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 127.3,
+                        "y": 198.8
+                    },
+                    "uuid": "f5c46817-09ee-4e1c-b73b-9c8858296dcb"
+                },
+                {
+                    "description": "Via [GND] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 127.2612,
+                        "y": 198.8532
+                    },
+                    "uuid": "b8e1332b-b1c5-419f-aff5-1bfa7e96fc62"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_DOUT_5] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 129.25,
+                        "y": 102.95
+                    },
+                    "uuid": "09254a49-ee1b-42b4-81f5-b7661d4929f3"
+                },
+                {
+                    "description": "Via [MIC_DOUT_5] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 129.1,
+                        "y": 103.1
+                    },
+                    "uuid": "4dbbcd53-36f1-48cf-82be-8891ea5b54ce"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_DOUT_5] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 129.3,
+                        "y": 102.9
+                    },
+                    "uuid": "1c1a2bd3-0322-444b-9fe2-bf2f32648803"
+                },
+                {
+                    "description": "Via [MIC_DOUT_5] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 129.1,
+                        "y": 103.1
+                    },
+                    "uuid": "4dbbcd53-36f1-48cf-82be-8891ea5b54ce"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_DOUT_5] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 129.25,
+                        "y": 103.0
+                    },
+                    "uuid": "c0d7f654-bb06-455a-8aa8-656e30ce5589"
+                },
+                {
+                    "description": "Via [MIC_DOUT_5] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 129.1,
+                        "y": 103.1
+                    },
+                    "uuid": "4dbbcd53-36f1-48cf-82be-8891ea5b54ce"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_14] on F.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 185.4,
+                        "y": 187.2
+                    },
+                    "uuid": "e64520a9-bfc3-4391-8570-9a2ea404af58"
+                },
+                {
+                    "description": "Via [MIC_VDD_14] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 185.2,
+                        "y": 187.2
+                    },
+                    "uuid": "63e4572f-9862-4988-96a8-1840b058cb5e"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_14] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 185.45,
+                        "y": 187.25
+                    },
+                    "uuid": "f9bd895e-07ab-4873-8c47-4c6b4a7d384c"
+                },
+                {
+                    "description": "Via [MIC_VDD_14] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 185.2,
+                        "y": 187.2
+                    },
+                    "uuid": "63e4572f-9862-4988-96a8-1840b058cb5e"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [+3V3_CLK] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 162.9,
+                        "y": 126.35
+                    },
+                    "uuid": "1d272476-3e18-47c6-b2e7-cd08d6382630"
+                },
+                {
+                    "description": "Via [+3V3_CLK] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 162.8,
+                        "y": 126.4
+                    },
+                    "uuid": "c53b0a4d-7ab9-4f38-a179-60664ac705ed"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [+3V3_CLK] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 162.65,
+                        "y": 126.6
+                    },
+                    "uuid": "889296c8-6099-402b-b25f-fa3b02528415"
+                },
+                {
+                    "description": "Via [+3V3_CLK] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 162.8,
+                        "y": 126.4
+                    },
+                    "uuid": "c53b0a4d-7ab9-4f38-a179-60664ac705ed"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [+3V3_CLK] on F.Cu, length 0.1414 mm",
+                    "pos": {
+                        "x": 162.7,
+                        "y": 126.55
+                    },
+                    "uuid": "bcd94076-99f3-49d6-87c7-f2c978c2d8ac"
+                },
+                {
+                    "description": "Via [+3V3_CLK] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 162.8,
+                        "y": 126.4
+                    },
+                    "uuid": "c53b0a4d-7ab9-4f38-a179-60664ac705ed"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [PI_RESET_N] on F.Cu, length 1.5556 mm",
+                    "pos": {
+                        "x": 147.0,
+                        "y": 168.6
+                    },
+                    "uuid": "0febcd3b-3c84-4302-8de8-6657bbcdca60"
+                },
+                {
+                    "description": "Via [PI_RESET_N] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 145.9,
+                        "y": 169.8
+                    },
+                    "uuid": "5d084fa8-215f-4b6d-9d9b-b0ba5f61249f"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [5V_FUSED] on F.Cu, length 1.2728 mm",
+                    "pos": {
+                        "x": 141.9,
+                        "y": 170.9
+                    },
+                    "uuid": "e8d628a6-7a43-4f4c-b0e9-bec3f6d0d113"
+                },
+                {
+                    "description": "Via [5V_FUSED] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 142.9,
+                        "y": 171.8
+                    },
+                    "uuid": "50855f25-92d7-44bb-bd40-4b56d6df3237"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_9] on F.Cu, length 6.4347 mm",
+                    "pos": {
+                        "x": 101.95,
+                        "y": 168.8
+                    },
+                    "uuid": "d14515b9-9d0b-4933-b799-30a2c3243499"
+                },
+                {
+                    "description": "Via [MIC_VDD_9] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 106.6,
+                        "y": 164.1
+                    },
+                    "uuid": "d29f4ecc-943a-4f3c-aa45-98317a451805"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_9] on F.Cu, length 0.1500 mm",
+                    "pos": {
+                        "x": 106.5,
+                        "y": 164.25
+                    },
+                    "uuid": "26c4b5c0-f5ff-4f5d-aff4-664d3caf434f"
+                },
+                {
+                    "description": "Via [MIC_VDD_9] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 106.6,
+                        "y": 164.1
+                    },
+                    "uuid": "d29f4ecc-943a-4f3c-aa45-98317a451805"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_13] on B.Cu, length 0.9000 mm",
+                    "pos": {
+                        "x": 172.0,
+                        "y": 201.7
+                    },
+                    "uuid": "a51425b2-7eb6-4bdf-ad4f-f076787749bd"
+                },
+                {
+                    "description": "Via [MIC_VDD_13] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 171.9,
+                        "y": 202.7
+                    },
+                    "uuid": "f9dc8073-55a0-4ec8-bccd-755ba0af6a65"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_13] on F.Cu, length 0.3000 mm",
+                    "pos": {
+                        "x": 168.4,
+                        "y": 197.6
+                    },
+                    "uuid": "795d0166-5967-4df0-88d8-e32b847dc405"
+                },
+                {
+                    "description": "Via [MIC_VDD_13] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 168.0,
+                        "y": 197.7
+                    },
+                    "uuid": "ce30d9fc-10a4-42e2-afa7-2fe6de939f0b"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_11] on F.Cu, length 0.8000 mm",
+                    "pos": {
+                        "x": 126.1,
+                        "y": 184.7
+                    },
+                    "uuid": "5fb734e4-49b8-4f1a-85be-28e2b9443978"
+                },
+                {
+                    "description": "Via [MIC_VDD_11] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 126.0,
+                        "y": 185.6
+                    },
+                    "uuid": "4012260f-3dcc-4bce-8539-8f71001fd66f"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_3] on F.Cu, length 5.1000 mm",
+                    "pos": {
+                        "x": 170.9,
+                        "y": 109.6
+                    },
+                    "uuid": "3e286d5e-0540-4a92-ac1b-e0cb29010733"
+                },
+                {
+                    "description": "Via [MIC_VDD_3] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 170.9,
+                        "y": 104.4
+                    },
+                    "uuid": "4d67a764-c10e-46f1-8d2d-e43901c26994"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_3] on F.Cu, length 0.9000 mm",
+                    "pos": {
+                        "x": 170.9,
+                        "y": 103.0
+                    },
+                    "uuid": "4a063165-570e-4ea5-b311-58f0b4f66954"
+                },
+                {
+                    "description": "Via [MIC_VDD_3] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 171.9,
+                        "y": 102.9
+                    },
+                    "uuid": "0fdf32c4-ab17-49e7-8616-cad41e0b370d"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_4] on B.Cu, length 1.9799 mm",
+                    "pos": {
+                        "x": 151.1,
+                        "y": 97.5
+                    },
+                    "uuid": "58fd8d4f-5b34-4fe2-81a2-e6107a93820e"
+                },
+                {
+                    "description": "Via [MIC_VDD_4] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 152.5,
+                        "y": 96.0
+                    },
+                    "uuid": "ad46d5ac-3f80-4334-8dc4-9b9bdaa6824a"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_0] on B.Cu, length 0.0500 mm",
+                    "pos": {
+                        "x": 201.2,
+                        "y": 151.35
+                    },
+                    "uuid": "bd500b1d-8662-4c76-9bc7-7666f9ceb25d"
+                },
+                {
+                    "description": "Via [MIC_VDD_0] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 201.0,
+                        "y": 151.4
+                    },
+                    "uuid": "5c64edda-71e4-4856-b4c3-66ba7d5f2a49"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_0] on B.Cu, length 1.2728 mm",
+                    "pos": {
+                        "x": 201.2,
+                        "y": 151.4
+                    },
+                    "uuid": "28153ce9-0b77-4a7e-976f-e04b12602cf9"
+                },
+                {
+                    "description": "Via [MIC_VDD_0] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 201.0,
+                        "y": 151.4
+                    },
+                    "uuid": "5c64edda-71e4-4856-b4c3-66ba7d5f2a49"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [+5V] on GND1, length 0.2000 mm",
+                    "pos": {
+                        "x": 132.4,
+                        "y": 121.5
+                    },
+                    "uuid": "aeb38332-6d8a-4fe8-9fe1-3a2df2ac7ca1"
+                },
+                {
+                    "description": "Via [+5V] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 132.7,
+                        "y": 121.4
+                    },
+                    "uuid": "aac834cd-a897-4792-970d-2dc71ffcc192"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_VDD_2] on F.Cu, length 0.5000 mm",
+                    "pos": {
+                        "x": 187.1,
+                        "y": 114.3
+                    },
+                    "uuid": "6147ee3f-381b-436b-a966-8e96c4d17d33"
+                },
+                {
+                    "description": "Via [MIC_VDD_2] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 187.0,
+                        "y": 114.9
+                    },
+                    "uuid": "1a6e9679-ad47-4d30-97b8-998a4a680f5f"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [PI_5V] on GND2, length 2.6870 mm",
+                    "pos": {
+                        "x": 154.1,
+                        "y": 174.3
+                    },
+                    "uuid": "6d0c0090-a2c8-478b-9dfb-a5a8815bbe09"
+                },
+                {
+                    "description": "Via [PI_5V] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 154.0,
+                        "y": 174.3
+                    },
+                    "uuid": "fe5ffc88-f4c1-4cd6-a7e0-d4489d24463c"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [PI_5V] on GND2, length 0.7000 mm",
+                    "pos": {
+                        "x": 168.3,
+                        "y": 180.5
+                    },
+                    "uuid": "cebb8ef6-654a-4058-8d96-2124a330907d"
+                },
+                {
+                    "description": "Via [PI_5V] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 168.2,
+                        "y": 181.3
+                    },
+                    "uuid": "bbeead87-59be-4e4d-b8eb-7ec1374629b3"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [+3V3A] on F.Cu, length 0.8000 mm",
+                    "pos": {
+                        "x": 143.1,
+                        "y": 116.3
+                    },
+                    "uuid": "cd86e8c1-c9f0-446d-ba90-1297780f6b61"
+                },
+                {
+                    "description": "Via [+3V3A] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 142.2,
+                        "y": 116.4
+                    },
+                    "uuid": "a548ff72-ceb5-4f6b-8bd1-276c41f6fa16"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [+3V3A] on F.Cu, length 7.4000 mm",
+                    "pos": {
+                        "x": 128.1,
+                        "y": 131.5
+                    },
+                    "uuid": "63432b07-12ae-401c-bc0a-e1059ac4d0e1"
+                },
+                {
+                    "description": "Via [+3V3A] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 128.1,
+                        "y": 139.0
+                    },
+                    "uuid": "dceb9c3c-518d-48af-a1eb-0530db4f6a03"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [MIC_DOUT_15] on GND1, length 1.0607 mm",
+                    "pos": {
+                        "x": 197.2,
+                        "y": 173.875
+                    },
+                    "uuid": "2e28f07f-b939-4703-9f11-7a66de1e690d"
+                },
+                {
+                    "description": "Via [MIC_DOUT_15] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 197.18756,
+                        "y": 173.870018
+                    },
+                    "uuid": "135b044e-c496-4851-80a9-bf81bf522dfb"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        }
+    ]
+}

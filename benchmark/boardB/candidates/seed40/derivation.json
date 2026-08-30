@@ -1,0 +1,239 @@
+{
+ "kind": "candidate-derivation",
+ "candidate": "seed40",
+ "parent_candidate_sha256": null,
+ "seed": 40,
+ "inputs": {
+  "board_a_sha256": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
+  "placement_semantics_sha256": "fa8808840504f58039ededd3c6962ab6d21a4800e6e79c7fa0107077ae8ac313",
+  "constraints_sha256": "512e0ac1c1ab6625a20f136d12ce2107b993c04323e511de0a403a14d9ee20b9",
+  "zone_policy_sha256": "878201e317cb631553f760d5253ef5ecc842f3dddb73dd1e1ab78f37f090cdff",
+  "generator_semantics_version": "5",
+  "generator_sha256": "e84f6843c337b9246fc9879660efbb86a84bfc97226dde1ac70f91470b33237a",
+  "optimizer_sha256": "632ca0e8f57c402c94bad66f883a92f33aeadbb492220b59ed96773d9a2df36c",
+  "router_sha256": "b67db22acbf1264137b150c65d42a042b7b6abe922d168a6da65a9075c1b20c8",
+  "krt_identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe"
+ },
+ "records": [
+  {
+   "stage": "krt_resolved",
+   "krt_identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe",
+   "resolution_origin": "vendored submodule",
+   "previous_identity_sha256": null,
+   "provenance": {
+    "kind": "krt-provenance",
+    "source_path": "/home/pentolope/github/MicrophoneArray_PCB_V3/tooling/PCB_AutoDesignAndTest/tooling/KiCadRoutingTools",
+    "version": "0.21.3",
+    "git": {
+     "sha": "dc2d365ca261f0c7ee23071884a3523e09e7efdb",
+     "dirty": false,
+     "upstream_base": null
+    },
+    "grid_router": {
+     "path": "/home/pentolope/github/MicrophoneArray_PCB_V3/tooling/PCB_AutoDesignAndTest/tooling/KiCadRoutingTools/rust_router/grid_router.so",
+     "kind": "native-binary",
+     "sha256": "0ab816395a9af7bdfea8bdee1a768bb6549d1faf348e74406e14babfd46cef1e",
+     "version": "0.21.1"
+    },
+    "python": {
+     "executable": "python3",
+     "version": "3.12.3"
+    },
+    "kicad_cli": "/usr/bin/kicad-cli",
+    "kicad_version": "10.0.5",
+    "meaning": "the routing implementation identity for this run; a different sha, dirty state or native hash is a different router, and downstream routing-derived artifacts must go stale with it"
+   }
+  },
+  {
+   "stage": "prepare",
+   "circular_outlines_converted": 1,
+   "removed_tracks_and_vias": 1338,
+   "zone_policy_outcome": {
+    "policy_version": "1",
+    "kept": 169,
+    "deleted": 119,
+    "per_rule": [
+     {
+      "decision": "inherited-architecture",
+      "matched": 2,
+      "kept": 2,
+      "deleted": 0
+     },
+     {
+      "decision": "derived-from-placement",
+      "matched": 286,
+      "kept": 167,
+      "deleted": 119
+     }
+    ]
+   }
+  },
+  {
+   "stage": "seed_placement_attempt",
+   "attempt": 0,
+   "outcome": "evaluated",
+   "policy_ok": true,
+   "violated": [],
+   "collision_checked_overlaps_moved": []
+  },
+  {
+   "stage": "seed_placement",
+   "outcome": "ok",
+   "moved_footprints": 104,
+   "output_sha256": "2d942acc878a7a5f06c3de6a39c1bebeec7c5d0865f2991fd0c4d7b7dc6c0a97"
+  },
+  {
+   "stage": "place_optimize",
+   "attempt_id": "a004",
+   "input_board_sha256": "2d942acc878a7a5f06c3de6a39c1bebeec7c5d0865f2991fd0c4d7b7dc6c0a97",
+   "tool": "place_optimize.py",
+   "tool_sha256": "632ca0e8f57c402c94bad66f883a92f33aeadbb492220b59ed96773d9a2df36c",
+   "krt_identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe",
+   "configuration": [
+    "--max-displacement",
+    "200",
+    "--step",
+    "3.0",
+    "--max-passes",
+    "1",
+    "--lock",
+    "CM1",
+    "CM10",
+    "CM11",
+    "CM12",
+    "CM13",
+    "CM14",
+    "CM15",
+    "CM16",
+    "CM2",
+    "CM3",
+    "CM4",
+    "CM5",
+    "CM6",
+    "CM7",
+    "CM8",
+    "CM9",
+    "J1",
+    "J2",
+    "J3",
+    "MK1",
+    "MK10",
+    "MK11",
+    "MK12",
+    "MK13",
+    "MK14",
+    "MK15",
+    "MK16",
+    "MK2",
+    "MK3",
+    "MK4",
+    "MK5",
+    "MK6",
+    "MK7",
+    "MK8",
+    "MK9",
+    "RD1",
+    "RD10",
+    "RD11",
+    "RD12",
+    "RD13",
+    "RD14",
+    "RD15",
+    "RD16",
+    "RD2",
+    "RD3",
+    "RD4",
+    "RD5",
+    "RD6",
+    "RD7",
+    "RD8",
+    "RD9",
+    "U3",
+    "U4"
+   ],
+   "locked_references": 53,
+   "lock_meaning": "fixed parts and satellites of fixed anchors only; blocks stay free, repair and the evaluator own their constraints",
+   "timeout_s": 1500,
+   "status": "completed",
+   "output_path": "stages/a004-quench-2d942acc.kicad_pcb",
+   "seconds": 1092.5,
+   "returncode": 0,
+   "log_tail": "160825879909, \"cost_before\": 10800.048738393392, \"crossings_after\": 216, \"crossings_before\": 657, \"hole_conflicts_after\": 0, \"hole_conflicts_before\": 0, \"hole_shortfall\": 0.0, \"hpwl\": 2886.8781280000007, \"hpwl_after\": 2886.8781280000007, \"hpwl_before\": 3664.272096, \"locked_contact_pairs\": 0, \"oob_amount\": 0.0, \"oob_area\": 0.0, \"oob_count\": 0, \"oob_pad_count_after\": 0, \"oob_pad_count_before\": 0, \"overlap_area\": 0.0, \"pad_clearance_required\": [], \"pad_conflict_pairs\": 0, \"pad_conflict_pairs_currency\": \"aabb-gate (conservative, phantoms)\", \"pad_conflicts_after\": 0, \"pad_conflicts_before\": 0, \"pad_conflicts_currency\": \"exact geometry (phantom-free)\", \"pad_intersection_pairs\": 0, \"pad_overlap_pairs\": 0, \"pad_shortfall\": 0.0, \"pad_shortfall_after\": 0.0, \"pad_shortfall_before\": 0.0, \"parts_moved\": 64}\nEXIT=0\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n",
+   "output_sha256": "f79e8a9f55a1dcb7d6f77bf2eb1f10463f3d2ccb15a9e66b9ed220aa8a05be75"
+  },
+  {
+   "stage": "post_quench_policy",
+   "repair_rounds": [
+    {
+     "round": 0,
+     "moved": [
+      "C4",
+      "RV10",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "RC1",
+      "RC2",
+      "RC3",
+      "RC4",
+      "RC5",
+      "RC6",
+      "RC7",
+      "RC8",
+      "C6",
+      "C7"
+     ],
+     "edge_findings": 0,
+     "edge_moved": [],
+     "deferred": []
+    },
+    {
+     "round": 1,
+     "moved": [],
+     "edge_findings": 0,
+     "edge_moved": [],
+     "deferred": []
+    }
+   ],
+   "policy_ok": false,
+   "violated": [
+    41
+   ],
+   "overlapping_pairs": [],
+   "edge_findings_remaining_movable": [],
+   "edge_findings_on_fixed": [],
+   "placed_sha256": null
+  }
+ ],
+ "krt": {
+  "identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe",
+  "resolution_origin": "vendored submodule",
+  "provenance": {
+   "kind": "krt-provenance",
+   "source_path": "/home/pentolope/github/MicrophoneArray_PCB_V3/tooling/PCB_AutoDesignAndTest/tooling/KiCadRoutingTools",
+   "version": "0.21.3",
+   "git": {
+    "sha": "dc2d365ca261f0c7ee23071884a3523e09e7efdb",
+    "dirty": false,
+    "upstream_base": null
+   },
+   "grid_router": {
+    "path": "/home/pentolope/github/MicrophoneArray_PCB_V3/tooling/PCB_AutoDesignAndTest/tooling/KiCadRoutingTools/rust_router/grid_router.so",
+    "kind": "native-binary",
+    "sha256": "0ab816395a9af7bdfea8bdee1a768bb6549d1faf348e74406e14babfd46cef1e",
+    "version": "0.21.1"
+   },
+   "python": {
+    "executable": "python3",
+    "version": "3.12.3"
+   },
+   "kicad_cli": "/usr/bin/kicad-cli",
+   "kicad_version": "10.0.5",
+   "meaning": "the routing implementation identity for this run; a different sha, dirty state or native hash is a different router, and downstream routing-derived artifacts must go stale with it"
+  }
+ }
+}

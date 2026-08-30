@@ -1,0 +1,603 @@
+{
+ "kind": "candidate-derivation",
+ "candidate": "seed42",
+ "parent_candidate_sha256": null,
+ "seed": 42,
+ "inputs": {
+  "board_a_sha256": "0ffd377c0ace66b18b4c7b09fefe86b74eb6e8b5909629103f9d7fe06d91c763",
+  "placement_semantics_sha256": "fa8808840504f58039ededd3c6962ab6d21a4800e6e79c7fa0107077ae8ac313",
+  "constraints_sha256": "512e0ac1c1ab6625a20f136d12ce2107b993c04323e511de0a403a14d9ee20b9",
+  "zone_policy_sha256": "878201e317cb631553f760d5253ef5ecc842f3dddb73dd1e1ab78f37f090cdff",
+  "generator_semantics_version": "5",
+  "generator_sha256": "e84f6843c337b9246fc9879660efbb86a84bfc97226dde1ac70f91470b33237a",
+  "optimizer_sha256": "632ca0e8f57c402c94bad66f883a92f33aeadbb492220b59ed96773d9a2df36c",
+  "router_sha256": "b67db22acbf1264137b150c65d42a042b7b6abe922d168a6da65a9075c1b20c8",
+  "krt_identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe"
+ },
+ "records": [
+  {
+   "stage": "krt_resolved",
+   "krt_identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe",
+   "resolution_origin": "vendored submodule",
+   "previous_identity_sha256": null,
+   "provenance": {
+    "kind": "krt-provenance",
+    "source_path": "/home/pentolope/github/MicrophoneArray_PCB_V3/tooling/PCB_AutoDesignAndTest/tooling/KiCadRoutingTools",
+    "version": "0.21.3",
+    "git": {
+     "sha": "dc2d365ca261f0c7ee23071884a3523e09e7efdb",
+     "dirty": false,
+     "upstream_base": null
+    },
+    "grid_router": {
+     "path": "/home/pentolope/github/MicrophoneArray_PCB_V3/tooling/PCB_AutoDesignAndTest/tooling/KiCadRoutingTools/rust_router/grid_router.so",
+     "kind": "native-binary",
+     "sha256": "0ab816395a9af7bdfea8bdee1a768bb6549d1faf348e74406e14babfd46cef1e",
+     "version": "0.21.1"
+    },
+    "python": {
+     "executable": "python3",
+     "version": "3.12.3"
+    },
+    "kicad_cli": "/usr/bin/kicad-cli",
+    "kicad_version": "10.0.5",
+    "meaning": "the routing implementation identity for this run; a different sha, dirty state or native hash is a different router, and downstream routing-derived artifacts must go stale with it"
+   }
+  },
+  {
+   "stage": "prepare",
+   "circular_outlines_converted": 1,
+   "removed_tracks_and_vias": 1338,
+   "zone_policy_outcome": {
+    "policy_version": "1",
+    "kept": 169,
+    "deleted": 119,
+    "per_rule": [
+     {
+      "decision": "inherited-architecture",
+      "matched": 2,
+      "kept": 2,
+      "deleted": 0
+     },
+     {
+      "decision": "derived-from-placement",
+      "matched": 286,
+      "kept": 167,
+      "deleted": 119
+     }
+    ]
+   }
+  },
+  {
+   "stage": "seed_placement_attempt",
+   "attempt": 0,
+   "outcome": "evaluated",
+   "policy_ok": true,
+   "violated": [],
+   "collision_checked_overlaps_moved": []
+  },
+  {
+   "stage": "seed_placement",
+   "outcome": "ok",
+   "moved_footprints": 104,
+   "output_sha256": "0e486907975b4f44a9112aa49abe0f19c0d4d0f00bb6184bd65bc1f77cfb7800"
+  },
+  {
+   "stage": "place_optimize",
+   "attempt_id": "a004",
+   "input_board_sha256": "0e486907975b4f44a9112aa49abe0f19c0d4d0f00bb6184bd65bc1f77cfb7800",
+   "tool": "place_optimize.py",
+   "tool_sha256": "632ca0e8f57c402c94bad66f883a92f33aeadbb492220b59ed96773d9a2df36c",
+   "krt_identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe",
+   "configuration": [
+    "--max-displacement",
+    "200",
+    "--step",
+    "3.0",
+    "--max-passes",
+    "1",
+    "--lock",
+    "CM1",
+    "CM10",
+    "CM11",
+    "CM12",
+    "CM13",
+    "CM14",
+    "CM15",
+    "CM16",
+    "CM2",
+    "CM3",
+    "CM4",
+    "CM5",
+    "CM6",
+    "CM7",
+    "CM8",
+    "CM9",
+    "J1",
+    "J2",
+    "J3",
+    "MK1",
+    "MK10",
+    "MK11",
+    "MK12",
+    "MK13",
+    "MK14",
+    "MK15",
+    "MK16",
+    "MK2",
+    "MK3",
+    "MK4",
+    "MK5",
+    "MK6",
+    "MK7",
+    "MK8",
+    "MK9",
+    "RD1",
+    "RD10",
+    "RD11",
+    "RD12",
+    "RD13",
+    "RD14",
+    "RD15",
+    "RD16",
+    "RD2",
+    "RD3",
+    "RD4",
+    "RD5",
+    "RD6",
+    "RD7",
+    "RD8",
+    "RD9",
+    "U3",
+    "U4"
+   ],
+   "locked_references": 53,
+   "lock_meaning": "fixed parts and satellites of fixed anchors only; blocks stay free, repair and the evaluator own their constraints",
+   "timeout_s": 1500,
+   "status": "completed",
+   "output_path": "stages/a004-quench-0e486907.kicad_pcb",
+   "seconds": 1085.1,
+   "returncode": 0,
+   "log_tail": "0782819, \"cost_before\": 11319.273725860452, \"crossings_after\": 211, \"crossings_before\": 696, \"hole_conflicts_after\": 0, \"hole_conflicts_before\": 0, \"hole_shortfall\": 0.0, \"hpwl\": 2798.679054000001, \"hpwl_after\": 2798.679054000001, \"hpwl_before\": 3843.3107729999997, \"locked_contact_pairs\": 0, \"oob_amount\": 0.0, \"oob_area\": 0.0, \"oob_count\": 0, \"oob_pad_count_after\": 0, \"oob_pad_count_before\": 0, \"overlap_area\": 0.0, \"pad_clearance_required\": [], \"pad_conflict_pairs\": 0, \"pad_conflict_pairs_currency\": \"aabb-gate (conservative, phantoms)\", \"pad_conflicts_after\": 0, \"pad_conflicts_before\": 0, \"pad_conflicts_currency\": \"exact geometry (phantom-free)\", \"pad_intersection_pairs\": 0, \"pad_overlap_pairs\": 0, \"pad_shortfall\": 0.0, \"pad_shortfall_after\": 0.0, \"pad_shortfall_before\": 0.0, \"parts_moved\": 64}\nEXIT=0\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n",
+   "output_sha256": "4c47f56ea29ccc6942d70f28bb81b85f4641921900a971b07170fc309bd72b7c"
+  },
+  {
+   "stage": "post_quench_policy",
+   "repair_rounds": [
+    {
+     "round": 0,
+     "moved": [
+      "RH6",
+      "C1",
+      "C2",
+      "C3",
+      "C5",
+      "R2",
+      "C6",
+      "C7",
+      "RC3",
+      "RC4",
+      "RC5",
+      "RC6",
+      "RC8",
+      "C6",
+      "C7"
+     ],
+     "edge_findings": 0,
+     "edge_moved": [],
+     "deferred": []
+    }
+   ],
+   "policy_ok": true,
+   "violated": [],
+   "overlapping_pairs": [],
+   "edge_findings_remaining_movable": [],
+   "edge_findings_on_fixed": [],
+   "placed_sha256": "809adecb32a196cb5d5eceaa6c382562e3d638824a54e791dfc30e163229b83b"
+  },
+  {
+   "stage": "critical_topology",
+   "planner": "pcbqa.critical_topology",
+   "seconds": 65.8,
+   "feedback_records": 0,
+   "net_clearances": {
+    "nets": 123,
+    "histogram": {
+     "0.150": 61,
+     "0.200": 56,
+     "0.250": 6
+    },
+    "sha256": "804b8dca78412647b0ae420d290b9fcc49bb5bd447c16e88c6ce38e299a8a973"
+   },
+   "intent_sha256": "e5a03e0bc44b4c8c30a10524b4097d5a03fc1cb38951d6d8565cbce8012aa0bd",
+   "outcome": {
+    "escapes": {
+     "placed": 84,
+     "refused": [],
+     "fallback_endpoints": 13
+    },
+    "stitches": {
+     "placed": 64,
+     "refused": []
+    }
+   },
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "e297be9e6187df07036fb2110978d507ad9e296b42049660fb0b3863c6c3bdae",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   },
+   "output_sha256": "e297be9e6187df07036fb2110978d507ad9e296b42049660fb0b3863c6c3bdae"
+  },
+  {
+   "stage": "route_clock",
+   "attempt_id": "a007",
+   "input_board_sha256": "e297be9e6187df07036fb2110978d507ad9e296b42049660fb0b3863c6c3bdae",
+   "tool": "route.py",
+   "tool_sha256": "b67db22acbf1264137b150c65d42a042b7b6abe922d168a6da65a9075c1b20c8",
+   "krt_identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe",
+   "configuration": [
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "/home/pentolope/github/MicrophoneArray_PCB_V3/benchmark/boardB/fab_floors.txt",
+    "--no-bga-zones",
+    "--grid-step",
+    "0.05",
+    "--layers",
+    "F.Cu",
+    "--nets",
+    "MCLK_OSC",
+    "AUDIO_MCLK",
+    "PDM_CLK_IN",
+    "PDM_CLK_FPGA",
+    "PDM_CLK_Y0",
+    "PDM_CLK_Y1",
+    "PDM_CLK_Y2",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y4",
+    "PDM_CLK_Y5",
+    "PDM_CLK_Y6",
+    "PDM_CLK_Y7",
+    "PDM_CLK_B0",
+    "PDM_CLK_B1",
+    "PDM_CLK_B2",
+    "PDM_CLK_B3",
+    "PDM_CLK_B4",
+    "PDM_CLK_B5",
+    "PDM_CLK_B6",
+    "PDM_CLK_B7"
+   ],
+   "timeout_s": 1800,
+   "status": "completed",
+   "output_path": "stages/a007-route_clock-e297be9e.kicad_pcb",
+   "seconds": 174.8,
+   "returncode": 0,
+   "log_tail": "JSON_SUMMARY above covers only the reconciliation subset (it carries scope=\"reconciliation-subset\"); the run's full tally is the earlier JSON_SUMMARY, the one with scope=\"run\", plus these recoveries. Never scrape the LAST JSON_SUMMARY of a route log -- count them, or read the scope.\nJSON_IMPROVEMENT_GATE: {\"lost\": [], \"gained\": [\"AUDIO_MCLK\", \"MCLK_OSC\", \"PDM_CLK_B1\", \"PDM_CLK_B3\", \"PDM_CLK_B5\", \"PDM_CLK_B6\", \"PDM_CLK_B7\", \"PDM_CLK_FPGA\", \"PDM_CLK_IN\", \"PDM_CLK_Y0\", \"PDM_CLK_Y1\", \"PDM_CLK_Y2\", \"PDM_CLK_Y5\", \"PDM_CLK_Y6\"], \"disconnected_pads_before\": 230, \"disconnected_pads_after\": 201, \"nets_compared\": 83, \"verdict\": \"accept\"}\nJSON_SUMMARY_MIN: {\"failed\": 6, \"failed_single\": [\"PDM_CLK_Y3\", \"PDM_CLK_Y7\", \"PDM_CLK_Y4\", \"PDM_CLK_B2\", \"PDM_CLK_B0\", \"PDM_CLK_B4\"], \"finalize_excluded_nets\": [\"GND\"], \"main_loop_time_s\": 8.21, \"min_clearance_used\": 0.1781, \"multipoint_deficit\": 0, \"open_single\": [], \"pad_pairs_open\": {\"count\": 6, \"nets\": [\"PDM_CLK_B0\", \"PDM_CLK_B2\", \"PDM_CLK_B4\", \"PDM_CLK_Y3\", \"PDM_CLK_Y4\", \"PDM_CLK_Y7\"]}, \"routed\": 0, \"scope\": \"merged\", \"terminal_restores_broken\": [], \"vias\": 0}\nEXIT=0\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n",
+   "min_clearance_used_mm": 0.1781,
+   "output_sha256": "b106cccbf4d3dfa9ff631c85861bccc64ab02b291f2867bb097f1ee1a6303c4f",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "d2f304583df79d292e36f9e4f57f284b59eac19094d220dee45e06ea1390bd08",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "route_clock_connectivity",
+   "board_file_is_arbiter": true,
+   "complete": 14,
+   "total": 20,
+   "not_complete": {
+    "PDM_CLK_B0": "partial-copper",
+    "PDM_CLK_B2": "partial-copper",
+    "PDM_CLK_B4": "partial-copper",
+    "PDM_CLK_Y3": "partial-copper",
+    "PDM_CLK_Y4": "partial-copper",
+    "PDM_CLK_Y7": "partial-copper"
+   }
+  },
+  {
+   "stage": "route_mic-data",
+   "attempt_id": "a009",
+   "input_board_sha256": "b106cccbf4d3dfa9ff631c85861bccc64ab02b291f2867bb097f1ee1a6303c4f",
+   "tool": "route.py",
+   "tool_sha256": "b67db22acbf1264137b150c65d42a042b7b6abe922d168a6da65a9075c1b20c8",
+   "krt_identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe",
+   "configuration": [
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "/home/pentolope/github/MicrophoneArray_PCB_V3/benchmark/boardB/fab_floors.txt",
+    "--nets",
+    "PDM_D0",
+    "PDM_D1",
+    "PDM_D2",
+    "PDM_D3",
+    "PDM_D4",
+    "PDM_D5",
+    "PDM_D6",
+    "PDM_D7",
+    "MIC_DOUT_0",
+    "MIC_DOUT_1",
+    "MIC_DOUT_2",
+    "MIC_DOUT_3",
+    "MIC_DOUT_4",
+    "MIC_DOUT_5",
+    "MIC_DOUT_6",
+    "MIC_DOUT_7",
+    "MIC_DOUT_8",
+    "MIC_DOUT_9",
+    "MIC_DOUT_10",
+    "MIC_DOUT_11",
+    "MIC_DOUT_12",
+    "MIC_DOUT_13",
+    "MIC_DOUT_14",
+    "MIC_DOUT_15"
+   ],
+   "timeout_s": 1200,
+   "status": "completed",
+   "output_path": "stages/a009-route_mic-data-b106cccb.kicad_pcb",
+   "seconds": 12.5,
+   "returncode": 0,
+   "log_tail": "o to the routed floors so the in-run audit grades what ships\n      rules.min_hole_clearance: 0.25 -> 0.2 mm\n  Plane finalize: zone net(s) GND are OUTSIDE this route's --nets scope -- excluded from the finalize BY PLAN. Since #562 a pour alone connects nothing: unless a later route step covers these nets, their pads ship disconnected.\nJSON_IMPROVEMENT_GATE: {\"lost\": [], \"gained\": [\"MIC_DOUT_0\", \"MIC_DOUT_1\", \"MIC_DOUT_10\", \"MIC_DOUT_11\", \"MIC_DOUT_12\", \"MIC_DOUT_13\", \"MIC_DOUT_14\", \"MIC_DOUT_15\", \"MIC_DOUT_2\", \"MIC_DOUT_3\", \"MIC_DOUT_4\", \"MIC_DOUT_5\", \"MIC_DOUT_6\", \"MIC_DOUT_7\", \"MIC_DOUT_8\", \"MIC_DOUT_9\", \"PDM_D0\", \"PDM_D1\", \"PDM_D2\", \"PDM_D3\", \"PDM_D4\", \"PDM_D5\", \"PDM_D6\", \"PDM_D7\"], \"disconnected_pads_before\": 201, \"disconnected_pads_after\": 161, \"nets_compared\": 83, \"verdict\": \"accept\"}\nJSON_SUMMARY_MIN: {\"failed\": 0, \"failed_single\": [], \"finalize_excluded_nets\": [\"GND\"], \"main_loop_time_s\": 2.4, \"min_clearance_used\": 0.2, \"multipoint_deficit\": 0, \"open_single\": [], \"pad_pairs_open\": {\"count\": 0, \"nets\": []}, \"routed\": 24, \"scope\": \"merged\", \"terminal_restores_broken\": [], \"vias\": 13}\nEXIT=0\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n",
+   "min_clearance_used_mm": 0.2,
+   "output_sha256": "cf897ced1862e78fd2091f8114614b76f2ea756958f50558cae411427d596449",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "6651023560d9ffff5415e9daba03f51f501298790684b663b32fb8692ba4e852",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "route_mic-data_connectivity",
+   "board_file_is_arbiter": true,
+   "complete": 24,
+   "total": 24,
+   "not_complete": {}
+  },
+  {
+   "stage": "route_host",
+   "attempt_id": "a011",
+   "input_board_sha256": "cf897ced1862e78fd2091f8114614b76f2ea756958f50558cae411427d596449",
+   "tool": "route.py",
+   "tool_sha256": "b67db22acbf1264137b150c65d42a042b7b6abe922d168a6da65a9075c1b20c8",
+   "krt_identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe",
+   "configuration": [
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "/home/pentolope/github/MicrophoneArray_PCB_V3/benchmark/boardB/fab_floors.txt",
+    "--nets",
+    "SPI_SCLK",
+    "SPI_CS_N",
+    "SPI_MISO",
+    "SPI_MOSI",
+    "PI_SCLK",
+    "PI_CS_N",
+    "PI_MISO",
+    "PI_MOSI",
+    "PI_IRQ",
+    "PI_RESET_N",
+    "PI_STATUS",
+    "PI_SYNC",
+    "HOST_IRQ",
+    "HOST_RESET_N",
+    "HOST_STATUS",
+    "HOST_SYNC"
+   ],
+   "timeout_s": 1200,
+   "status": "completed",
+   "output_path": "stages/a011-route_host-cf897ced.kicad_pcb",
+   "seconds": 10.6,
+   "returncode": 0,
+   "log_tail": "route_host-cf897ced.kicad_pcb\n  In-run DRC floors (#650): lowered 1 value(s) in a011-route_host-cf897ced.kicad_pro to the routed floors so the in-run audit grades what ships\n      rules.min_hole_clearance: 0.25 -> 0.2 mm\n  Plane finalize: zone net(s) GND are OUTSIDE this route's --nets scope -- excluded from the finalize BY PLAN. Since #562 a pour alone connects nothing: unless a later route step covers these nets, their pads ship disconnected.\nJSON_IMPROVEMENT_GATE: {\"lost\": [], \"gained\": [\"HOST_IRQ\", \"HOST_RESET_N\", \"HOST_STATUS\", \"HOST_SYNC\", \"PI_CS_N\", \"PI_IRQ\", \"PI_MISO\", \"PI_MOSI\", \"PI_RESET_N\", \"PI_SCLK\", \"PI_STATUS\", \"PI_SYNC\", \"SPI_CS_N\", \"SPI_MISO\", \"SPI_MOSI\", \"SPI_SCLK\"], \"disconnected_pads_before\": 161, \"disconnected_pads_after\": 136, \"nets_compared\": 83, \"verdict\": \"accept\"}\nJSON_SUMMARY_MIN: {\"failed\": 0, \"failed_single\": [], \"finalize_excluded_nets\": [\"GND\"], \"main_loop_time_s\": 1.46, \"min_clearance_used\": 0.2, \"multipoint_deficit\": 0, \"open_single\": [], \"pad_pairs_open\": {\"count\": 0, \"nets\": []}, \"routed\": 16, \"scope\": \"merged\", \"terminal_restores_broken\": [], \"vias\": 25}\nEXIT=0\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n",
+   "min_clearance_used_mm": 0.2,
+   "output_sha256": "54b04f381a7a7b17de33e00458370fd4e3e9944aae6cf881d45a45d9d6a84029",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "da3e17b0b2f03fbb8984ab4a9aaf226f816ac4405a007ab4cb01753031f7c03e",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "route_host_connectivity",
+   "board_file_is_arbiter": true,
+   "complete": 16,
+   "total": 16,
+   "not_complete": {}
+  },
+  {
+   "stage": "route_power",
+   "attempt_id": "a013",
+   "input_board_sha256": "54b04f381a7a7b17de33e00458370fd4e3e9944aae6cf881d45a45d9d6a84029",
+   "tool": "route.py",
+   "tool_sha256": "b67db22acbf1264137b150c65d42a042b7b6abe922d168a6da65a9075c1b20c8",
+   "krt_identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe",
+   "configuration": [
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "/home/pentolope/github/MicrophoneArray_PCB_V3/benchmark/boardB/fab_floors.txt",
+    "--via-size",
+    "0.6",
+    "--via-drill",
+    "0.35",
+    "--nets",
+    "5V_FUSED",
+    "+5V",
+    "PI_5V",
+    "+3V3A",
+    "+3V3_CLK",
+    "TANG_3V3",
+    "MIC_VDD_0",
+    "MIC_VDD_1",
+    "MIC_VDD_2",
+    "MIC_VDD_3",
+    "MIC_VDD_4",
+    "MIC_VDD_5",
+    "MIC_VDD_6",
+    "MIC_VDD_7",
+    "MIC_VDD_8",
+    "MIC_VDD_9",
+    "MIC_VDD_10",
+    "MIC_VDD_11",
+    "MIC_VDD_12",
+    "MIC_VDD_13",
+    "MIC_VDD_14",
+    "MIC_VDD_15",
+    "GND"
+   ],
+   "timeout_s": 1800,
+   "status": "completed",
+   "output_path": "stages/a013-route_power-54b04f38.kicad_pcb",
+   "seconds": 51.9,
+   "returncode": 0,
+   "log_tail": "(pcbnew refill)\n  KiCad-oracle recheck: KiCad reports all processed nets complete\n  plane finalize pass FAILED: cannot access local variable 'name_to_id' where it is not associated with a value\n  Zone net(s) left UNVERIFIED by the kicad-oracle: GND -- the printed JSON_SUMMARY predates the finalize and may over-credit these nets; re-verify with check_connected/check_drc before trusting this board.\nJSON_IMPROVEMENT_GATE: {\"lost\": [], \"gained\": [\"+3V3A\", \"+3V3_CLK\", \"+5V\", \"5V_FUSED\", \"GND\", \"MIC_VDD_0\", \"MIC_VDD_1\", \"MIC_VDD_10\", \"MIC_VDD_11\", \"MIC_VDD_12\", \"MIC_VDD_13\", \"MIC_VDD_14\", \"MIC_VDD_15\", \"MIC_VDD_2\", \"MIC_VDD_3\", \"MIC_VDD_4\", \"MIC_VDD_5\", \"MIC_VDD_6\", \"MIC_VDD_7\", \"MIC_VDD_8\", \"MIC_VDD_9\", \"PI_5V\", \"TANG_3V3\"], \"disconnected_pads_before\": 136, \"disconnected_pads_after\": 6, \"nets_compared\": 83, \"verdict\": \"accept\"}\nJSON_SUMMARY_MIN: {\"failed\": 0, \"failed_single\": [], \"main_loop_time_s\": 5.37, \"min_clearance_used\": 0.2, \"multipoint_deficit\": 0, \"open_single\": [], \"pad_pairs_open\": {\"count\": 0, \"nets\": []}, \"routed\": 23, \"scope\": \"merged\", \"terminal_restores_broken\": [], \"vias\": 91}\nEXIT=0\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n",
+   "min_clearance_used_mm": 0.2,
+   "output_sha256": "35fb2ba26ef66fb31061b5286b97f8ddb78fbd25ae10c4005a16ab75c989f84a",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "f2e58b9ebcd349c15ca87397033bc7175596a3f7cc15f70d6904d1906d171e0e",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "route_power_connectivity",
+   "board_file_is_arbiter": true,
+   "complete": 23,
+   "total": 23,
+   "not_complete": {}
+  },
+  {
+   "stage": "route_cleanup_clock",
+   "attempt_id": "a015",
+   "input_board_sha256": "c2398ec7a052aa725e1d3b24f01f33ea006baf01751c9207996a456e84a8d3f8",
+   "tool": "route.py",
+   "tool_sha256": "b67db22acbf1264137b150c65d42a042b7b6abe922d168a6da65a9075c1b20c8",
+   "krt_identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe",
+   "configuration": [
+    "--via-proximity-cost",
+    "25",
+    "--no-fix-drc-settings",
+    "--fab-overrides",
+    "/home/pentolope/github/MicrophoneArray_PCB_V3/benchmark/boardB/fab_floors.txt",
+    "--no-bga-zones",
+    "--grid-step",
+    "0.05",
+    "--layers",
+    "F.Cu",
+    "--nets",
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y4",
+    "PDM_CLK_Y7",
+    "PDM_CLK_B0",
+    "PDM_CLK_B2",
+    "PDM_CLK_B4"
+   ],
+   "timeout_s": 1800,
+   "status": "completed",
+   "output_path": "stages/a015-route_cleanup_clock-c2398ec7.kicad_pcb",
+   "reattempted_nets": [
+    "PDM_CLK_Y3",
+    "PDM_CLK_Y4",
+    "PDM_CLK_Y7",
+    "PDM_CLK_B0",
+    "PDM_CLK_B2",
+    "PDM_CLK_B4"
+   ],
+   "seconds": 57.9,
+   "returncode": 0,
+   "log_tail": "d\": 0, \"pairs_total\": 1, \"outcome\": \"open\", \"open_subtype\": \"unrouted\"}], \"scope\": \"reconciliation-subset\", \"board_scoped_keys\": [\"stacked_copper\", \"min_clearance_used\"], \"env_knobs\": {}}\nNote: the JSON_SUMMARY above covers only the reconciliation subset (it carries scope=\"reconciliation-subset\"); the run's full tally is the earlier JSON_SUMMARY, the one with scope=\"run\", plus these recoveries. Never scrape the LAST JSON_SUMMARY of a route log -- count them, or read the scope.\nJSON_IMPROVEMENT_GATE: {\"lost\": [], \"gained\": [], \"disconnected_pads_before\": 6, \"disconnected_pads_after\": 6, \"nets_compared\": 83, \"verdict\": \"accept\"}\nJSON_SUMMARY_MIN: {\"failed\": 6, \"failed_single\": [\"PDM_CLK_Y3\", \"PDM_CLK_Y7\", \"PDM_CLK_Y4\", \"PDM_CLK_B2\", \"PDM_CLK_B0\", \"PDM_CLK_B4\"], \"finalize_excluded_nets\": [\"GND\"], \"main_loop_time_s\": 2.63, \"min_clearance_used\": 0.1875, \"multipoint_deficit\": 0, \"open_single\": [], \"pad_pairs_open\": {\"count\": 6, \"nets\": [\"PDM_CLK_B0\", \"PDM_CLK_B2\", \"PDM_CLK_B4\", \"PDM_CLK_Y3\", \"PDM_CLK_Y4\", \"PDM_CLK_Y7\"]}, \"routed\": 0, \"scope\": \"merged\", \"terminal_restores_broken\": [], \"vias\": 0}\nEXIT=0\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n./kicad/include/properties/property.h(607): assert \"m_choices.GetCount() > 0\" failed in PROPERTY_ENUM(): No enum choices defined\n",
+   "min_clearance_used_mm": 0.1875,
+   "output_sha256": "fd8391e13b9fc8339986c6402e0f975f0dcda98406132b4e8ff2bfc1b45687af",
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "cf994bd02f889c66c62e403ecc007534e22104cf512edbc30710887192d2b885",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   }
+  },
+  {
+   "stage": "last_mile_repair",
+   "round": 0,
+   "outcome": {
+    "PDM_CLK_B0": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B2": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_B4": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y3": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: no escape path exists at the declared values within the search window)"
+    },
+    "PDM_CLK_Y4": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    },
+    "PDM_CLK_Y7": {
+     "refused": "no endpoint of 1 candidate(s) is reachable at the declared values within the search window (last: escape endpoints fall outside the search window)"
+    }
+   },
+   "fabrication_geometry": {
+    "ok": true,
+    "violations_by_type": {},
+    "judged_board_sha256": "cf994bd02f889c66c62e403ecc007534e22104cf512edbc30710887192d2b885",
+    "detail": "kicad-cli DRC at the board's declared rules (judged bytes: the refilled working copy, bound above); only fabrication-geometry violation types counted"
+   },
+   "output_sha256": "609290871ad01b329df6803e5b32bc827d1d9408c1fbe5cd19b9219d0a167eb7"
+  },
+  {
+   "stage": "final_candidate",
+   "from_attempt_output": "stages/a013-route_power-54b04f38.kicad_pcb",
+   "zones_refilled": true,
+   "output_sha256": "609290871ad01b329df6803e5b32bc827d1d9408c1fbe5cd19b9219d0a167eb7",
+   "connectivity_complete": 77,
+   "net_total": 83,
+   "not_complete": {
+    "PDM_CLK_B0": "partial-copper",
+    "PDM_CLK_B2": "partial-copper",
+    "PDM_CLK_B4": "partial-copper",
+    "PDM_CLK_Y3": "partial-copper",
+    "PDM_CLK_Y4": "partial-copper",
+    "PDM_CLK_Y7": "partial-copper"
+   }
+  }
+ ],
+ "krt": {
+  "identity_sha256": "e731e602d7fc757d95cb3db6690d2a4d33639c3566670b9c8611bc446a0e70fe",
+  "resolution_origin": "vendored submodule",
+  "provenance": {
+   "kind": "krt-provenance",
+   "source_path": "/home/pentolope/github/MicrophoneArray_PCB_V3/tooling/PCB_AutoDesignAndTest/tooling/KiCadRoutingTools",
+   "version": "0.21.3",
+   "git": {
+    "sha": "dc2d365ca261f0c7ee23071884a3523e09e7efdb",
+    "dirty": false,
+    "upstream_base": null
+   },
+   "grid_router": {
+    "path": "/home/pentolope/github/MicrophoneArray_PCB_V3/tooling/PCB_AutoDesignAndTest/tooling/KiCadRoutingTools/rust_router/grid_router.so",
+    "kind": "native-binary",
+    "sha256": "0ab816395a9af7bdfea8bdee1a768bb6549d1faf348e74406e14babfd46cef1e",
+    "version": "0.21.1"
+   },
+   "python": {
+    "executable": "python3",
+    "version": "3.12.3"
+   },
+   "kicad_cli": "/usr/bin/kicad-cli",
+   "kicad_version": "10.0.5",
+   "meaning": "the routing implementation identity for this run; a different sha, dirty state or native hash is a different router, and downstream routing-derived artifacts must go stale with it"
+  }
+ }
+}
