@@ -220,7 +220,21 @@ class Build:
         with open(PLAN, encoding="utf-8") as fh:
             plan = json.load(fh)
         shutil.copy2(PLAN, os.path.join(self.root, "routing_plan.json"))
-        root = plan["tool"]["root"]
+        # WHICH router, resolved by the toolkit's declared order rather than
+        # by a path written down here. The plan used to carry an absolute
+        # root, which meant the build only ran on the one machine that string
+        # described; the router is now a submodule of the toolkit, so a
+        # recursive clone has it at a pinned revision and nobody has to agree
+        # on where it lives. An explicit override still wins - see pcbqa.krt.
+        from pcbqa import krt
+        toolchain = _toolkit.toolchain().get("router") or {}
+        resolved = krt.resolve(
+            configured=toolchain.get("development_checkout") or None,
+            plugin_dirs=toolchain.get("plugin_dirs") or [])
+        root = resolved["path"]
+        self.log.append({"stage": "route:resolve", "router": root,
+                         "origin": resolved["origin"]})
+        print("  router: {} ({})".format(root, resolved["origin"]))
         current = os.path.join(self.work, BOARD)
         ok = True
         for index, stage in enumerate(plan["stages"]):

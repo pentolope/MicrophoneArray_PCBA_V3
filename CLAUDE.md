@@ -32,8 +32,11 @@ See [docs/migration.md](docs/migration.md) for what changed and why, and
    that must pass every gate and an explicit equivalence review before it
    replaces the committed one. The generator is not a second design authority.
 3. Use KiCad Routing Tools only, to propose tracks and permitted new routing
-   vias. The superseded external autorouter and its Specctra DSN/SES exchange
-   have been removed from this repository, and neither is to be reintroduced.
+   vias. It is a submodule of the toolkit, pinned to a commit on its
+   `pcba-autonomy` branch and resolved through `pcbqa.krt`; no sibling
+   checkout and no absolute path. The superseded external autorouter and its
+   Specctra DSN/SES exchange have been removed from this repository, and
+   neither is to be reintroduced.
 4. Never overwrite the source board while generating or importing a route.
    Route only into fresh candidate paths.
 5. Do not change the electrical design, netlist, placement, board outline,

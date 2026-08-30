@@ -85,10 +85,17 @@ The unusable `rustc` and `cargo` 1.75 *binary* packages are removed; their
 nothing needed them gone and apt did not pull them. No `rustup`, no
 third-party binary.
 
-The router is built from source rather than downloaded:
+The router is a **submodule of the toolkit**, at
+`tooling/PCB_AutoDesignAndTest/tooling/KiCadRoutingTools`, pinned to a commit
+on its `pcba-autonomy` branch. There is no sibling checkout to find and no
+absolute path to agree on: a recursive clone has it, at one reviewable
+revision. `pcbqa.krt` resolves it, and an explicit override still wins - see
+`board/toolchain.json`'s `development_checkout`.
+
+A fresh clone has the source but not the compiled extension, so build it once:
 
 ```bash
-cd /home/pentolope/github/KiCadRoutingTools && python3 build_router.py --from-source
+cd tooling/PCB_AutoDesignAndTest/tooling/KiCadRoutingTools && python3 build_router.py --from-source
 ```
 
 That writes `rust_router/grid_router.so`, which is `.gitignore`d, so building
@@ -157,8 +164,10 @@ true the moment a routed candidate is recorded against a locally built router.
 - `kicad.stock_footprint_libraries` and `kicad.stock_symbol_libraries` point at
   `/usr/share/kicad/`, and `tools/gen_pcb.py` and `tools/gen_schematic.py`
   derive every library path from them rather than restating any.
-- `router.development_checkout` names the KiCadRoutingTools checkout;
-  `router.plugin_dirs` is the Linux KiCad user base, `~/.local/share/kicad/`.
+- `router.development_checkout` is null: the router is the toolkit's own
+  submodule, and this key survives only as the affordance for testing an
+  unpinned checkout. `router.plugin_dirs` is the Linux KiCad user base,
+  `~/.local/share/kicad/`, which need not exist.
 
 ## Reproducing this environment
 

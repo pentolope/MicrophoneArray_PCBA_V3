@@ -27,11 +27,12 @@
   },
   "router": {
     "name": "KiCad Routing Tools",
-    "development_checkout": "/home/pentolope/github/KiCadRoutingTools",
+    "development_checkout": null,
+    "development_checkout_note": "Null on purpose. The router is a submodule of the toolkit at tooling/KiCadRoutingTools, pinned to a commit on its pcba-autonomy branch, so a recursive clone has it and no absolute path has to be true on more than one machine. This key survives as the development affordance it always was: set it to a local checkout to test an unpinned router, and pcbqa.krt will prefer it over the submodule. Setting it to a path that is not a KRT root is an error, never a silent fall-through.",
     "plugin_dirs": [
       "/home/pentolope/.local/share/kicad/10.0/3rdparty/plugins"
     ],
-    "note": "Resolved through pcbqa.krt: explicit override, then this development checkout, then a single active plugin installation; a path under disabled_pcm_plugins always refuses. The old PCM-rooted 'root' key is retired - that installation is disabled on purpose. On Linux the KiCad user base is ~/.local/share/kicad, so the plugin directory is versioned beneath it. That directory need not exist: nothing has been installed there, the scan skips a directory that is absent, and on this machine it is development_checkout that resolves. It is listed so that an installed plugin WOULD be found, and so that the disabled_pcm_plugins refusal has somewhere to apply."
+    "note": "Resolved through pcbqa.krt: explicit override, then PCB_KRT_PATH, then this development checkout, then the router vendored into the toolkit as its tooling/KiCadRoutingTools submodule, then a single active plugin installation; a path under disabled_pcm_plugins always refuses. On this machine it is the SUBMODULE that resolves, because development_checkout is null. The old PCM-rooted 'root' key is retired - that installation is disabled on purpose. plugin_dirs is the Linux KiCad user base, ~/.local/share/kicad, versioned; it need not exist, and while the submodule is present the scan is unreachable anyway, since a pinned router outranks an ambient installation. It stays declared so the order is complete and the disabled_pcm_plugins refusal has somewhere to apply."
   },
   "toolkit": {
     "path": "tooling/PCB_AutoDesignAndTest",

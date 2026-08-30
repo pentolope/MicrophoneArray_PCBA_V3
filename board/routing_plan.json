@@ -16,8 +16,7 @@
     "name": "KiCad Routing Tools",
     "package": "com_github_drandyhaas_kicadroutingtools",
     "entry": "py_router/route.py",
-    "root": "/home/pentolope/github/KiCadRoutingTools",
-    "note": "root is the source checkout, so the entry carries its package directory. The old root was an installed PCM plugin, whose installer flattens py_router/ to the plugin's top level - which is why the entry used to be a bare route.py. Same script either way; only the layout around it differs."
+    "note": "No root. The router is a submodule of the toolkit at tooling/KiCadRoutingTools, and tools/build.py resolves it through pcbqa.krt - explicit override, then PCB_KRT_PATH, then a configured checkout, then that submodule, then a single active plugin installation. A path written here would be a second answer to a question the toolkit already answers, and the absolute one it used to carry only existed on one machine. The entry stays relative to whatever root resolves, and carries its package directory because a source checkout keeps py_router/ where a PCM install would have flattened it."
   },
   "policy": {
     "layers": ["F.Cu", "B.Cu"],

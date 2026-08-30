@@ -78,19 +78,23 @@ from pcbqa import krt                              # noqa: E402
 
 #: Resolved once per process: WHICH KiCadRoutingTools, from the
 #: toolchain configuration through the toolkit's deterministic
-#: discovery (override -> configured checkout -> single active
-#: plugin installation; disabled installations refuse). The
-#: interpreter that runs KRT tools is the configured KiCad Python,
+#: discovery (override -> PCB_KRT_PATH -> configured checkout ->
+#: the router vendored as the toolkit's tooling/KiCadRoutingTools
+#: submodule -> single active plugin installation; disabled
+#: installations refuse). With that submodule present it is what
+#: answers here, since development_checkout is null. The
+#: interpreter that runs KRT tools is the configured Python,
 #: verified to import pcbnew - never the ambient one.
 _KRT_RESOLVED = krt.resolve(
     configured=TOOLCHAIN["router"].get("development_checkout"),
     plugin_dirs=TOOLCHAIN["router"].get("plugin_dirs"))
 KRT_ROOT = _KRT_RESOLVED["path"]
 #: Which discovery channel actually produced KRT_ROOT ("override",
-#: the environment variable, "configured checkout", or a plugin
-#: scan). Recorded in the derivation: a run steered by an ambient
-#: PCB_KRT_PATH must be distinguishable from one using the
-#: configured checkout, or the ambience becomes invisible.
+#: the environment variable, "configured checkout", "vendored
+#: submodule", or a plugin scan). Recorded in the derivation: a run
+#: steered by an ambient PCB_KRT_PATH must be distinguishable from
+#: one using the pinned submodule, or the ambience becomes
+#: invisible.
 KRT_ORIGIN = _KRT_RESOLVED["origin"]
 KRT_PYTHON = TOOLCHAIN["kicad"]["python"]
 
