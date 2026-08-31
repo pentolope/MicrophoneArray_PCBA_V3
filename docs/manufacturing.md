@@ -1,20 +1,21 @@
 # Manufacturing and bring-up
 
-## Release package
+## Fabrication artifacts
 
-`generated/release/`, built by the clean-room release in a single run from one
-board revision:
+`generated/release/` holds the fabrication outputs as **committed files**. They
+are the exact bytes that were sent to manufacture, kept so that a tagged commit
+stays fabricable years later without regenerating anything - whatever KiCad,
+the toolkit or JLCPCB's website does in the meantime.
 
 ```bash
-python3 tooling/PCBA_AutoDesignAndTest/run.py release board/manifest.live.json
+python3 tooling/PCBA_AutoDesignAndTest/run.py build board/manifest.live.json
 ```
 
-It copies the project into an empty directory, purges every pre-existing
-output, regenerates everything from the native KiCad files with `kicad-cli`,
-re-runs the full validation against what it produced, and publishes only if
-every gate passes. The BOM and CPL come from the schematic and the board, not
-from the Python model that generated them - a released part list has to be
-derived from the thing being manufactured.
+`build` runs `kicad-cli` against a private copy of the project - the design is
+never opened for writing - and installs the whole set, or none of it. The BOM
+and CPL come from the schematic and the board, not from the Python model that
+generated them: a released part list has to be derived from the thing being
+manufactured.
 
 | File | Contents |
 |---|---|
@@ -22,28 +23,38 @@ derived from the thing being manufactured.
 | `gerbers/` | the same layers unzipped, as exported |
 | `bom.csv` | JLCPCB BOM, 15 lines |
 | `cpl.csv` | JLCPCB pick-and-place, 103 placements, all top side |
-| `MANIFEST.md` | SHA-256 of the archive, board and each data file |
 | `reports/` | the ERC and DRC JSON the gates were run against |
-| `validation.json`, `clean_room.json` | what was checked, and what produced it |
-| `RECEIPT.json` | every file above, with its digest, written last |
+| `fabrication.json` | every artifact above with its digest, the source closure they were generated from, the tool versions and the toolkit commit |
+| `validation.json` | the verdict, written by `validate --write` |
 
-Everything in that directory comes from one clean-room run, and
-`PROV.RELEASE_COHERENCE` enforces it rather than asserting it:
+`fabrication.json` names no tag and no commit: it is committed before either
+exists, so its provenance is content-addressed instead. `ARCH.PROVENANCE`
+checks it on every validation - that every recorded artifact is present with
+exactly the recorded digest, that nothing unrecorded is sitting beside them,
+and that the source closure it was generated from is the closure the design
+still has. Artifacts left over from an earlier design fail there rather than
+being shipped.
+
+## Releasing
+
+A release is a Git tag over a commit that already carries all of the above.
 
 ```bash
-python3 tooling/PCBA_AutoDesignAndTest/run.py coherence board/manifest.live.json
+python3 tooling/PCBA_AutoDesignAndTest/run.py release-check board/manifest.live.json
 ```
 
-The check fails if the release manifest describes an archive that is not there,
-if the validation report validated a different archive, if any file names a
-different source closure from the rest, or if a file is present that the
-receipt does not account for.
+Exits zero only when the working tree is clean, both submodules are exactly at
+their committed gitlinks, every release artifact and every file named in
+`release_profile.required_evidence` is tracked by Git, every mandatory gate
+passes now, and the committed `validation.json` accepted this same design. It
+writes nothing, changes no Git state and creates no tag; when it passes it
+prints the `git tag -a` command. Creating the tag needs the same authorisation
+as any other push.
 
 The review renders - top, bottom, the stacking plan and the four copper
-layers - live in [generated/renders/](../generated/renders) rather than in the
-release package. The clean-room run purges and never regenerates them, so
-keeping them inside the package would contradict the statement in
-`UNSEALED.txt` that every file there came from that run.
+layers - live in [generated/renders/](../generated/renders) rather than beside
+the fabrication artifacts: they are documentation, not manufacturing output,
+and `build` neither produces nor records them.
 
 ### Why the layers are named the way they are
 
@@ -154,7 +165,7 @@ re-review rather than a release failure:
 python3 tools/jlc_orientation.py check-live
 ```
 
-`CPL.ORIENTATION` re-scores that frozen evidence on every release and requires
+`CPL.ORIENTATION` re-scores that frozen evidence on every validation and requires
 the registry to agree with it, checks the registry covers everything the BOM
 and the board say will be fitted, and recomputes each shipped angle as the
 board angle plus the reviewed offset, normalised into `[0, 360)` - half-open,
@@ -162,10 +173,10 @@ so `0` is a placement angle and `360` is not, including when rounding would
 otherwise carry a value up to it. Checking the shipped file against the table
 the generator used would only prove a program can apply its own table twice.
 `PROV.SOURCE_CLOSURE` separately requires the script, this schema and both
-evidence files for all fifteen entries to be inside the release's source
+evidence files for all fifteen entries to be inside the design's source
 closure, so an input cannot quietly stop being tracked - and, because these
 offsets are *derived* rather than read off the board, the code that derives
-them is tracked with them. `pcbqa.orientation`, `pcbqa.cleanroom`,
+them is tracked with them. `pcbqa.orientation`, `pcbqa.build`,
 `pcbqa.gates.g_orientation` and `tools/jlc_orientation.py` are hashed from the
 modules that were actually imported, not from files at a path, so a stale copy
 sitting at a tracked path cannot stand in for the code that ran. Editing any of
@@ -181,15 +192,15 @@ the selected board and schematic are covered because they were selected and not
 because a glob happened to reach them - point the release at a different board
 and the closure changes. Its digests are canonical, so a checkout with either
 line ending is the same design. And the manifest enters as its *content* rather
-than as its file digest, minus exactly the leaves the clean room assigns, so
-the reports a run produces can still be checked from the repository that
-produced them.
+than as its file digest, so two spellings of one configuration are one identity
+while any change of substance - a threshold, a reviewed offset, an output path -
+is a different one.
 
-That exclusion list is owned by `pcbqa.cleanroom`, not by the board file: a
-manifest may name a subset of it and nothing else, so no board can excuse its
-own release-affecting configuration from its own provenance. The release
-compares the origin and clean-room closures and refuses to publish if they
-disagree.
+Nothing is excused from that except `project_root`, which is location rather
+than content: every file the closure records is already named relative to it,
+and the rule is owned by `pcbqa.closure` rather than declarable by a board, so
+no board can excuse its own release-affecting configuration from its own
+provenance.
 
 Nothing else takes an offset, and that is measured rather than assumed. When
 JLCPCB revised the first production upload they corrected 11 of the 16
@@ -209,9 +220,11 @@ be confirmed that those 48 now match what JLCPCB produced**; that would need
 their revised CPL, which was never supplied. The list is recorded under
 `undocumented_production_edits` in the manifest.
 
-**This is a release candidate, not an approved production file.** Upload the
-package and step through JLCPCB's Gerber and pick-and-place previews before
-paying for it.
+**A tag is not an approved production file.** Upload the package and step
+through JLCPCB's Gerber and pick-and-place previews before paying for it, and
+record that review at `release_profile.required_evidence` -
+`generated/release/visual_review.json` - which `release-check` requires before
+a commit becomes taggable.
 
 ## Order options
 

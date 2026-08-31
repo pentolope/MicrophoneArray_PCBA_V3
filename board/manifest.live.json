@@ -32,13 +32,15 @@
       "*~",
       "*.kicad_pcb-bak",
       "*.kicad_sch-bak"
-    ],
-    "inventory_policy": "the live board declares no frozen fixture of its own; these globs are what a clean-room release rejects from the copy it freezes"
+    ]
   },
   "artifacts": {
     "gerber_dir": "generated/release/gerbers",
     "bom": "generated/release/bom.csv",
     "cpl": "generated/release/cpl.csv",
+    "reports_dir": "generated/release/reports",
+    "fabrication_manifest": "generated/release/fabrication.json",
+    "validation_report": "generated/release/validation.json",
     "position_tolerance_mm": 0.01,
     "cpl_fields": {
       "designator": "Designator",
@@ -62,7 +64,7 @@
       "--use-drill-file-origin",
       "--subtract-soldermask"
     ],
-    "note": "These describe what the clean-room release writes. They used to describe tools/make_release.py, which derived the BOM and CPL from the Python model and has been retired for exactly that reason; the two layouts differ in field names and in origin, so a stale description reads every placement as wrong."
+    "note": "Where `run.py build` installs the fabrication outputs and where `run.py validate --write` records the verdict. Ordinary committed files: a release tag names the commit that carries them."
   },
   "checks": {
     "description": "The mandatory ERC/DRC options, severities and exit-code meanings are defined and verified by the validator (pcbqa.gates.g_checks), not here: a board that could relax them could pass a check it never ran. Only additional board-specific options belong in this block.",
@@ -103,7 +105,8 @@
     "source_closure_note": "The design as it is manufactured, plus what the offsets are derived from. The schematic is one sheet, so the hierarchy is the root file; a recursive **/*.kicad_sch glob used to pull in every other board's fixture and every past attempt's copy, which made the closure depend on what happened to be lying in the output tree. Whatever these globs reach, every file named in `sources` is added to the closure by name as well, so the selected board and schematic are covered because they were selected and not because a glob happened to find them.",
     "implementation_closure": [
       "pcbqa.orientation",
-      "pcbqa.cleanroom",
+      "pcbqa.build",
+      "pcbqa.closure",
       "pcbqa.gates.g_orientation",
       "pcbqa.connectivity",
       "pcbqa.electrical_path",
@@ -117,7 +120,7 @@
     "implementation_closure_note": "Modules that DERIVE a shipped value rather than read one off the board, addressed by import name rather than by path. The orientation offsets are computed by this code, so a release is only reproducible if the code is pinned as well as its inputs. Each entry is hashed from the loaded module's own __file__, so what is recorded is the implementation that ran and not a copy of it that happened to be lying next to it. tools/jlc_orientation.py is not listed here because it travels with the project and is already a file-closure member; PROV.SOURCE_CLOSURE separately proves the imported copy is that same file.\n\nThe interconnect timing modules are here for the same reason. A path length is not read off the board either: it is the shortest connected walk over polygon intersections, composed across nets and component crossings, and every one of those steps is code. pcbqa.connectivity is included because it is the primitive that actually measures the copper - pinning the composition layer while leaving the measurement unpinned would be a provenance claim that is not true.\n\nThree of these were added when PROV.DERIVATION_CLOSURE started asking the gate registry rather than this list what has to be covered. pcbqa.rules and pcbqa.gates.g_contracts compute NET.TOPOLOGY's path lengths and had never been pinned - a gap that predates the timing work and that no check could see while the only question asked was whether this list agreed with itself.",
     "source_hash_field": "source_sha256",
     "closure_field": "source_closure_sha256",
-    "files_note": "Where the installed release keeps the check reports it shipped. This used to name a directory that held none, so the freshness gate passed by examining nothing.",
+    "files_note": "Where the committed check reports live. This used to name a directory that held none, so the freshness gate passed by examining nothing.",
     "required_steps": [
       "erc",
       "drc"
@@ -130,24 +133,7 @@
       "candidates/**",
       ".git/**"
     ],
-    "source_closure_exclude_note": "Never inputs to the released design, and present on some machines and not others: the validator's own tree and its fixtures, this board's own output, and the routing scratch that produced the board rather than being produced from it. A closure that changed depending on whether a previous attempt was still on disk would identify nothing.",
-    "configuration_excludes": [
-      "board_id",
-      "project_root",
-      "fixture.hash_file",
-      "fixture.attributes_file",
-      "reports.files",
-      "artifacts.gerber_dir",
-      "artifacts.bom",
-      "artifacts.cpl",
-      "artifacts.cpl_fields",
-      "artifacts.cpl_origin",
-      "assembly.bom_fields",
-      "archive.zip",
-      "archive.manifest",
-      "archive.pre_normalization_digests"
-    ],
-    "configuration_excludes_note": "The manifest enters provenance as its CONTENT, not as its file digest, because a clean room must rewrite where everything is - the project moves, the outputs move, the board id gains a suffix - and hashing the manifest file would guarantee that the reports a run produced could never be checked against the repository that produced them.\n\nThese are the exact leaves derive_manifest assigns, and nothing else. Whole objects are deliberately not listed: sources and tools are copied through untouched, and only two of fixture's leaves move, so excluding those objects would let the selected board, the selected schematic, the toolchain and the fixture rejection policy change without changing the identity of the result.\n\nThe permitted set is owned by pcbqa.cleanroom, not by this file. A board may name a subset of it and nothing more: a manifest that could exclude release_generation would be a manifest that could change the reviewed offsets without changing what the closure says about them. The three values listed here that are not pure paths - cpl_fields, cpl_origin, bom_fields - are copied by derive_manifest out of release_generation, which is covered."
+    "source_closure_exclude_note": "Never inputs to the released design, and present on some machines and not others: the validator's own tree and its fixtures, this board's own output, and the routing scratch that produced the board rather than being produced from it. A closure that changed depending on whether a previous attempt was still on disk would identify nothing."
   },
   "stackup": {
     "description": "Both inner layers are ground. The board draws about 200 mA, which the 0.6 mm supply tracks carry comfortably, so an unbroken reference plane under every outer trace is worth more here than a power plane - and no PDM clock or data line can cross a plane split. This entry used to say the second inner layer carried +3V3A, which the board has never done.",
@@ -498,13 +484,6 @@
   },
   "archive": {
     "zip": "generated/release/microphone_array_v2-revA-fabrication.zip",
-    "manifest": "generated/release/MANIFEST.md",
-    "manifest_required_fields": [
-      "sha256",
-      "kicad",
-      "command",
-      "constraint"
-    ],
     "allow": [
       {
         "file": "microphone_array_v2.GTL",
@@ -601,7 +580,6 @@
         "reason": "a layer named for its net says nothing about its position in the stack"
       }
     ],
-    "pre_normalization_digests": "../PRE_NORMALIZATION_HASHES.json",
     "identification": "by filename, cross-checked against content. Gerber X2 FileFunction is deliberately absent from this export, so it cannot be the basis; a file still has to parse as the kind of thing its name claims and carry real geometry."
   },
   "constraint_parity": {
@@ -795,13 +773,10 @@
   },
   "release_profile": {
     "id": "jlcpcb-4layer-assembled",
-    "visual_review_evidence": "generated/release/visual_review.json",
     "mandatory_gates": [
-      "PROV.FIXTURE_INTEGRITY",
       "PROV.SOURCE_AUTHORITY",
       "PROV.REPORT_FRESHNESS",
       "PROV.SOURCE_CLOSURE",
-      "PROV.RELEASE_COHERENCE",
       "ERC.AUTHORITATIVE",
       "DRC.AUTHORITATIVE",
       "DRC.NO_SUPPRESSED_RULES",
@@ -830,20 +805,19 @@
       "PROV.TIMING_MODELS",
       "PROV.DERIVATION_CLOSURE"
     ],
-    "mandatory_gates_note": "TIMING.PATH_INTEGRITY and PROV.TIMING_MODELS are mandatory: both pass today and neither needs material data, so a release cannot be produced unless all sixteen PDM clock paths still resolve end to end through their series resistors and every declared timing model file is still inside the source closure. STACK.PHYSICAL, TIMING.INTERCONNECT_DELAY and TIMING.INTERCONNECT_SKEW are deliberately NOT mandatory: they are NOT_APPLICABLE on this board because it declares no limit in picoseconds, and a mandatory gate that is NOT_APPLICABLE blocks a release. Add them when a time-domain limit is declared. PROV.DERIVATION_CLOSURE joins them for the same reason: it passes, it needs no material data, and it is the only check that can notice a module dropped out of this board's implementation closure."
+    "mandatory_gates_note": "TIMING.PATH_INTEGRITY and PROV.TIMING_MODELS are mandatory: both pass today and neither needs material data, so a release cannot be produced unless all sixteen PDM clock paths still resolve end to end through their series resistors and every declared timing model file is still inside the source closure. STACK.PHYSICAL, TIMING.INTERCONNECT_DELAY and TIMING.INTERCONNECT_SKEW are deliberately NOT mandatory: they are NOT_APPLICABLE on this board because it declares no limit in picoseconds, and a mandatory gate that is NOT_APPLICABLE blocks a release. Add them when a time-domain limit is declared. PROV.DERIVATION_CLOSURE joins them for the same reason: it passes, it needs no material data, and it is the only check that can notice a module dropped out of this board's implementation closure.",
+    "required_evidence": [
+      "generated/release/visual_review.json"
+    ]
   },
   "release_generation": {
-    "description": "Every command a clean-room release runs, and the field names the artifacts it generates actually carry. The ERC and DRC option sets are taken from the validator so a release cannot run a weaker check than validation demands.",
+    "description": "Every command `run.py build` runs, and the field names the artifacts it generates actually carry. The ERC and DRC option sets are taken from the validator so a build cannot run a weaker check than validation demands.",
     "lock_file_globs": [
       "*.lck",
       "~*.lck",
       ".#*",
       "*-lock",
       "*.kicad_prl-lock"
-    ],
-    "purge_globs": [
-      "generated/**",
-      "generated"
     ],
     "erc": {
       "output": "erc.json"
@@ -921,8 +895,7 @@
       }
     },
     "archive": {
-      "zip": "microphone_array_v2-revA-fabrication.zip",
-      "manifest": "MANIFEST.md"
+      "zip": "microphone_array_v2-revA-fabrication.zip"
     },
     "fab_format": {
       "description": "The columns the assembly house reads, and where each one comes from in kicad-cli's own export. Only the labels and the Top/Bottom spelling change; every number is the native export's. JLCPCB looks for Designator, Mid X, Mid Y, Layer and Rotation, and rejects the whole file with 'Failed processing CPL file' if they are not there - which is what KiCad's native Ref/PosX/PosY/Side/Rot headers produce.",
@@ -1454,12 +1427,12 @@
         ],
         "required_modules": [
           "pcbqa.orientation",
-          "pcbqa.cleanroom",
+          "pcbqa.build",
           "pcbqa.gates.g_orientation"
         ],
         "per_entry_files": "every registry entry's evidence_file and raw_file, checked individually rather than by glob",
         "configuration": "this manifest, whose digest enters the closure as <manifest>",
-        "implementation": "The executable code that applies and validates these offsets is bound into the same closure through reports.implementation_closure: pcbqa.orientation (the registry and the arithmetic), pcbqa.cleanroom (where generation applies them), pcbqa.gates.g_orientation (where they are checked) and tools/jlc_orientation.py (where they are derived from the frozen evidence). Each is hashed from the module that was actually imported, and PROV.SOURCE_CLOSURE re-hashes them at validation time and requires agreement with what the closure recorded."
+        "implementation": "The executable code that applies and validates these offsets is bound into the same closure through reports.implementation_closure: pcbqa.orientation (the registry and the arithmetic), pcbqa.build (where generation applies them), pcbqa.gates.g_orientation (where they are checked) and tools/jlc_orientation.py (where they are derived from the frozen evidence). Each is hashed from the module that was actually imported, and PROV.SOURCE_CLOSURE re-hashes them at validation time and requires agreement with what the closure recorded."
       },
       "review_status_policy": "An entry is usable only when review_status is exactly 'reviewed'. 'pending', 'unreviewed', an empty string and a missing field all block generation and fail validation. Enforced in the shared registry so generation and validation cannot disagree about it.",
       "normalize_range_note": "Half-open, and enforced as half-open: 0 is a placement angle and 360 is not. Generation normalises 360 to 0, including when rounding to angle_decimals would otherwise carry a value up to it."

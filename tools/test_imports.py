@@ -41,7 +41,8 @@ ENTRY_POINTS = [
 # stopped shipping one is caught here rather than three phases later.
 TOOLKIT_MODULES = [
     "pcbqa.core", "pcbqa.geom", "pcbqa.rules", "pcbqa.sexpr",
-    "pcbqa.orientation", "pcbqa.cleanroom",
+    "pcbqa.orientation", "pcbqa.closure", "pcbqa.build",
+    "pcbqa.artifacts", "pcbqa.release",
 ]
 
 

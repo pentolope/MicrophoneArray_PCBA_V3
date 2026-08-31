@@ -143,8 +143,10 @@ Fourteen of the twenty-four test points are placed, each on top of a piece of
 its own net so it needs no track of its own; the other ten have nowhere on the
 top layer to go, and are listed in [docs/status.md](docs/status.md).
 
-A release package is sealed at `generated/release/` — Gerbers, drills, BOM, CPL,
-schematic PDF and a SHA-256 manifest, all built from one board revision in a
-single run. It is a release *candidate*: JLCPCB's own part orientations cannot
-be checked locally, so step through their previews before ordering. See
-[docs/manufacturing.md](docs/manufacturing.md).
+The fabrication outputs are committed at `generated/release/` — Gerbers, drills,
+BOM, CPL, the archive, the check reports and `fabrication.json`, all built from
+one board revision in a single run. They are ordinary files, so a tagged commit
+stays fabricable from them years later without regenerating anything. A release
+is a Git tag over such a commit, and it is not an order: JLCPCB's own part
+orientations cannot be checked locally, so step through their previews before
+ordering. See [docs/manufacturing.md](docs/manufacturing.md).

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "board_id": "microphone-array-v2-live",
+  "constraint_version": "revA-frozen-2026-08-01",
+  "release_profile": "jlcpcb-4layer-assembled",
+  "generated_utc": "2026-08-31T01:17:15.627343+00:00",
+  "source_closure_sha256": "b65ef8dc07d3e7602a3f5c76bc289ad8384a841f9f60bf0d9360e4ce03a62aee",
+  "source_closure_files": 53,
+  "tools": {
+    "kicad": "10.0.5",
+    "kicad_cli": "kicad-cli"
+  },
+  "toolkit": {
+    "commit": "c83dd188ee2df3e83bc424080ebc4230dd39bec4",
+    "working_tree_dirty": false,
+    "detail": "git HEAD of the toolkit checkout that executed this validation"
+  },
+  "commands": [
+    "kicad-cli sch erc --output erc.json --format json --severity-all --severity-exclusions --exit-code-violations microphone_array_v2.kicad_sch",
+    "kicad-cli pcb drc --output drc.json --format json --severity-all --severity-exclusions --all-track-errors --schematic-parity --refill-zones --save-board --exit-code-violations microphone_array_v2.kicad_pcb",
+    "kicad-cli pcb export gerbers --output export --layers F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-x2 --no-netlist --use-drill-file-origin --subtract-soldermask microphone_array_v2.kicad_pcb",
+    "kicad-cli pcb export drill --output export --format excellon --excellon-separate-th --drill-origin plot microphone_array_v2.kicad_pcb",
+    "kicad-cli pcb export pos --output cpl.csv --format csv --units mm --side both --exclude-dnp microphone_array_v2.kicad_pcb",
+    "kicad-cli sch export bom --output bom.csv --fields ${QUANTITY},Reference,Value,Footprint,LCSC --labels Quantity,Designator,Comment,Footprint,LCSC Part # --group-by Value,Footprint,LCSC --exclude-dnp --ref-range-delimiter  microphone_array_v2.kicad_sch",
+    "rename 13 file(s)",
+    "orient 103 placement(s)",
+    "relabel cpl.csv",
+    "relabel bom.csv",
+    "zip microphone_array_v2-revA-fabrication.zip"
+  ],
+  "artifacts": {
+    "bom.csv": "a3970d865b3b76677afe0b11b6061156e3be633a50613167887ef8a54fe14563",
+    "cpl.csv": "28091e4dbf5a05e30af72f833839194c67c0aa0f90c6f797d0434fce84e7e807",
+    "gerbers/microphone_array_v2-NPTH.DRL": "26d4f23753221020c938716b902af79d3c1e8ebd1b4d0a34c8509353bf8d65f4",
+    "gerbers/microphone_array_v2-PTH.DRL": "88c0783b1e2f07ce7a6426498aefe05ab2df1fc12329a186e63196b96a63282c",
+    "gerbers/microphone_array_v2.G2L": "f2527bf60f1ea65af74c697fca021ee2cbf581ff8f3829a40d63c677a4c360f2",
+    "gerbers/microphone_array_v2.G3L": "5db335abd3e85b6d784203889583a9b30093bffc48d395c27ca7f7c5a67e94fb",
+    "gerbers/microphone_array_v2.GBL": "bb5c567240cd5eb338591ccd8e00fbf2500472b9c8372f5da77a1992c29546ec",
+    "gerbers/microphone_array_v2.GBO": "52d7e6e2b540f5f0893c06547e73db35a5c9aa94e101cf30bb6a1940d1d4a664",
+    "gerbers/microphone_array_v2.GBP": "69a1f1914595e96c54b9389ca013835cfe1a55d2b205ddadd0285fa74aa71f1d",
+    "gerbers/microphone_array_v2.GBS": "f98926a6879e0af82ddf6b632423608b8d0e59e817fc3db65e420532dc5a0bf7",
+    "gerbers/microphone_array_v2.GM1": "41ce5218c5b35cb816039b7bb63347a37b6c06e142038c5d2a4d4681f478457a",
+    "gerbers/microphone_array_v2.GTL": "ed291c95d4d16fe075ac25970c189a60ac885d7eec2da8a7606320a92c80cd5c",
+    "gerbers/microphone_array_v2.GTO": "40e6be8ee22a6493210160ee87445dc5915408b1467beb3ddcbb16927be94a82",
+    "gerbers/microphone_array_v2.GTP": "28079cdc2917c448b838ddf3a98f4c1ff1687fb55b85fddeb4242b6155418eee",
+    "gerbers/microphone_array_v2.GTS": "32b0aa4455e7c76c0e0b7e0614866042603eb5c58d7eff336277928f94a53682",
+    "microphone_array_v2-revA-fabrication.zip": "4219f1ed5a0b9272b885d651618d90fa4ab1e74bca415d1f210f86be484fc044",
+    "reports/drc.json": "b1eb0490c82aa40e7497bba5b0365b02190411ca834a71dc8f43b629182c2cde",
+    "reports/erc.json": "034e04ab8ad5e2c5f45a13a1d5c1c0e60c3f76890470d436bb5004751e6b1482"
+  },
+  "excluded_layers": []
+}

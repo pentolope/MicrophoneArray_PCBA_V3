@@ -55,7 +55,8 @@ See [docs/migration.md](docs/migration.md) for what changed and why, and
 9. Do not commit, push, create a pull request, change a remote, or update the
    submodule pointer without explicit user authorisation.
 10. **Never submit an order.** JLCPCB Gerber and placement previews require
-    human approval. A local release is a candidate, not an order.
+    human approval, recorded at `release_profile.required_evidence` before
+    `release-check` will pass. A release tag is not an order.
 
 ## The waivers are bound to the board's bytes
 
@@ -88,7 +89,7 @@ Owned by the toolkit, and not to be restated or relaxed here:
 
 - gate implementations, rule types, measurement definitions
 - JLCPCB-wide capability and process limits
-- clean-room release lifecycle, publication and coherence
+- release gates and the Git preconditions of a release tag
 
 `tools/jlc_orientation.py` stays in this repository even though it is
 JLCPCB-shaped: the live manifest binds it by project-relative path as a
@@ -106,10 +107,16 @@ project's closure. Its reusable core already lives in the toolkit as
   not filenames or counts alone.
 - Compare every BOM/CPL designator, coordinate, side, rotation, DNP state and
   explicit library-zero offset against the same final board revision.
-- Generate all release artifacts in one clean-room attempt and publish only
-  after every mandatory gate passes.
-- Record the board commit, toolkit submodule commit, configuration hashes, tool
-  versions and output hashes.
+- Generate all fabrication artifacts with `build`, which installs all of them or
+  none of them, and commit them: they are the exact historical manufacturing
+  outputs and an old tag must stay fabricable from them without regenerating
+  anything.
+- Tag only a commit `release-check` accepts: clean tree, submodules exactly at
+  their gitlinks, every mandatory gate passing now, and the committed verdict
+  about this same design.
+- `generated/release/fabrication.json` records the digest of every artifact, the
+  source closure they came from, the tool versions and the toolkit commit. It
+  names no tag and no commit, because it is committed before either exists.
 
 ## Publishing discipline
 
@@ -140,8 +147,8 @@ assumption. `PCB_TOOLKIT_PATH` exists to test against a local toolkit checkout
 before the submodule is committed — it is a development affordance, and nothing
 committed here may depend on it.
 
-A fresh recursive clone must validate and release the board with no manual
-setup beyond checking out submodules.
+A fresh recursive clone must build, validate and release-check the board with no
+manual setup beyond checking out submodules.
 
 ## Running
 
@@ -160,5 +167,17 @@ python3 tooling/PCBA_AutoDesignAndTest/run.py validate board/manifest.live.json
 ```
 
 ```bash
-python3 tooling/PCBA_AutoDesignAndTest/run.py release board/manifest.live.json
+python3 tooling/PCBA_AutoDesignAndTest/run.py build board/manifest.live.json
 ```
+
+```bash
+python3 tooling/PCBA_AutoDesignAndTest/run.py validate board/manifest.live.json --write
+```
+
+```bash
+python3 tooling/PCBA_AutoDesignAndTest/run.py release-check board/manifest.live.json
+```
+
+A release is a Git tag over a commit that already contains the fabrication
+artifacts. `release-check` proves the commit is one a tag may name; it creates
+no tag, and creating one needs the same authorisation as any other push.
