@@ -26,10 +26,10 @@ records (external 1 oz finished = 1.6 mil = 0.04064 mm, internal 0.5 oz
 finished = 0.6 mil = 0.01524 mm), each parameter carrying the record
 identity and catalog digest in the report's physical_inputs - never the
 nominal foil weight, and never a bare number. Typed metric records
-(measured/unmeasured, scoped, identity-bound) are defined by the toolkit's
-pcbqa/benchmark.py contract, schema version ab-metrics-4: structured
-resolved-construction identity, stable metric definition identities,
-and comparisons only through the toolkit's compare_reports. Per-net
+(measured/unmeasured, scoped, identity-bound) are defined by this
+harness's own benchmark/research/benchmark.py contract, schema version
+ab-metrics-4: structured resolved-construction identity, stable metric
+definition identities, and comparisons only through its compare_reports. Per-net
 comparable metrics exist only for connectivity-complete nets
 (toolkit classify_net; the board file is the arbiter, never router
 logs); partial copper appears solely as explicitly partial inventory. GND is

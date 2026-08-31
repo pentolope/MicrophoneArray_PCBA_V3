@@ -36,17 +36,20 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 KICAD_PYTHON = sys.executable
 
+sys.path.insert(0, os.path.join(REPO, "benchmark"))
 sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
                                 "PCBA_AutoDesignAndTest"))
 
 from pcbqa import headless                        # noqa: E402
 headless.suppress_blocking_ui()
-from pcbqa import benchmark, extract, freshness    # noqa: E402
+from pcbqa import extract                          # noqa: E402
+from research import freshness                     # noqa: E402
 from pcbqa import netlist_contract                 # noqa: E402
-from pcbqa import progression                      # noqa: E402
+from research import benchmark, progression        # noqa: E402
 from pcbqa.fabricators.store import CatalogStore   # noqa: E402
 
+BENCH_ROOT = os.path.join(REPO, "benchmark")
 TOOLKIT_ROOT = (os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
                                 "PCBA_AutoDesignAndTest"))
@@ -81,7 +84,7 @@ def closure_components(candidate_board_path,
         "toolkit.benchmark": {"text_path": os.path.join(
             TOOLKIT_ROOT, "pcbqa", "benchmark.py")},
         "toolkit.progression": {"text_path": os.path.join(
-            TOOLKIT_ROOT, "pcbqa", "progression.py")},
+            BENCH_ROOT, "research", "progression.py")},
         "toolkit.netlist_contract": {"text_path": os.path.join(
             TOOLKIT_ROOT, "pcbqa", "netlist_contract.py")},
         "candidate_board": {"text_path": candidate_board_path},
@@ -853,8 +856,6 @@ def main():
         "board_required_connectivity": {
             "complete": board_complete,
             "total": len(required_nets)},
-        "benchmark_connectivity": {
-            "complete": len(complete_nets), "total": len(nets)},
         "fabrication_geometry": fabrication_geometry,
         "blocking_gates": {"evaluated": evaluated,
                            "failing": blocking_failing},

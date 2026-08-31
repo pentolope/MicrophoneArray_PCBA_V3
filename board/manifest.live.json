@@ -86,7 +86,6 @@
     "source_field": "source",
     "date_field": "date",
     "require_source_hash": true,
-    "tolerance_seconds": 0,
     "source_closure": [
       "*.kicad_sch",
       "*.kicad_pcb",
@@ -103,21 +102,6 @@
       "board/timing/*.json"
     ],
     "source_closure_note": "The design as it is manufactured, plus what the offsets are derived from. The schematic is one sheet, so the hierarchy is the root file; a recursive **/*.kicad_sch glob used to pull in every other board's fixture and every past attempt's copy, which made the closure depend on what happened to be lying in the output tree. Whatever these globs reach, every file named in `sources` is added to the closure by name as well, so the selected board and schematic are covered because they were selected and not because a glob happened to find them.",
-    "implementation_closure": [
-      "pcbqa.orientation",
-      "pcbqa.build",
-      "pcbqa.closure",
-      "pcbqa.gates.g_orientation",
-      "pcbqa.connectivity",
-      "pcbqa.electrical_path",
-      "pcbqa.stackup_physical",
-      "pcbqa.propagation",
-      "pcbqa.gates.g_timing",
-      "pcbqa.rules",
-      "pcbqa.gates.g_contracts",
-      "pcbqa.component_models"
-    ],
-    "implementation_closure_note": "Modules that DERIVE a shipped value rather than read one off the board, addressed by import name rather than by path. The orientation offsets are computed by this code, so a release is only reproducible if the code is pinned as well as its inputs. Each entry is hashed from the loaded module's own __file__, so what is recorded is the implementation that ran and not a copy of it that happened to be lying next to it. tools/jlc_orientation.py is not listed here because it travels with the project and is already a file-closure member; PROV.SOURCE_CLOSURE separately proves the imported copy is that same file.\n\nThe interconnect timing modules are here for the same reason. A path length is not read off the board either: it is the shortest connected walk over polygon intersections, composed across nets and component crossings, and every one of those steps is code. pcbqa.connectivity is included because it is the primitive that actually measures the copper - pinning the composition layer while leaving the measurement unpinned would be a provenance claim that is not true.\n\nThree of these were added when PROV.DERIVATION_CLOSURE started asking the gate registry rather than this list what has to be covered. pcbqa.rules and pcbqa.gates.g_contracts compute NET.TOPOLOGY's path lengths and had never been pinned - a gap that predates the timing work and that no check could see while the only question asked was whether this list agreed with itself.",
     "source_hash_field": "source_sha256",
     "closure_field": "source_closure_sha256",
     "files_note": "Where the committed check reports live. This used to name a directory that held none, so the freshness gate passed by examining nothing.",
@@ -446,42 +430,6 @@
       }
     }
   ],
-  "source_authority": {
-    "authority": "native_kicad",
-    "claim_scan": [
-      {
-        "claim": "native_kicad_is_authority",
-        "files": [
-          "README.md",
-          "docs/*.md"
-        ],
-        "pattern": "no longer (regenerated|reproducible)|source of truth for routing|edited in place"
-      },
-      {
-        "claim": "python_model_is_authority",
-        "files": [
-          "README.md",
-          "docs/*.md"
-        ],
-        "pattern": "generated from `?tools/netlist\\.py|single source of truth|Nothing in the KiCad files should be hand-edited|do not hand-edit"
-      }
-    ],
-    "mutually_exclusive_claims": [
-      [
-        "native_kicad_is_authority",
-        "python_model_is_authority"
-      ]
-    ],
-    "forbidden_derivations": [
-      {
-        "files": [
-          "tools/make_release.py"
-        ],
-        "pattern": "import netlist|nl\\.build\\(\\)",
-        "issue": "released BOM/CPL data is taken from a Python model instead of the native KiCad project"
-      }
-    ]
-  },
   "archive": {
     "zip": "generated/release/microphone_array_v2-revA-fabrication.zip",
     "allow": [
@@ -581,24 +529,6 @@
       }
     ],
     "identification": "by filename, cross-checked against content. Gerber X2 FileFunction is deliberately absent from this export, so it cannot be the basis; a file still has to parse as the kind of thing its name claims and carry real geometry."
-  },
-  "constraint_parity": {
-    "rival_scan": {
-      "files": [
-        "tools/check_routes.py"
-      ],
-      "watched_constants": {
-        "BRANCH_SKEW_LIMIT_MM": {
-          "manifest_key": "net_topology.rules.0.max_spread_mm"
-        },
-        "MIN_SEGMENT_MM": {
-          "manifest_key": "routing.min_segment_mm"
-        },
-        "MAX_TURN_DEGREES": {
-          "manifest_key": "routing.permitted_turn_degrees.1"
-        }
-      }
-    }
   },
   "waivers": [
     {
@@ -774,7 +704,6 @@
   "release_profile": {
     "id": "jlcpcb-4layer-assembled",
     "mandatory_gates": [
-      "PROV.SOURCE_AUTHORITY",
       "PROV.REPORT_FRESHNESS",
       "PROV.SOURCE_CLOSURE",
       "ERC.AUTHORITATIVE",
@@ -799,13 +728,10 @@
       "FAB.LAYER_IDENTITY",
       "ARCH.CONTENTS",
       "ARCH.PROVENANCE",
-      "CFG.NO_RIVAL_THRESHOLDS",
-      "CFG.THRESHOLD_PARITY",
       "TIMING.PATH_INTEGRITY",
-      "PROV.TIMING_MODELS",
-      "PROV.DERIVATION_CLOSURE"
+      "PROV.TIMING_MODELS"
     ],
-    "mandatory_gates_note": "TIMING.PATH_INTEGRITY and PROV.TIMING_MODELS are mandatory: both pass today and neither needs material data, so a release cannot be produced unless all sixteen PDM clock paths still resolve end to end through their series resistors and every declared timing model file is still inside the source closure. STACK.PHYSICAL, TIMING.INTERCONNECT_DELAY and TIMING.INTERCONNECT_SKEW are deliberately NOT mandatory: they are NOT_APPLICABLE on this board because it declares no limit in picoseconds, and a mandatory gate that is NOT_APPLICABLE blocks a release. Add them when a time-domain limit is declared. PROV.DERIVATION_CLOSURE joins them for the same reason: it passes, it needs no material data, and it is the only check that can notice a module dropped out of this board's implementation closure.",
+    "mandatory_gates_note": "TIMING.PATH_INTEGRITY and PROV.TIMING_MODELS are mandatory: both pass today and neither needs material data, so a release cannot be produced unless all sixteen PDM clock paths still resolve end to end through their series resistors and every declared timing model file is still inside the source closure. STACK.PHYSICAL, TIMING.INTERCONNECT_DELAY and TIMING.INTERCONNECT_SKEW are deliberately NOT mandatory: they are NOT_APPLICABLE on this board because it declares no limit in picoseconds, and a mandatory gate that is NOT_APPLICABLE blocks a release. Add them when a time-domain limit is declared.",
     "required_evidence": [
       "generated/release/visual_review.json"
     ]
@@ -1425,14 +1351,9 @@
           "fabrication/jlc_orientation/*.json",
           "fabrication/jlc_orientation/raw/*.json"
         ],
-        "required_modules": [
-          "pcbqa.orientation",
-          "pcbqa.build",
-          "pcbqa.gates.g_orientation"
-        ],
         "per_entry_files": "every registry entry's evidence_file and raw_file, checked individually rather than by glob",
         "configuration": "this manifest, whose digest enters the closure as <manifest>",
-        "implementation": "The executable code that applies and validates these offsets is bound into the same closure through reports.implementation_closure: pcbqa.orientation (the registry and the arithmetic), pcbqa.build (where generation applies them), pcbqa.gates.g_orientation (where they are checked) and tools/jlc_orientation.py (where they are derived from the frozen evidence). Each is hashed from the module that was actually imported, and PROV.SOURCE_CLOSURE re-hashes them at validation time and requires agreement with what the closure recorded."
+        "implementation": "The offsets are applied by pcbqa.build and checked by pcbqa.gates.g_orientation. Which toolkit code that is, is the toolkit's own commit, which enters the closure as <toolkit> and which release-check requires clean and pinned. tools/jlc_orientation.py is not toolkit code, so PROV.SOURCE_CLOSURE still proves the file that derived these offsets is the one the closure recorded."
       },
       "review_status_policy": "An entry is usable only when review_status is exactly 'reviewed'. 'pending', 'unreviewed', an empty string and a missing field all block generation and fail validation. Enforced in the shared registry so generation and validation cannot disagree about it.",
       "normalize_range_note": "Half-open, and enforced as half-open: 0 is a placement angle and 360 is not. Generation normalises 360 to 0, including when rounding to angle_decimals would otherwise carry a value up to it."

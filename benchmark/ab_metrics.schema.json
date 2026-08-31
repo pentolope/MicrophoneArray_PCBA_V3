@@ -73,7 +73,7 @@
     ]
   },
   "typed_contract": {
-    "defined_by": "toolkit pcbqa/benchmark.py (SCHEMA_VERSION ab-metrics-4)",
+    "defined_by": "benchmark/research/benchmark.py (SCHEMA_VERSION ab-metrics-4)",
     "metric": {
       "measured": [
         "name",

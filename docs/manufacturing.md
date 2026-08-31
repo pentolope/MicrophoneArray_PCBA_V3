@@ -11,8 +11,12 @@ the toolkit or JLCPCB's website does in the meantime.
 python3 tooling/PCBA_AutoDesignAndTest/run.py build board/manifest.live.json
 ```
 
-`build` runs `kicad-cli` against a private copy of the project - the design is
-never opened for writing - and installs the whole set, or none of it. The BOM
+`build` stages the design - the sources the manifest declares, the library
+tables, and whatever those name inside the project - and runs `kicad-cli`
+against that, so the authoritative files are never opened for writing. It has
+to: every run drops a lock file beside the project it opens, and the DRC this
+validator requires rewrites the board to refill its zones. Outputs are
+installed whole, or not at all. The BOM
 and CPL come from the schematic and the board, not from the Python model that
 generated them: a released part list has to be derived from the thing being
 manufactured.

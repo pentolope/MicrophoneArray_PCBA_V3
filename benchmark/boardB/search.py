@@ -30,11 +30,13 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
+BENCH_ROOT = os.path.join(REPO, "benchmark")
+sys.path.insert(0, BENCH_ROOT)
 sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
                                 "PCBA_AutoDesignAndTest"))
 
-from pcbqa import freshness                        # noqa: E402
+from research import freshness                     # noqa: E402
 
 import validate_candidate as vc                    # noqa: E402
 
@@ -170,9 +172,9 @@ def main():
         "producer_closure": freshness.closure(dict({
             "search.py": {"text_path": os.path.abspath(__file__)},
             "toolkit.freshness": {"text_path": os.path.join(
-                vc.TOOLKIT_ROOT, "pcbqa", "freshness.py")},
+                BENCH_ROOT, "research", "freshness.py")},
             "toolkit.progression": {"text_path": os.path.join(
-                vc.TOOLKIT_ROOT, "pcbqa", "progression.py")},
+                BENCH_ROOT, "research", "progression.py")},
         }, **decision_components)),
     }
     out_path = os.path.join(HERE, "search_decision.json")

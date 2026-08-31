@@ -65,6 +65,7 @@ TOOLCHAIN = json.load(open(os.path.join(REPO, "board",
                                         "toolchain.json"),
                            encoding="utf-8"))
 
+sys.path.insert(0, os.path.join(REPO, "benchmark"))
 sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
                                 "PCBA_AutoDesignAndTest"))
@@ -937,7 +938,7 @@ def descend_from_parent(parent_seed, out_dir,
     move, not a shortcut past any gate."""
     import math as math_module
     import pcbnew
-    from pcbqa import freshness as freshness_module
+    from research import freshness as freshness_module
     parent_name = "seed{:02d}".format(parent_seed)
     parent_dir = os.path.join(HERE, "candidates", parent_name)
     parent_board_path = os.path.join(parent_dir,

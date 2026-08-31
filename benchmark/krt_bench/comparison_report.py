@@ -4,7 +4,7 @@ Reads every benchmark artifact this cycle produced - replay
 records, probes, the agreement analysis, the repair experiment,
 the portfolio documents when present - plus the committed
 historical derivations, and emits one machine-readable comparison
-with a compute ledger that must add up (pcbqa.compute refuses a
+with a compute ledger that must add up (research.compute refuses a
 ledger that does not).
 
 Axes are reported separately, never blended into one number:
@@ -22,10 +22,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 RESULTS = os.path.join(HERE, "results")
 
+sys.path.insert(0, os.path.join(REPO, "benchmark"))
 sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
                                 "PCBA_AutoDesignAndTest"))
-from pcbqa import compute                           # noqa: E402
+from research import compute                        # noqa: E402
 
 
 def load(path):

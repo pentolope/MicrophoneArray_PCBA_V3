@@ -32,13 +32,15 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8",
                               errors="replace")
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
+sys.path.insert(0, os.path.join(REPO, "benchmark"))
 sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
                                 "PCBA_AutoDesignAndTest"))
 
 from pcbqa import headless                        # noqa: E402
 headless.suppress_blocking_ui()
-from pcbqa import benchmark, freshness             # noqa: E402
+from research import freshness                     # noqa: E402
+from research import benchmark                     # noqa: E402
 
 import validate_candidate as vc                    # noqa: E402
 

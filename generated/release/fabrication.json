@@ -3,15 +3,15 @@
   "board_id": "microphone-array-v2-live",
   "constraint_version": "revA-frozen-2026-08-01",
   "release_profile": "jlcpcb-4layer-assembled",
-  "generated_utc": "2026-08-31T01:17:15.627343+00:00",
-  "source_closure_sha256": "b65ef8dc07d3e7602a3f5c76bc289ad8384a841f9f60bf0d9360e4ce03a62aee",
-  "source_closure_files": 53,
+  "generated_utc": "2026-08-31T12:12:54.897722+00:00",
+  "source_closure_sha256": "c30d21a2e44a7f086ffc09ca52e605bb35d627b959d3cc075d787c59551a72d0",
+  "source_closure_files": 42,
   "tools": {
     "kicad": "10.0.5",
     "kicad_cli": "kicad-cli"
   },
   "toolkit": {
-    "commit": "c83dd188ee2df3e83bc424080ebc4230dd39bec4",
+    "commit": "7cbe4befd358abd64e3dad982be89c982d3beec4",
     "working_tree_dirty": false,
     "detail": "git HEAD of the toolkit checkout that executed this validation"
   },
@@ -31,22 +31,22 @@
   "artifacts": {
     "bom.csv": "a3970d865b3b76677afe0b11b6061156e3be633a50613167887ef8a54fe14563",
     "cpl.csv": "28091e4dbf5a05e30af72f833839194c67c0aa0f90c6f797d0434fce84e7e807",
-    "gerbers/microphone_array_v2-NPTH.DRL": "26d4f23753221020c938716b902af79d3c1e8ebd1b4d0a34c8509353bf8d65f4",
-    "gerbers/microphone_array_v2-PTH.DRL": "88c0783b1e2f07ce7a6426498aefe05ab2df1fc12329a186e63196b96a63282c",
-    "gerbers/microphone_array_v2.G2L": "f2527bf60f1ea65af74c697fca021ee2cbf581ff8f3829a40d63c677a4c360f2",
-    "gerbers/microphone_array_v2.G3L": "5db335abd3e85b6d784203889583a9b30093bffc48d395c27ca7f7c5a67e94fb",
-    "gerbers/microphone_array_v2.GBL": "bb5c567240cd5eb338591ccd8e00fbf2500472b9c8372f5da77a1992c29546ec",
-    "gerbers/microphone_array_v2.GBO": "52d7e6e2b540f5f0893c06547e73db35a5c9aa94e101cf30bb6a1940d1d4a664",
-    "gerbers/microphone_array_v2.GBP": "69a1f1914595e96c54b9389ca013835cfe1a55d2b205ddadd0285fa74aa71f1d",
-    "gerbers/microphone_array_v2.GBS": "f98926a6879e0af82ddf6b632423608b8d0e59e817fc3db65e420532dc5a0bf7",
-    "gerbers/microphone_array_v2.GM1": "41ce5218c5b35cb816039b7bb63347a37b6c06e142038c5d2a4d4681f478457a",
-    "gerbers/microphone_array_v2.GTL": "ed291c95d4d16fe075ac25970c189a60ac885d7eec2da8a7606320a92c80cd5c",
-    "gerbers/microphone_array_v2.GTO": "40e6be8ee22a6493210160ee87445dc5915408b1467beb3ddcbb16927be94a82",
-    "gerbers/microphone_array_v2.GTP": "28079cdc2917c448b838ddf3a98f4c1ff1687fb55b85fddeb4242b6155418eee",
-    "gerbers/microphone_array_v2.GTS": "32b0aa4455e7c76c0e0b7e0614866042603eb5c58d7eff336277928f94a53682",
-    "microphone_array_v2-revA-fabrication.zip": "4219f1ed5a0b9272b885d651618d90fa4ab1e74bca415d1f210f86be484fc044",
-    "reports/drc.json": "b1eb0490c82aa40e7497bba5b0365b02190411ca834a71dc8f43b629182c2cde",
-    "reports/erc.json": "034e04ab8ad5e2c5f45a13a1d5c1c0e60c3f76890470d436bb5004751e6b1482"
+    "gerbers/microphone_array_v2-NPTH.DRL": "bceeba32e6f34a51503c16e21442b66a587b1aa7ffec6ff618f6950145019d6f",
+    "gerbers/microphone_array_v2-PTH.DRL": "ef5555bf477a2e015a5bc7283f0cf0bf6f1e9afcad511f57f38134ff64ab6fec",
+    "gerbers/microphone_array_v2.G2L": "e3cade2bfc39fe81d4c4950f67e24314f105a5a7609b33dd97ac39b7ab7e1a0b",
+    "gerbers/microphone_array_v2.G3L": "69ca8a9bf6924b31712c0451c4304c747ca07208d8799ef0028a4651fc57d463",
+    "gerbers/microphone_array_v2.GBL": "4c8396bc1c01351ee1d33cb5e5b97467f496647c62eca508da6e22a780a2ea15",
+    "gerbers/microphone_array_v2.GBO": "7735032aafef0e257f1784e453aa9dc6ba218a50406181b5d28f2cf657b4e4c2",
+    "gerbers/microphone_array_v2.GBP": "c055320a519aa27f38dee882e4112f3c67cdf03057dbacf8be311d982db69f97",
+    "gerbers/microphone_array_v2.GBS": "c54a2a27b406a9c70f55d007455e4474e2ae01a9cc7f293493d8239ad8ee28c4",
+    "gerbers/microphone_array_v2.GM1": "82fee29ec8b538f835fda6050517e5afed4b802654317003554d61661454e855",
+    "gerbers/microphone_array_v2.GTL": "6cf8496e6048c265d4c9b8a99351f08386024d7b7810f5c606b527da7fd7a301",
+    "gerbers/microphone_array_v2.GTO": "28e24588c25c9ea6d4afb08748efcee7175f419101bff53f87087fe44ed3f887",
+    "gerbers/microphone_array_v2.GTP": "366c89db3d572a3f84e6b7b1fd6b4f439b79b7dde98ec969cf6feca93d4a398b",
+    "gerbers/microphone_array_v2.GTS": "8a0112b855d765914c46a1680df2f2524759128f48e545c8e9273149315e1385",
+    "microphone_array_v2-revA-fabrication.zip": "6515e4cb8ce73fa71935a8e3ab0622e39a61b625fc27684b79fcb11b23f242aa",
+    "reports/drc.json": "241bef0203c70327d629bc3fb4ce596c259e6daec4a829978814284ed5f82835",
+    "reports/erc.json": "55604adfb454dd8ae303c8d25ba3a8fa74ae58c7ef8c89d69f3b56c788224657"
   },
   "excluded_layers": []
 }

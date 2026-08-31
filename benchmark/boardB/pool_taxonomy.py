@@ -21,11 +21,12 @@ from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
+sys.path.insert(0, os.path.join(REPO, "benchmark"))
 sys.path.insert(0, os.environ.get("PCB_TOOLKIT_PATH")
                 or os.path.join(REPO, "tooling",
                                 "PCBA_AutoDesignAndTest"))
 
-from pcbqa import freshness                        # noqa: E402
+from research import freshness                     # noqa: E402
 
 
 def load(path):
