@@ -13,13 +13,3 @@ build/
 
 # Toolkit scratch: one directory per invocation, nothing durable.
 out/
-
-# Scenario working directories: deck/result copies the runner rewrites.
-benchmark/scenarios/workdir_*/
-
-# Fabrication-check working copies: derived scratch; the DRC verdict JSONs are the evidence.
-benchmark/boardB/candidates/*/stages/fabcheck-*/fabcheck.kicad_pcb
-benchmark/boardB/candidates/*/stages/fabcheck-*/fabcheck.kicad_prl
-benchmark/boardB/candidates/*/stages/fabcheck-*/fabcheck.kicad_pro
-benchmark/boardB/candidates/*/workdir_*/
-benchmark/boardB/candidates/*/candidate_routed.kicad_pcb.pre-lastmile

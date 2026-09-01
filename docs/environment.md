@@ -136,14 +136,11 @@ zero times.
 different router identity by design, and any routing-derived artifact bound to
 the old one goes stale with it.
 
-No artifact in this repository binds to a binary built here. The committed
-records that carry a `grid_router` digest are five benchmark artifacts under
-`benchmark/`, and every one names a Windows `grid_router.pyd` from an earlier
-machine (`bc71d260..8218a031`, in `benchmark/boardB/candidates/seed{36,37}`
-and `benchmark/krt_bench/results/seed{13,17,34}/krt0213-a`). Those record runs
-that happened elsewhere. The two local hashes appear nowhere except this
-paragraph. A rebuild therefore invalidates nothing today - which stops being
-true the moment a routed candidate is recorded against a locally built router.
+No committed artifact in this repository binds to either locally built binary.
+A rebuild therefore invalidates nothing today. A routed candidate records the
+router identity that produced it, so rebuilding the router makes that candidate's
+provenance refer to the earlier binary rather than silently treating the rebuild
+as the same implementation.
 
 ## Where the board finds its tools
 
